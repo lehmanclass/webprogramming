@@ -21,7 +21,7 @@ const HEX = {
   f: "1111"
 };
 
-const validateInput = input => {
+function validateInput(input) {
   if (input.length === 8) {
     for (let i = 0; i < input.length; i++) {
       if (!HEX[input[i]]) {
@@ -31,17 +31,17 @@ const validateInput = input => {
     return true;
   }
   return false;
-};
+}
 
-const hexToBinary = hexValue => {
+function hexToBinary(hexValue) {
   let result = "";
   for (let i = 0; i < hexValue.length; i++) {
     result += HEX[hexValue[i]] + " ";
   }
   return result;
-};
+}
 
-const getIpClass = binaryValue => {
+function getIpClass(binaryValue) {
   const IP_CLASSES = { a: "01", b: "10", c: "11" };
   binaryValue = binaryValue.substring(0, 2);
 
@@ -64,9 +64,9 @@ const getIpClass = binaryValue => {
   }
 
   return result;
-};
+}
 
-const getNetworkID = (hexValue, ipClass) => {
+function getNetworkID(hexValue, ipClass) {
   switch (ipClass) {
     case "A":
       return hexValue.substring(0, 2);
@@ -77,9 +77,9 @@ const getNetworkID = (hexValue, ipClass) => {
     default:
       return "unknown";
   }
-};
+}
 
-const getHostID = (hexValue, ipClass) => {
+function getHostID(hexValue, ipClass) {
   switch (ipClass) {
     case "A":
       return hexValue.substring(2);
@@ -90,7 +90,7 @@ const getHostID = (hexValue, ipClass) => {
     default:
       return "unknown";
   }
-};
+}
 
 function createElement(elementTag) {
   return document.createElement(elementTag);
@@ -98,6 +98,7 @@ function createElement(elementTag) {
 
 function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const RESULTS = document.getElementById("result-container");
+  const INNER_RESULT = document.getElementById("inner-result-container");
   const parentDiv = createElement("DIV");
   const ipClassParagraph = createElement("P");
   const networkIdParagraph = createElement("P");
@@ -108,15 +109,14 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   networkIdParagraph.innerHTML = `<span>Network ID</span> : <span>${networkId}</span>`;
   hostIdParagraph.innerHTML = `<span>Host ID</span> : <span>${hostId}</span>`;
   decimalDottedNotationParagraph.innerHTML = `<span>Dotted Decimal Notation</span> : <span>${decimalDottedNotation}</span>`;
-  
+
   parentDiv.appendChild(ipClassParagraph);
   parentDiv.appendChild(networkIdParagraph);
   parentDiv.appendChild(hostIdParagraph);
   parentDiv.appendChild(decimalDottedNotationParagraph);
 
-  RESULTS.appendChild(parentDiv);
-
-  
+  INNER_RESULT.appendChild(parentDiv);
+  RESULTS.style.display = "block";
 }
 
 SUBMIT_BUTTON.onclick = e => {

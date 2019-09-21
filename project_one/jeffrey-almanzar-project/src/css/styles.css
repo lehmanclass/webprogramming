@@ -46,3 +46,9 @@
     width: 10rem;
     cursor: pointer;
 }
+
+.result-container{
+  width: 60%;
+  margin: 10rem auto;
+  display: none;
+}
