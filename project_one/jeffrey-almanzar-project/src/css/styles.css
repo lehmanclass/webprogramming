@@ -52,3 +52,33 @@
   margin: 10rem auto;
   display: none;
 }
+
+/* Feedback */
+.form-element{
+  width: 50%;
+  margin: 8rem auto;
+  text-align: center;
+}
+
+.form-input-container{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-input{
+  padding: 0.9rem 0.5rem;
+  margin: 1rem 0;
+}
+
+.form-textarea{
+  margin: 1rem 0;
+}
+
+.form-submit-button{
+  padding: 0.8rem 0.5rem;
+}
+
+.form-heading{
+  margin-bottom: 2rem;
+}
