@@ -1,26 +1,7 @@
-
 const SUBMIT_BUTTON = document.getElementById("hex-submit");
 
-const HEX = {
-  0: "0000",
-  1: "0001",
-  2: "0010",
-  3: "0011",
-  4: "0100",
-  5: "0101",
-  6: "0110",
-  7: "0111",
-  8: "1000",
-  9: "1001",
-  a: "1010",
-  b: "1011",
-  c: "1100",
-  d: "1101",
-  e: "1110",
-  f: "1111"
-};
-
 function validateInput(input) {
+  const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
   if (input.length === 8) {
     for (let i = 0; i < input.length; i++) {
       if (!HEX[input[i]]) {
@@ -33,6 +14,7 @@ function validateInput(input) {
 }
 
 function hexToBinary(hexValue) {
+  const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
   let result = "";
   for (let i = 0; i < hexValue.length; i++) {
     result += HEX[hexValue[i]] + " ";
@@ -41,32 +23,12 @@ function hexToBinary(hexValue) {
 }
 
 function hexToDecimal(hexValue) {
-  hexValue = hexValue
-    .split("")
-    .reverse()
-    .join("");
-  const HEX = {
-    "1": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    a: 10,
-    b: 11,
-    c: 12,
-    d: 13,
-    e: 14,
-    f: 15
-  };
+  hexValue = hexValue.split("").reverse().join("");
+  const HEX = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
   let result = 0;
   for (let i = 0; i < hexValue.length; i++) {
     result += HEX[hexValue[i]] * Math.pow(16, i);
   }
-
   return result;
 }
 
@@ -120,7 +82,6 @@ function getIpClass(binaryValue) {
         result = "Unknown";
       }
   }
-
   return result;
 }
 
@@ -178,10 +139,10 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
 }
 
 function clear() {
-  const RESULTS = document.getElementById("result-container");
   const INNER_RESULT = document.getElementById("inner-result-container");
   INNER_RESULT.innerHTML = "";
 }
+
 SUBMIT_BUTTON.onclick = e => {
   const INPUT_FIELD = document.getElementById("hex-input");
   const userHexValue = INPUT_FIELD.value.toLowerCase();
