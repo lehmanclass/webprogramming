@@ -25,69 +25,121 @@
   margin-right: 0.625rem;
 }
 
-.nav-right-ul a{
+.nav-right-ul a {
   text-decoration: none;
   color: #000;
 }
 
-.nav-right-ul a:hover{
- color: red;
+.nav-right-ul a:hover {
+  color: red;
 }
 
-.input-container{
-    text-align: center;
-    margin-top: 3rem;
+.input-container {
+  text-align: center;
+  margin-top: 3rem;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.main-header{
-    margin-bottom: 2.5rem;
+.main-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
-.hex-input{
-    width: 25rem;
-    padding: 0.5rem;
-    display: block;
-    margin: 0 auto 2.5rem;
+.hex-input {
+  width: 25rem;
+  padding: 0.9rem 0.5rem;
+  display: block;
+  font-size: 1rem;
 }
 
 .hex-submit{
-    padding: 0.5rem;
-    width: 10rem;
-    cursor: pointer;
+  display: inline-block;
 }
 
-.result-container{
-  width: 60%;
-  margin: 10rem auto;
+.hex-submit {
+  padding: 0.5rem;
+  width: 10rem;
+  cursor: pointer;
+}
+
+.result-container {
+  width: 40%;
+  margin: 5rem auto;
   display: none;
 }
 
+.hex-inputs-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.result {
+  font-size: 1.5rem;
+  color: aqua;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+.result-prefix {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+.sub-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+.border-style {
+  border-radius: 5px;
+  border-style: ridge;
+  outline: 0;
+}
+
+.button {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border-style: solid;
+  outline: 0;
+  cursor: pointer;
+}
+
 /* Feedback */
-.form-element{
+.form-element {
   width: 50%;
   margin: 8rem auto;
   text-align: center;
 }
 
-.form-input-container{
+.form-input-container {
   display: flex;
   flex-direction: column;
   flex: 1;
+  
 }
 
-.form-input{
+.form-input {
   padding: 0.9rem 0.5rem;
   margin: 1rem 0;
+  border-radius: 5px;
+  border-style: ridge;
+  outline: 0;
+  font-size: 1rem;
 }
 
-.form-textarea{
+.form-textarea {
   margin: 1rem 0;
+  font-size: 1rem;
 }
 
-.form-submit-button{
+.form-submit-button {
   padding: 0.8rem 0.5rem;
 }
 
-.form-heading{
+.form-heading {
   margin-bottom: 2rem;
+  font-size: 2.1rem;
 }

@@ -123,10 +123,10 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const hostIdParagraph = createElement("P");
   const decimalDottedNotationParagraph = createElement("P");
 
-  ipClassParagraph.innerHTML = `<span>IP Class</span> : <span>${ipClass}</span>`;
-  networkIdParagraph.innerHTML = `<span>Network ID</span> : <span>${networkId}</span>`;
-  hostIdParagraph.innerHTML = `<span>Host ID</span> : <span>${hostId}</span>`;
-  decimalDottedNotationParagraph.innerHTML = `<span>Dotted Decimal Notation</span> : <span>${decimalDottedNotation}</span>`;
+  ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span> : <span class="result">${ipClass}</span>`;
+  networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span> : <span class="result">${networkId}</span>`;
+  hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span> : <span class="result">${hostId}</span>`;
+  decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span> : <span class="result">${decimalDottedNotation}</span>`;
 
   parentDiv.appendChild(ipClassParagraph);
   parentDiv.appendChild(networkIdParagraph);
@@ -139,7 +139,9 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
 
 function clear() {
   const INNER_RESULT = document.getElementById("inner-result-container");
+  const INPUT_FIELD = document.getElementById("hex-input");
   INNER_RESULT.innerHTML = "";
+  INPUT_FIELD.style['border-color'] = "gray";
 }
 
 function cleanString(str){
@@ -165,6 +167,7 @@ SUBMIT_BUTTON.onclick = e => {
     const decimalDottedNotation = hexToDottedDecimal(userHexValue);
     displayInfo(ipClass, networkId, hostId, decimalDottedNotation);
   } else {
+    INPUT_FIELD.style['border-color'] = "red";
     alert("NO VALID INPUT!");
   }
 };
