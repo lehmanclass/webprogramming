@@ -54,7 +54,7 @@
   font-size: 1rem;
 }
 
-.hex-submit{
+.hex-submit {
   display: inline-block;
 }
 
@@ -110,7 +110,7 @@
 /* Feedback */
 .form-element {
   width: 50%;
-  margin: 8rem auto;
+  margin: 3rem auto;
   text-align: center;
 }
 
@@ -118,7 +118,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  
 }
 
 .form-input {
@@ -142,4 +141,52 @@
 .form-heading {
   margin-bottom: 2rem;
   font-size: 2.1rem;
+}
+
+/* About */
+.about-container {
+  width: 40%;
+  margin: 3rem auto 2.5rem;
+}
+
+.about-content {
+  font-size: 1.5rem;
+}
+
+.about-content p {
+  margin-top: 0;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
+  .result-container {
+    width: 90%;
+  }
+
+  .input-container {
+    width: 90%;
+  }
+
+  .form-element {
+    width: 90%;
+  }
+
+  .about-container{
+    width: 90%;
+    text-align: center;
+  }
+
+  .hex-inputs-container{
+    flex-wrap: wrap;
+    
+  }
+
+}
+
+@media(max-width:622px){
+  .hex-submit{
+    margin-top: 0.5rem;
+  }
+
+  
 }
