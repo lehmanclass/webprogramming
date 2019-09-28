@@ -39,7 +39,6 @@ function hexToDottedDecimal(hexValue) {
   hexValues.forEach((element, index) => {
     if (index != 0 && index != hexValues.length) {
       result += "." + hexToDecimal(element);
-      console.log(index);
     } else {
       result += hexToDecimal(element);
     }
@@ -143,9 +142,20 @@ function clear() {
   INNER_RESULT.innerHTML = "";
 }
 
+function cleanString(str){
+  str = str.toLowerCase();
+  let result = "";
+  for(let i=0; i<str.length; i++){
+    if(str[i] != " " && str[i] != "-"){
+      result+= str[i];
+    }
+  }
+  return result;
+}
+
 SUBMIT_BUTTON.onclick = e => {
   const INPUT_FIELD = document.getElementById("hex-input");
-  const userHexValue = INPUT_FIELD.value.toLowerCase();
+  const userHexValue = cleanString(INPUT_FIELD.value);
   clear();
   if (validateInput(userHexValue)) {
     const binaryValue = hexToBinary(userHexValue);
@@ -159,12 +169,3 @@ SUBMIT_BUTTON.onclick = e => {
   }
 };
 
-// get input in hex value
-// validate input
-// convert to binary
-// determine class
-// determine network id
-// determine host id
-// convert hex value to decimal --> taking in consideration dotted notation.
-// or
-// goes from binary to decimal  --> taking in consideration dotted notation.
