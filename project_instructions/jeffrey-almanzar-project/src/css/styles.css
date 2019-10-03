@@ -88,6 +88,10 @@
   display: inline-block;
 }
 
+.form-element-hidden{
+display: none;
+}
+
 .sub-heading {
   text-align: center;
   font-size: 2rem;
