@@ -5,6 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
     <header>
       <nav class="main-nav">
@@ -13,8 +14,12 @@
         </ul>
 
         <ul class="nav-right-ul">
-          <li><a href="#">App |</a></li>
-          <li><a href="./pages/about.html">How it Works? |</a></li>
+          <li><a id="grading-element-five" href="#">App |</a></li>
+          <li>
+            <a id="grading-element-two" href="./pages/about.html"
+              >How it Works? |</a
+            >
+          </li>
           <li><a href="./pages/feedback.html">Feedback</a></li>
         </ul>
       </nav>
@@ -30,21 +35,21 @@
             type="text"
             placeholder="IP address in hexadecimal"
           />
-          <button id="hex-submit" class="hex-submit button">Convert</button>
+          <button id="grading-element-three" class="hex-submit button">
+            Convert
+          </button>
         </div>
       </div>
 
-      <div id="result-container" class="result-container">
-        <h3 class="sub-heading">Results</h3>
-        <div id="inner-result-container" class="inner-result-container"></div>
+      <div id="grading-element-three-consequence" class="result-container">
+        <div id="inner-result-container" class="inner-result-container">
+          <h3 class="sub-heading">Results</h3>
+        </div>
+        <div id="error-result-container" class="error-result-container">
+          <h3>Input Error</h3>
+          <p>There is something wrong with your input. Try again!</p>
+        </div>
       </div>
-
-      <div id="error-result-container" class="error-result-container">
-        <h3>Input Error</h3>
-        <p>There is something wrong with your input. Try again!</p>
-      </div>
-
-
     </main>
 
     <script src="js/index.js"></script>

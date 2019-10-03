@@ -1,4 +1,4 @@
-const SUBMIT_BUTTON = document.getElementById("hex-submit");
+const SUBMIT_BUTTON = document.getElementById("grading-element-three");
 
 function validateInput(input) {
   const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
@@ -115,8 +115,8 @@ function createElement(elementTag) {
 }
 
 function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
-  const RESULTS = document.getElementById("result-container");
-  RESULTS.style.display = 'block';
+  const PARENT_RESULT_CONTAINER = document.getElementById("grading-element-three-consequence");
+  PARENT_RESULT_CONTAINER.style.visibility = 'visible';
   const INNER_RESULT = document.getElementById("inner-result-container");
   const parentDiv = createElement("DIV");
   const ipClassParagraph = createElement("P");
@@ -135,18 +135,17 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   parentDiv.appendChild(decimalDottedNotationParagraph);
 
   INNER_RESULT.appendChild(parentDiv);
-  RESULTS.style.display = "block";
 }
 
 function clear() {
-  const PARENT_RESULT_CONTAINER = document.getElementById('result-container');
+  const PARENT_RESULT_CONTAINER = document.getElementById('grading-element-three-consequence');
   const INNER_RESULT = document.getElementById("inner-result-container");
   const INPUT_FIELD = document.getElementById("hex-input");
   const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
   INNER_RESULT.innerHTML = "";
   INPUT_FIELD.style['border-color'] = "gray";
   ERROR_RESULT_CONTAINER.style.display = "none";
-  PARENT_RESULT_CONTAINER.style.display = "none";
+  PARENT_RESULT_CONTAINER.style.visibility = "visible";
 
 }
 
@@ -162,7 +161,6 @@ function cleanString(str){
 }
 
 SUBMIT_BUTTON.onclick = e => {
-  const PARENT_RESULT_CONTAINER = document.getElementById('result-container');
   const INPUT_FIELD = document.getElementById("hex-input");
   const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
   const userHexValue = cleanString(INPUT_FIELD.value);
