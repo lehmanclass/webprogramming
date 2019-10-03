@@ -116,6 +116,7 @@ function createElement(elementTag) {
 
 function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const RESULTS = document.getElementById("result-container");
+  RESULTS.style.display = 'block';
   const INNER_RESULT = document.getElementById("inner-result-container");
   const parentDiv = createElement("DIV");
   const ipClassParagraph = createElement("P");
@@ -138,10 +139,15 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
 }
 
 function clear() {
+  const PARENT_RESULT_CONTAINER = document.getElementById('result-container');
   const INNER_RESULT = document.getElementById("inner-result-container");
   const INPUT_FIELD = document.getElementById("hex-input");
+  const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
   INNER_RESULT.innerHTML = "";
   INPUT_FIELD.style['border-color'] = "gray";
+  ERROR_RESULT_CONTAINER.style.display = "none";
+  PARENT_RESULT_CONTAINER.style.display = "none";
+
 }
 
 function cleanString(str){
@@ -156,7 +162,9 @@ function cleanString(str){
 }
 
 SUBMIT_BUTTON.onclick = e => {
+  const PARENT_RESULT_CONTAINER = document.getElementById('result-container');
   const INPUT_FIELD = document.getElementById("hex-input");
+  const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
   const userHexValue = cleanString(INPUT_FIELD.value);
   clear();
   if (validateInput(userHexValue)) {
@@ -168,7 +176,7 @@ SUBMIT_BUTTON.onclick = e => {
     displayInfo(ipClass, networkId, hostId, decimalDottedNotation);
   } else {
     INPUT_FIELD.style['border-color'] = "red";
-    alert("NO VALID INPUT!");
+    ERROR_RESULT_CONTAINER.style.display="block";
   }
 };
 

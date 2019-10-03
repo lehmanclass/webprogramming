@@ -107,6 +107,13 @@
   cursor: pointer;
 }
 
+.error-result-container{
+  display: none;
+  width: 40%;
+  margin: 3rem auto;
+  text-align: center;
+}
+
 /* Feedback */
 .form-element {
   width: 50%;
