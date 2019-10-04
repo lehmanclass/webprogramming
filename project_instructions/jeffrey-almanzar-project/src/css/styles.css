@@ -70,6 +70,14 @@
   visibility: hidden;
 }
 
+#grading-element-five{
+  color: black;
+}
+
+#grading-element-five:hover{
+  color: red;
+}
+
 .hex-inputs-container {
   display: flex;
   justify-content: space-evenly;
