@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="main-nav">
+        <ul class="nav-left-ul">
+          <li>HexDC Conversion</li>
+        </ul>
+
+        <ul class="nav-right-ul">
+          <li><a id="grading-element-five" href="#">App |</a></li>
+          <li>
+            <a id="grading-element-two" href="./pages/about.html"
+              >How it Works? |</a
+            >
+          </li>
+          <li><a href="./pages/feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="input-container">
+        <h1 class="main-header">Convert To Dotted Decimal Notation</h1>
+        <div class="hex-inputs-container">
+          <input
+            id="hex-input"
+            class="hex-input border-style"
+            type="text"
+            placeholder="IP address in hexadecimal"
+          />
+          <button id="grading-element-three" class="hex-submit button">
+            Convert
+          </button>
+        </div>
+      </div>
+
+      <div id="grading-element-three-consequence" class="result-container">
+        <div id="inner-result-container" class="inner-result-container">
+          <h3 class="sub-heading">Results</h3>
+        </div>
+        <div id="error-result-container" class="error-result-container">
+          <h3>Input Error</h3>
+          <p>There is something wrong with your input. Try again!</p>
+        </div>
+      </div>
+
+      <form
+        method="post"
+        action="/form"
+        class="form-element-hidden"
+        name="grading-element-four"
+      >
+        <h2 class="form-heading">Help Us Improve</h2>
+        <div class="form-input-container">
+          <input
+            class="form-input border-style"
+            type="text"
+            placeholder="Enter Name"
+            name="testOne"
+            required
+          />
+          <input
+            class="form-input border-style"
+            type="text"
+            placeholder="Enter Email"
+            name="testTwo"
+            required
+          />
+          <input
+            class="form-input border-style"
+            type="text"
+            placeholder="Headline"
+            name="testThree"
+            required
+          />
+          <textarea
+            class="form-textarea border-style"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input
+            class="form-submit-button button"
+            type="submit"
+            value="Submit"
+          />
+        </div>
+      </form>
+    </main>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
