@@ -1,4 +1,5 @@
 const SUBMIT_BUTTON = document.getElementById("grading-element-three");
+const PROVIDE_EXAMPLE = document.getElementById("grading-element-one")
 
 function validateInput(input) {
   const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
@@ -118,17 +119,20 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const PARENT_RESULT_CONTAINER = document.getElementById("grading-element-three-consequence");
   PARENT_RESULT_CONTAINER.style.visibility = 'visible';
   const INNER_RESULT = document.getElementById("inner-result-container");
+  const header = createElement("H3");
   const parentDiv = createElement("DIV");
   const ipClassParagraph = createElement("P");
   const networkIdParagraph = createElement("P");
   const hostIdParagraph = createElement("P");
   const decimalDottedNotationParagraph = createElement("P");
-
+  header.innerText = "Result";
+  header.classList.add("sub-heading")
   ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span>: <span class="result">${ipClass}</span>`;
   networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span>: <span class="result">${networkId}</span>`;
   hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span>: <span class="result">${hostId}</span>`;
   decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span>: <span class="result">${decimalDottedNotation}</span>`;
-
+  
+  parentDiv.appendChild(header);
   parentDiv.appendChild(ipClassParagraph);
   parentDiv.appendChild(networkIdParagraph);
   parentDiv.appendChild(hostIdParagraph);
@@ -177,4 +181,36 @@ SUBMIT_BUTTON.onclick = e => {
     ERROR_RESULT_CONTAINER.style.display="block";
   }
 };
+
+function generateExamples(){
+  const examples =["AA BB CC DD", "AA-BB-CC-DD", "ef Bc cc DD"]
+  const examplesContainer = document.createElement("DIV");
+  examplesContainer.setAttribute("id","grading-element-one-consequence")
+  let exampleItem;
+  examples.forEach( example => {
+    exampleItem = document.createElement("P");
+    exampleItem.innerText = example;
+    exampleItem.classList.add('margin-top')
+    examplesContainer.appendChild(exampleItem);
+  })
+  const removeExample = document.createElement("BUTTON");
+  removeExample.innerText = "Remove";
+  removeExample.classList.add('button');
+  removeExample.classList.add('removeExamplesBtn');
+  removeExample.onclick = () => examplesContainer.innerHTML = "";
+
+  examplesContainer.appendChild(removeExample)
+  return examplesContainer;
+}
+
+PROVIDE_EXAMPLE.onclick = () => {
+  const exampleContainer = document.getElementById("example-container");
+  const examples = generateExamples(); 
+  exampleContainer.appendChild(examples);
+}
+
+const element5 = document.getElementById("grading-element-five");
+element5.style.color = "#fff";
+element5.onmouseover = (e) => e.target.style.color = "#000";
+element5.onmouseleave = (e) => e.target.style.color = "#fff";
 

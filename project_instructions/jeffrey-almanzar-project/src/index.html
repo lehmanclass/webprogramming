@@ -16,9 +16,7 @@
         <ul class="nav-right-ul">
           <li><a id="grading-element-five" href="#">App</a></li>
           <li>
-            <a id="grading-element-two" href="./pages/about.html"
-              >About</a
-            >
+            <a id="grading-element-two" href="./pages/about.html">About</a>
           </li>
           <li><a href="./pages/feedback.html">Feedback</a></li>
         </ul>
@@ -29,9 +27,9 @@
       <div class="input-container">
         <!-- <img src="./img/giphy.gif" alt=""> -->
         <div class="main-header-container">
-            <h1 class="main-header">HexDC Conversion</h1>
+          <h1 class="main-header">HexDC Conversion</h1>
         </div>
-        
+
         <div class="hex-inputs-container">
           <input
             id="hex-input"
@@ -45,13 +43,15 @@
         </div>
       </div>
 
+      <div id="example-container" class="example-container">
+        <p id="grading-element-one">See input examples</p>
+      </div>
+
       <div id="grading-element-three-consequence" class="result-container">
-        <div id="inner-result-container" class="inner-result-container">
-          <h3 class="sub-heading">Results</h3>
-        </div>
+        <div id="inner-result-container" class="inner-result-container"></div>
         <div id="error-result-container" class="error-result-container">
-          <h2>Input Error</h2>
-          <p>There is something wrong with your input. Try again!</p>
+          <h3 class="sub-heading">Input Error</h3>
+          <p>There is something wrong with your input. <br />Try again!</p>
         </div>
       </div>
 
@@ -61,41 +61,10 @@
         class="form-element-hidden"
         name="grading-element-four"
       >
-        <h2 class="form-heading">Help Us Improve</h2>
         <div class="form-input-container">
-          <input
-            class="form-input border-style"
-            type="text"
-            placeholder="Enter Name"
-            name="testOne"
-            required
-          />
-          <input
-            class="form-input border-style"
-            type="text"
-            placeholder="Enter Email"
-            name="testTwo"
-            required
-          />
-          <input
-            class="form-input border-style"
-            type="text"
-            placeholder="Headline"
-            name="testThree"
-            required
-          />
-          <textarea
-            class="form-textarea border-style"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-          ></textarea>
-          <input
-            class="form-submit-button button"
-            type="submit"
-            value="Submit"
-          />
+          <input type="text" name="testOne" value="success" />
+          <input type="text" name="testTwo" value="success baby" />
+          <input type="text" name="testThree" value="I'm a programmer." />
         </div>
       </form>
     </main>

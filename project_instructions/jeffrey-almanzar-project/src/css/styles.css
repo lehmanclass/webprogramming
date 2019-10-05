@@ -131,9 +131,32 @@ display: none;
 
 .error-result-container {
   display: none;
-  width: 40%;
+  width: 100%;
   margin: 3rem auto;
   text-align: center;
+  font-size: 1.5rem;
+}
+
+.example-container{
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #0D47A1;
+}
+
+.removeExamplesBtn{
+  font-size: 1rem;
+  background-color: #0D47A1;
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  margin-top: 1rem;
+}
+
+.margin-top{
+  margin-top: 1rem;
+}
+
+.example-container:hover{
+  cursor: pointer;
 }
 
 /* Feedback */
@@ -161,6 +184,7 @@ display: none;
 .form-textarea {
   margin: 1rem 0;
   font-size: 1rem;
+  padding: 0.9rem 0.5rem;
 }
 
 .form-submit-button {
