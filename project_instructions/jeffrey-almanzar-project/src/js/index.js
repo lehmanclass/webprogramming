@@ -124,10 +124,10 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const hostIdParagraph = createElement("P");
   const decimalDottedNotationParagraph = createElement("P");
 
-  ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span> : <span class="result">${ipClass}</span>`;
-  networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span> : <span class="result">${networkId}</span>`;
-  hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span> : <span class="result">${hostId}</span>`;
-  decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span> : <span class="result">${decimalDottedNotation}</span>`;
+  ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span>: <span class="result">${ipClass}</span>`;
+  networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span>: <span class="result">${networkId}</span>`;
+  hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span>: <span class="result">${hostId}</span>`;
+  decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span>: <span class="result">${decimalDottedNotation}</span>`;
 
   parentDiv.appendChild(ipClassParagraph);
   parentDiv.appendChild(networkIdParagraph);

@@ -3,11 +3,15 @@
   margin: 0;
 }
 
+body{
+  background-color: #E3F2FD;
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
-  background-color: aqua;
-  color: #000;
+  background-color: #0D47A1;
+  color: #fff;
   height: 3.5rem;
   align-items: center;
   padding-left: 1.5rem;
@@ -27,11 +31,12 @@
 
 .nav-right-ul a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .nav-right-ul a:hover {
-  color: red;
+  color: #000;
+  text-decoration: underline;
 }
 
 .input-container {
@@ -42,9 +47,17 @@
   margin-right: auto;
 }
 
+.main-header-container{
+  background-image: url('../img/giphy.gif');
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
 .main-header {
+  padding: 1.5rem 0;
   margin-bottom: 2.5rem;
   text-align: center;
+  color: #fff;
 }
 
 .hex-input {
@@ -77,9 +90,14 @@
 
 .result {
   font-size: 1.5rem;
-  color: aqua;
+  color: #0D47A1;
   margin: 0.5rem;
   display: inline-block;
+}
+
+.hex-submit, .form-submit-button{
+  background-color: #0D47A1;
+  color: white;
 }
 
 .result-prefix {
@@ -95,7 +113,7 @@ display: none;
 .sub-heading {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .border-style {
   border-radius: 5px;
