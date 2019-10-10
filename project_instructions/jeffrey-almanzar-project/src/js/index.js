@@ -214,3 +214,8 @@ element5.style.color = "#fff";
 element5.onmouseover = (e) => e.target.style.color = "#000";
 element5.onmouseleave = (e) => e.target.style.color = "#fff";
 
+module.exports = {
+  getIpClass,
+  
+};
+
