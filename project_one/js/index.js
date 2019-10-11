@@ -1,8 +1,22 @@
-const SUBMIT_BUTTON = document.getElementById("grading-element-three");
-const PROVIDE_EXAMPLE = document.getElementById("grading-element-one")
-
 function validateInput(input) {
-  const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
+  const HEX = {
+    0: "0000",
+    1: "0001",
+    2: "0010",
+    3: "0011",
+    4: "0100",
+    5: "0101",
+    6: "0110",
+    7: "0111",
+    8: "1000",
+    9: "1001",
+    a: "1010",
+    b: "1011",
+    c: "1100",
+    d: "1101",
+    e: "1110",
+    f: "1111"
+  };
   if (input.length === 8) {
     for (let i = 0; i < input.length; i++) {
       if (!HEX[input[i]]) {
@@ -15,7 +29,24 @@ function validateInput(input) {
 }
 
 function hexToBinary(hexValue) {
-  const HEX = {0: "0000", 1: "0001", 2: "0010", 3: "0011", 4: "0100", 5: "0101", 6: "0110", 7: "0111", 8: "1000", 9: "1001", a: "1010", b: "1011", c: "1100", d: "1101", e: "1110", f: "1111"};
+  const HEX = {
+    0: "0000",
+    1: "0001",
+    2: "0010",
+    3: "0011",
+    4: "0100",
+    5: "0101",
+    6: "0110",
+    7: "0111",
+    8: "1000",
+    9: "1001",
+    a: "1010",
+    b: "1011",
+    c: "1100",
+    d: "1101",
+    e: "1110",
+    f: "1111"
+  };
   let result = "";
   for (let i = 0; i < hexValue.length; i++) {
     result += HEX[hexValue[i]] + " ";
@@ -24,8 +55,27 @@ function hexToBinary(hexValue) {
 }
 
 function hexToDecimal(hexValue) {
-  hexValue = hexValue.split("").reverse().join("");
-  const HEX = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
+  hexValue = hexValue
+    .split("")
+    .reverse()
+    .join("");
+  const HEX = {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    a: 10,
+    b: 11,
+    c: 12,
+    d: 13,
+    e: 14,
+    f: 15
+  };
   let result = 0;
   for (let i = 0; i < hexValue.length; i++) {
     result += HEX[hexValue[i]] * Math.pow(16, i);
@@ -116,8 +166,10 @@ function createElement(elementTag) {
 }
 
 function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
-  const PARENT_RESULT_CONTAINER = document.getElementById("grading-element-three-consequence");
-  PARENT_RESULT_CONTAINER.style.visibility = 'visible';
+  const PARENT_RESULT_CONTAINER = document.getElementById(
+    "grading-element-three-consequence"
+  );
+  PARENT_RESULT_CONTAINER.style.visibility = "visible";
   const INNER_RESULT = document.getElementById("inner-result-container");
   const header = createElement("H3");
   const parentDiv = createElement("DIV");
@@ -126,12 +178,12 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const hostIdParagraph = createElement("P");
   const decimalDottedNotationParagraph = createElement("P");
   header.innerText = "Result";
-  header.classList.add("sub-heading")
+  header.classList.add("sub-heading");
   ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span>: <span class="result">${ipClass}</span>`;
   networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span>: <span class="result">${networkId}</span>`;
   hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span>: <span class="result">${hostId}</span>`;
   decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span>: <span class="result">${decimalDottedNotation}</span>`;
-  
+
   parentDiv.appendChild(header);
   parentDiv.appendChild(ipClassParagraph);
   parentDiv.appendChild(networkIdParagraph);
@@ -142,80 +194,95 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
 }
 
 function clear() {
-  const PARENT_RESULT_CONTAINER = document.getElementById('grading-element-three-consequence');
+  const PARENT_RESULT_CONTAINER = document.getElementById(
+    "grading-element-three-consequence"
+  );
   const INNER_RESULT = document.getElementById("inner-result-container");
   const INPUT_FIELD = document.getElementById("hex-input");
-  const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
+  const ERROR_RESULT_CONTAINER = document.getElementById(
+    "error-result-container"
+  );
   INNER_RESULT.innerHTML = "";
-  INPUT_FIELD.style['border-color'] = "gray";
+  INPUT_FIELD.style["border-color"] = "gray";
   ERROR_RESULT_CONTAINER.style.display = "none";
   PARENT_RESULT_CONTAINER.style.visibility = "visible";
-
 }
 
-function cleanString(str){
+function cleanString(str) {
   str = str.toLowerCase();
   let result = "";
-  for(let i=0; i<str.length; i++){
-    if(str[i] != " " && str[i] != "-"){
-      result+= str[i];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] != " " && str[i] != "-") {
+      result += str[i];
     }
   }
   return result;
 }
 
-SUBMIT_BUTTON.onclick = e => {
-  const INPUT_FIELD = document.getElementById("hex-input");
-  const ERROR_RESULT_CONTAINER = document.getElementById('error-result-container');
-  const userHexValue = cleanString(INPUT_FIELD.value);
-  clear();
-  if (validateInput(userHexValue)) {
-    const binaryValue = hexToBinary(userHexValue);
-    const ipClass = getIpClass(binaryValue);
-    const networkId = getNetworkID(userHexValue, ipClass);
-    const hostId = getHostID(userHexValue, ipClass);
-    const decimalDottedNotation = hexToDottedDecimal(userHexValue);
-    displayInfo(ipClass, networkId, hostId, decimalDottedNotation);
-  } else {
-    INPUT_FIELD.style['border-color'] = "red";
-    ERROR_RESULT_CONTAINER.style.display="block";
-  }
-};
-
-function generateExamples(){
-  const examples =["AA BB CC DD", "AA-BB-CC-DD", "ef Bc cc DD"]
+function generateExamples() {
+  const examples = ["AA BB CC DD", "AA-BB-CC-DD", "ef Bc cc DD"];
   const examplesContainer = document.createElement("DIV");
-  examplesContainer.setAttribute("id","grading-element-one-consequence")
+  examplesContainer.setAttribute("id", "grading-element-one-consequence");
   let exampleItem;
-  examples.forEach( example => {
+  examples.forEach(example => {
     exampleItem = document.createElement("P");
     exampleItem.innerText = example;
-    exampleItem.classList.add('margin-top')
+    exampleItem.classList.add("margin-top");
     examplesContainer.appendChild(exampleItem);
-  })
+  });
   const removeExample = document.createElement("BUTTON");
   removeExample.innerText = "Remove";
-  removeExample.classList.add('button');
-  removeExample.classList.add('removeExamplesBtn');
-  removeExample.onclick = () => examplesContainer.innerHTML = "";
+  removeExample.classList.add("button");
+  removeExample.classList.add("removeExamplesBtn");
+  removeExample.onclick = () => (examplesContainer.innerHTML = "");
 
-  examplesContainer.appendChild(removeExample)
+  examplesContainer.appendChild(removeExample);
   return examplesContainer;
 }
 
-PROVIDE_EXAMPLE.onclick = () => {
-  const exampleContainer = document.getElementById("example-container");
-  const examples = generateExamples(); 
-  exampleContainer.appendChild(examples);
+function main() {
+  const SUBMIT_BUTTON = document.getElementById("grading-element-three");
+  const PROVIDE_EXAMPLE = document.getElementById("grading-element-one");
+
+  SUBMIT_BUTTON.onclick = e => {
+    const INPUT_FIELD = document.getElementById("hex-input");
+    const ERROR_RESULT_CONTAINER = document.getElementById("error-result-container");
+    const userHexValue = cleanString(INPUT_FIELD.value);
+    clear();
+    if (validateInput(userHexValue)) {
+      const binaryValue = hexToBinary(userHexValue);
+      const ipClass = getIpClass(binaryValue);
+      const networkId = getNetworkID(userHexValue, ipClass);
+      const hostId = getHostID(userHexValue, ipClass);
+      const decimalDottedNotation = hexToDottedDecimal(userHexValue);
+      displayInfo(ipClass, networkId, hostId, decimalDottedNotation);
+    } else {
+      INPUT_FIELD.style["border-color"] = "red";
+      ERROR_RESULT_CONTAINER.style.display = "block";
+    }
+  };
+
+  PROVIDE_EXAMPLE.onclick = () => {
+    const exampleContainer = document.getElementById("example-container");
+    const examples = generateExamples();
+    exampleContainer.appendChild(examples);
+  };
+
+  const element5 = document.getElementById("grading-element-five");
+  element5.style.color = "#fff";
+  element5.onmouseover = e => (e.target.style.color = "#000");
+  element5.onmouseleave = e => (e.target.style.color = "#fff");
 }
 
-const element5 = document.getElementById("grading-element-five");
-element5.style.color = "#fff";
-element5.onmouseover = (e) => e.target.style.color = "#000";
-element5.onmouseleave = (e) => e.target.style.color = "#fff";
+//main()
 
 module.exports = {
   getIpClass,
-  
-};
+  cleanString,
+  validateInput,
+  hexToBinary,
+  hexToDecimal,
+  getNetworkID,
+  getHostID
 
+};
