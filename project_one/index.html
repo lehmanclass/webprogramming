@@ -5,7 +5,7 @@
 	</head>
 	<body>
 
-    <p><a id = "#grading-element-two" href="file:///Users/ramishsaqib/Documents/about.html" title="Click for a fact">
+    <p><a id = "grading-element-two" href="file:///Users/ramishsaqib/Documents/about.html" title="Click for a fact">
       <h1>About</h1>
     </a></p>
 
@@ -13,20 +13,20 @@
 
       <p>
         This is a warning
-        <button id = "#grading-element-three"
-        onclick = "getElementById('#grading-element-three-consequence').innerHTML = 'You will be terminated'">
+        <button id = "grading-element-three"
+        onclick = "getElementById('grading-element-three-consequence').innerHTML = 'You will be terminated'">
 
         Don't click me
 
       </button>
 
-      <p id="#grading-element-three-consequence"></p>
+      <p id="grading-element-three-consequence"></p>
       </p>
 
     </div>
 
     <div>
-    <form name = "#grading-element-four" action="http://localhost:3000/form" method="POST">
+    <form name = "grading-element-four" action="http://localhost:3000/form" method="POST">
       <input type="text" name="form">
       <input type ="submit" name="submit">
       <script>
@@ -45,14 +45,14 @@
 
     <div>
       <p>This is a test
-      <button onclick="button_clicked()" id = "#grading-element-one">Will it work?</button>
+      <button onclick="button_clicked()" id = "grading-element-one">Will it work?</button>
     </p>
     <script type="text/javascript">
       const button_clicked  = () => {
-      let value = document.getElementById("#grading-element-one")
-      let target = document.querySelector('#grading-element-one');
+      let value = document.getElementById("grading-element-one")
+      let target = document.querySelector('grading-element-one');
       let newdiv = document.createElement('div');
-      newdiv.setAttribute("id", "#grading-element-one-consequence");
+      newdiv.setAttribute("id", "grading-element-one-consequence");
       newdiv.appendChild(document.createTextNode("I'm gonna make money now"));
       document.body.appendChild(newdiv);    
     } 
@@ -69,7 +69,7 @@
 </div>
 
     <div>
-        <h2 id = "#grading-element-five"><a>Chameleon time?</a></h2>
+        <h2 id = "grading-element-five"><a>Chameleon time?</a></h2>
  
     </div>
 
