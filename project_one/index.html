@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Confidence Boost</title>
+	</head>
+	<body>
+
+    <p><a id = "#grading-element-two" href="file:///Users/ramishsaqib/Documents/about.html" title="Click for a fact">
+      <h1>About</h1>
+    </a></p>
+
+    <div>
+
+      <p>
+        This is a warning
+        <button id = "#grading-element-three"
+        onclick = "getElementById('#grading-element-three-consequence').innerHTML = 'You will be terminated'">
+
+        Don't click me
+
+      </button>
+
+      <p id="#grading-element-three-consequence"></p>
+      </p>
+
+    </div>
+
+    <div>
+    <form name = "#grading-element-four" action="http://localhost:3000/form" method="POST">
+      <input type="text" name="form">
+      <input type ="submit" name="submit">
+      <script>
+        function logTruthiness (val) {
+      if (val === testOne || val === testTwo || val === testThree) {
+          console.log("Truthy!");
+      } else {
+          console.log("Falsy.");
+      }
+  }
+        </script>
+    </form>
+  
+  </div>
+
+
+    <div>
+      <p>This is a test
+      <button onclick="button_clicked()" id = "#grading-element-one">Will it work?</button>
+    </p>
+    <script type="text/javascript">
+      const button_clicked  = () => {
+      let value = document.getElementById("#grading-element-one")
+      let target = document.querySelector('#grading-element-one');
+      let newdiv = document.createElement('div');
+      newdiv.setAttribute("id", "#grading-element-one-consequence");
+      newdiv.appendChild(document.createTextNode("I'm gonna make money now"));
+      document.body.appendChild(newdiv);    
+    } 
+  
+
+</script>
+
+<style>
+#grading-element-five:hover, #grading-element-five:active {color: red;}
+</style>
+
+
+
+</div>
+
+    <div>
+        <h2 id = "#grading-element-five"><a>Chameleon time?</a></h2>
+ 
+    </div>
+
+    <style>
+#grading-element-five{
+    color: red;
+}
+
+a:hover {
+    color: blue;
+}
+</style>
+
+	</body>
+
+</html>
+
+
+
+
+
