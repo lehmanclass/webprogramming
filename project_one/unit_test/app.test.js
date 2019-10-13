@@ -1,4 +1,4 @@
-const functions = require("../js/index");
+const functions = require("../js/utils");
 
 describe("Base conversion", () => {
   it("hexToBinary - checks if the right value is returned ", () => {
