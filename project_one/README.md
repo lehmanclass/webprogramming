@@ -14,3 +14,4 @@ What I have a done:
 
 How to:
 run unit test --> npm test
+run integration test --> npm run cypress:open
