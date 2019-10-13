@@ -19,7 +19,7 @@ function validateInput(input) {
   };
   if (input.length === 8) {
     for (let i = 0; i < input.length; i++) {
-      if (!HEX[input[i]]) {
+      if (input[i]=="0" || !HEX[input[i]]) {
         return false;
       }
     }
@@ -174,15 +174,19 @@ function displayInfo(ipClass, networkId, hostId, decimalDottedNotation) {
   const header = createElement("H3");
   const parentDiv = createElement("DIV");
   const ipClassParagraph = createElement("P");
+  ipClassParagraph.classList.add("result-paragraph");
   const networkIdParagraph = createElement("P");
+  networkIdParagraph.classList.add("result-paragraph");
   const hostIdParagraph = createElement("P");
+  hostIdParagraph.classList.add("result-paragraph");
   const decimalDottedNotationParagraph = createElement("P");
+  decimalDottedNotationParagraph.classList.add("result-paragraph");
   header.innerText = "Result";
   header.classList.add("sub-heading");
-  ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class</span>: <span class="result">${ipClass}</span>`;
-  networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID</span>: <span class="result">${networkId}</span>`;
-  hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID</span>: <span class="result">${hostId}</span>`;
-  decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation</span>: <span class="result">${decimalDottedNotation}</span>`;
+  ipClassParagraph.innerHTML = `<span class="result-prefix">IP Class:</span> <span class="result">${ipClass}</span>`;
+  networkIdParagraph.innerHTML = `<span class="result-prefix">Network ID:</span> <span class="result">${networkId.toUpperCase()}</span>`;
+  hostIdParagraph.innerHTML = `<span class="result-prefix">Host ID:</span> <span class="result">${hostId.toUpperCase()}</span>`;
+  decimalDottedNotationParagraph.innerHTML = `<span class="result-prefix">Dotted Decimal Notation:</span> <span class="result">${decimalDottedNotation}</span>`;
 
   parentDiv.appendChild(header);
   parentDiv.appendChild(ipClassParagraph);
