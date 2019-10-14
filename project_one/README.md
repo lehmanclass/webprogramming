@@ -1,17 +1,23 @@
-Run Integration test  
+# Project #1  
 
-./node_modules/.bin/cypress open  
+## Background 
+I'm taking Introduction to networks this semester, so I decided to created this project to help me internalized the concepts explained in that class, and at the same time, use this project to verify my homework that require converting an IP address in hexadecimal notation to dotted decimal notation.
 
-What I have a done:  
--Add CSS styling beyond what is required
--Write five unit tests
--Write two integration tests
--Deploy your project to a live URL
--Your CSS styling is mobile-first
--Have a Pull Request in the github repo history (beyond the pull request you use to submit)
--install & use eslint on your project
+## Extra credit  
+- Added CSS styling beyond what is required
+- Wrote six unit tests
+- Wrote seven integration tests
+- Deployed project to a live URL: https://jeffrey-a.github.io/web-programming-project-one/
+- Made it mobile responsive
+- Created a Pull Request in the github repo: 
+  - commits on Oct 5, 2019, 
+  - commit: 3b2a6b05bc48d29bc96525d4d7c81607be9ec75b
+- installed & used eslint 
 
-
-How to:
-run unit test --> npm test
-run integration test --> npm run cypress:open
+## How to
+- Install dependencies: ``` npm install```
+- run unit test:  ``` npm test```
+- run integration test: ``` npm run cypress:open```  
+  - Wait for cypress GUI to open
+  - Click app.js and grading_elements.js 
+- Eslint: ``` ./node_modules/.bin/eslint js```
