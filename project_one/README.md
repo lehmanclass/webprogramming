@@ -1,7 +1,7 @@
 # Project #1  
 
 ## Background 
-I'm taking Introduction to networks this semester, so I decided to created this project to help me internalized the concepts explained in that class, and at the same time, use this project to verify my homework that require converting an IP address in hexadecimal notation to dotted decimal notation.
+I'm taking Introduction to networks this semester, so I decided to create this project to help me internalize the concepts explained in that class, and at the same time, use this project to verify my homework that require converting an IP address in hexadecimal notation to dotted decimal notation.
 
 ## Extra credit  
 - Added CSS styling beyond what is required
