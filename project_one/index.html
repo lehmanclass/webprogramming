@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>project one</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+    <a id= "grading-element-two" href ="about.html">About</a>
+    <a href = "index.html">Home</a>
+    <div id= "heading">
+        <h1>Project One</h1>
+
+    </div>
+    <br>
+    <br>
+    <div id= "main">
+        
+        <button id="grading-element-one" onclick="addingText()">Your DOM will suffer consequences</button>
+    
+    </div>
+    <br>
+    <br>
+    <button id= "grading-element-three" onclick="showing()">Show the ninja div</button>
+    <br>
+    <div id ="ninja">
+
+        <p>the div ninja was discover, is not a good ninja :(</p>
+        
+    </div>
+
+    
+   <div id ="grading-element-five">
+       <p>This text change color when you hover.</p>
+
+   </div>
+  
+
+<script type = "text/javascript">
+
+    function addingText() {
+        
+        var someText = document.createElement("P");
+        someText.innerText = "consequence";
+        document.getElementById("main").appendChild(someText);
+
+
+    
+}
+
+function showing(){
+    document.getElementById("ninja").style.visibility = "visible" ;
+
+}
+</script>
+
+
+
+</body>
+</html>
