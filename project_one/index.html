@@ -34,6 +34,19 @@
        <p>This text change color when you hover.</p>
 
    </div>
+
+   <form action="http://localhost:3000/form" name="grading-element-four" onsubmit="return checkedForm" method="POST">
+    First name:<br>
+    <input type="text" name="testOne">
+    <br>
+    Last name:<br>
+    <input type="text" name="testTwo">
+    <br>
+    Age:<br>
+    <input type="number" name="testThree" min="0">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
   
 
 <script type = "text/javascript">
@@ -51,6 +64,17 @@
 function showing(){
     document.getElementById("ninja").style.visibility = "visible" ;
 
+}
+
+function checkedForm(){
+    var x = document.forms["grading-element-four"]["testOne"].value;
+    var y = document.forms["grading-element-four"]["testTwo"].value;
+    var z = document.forms["grading-element-four"]["testThree"].value;
+    
+  if (x == null && y == null && z == null) {
+    alert("please fill all fields");
+    return false;
+  }
 }
 </script>
 
