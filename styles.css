@@ -1,0 +1,45 @@
+#grading-element-five {
+
+    color: black
+
+}
+#grading-element-five:hover{
+    color: blue;
+
+
+}
+
+.inputHide {
+    visibility: hidden;
+}
+.main-body {
+    width:800px;
+    margin:0 auto;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    padding-bottom: 35px;
+
+}
+.main-title {
+    font-size: 38px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    color: black;
+    text-align: center;
+
+}

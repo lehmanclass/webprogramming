@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-nav">
+        <nav>
+            <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">about</a></li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-body">
+
+        <div class="main-title">
+            <h1 id="grading-element-five">
+                <span style="color:cornflowerblue">D</span>
+                <span style="color:red ">O</span>
+                <span style="color:yellow ">O</span>
+                <span style="color: cornflowerblue">G</span>
+                <span style="color:green ">L</span>
+                <span style="color: red">E</span>
+            </h1>
+        </div>
+
+
+
+        <form  action="http://localhost:3000/form" name="grading-element-four" method="POST">
+
+            <input class="bar-form" name="testOne"  value="OnValue" type="text" required >
+
+            <input class="inputHide" value="value" name="testTwo"  type="text" required>
+
+            <input class="inputHide" value="value" name="TestThree" type="text" required>
+            <input type="submit"/>
+         </form>
+
+        <button onclick="Onvisible()">Luck</button>
+
+        <br>
+
+        <div id="grading-element-three-consequence" hidden >
+
+            Today will be amazing day
+
+        </div>
+
+
+        <button id="grading-element-one">Click Me!</button>
+        <a id="grading-element-two" href="about.html">click the link</a>
+
+            <button id="grading-element-three">next button!</button>
+
+     </div>
+
+
+    <script>
+        const button = document.getElementById('grading-element-one').addEventListener('click', function () {
+            const newEl = document.createElement('div');
+
+            newEl.setAttribute('id', 'grading-element-one-consequence');
+            newEl.style.width  = '100px';
+            newEl.style.height = '100px';
+            newEl.style.backgroundColor = 'red';
+
+            document.body.appendChild(newEl);
+        });
+
+        function Onvisible() {
+            //document.getElementById("grading-element-three").innerText = " today will be a wondaful day
+            let x = document.getElementById("grading-element-three-consequence");
+
+            if (x.hasAttribute('hidden')) {
+                x.removeAttribute('hidden');
+            } else {
+                x.setAttribute('hidden', '');
+            }
+        }
+
+    </script>
+
+
+    <footer>
+        <ul>
+            <li><a>Advertising</a></li>
+            <li><a>Business</a></li>
+            <li><a>How Search Work</a></li>
+            <li><a >Privacy</a></li>
+            <li><a>Terms</a></li>
+            <li><a>Setting</a></li>
+
+        </ul>
+
+    </footer>
+
+</body>
+</html>
