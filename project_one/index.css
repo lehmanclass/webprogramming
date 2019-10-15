@@ -1,0 +1,42 @@
+body {
+  background-color: #415e5b;
+  color: white;
+  font: Arial;
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+}
+
+.container {
+  margin: auto;
+  width: 98%;
+  overflow: auto;
+}
+
+#main-header {
+  background-color: #415e5b;
+  color: white;
+  text-align: left;
+}
+
+#navbar ul {
+  padding: 0;
+  list-style: none;
+}
+
+#navbar li {
+  display: inline;
+}
+
+#navbar a {
+  color: white;
+  font-size: 18px;
+  padding-right: 18px;
+}
+
+#grading-element-five {
+  color: red;
+}
+#grading-element-five:hover {
+  color: blue;
+}
