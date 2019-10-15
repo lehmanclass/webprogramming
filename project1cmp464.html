@@ -57,7 +57,7 @@
                         }
                         .paragraph{
                             position:absolute;
-                            left:30%;
+                            left:27%;
                             bottom:60%;
                         }
                         .range{
@@ -69,7 +69,7 @@
                         }
                         .testthreeradio{
                             position:absolute;
-                            left:25%;
+                            left:22%;
                             bottom:57%;
                             height:4%;
 
@@ -86,7 +86,7 @@
                  <p><b>Please check on or off to see the changing background-color</b></p>
                  <div class="css2" >
                      <p>Here is my project-1
-                     <a href="project1cmp464(2).html" class="css21" id="grading-element-two" onclick="itHappen()">About</a>
+                     <a href="project1cmp464(3).html" class="css21" id="grading-element-two" onclick="itHappen()">About</a>
                      <p id= "grading-element-four-con3"></p>
                      <form action="http://localhost:3000/form" method="post" name="example-form">
                      <input type="radio" name="testthree1" value="on"  onclick="clickme1()" class="testthreeon" id="on">on</input>
@@ -95,7 +95,7 @@
                     </p>
                  </div>
                  <script>
-                 var checktheStatus = document.getElementsByName("testthree1").value;
+                 var checktheStatus = document.getElementsByName("testthree1")[0].value;
                  var status;
                  if(checktheStatus==on){
                     status=document.getElementById("on").value;
@@ -134,61 +134,79 @@
             </a>
        <a href="project1cmp464(4).html" style="position:absolute; left:20px; top:23%">click the link to see the grading-element-three
        </a>
+       <a href="project1cmp464(2).html" style="position:absolute; left:20px; top:26%">Click here to see the 4th page of the extra credit assignment</a>
 
 
 <div name="grading-element-four">
-    <p class="paragraph"><b>Search your Visiting requirement in here & we will give you some suggestion</b></p>
+    <p class="paragraph"><b>Search your Visiting requirement in here & we will give you some suggestion.
+    please fill all the option</b></p>
         <form action="http://localhost:3000/form" method="post" name="grading-element-four" onsubmit="return validation()">
            
             <select name="testone"  class="range">
+                    <option value="select">please select one option</option>
+                    <span name="enter"></span>
             <option value="one">$10000-$20000</option>
             <option value="two">$5000-10000</option>
+           
             </select>
             <div class="testthreeradio">
+                    <input type="radio" name="testthree" value="none" id="none" checked> no selection<br>
             <input type="radio" name="testthree" value="Air"  id="Air"> Air<br>
   <input type="radio" name="testthree" value="Bus" id="Bus"> Bus<br>
-  <input type="radio" name="testthree" value="Train" id="Train" > Train<br> 
+  <input type="radio" name="testthree" value="Train" id="Train" > Train
+ </input>
+  <span name="radioselect"></span>
 </div>
         
         <input type ="text" placeholder="type here" name="testtwo" class="css42"/>
-        <span id="enter_your_search"></span>
-         <input type="submit" onclick="" class="css44" ></input>
+        <span name="enter_your_search"></span>
+         <input type="submit" name="submit" class="css44" ></input>
     
         </form>
     </div>
-    <script>
-
-    const checkthat={
-   Air:true,
-   Bus:true,
-   Train:true
-
-    }
-    const identifiers = Object.keys(checkthat)
-const active = identifiers.filter(function(id) {
-  return checkthat[id]
-})
-    
-    
-    </script>
-    <script>
-        function validation(){
-    var select_index= document.getElementsByName("testone").value;
-    if(select_index<0 && select_index>2){
-        return false;
-    }
-        }
-    
-    </script>
+   
  <script type="text/javascript"> 
  function validation(){ 
- var testtwo = document.getElementsByName("testtwo").value;
+ var testtwo = document.getElementsByName("testtwo")[0].value;
  if(  testtwo== ""){
-                        document.getElementById("enter_your_search").innerHTML="Please fill the blank";
+                        document.getElementsByName("enter_your_search").innerHTML="Please fill the blank";
                          return false;
                     }
+
+                    var testone= document.getElementsByName("testone");
+for(var i=0; i<testone.length; i++){
+    var r=testone[i];
+    if(r.value=="select"){
+        return false;
+    }
+}
+
+var testthree= document.getElementsByName("testthree");
+for(var i=0; i<testthree.length; i++){
+    var r=testthree[i];
+    if(r.value=="none"){
+        r.checked=false;
+    }
+    else{
+        r.checked=true;
+    }
+    
+}
+
+
+
+
+
  }
  
+ 
+
+        
+    
+
+
+ 
+
  </script>
    
  
