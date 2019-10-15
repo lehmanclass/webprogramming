@@ -1,4 +1,17 @@
 <body>
+    <style>
+    #grading-element-three-consequence{
+        visibility: hidden;
+    }
+    #grading-element-five{
+        height: 500px;
+        width: 500px;
+        background-color: orange;
+    }
+    #grading-element-five:hover{
+        background-color: blue;
+    }
+    </style>
        <p>ADD A THING</p>
 
        <button id="grading-element-one" onclick="myAdd()">THING</button> 
@@ -10,8 +23,17 @@
            add.setAttribute("id","grading-element-one-consequence")
            document.body.appendChild(add)
        }
-        
+       function myVis() {
+       document.getElementById("grading-element-three-consequence").style.visibility = "visible";
+}
         </script>
 
     <p><a id="grading-element-two" href="about.html" >ABOUT</a> about link</p>
+
+    <p id="grading-element-three-consequence">BOO!</p>
+    <button id="grading-element-three" onclick="myVis()"> Reveal </button>
+
+    <div id="grading-element-five">
+        <h1>HOVER IF YOU DARE</h1>
+    </div>
 </body>
