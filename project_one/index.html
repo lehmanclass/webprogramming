@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuzail's Hotel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="logo.png">
+            </div>
+            <ul>
+                <li id="grading-element-one" onclick="myFunctionOne()"><a href="#">Call Us</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="">Book A Room</a></li>
+                <li><a href="about.html" id="grading-element-two">About</a></li>
+                
+                <li id="grading-element-three" onclick="myFunction()"><a href="#">Location</a></li>
+                <div>
+                    <p id="grading-element-one-consequence"></p>
+                    <p id="grading-element-three-consequence"></p>
+                </div>
+            </ul>
+            <form action="http://localhost:3000/form" name="grading-element-four" method="POST">
+                Sign Up:<br>
+                <input name="testOne" type="text" placeholder="Full Name" value="0" required>
+                <br><br>
+                <input name="testTwo"type="text" placeholder="Email" value="1" required>
+                <br><br>
+                <select name="testThree" required>
+                    <option value="2" selected>Gender</option>
+                    <option value="3" >Male</option>
+                    <option value="4">Female</option>
+                </select>
+                <br><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </header>
+    <script>
+        function myFunction() {
+            document.getElementById("grading-element-three-consequence").innerHTML="New York, NY";
+        }
+        function myFunctionOne(){
+            document.getElementById("grading-element-one-consequence").innerHTML="(123) 456-7890";
+        }
+    </script>
+</body>
+</html>
