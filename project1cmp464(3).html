@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <style>
+                .div1{
+                    background-color: aliceblue;
+                    height: 12%;
+                    width:20%;
+                    position: relative;
+                    text-align: center;
+
+
+                }
+
+                @media( max-width :600px) {
+    main{
+        width: 100%;
+    }
+        }
+        </style>
+            <div id="grading-element-one"class="div1">
+                
+                    <p><b>This is selection one</b></p>
+                    <button type="button" onclick="whenYouclick()" >Add a Thing</button>
+                    <p id="grading-element-one-consequence"></p>
+                    </div>
+                    
+                    <script>
+                    
+                         function whenYouclick(){
+                   document.getElementById('grading-element-one-consequence').innerHTML="when you click the button you can see me";
+                    }
+              
+                    </script>
+                    </body>
+</html>
