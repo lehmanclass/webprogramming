@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <style>
+                .div1{
+                    background-color: grey;
+                    height: 12%;
+                   width:100%;
+                    position: relative;
+                    text-align: center;
+                    position:absolute;
+                    left:0%;
+                    bottom:60%;
+                    
+
+
+
+                }
+                .div2{
+                    position:absolute;
+                    left:48%;
+                    bottom:7%;
+                    font-size: 30px;
+                }
+                
+
+                @media( max-width :600px) {
+    main{
+        width: 100%;
+    }
+        }
+        </style>
+            <div class="div1">
+                <p>This section is the answer of number 1</p>
+                
+                   <button id= "grading-element-one" onclick="whenYouclick()"> Add a thing</button>
+                    </div>
+                    <script>
+                    
+                         function whenYouclick(){
+                             var addsomething=document.createElement("p");
+                             addsomething.innerText="when you click you can see me";
+                             addsomething.setAttribute("id","grading-element-one-consequence");
+                             document.body.appendChild(addsomething);
+
+                         }
+              
+                    </script>
+
+
+<div class="div2">
+    <a href="project1cmp464.html">First Page</a>
+</div>
+                    </body>
+</html>

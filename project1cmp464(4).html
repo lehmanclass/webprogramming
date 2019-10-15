@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <style>
+            .hidden{
+             font-family: 'Courier New', Courier, monospace;
+             color:black;
+             text-align: center;
+            
+            }
+            .a:hover{
+                        color:blue;
+                    }
+                    .a{
+                        color:black;
+                        position:absolute;
+                        bottom:10px;
+                       left:43%;
+                        
+                        
+                    }
+
+                    @media( max-width :600px) {
+    main{
+        width: 100%;
+    }
+        }
+            
+            </style>
+           
+                
+                <p  class="hidden"><b>This is section three & five</b></p>
+                <p><b>Click the button to see the message</b></p>
+
+                <button type="button" onclick="clickthebutton()" id="grading-element-three">Show A Thing</button>
+                <p id="grading-element-three-consequence"></p>
+                
+               <script>
+                  function clickthebutton(){
+                    document.getElementById("grading-element-three-consequence").innerHTML="Hey i was hidding here";
+                    if(document.getElementById("grading-element-three").style.display != "none") {
+                     if(document.getElementById("grading-element-three-consequence").value != "") {
+    
+    
+
+                    document.getElementById("grading-element-three-consequence").style.visibility="visible";
+                 
+                    
+                  } 
+                        }
+                    
+                  }
+                  
+               </script>
+               <div class="a">
+                    <p><b>Hover over this and see what happen!!!</b></p>
+        
+                </div>
+            
+
+                
+        </body>
+    </head>
+</html>
