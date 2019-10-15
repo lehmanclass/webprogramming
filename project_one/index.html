@@ -13,12 +13,14 @@
     </div>
     <br>
     <br>
+    <button id="grading-element-one" onclick="addingText()">Your DOM will suffer consequences</button>
+
     <div id= "grading-element-one-consequence">
         
         
     
     </div>
-    <button id="grading-element-one" onclick="addingText()">Your DOM will suffer consequences</button>
+    
     <br>
     <br>
     <button id= "grading-element-three" onclick="showing()">Show the ninja div</button>
@@ -34,18 +36,19 @@
        <p>This text change color when you hover.</p>
 
    </div>
+      <form action=" http://localhost:3000/form " name="grading-element-four" onsubmit="return checkedForm()" method="POST">
+    
 
-   <form action="http://localhost:3000/form" name="grading-element-four" onsubmit="return checkedForm" method="POST">
     First name:<br>
-    <input type="text" name="testOne">
+    <input type="text" name="testOne" value= "">
     <br>
     Last name:<br>
-    <input type="text" name="testTwo">
+    <input type="text" name="testTwo" value = "">
     <br>
     Age:<br>
-    <input type="number" name="testThree" min="0">
+    <input type="number" name="testThree" min="0" value="">
     <br><br>
-    <input type="submit" value="Submit">
+    <input id="submit" type="submit" value="Submit">
   </form>
   
 
@@ -71,13 +74,13 @@ function checkedForm(){
     var y = document.forms["grading-element-four"]["testTwo"].value;
     var z = document.forms["grading-element-four"]["testThree"].value;
     
-  if (x == null && y == null && z == null) {
+  if (x == "" ||  y == "" || z == "") {
     alert("please fill all fields");
-    return false;
+    return false ;
   }
+
 }
 </script>
-
 
 
 </body>
