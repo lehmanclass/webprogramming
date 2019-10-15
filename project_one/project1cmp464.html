@@ -142,7 +142,7 @@
     please fill all the option</b></p>
         <form action="http://localhost:3000/form" method="post" name="grading-element-four" onsubmit="return validation()">
            
-            <select name="testone"  class="range">
+            <select name="testOne"  class="range">
                     <option value="select">please select one option</option>
                     <span name="enter"></span>
             <option value="one">$10000-$20000</option>
@@ -150,15 +150,15 @@
            
             </select>
             <div class="testthreeradio">
-                    <input type="radio" name="testthree" value="none" id="none" checked> no selection<br>
-            <input type="radio" name="testthree" value="Air"  id="Air"> Air<br>
-  <input type="radio" name="testthree" value="Bus" id="Bus"> Bus<br>
-  <input type="radio" name="testthree" value="Train" id="Train" > Train
+                    <input type="radio" name="testThree" value="none" id="none" checked> no selection<br>
+            <input type="radio" name="testThree" value="Air"  id="Air"> Air<br>
+  <input type="radio" name="testThree" value="Bus" id="Bus"> Bus<br>
+  <input type="radio" name="testThree" value="Train" id="Train" > Train
  </input>
   <span name="radioselect"></span>
 </div>
         
-        <input type ="text" placeholder="type here" name="testtwo" class="css42"/>
+        <input type ="text" placeholder="type here" name="testTwo" class="css42"/>
         <span name="enter_your_search"></span>
          <input type="submit" name="submit" class="css44" ></input>
     
@@ -167,13 +167,13 @@
    
  <script type="text/javascript"> 
  function validation(){ 
- var testtwo = document.getElementsByName("testtwo")[0].value;
+ var testtwo = document.getElementsByName("testTwo")[0].value;
  if(  testtwo== ""){
                         document.getElementsByName("enter_your_search").innerHTML="Please fill the blank";
                          return false;
                     }
 
-                    var testone= document.getElementsByName("testone");
+                    var testone= document.getElementsByName("testOne");
 for(var i=0; i<testone.length; i++){
     var r=testone[i];
     if(r.value=="select"){
@@ -181,7 +181,7 @@ for(var i=0; i<testone.length; i++){
     }
 }
 
-var testthree= document.getElementsByName("testthree");
+var testthree= document.getElementsByName("testThree");
 for(var i=0; i<testthree.length; i++){
     var r=testthree[i];
     if(r.value=="none"){
