@@ -5,9 +5,15 @@
 	</head>
 	<body>
 
-    <p><a href="file:///Users/ramishsaqib/Documents/about.html" title="Click for a fact">
-      <h1  id = "grading-element-two">About</h1>
-    </a></p>
+    <div>
+
+    <p>
+      <h1>
+      <a  id = "grading-element-two" href="file:///Users/ramishsaqib/Documents/about.html" title="Click for a fact">About</a>
+    </h1>
+    </p>
+
+  </div>
 
     <div>
 
@@ -49,8 +55,6 @@
     </p>
     <script type="text/javascript">
       const button_clicked  = () => {
-      let value = document.getElementById("grading-element-one")
-      let target = document.querySelector('grading-element-one');
       let newdiv = document.createElement('div');
       newdiv.setAttribute("id", "grading-element-one-consequence");
       newdiv.appendChild(document.createTextNode("I'm gonna make money now"));
