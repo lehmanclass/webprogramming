@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRISIS HELP</title>
+	<link rel="stylesheet" href="advise_pro.css" type="text/css">
+
+</head>
+<body>
+
+									<!-- HEADER -->
+
+	<div class = "header-div">
+		<header>
+				<div class = "header1 title">
+					<h1 class = "header_font">LET ME BE YOUR PSYCHO/FRIEND </h1>
+					<h3 class = "header_font_2">If this is an emergency please call 9-1-1</h3>
+				</div>
+
+
+				<div id="nav">
+					<ul class = "lol">
+					<li><a href="advise_pro.html">Home</a>
+						
+						<!-- GRADING ELEMENT TWO -->
+					<li><a id = "grading-element-two" href="about_us.html">About Us</a></li> 
+						<!-- GRADING ELEMENT TWO FINAL-->
+					</ul> 
+				</div>
+		</header>
+	</div>
+
+
+
+									<!-- HEADER FINAL -->
+
+
+
+
+									<!-- GRADING ELEMENT THREE -->
+
+
+	<div class="split left">
+
+					<div>
+						<img id = "grading-element-three" src="gethelp.jpeg" onclick = "imgFunc()">
+						<div id="grading-element-three-consequence" hidden>JESUS LOVES YOU!</div>
+
+
+									<script>
+									function imgFunc(){
+
+									var notVisible= document.getElementById('grading-element-three-consequence');
+									if (notVisible.hasAttribute('hidden')) {
+										notVisible.removeAttribute('hidden')
+									} else {
+										notVisible.setAttribute('hidden', '')
+									}
+
+									}
+
+									</script>
+					</div>
+								
+								<!-- GRADING ELEMENT THREE FINAL-->
+
+
+
+								<!-- GRADING ELEMENT ONE -->
+
+
+				<div>
+					<div id="grading-one">
+						<button id = "grading-element-one" onclick="creating()">Click me</button>
+
+						<script>
+
+						function creating () { 
+						
+						  var newDiv = document.createElement("div"); 
+						  var newContent = document.createTextNode("Hello, I'm your friend. You are not alone!");
+					
+						  newDiv.appendChild(newContent);  
+						  newDiv.setAttribute("id", "test");
+						  var currentDiv = document.getElementById("grading-element-one-consequence"); 
+						  document.body.insertBefore(newDiv, currentDiv); 
+						  }
+
+	
+
+						</script>
+					</div>
+				</div>
+
+
+							<!-- GRADING ELEMENT ONE FINAL -->
+
+
+
+
+</div>
+
+							<!-- GRADING ELEMENT FOUR  -->
+<div class="split right">
+
+					<div id="grading-element-four">
+							<div class = "form">Need to talk to somebody?</div>
+							<div class = "form1">Please send me a msg</div>
+					</div>
+
+					<form class = "form1" action="http://localhost:3000/form" method = "POST">
+							<label> Name: </label>
+								  <input name="firstname"  type="text">
+								  <br><br>
+							<label> Email: </label>
+								  <input name="email" type="text">
+								  <br><br>
+							<label> Message: </label>
+								    <textarea name="message"  rows="10" cols="30"></textarea>
+								  <br><br>
+
+								  <!-- GRADING ELEMENT FINAL -->
+						  <button id = "grading-element-five" type="submit">Submit</button>
+						  			<!-- GRADING ELEMENT FIVE FINAL -->
+
+					</form>
+
+					
+					</div>
+
+			
+</div>
+							<!-- GRADING ELEMENT FOUR FINAL -->
+
+
+
+	<!-- project_one -->
+				 
+		
+	<!-- -after i click on an element with #grading-element-one, i will find a #grading-element-one-consequence added to the DOM ---------DONE--------
+
+	-after i click a link with id tag #grading-element-two, the page will redirect to a /about page. This new page should have a #grading-element-one-consequence element. ------DONE------
+
+
+	-after i click an element with id tag #grading-element-three, a not-visible element #grading-element-three-consequence will be visible (hint: do not use display: none & display: block)
+	------DONE---------
+
+
+	-there is a form (can be hidden) with name grading-element-four that when submitted, will POST to http://localhost:3000/form and the form payload must have truthy values for three keys: testOne, testTwo, TestThree. ---------ALMOST DONE---------
+
+	-there is an element with id #grading-element-five that has a css color value, that changes to a new color value when the mouse hovers over it. -------DONE---------
+ -->
+
+
+</body>
+</html>
