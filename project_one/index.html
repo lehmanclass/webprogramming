@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cool little thing</title>
+
+    <link rel="stylesheet" type="text/css" href="project1.css">
+</head>
+<body>
+
+    <script type="text/javascript">
+        const clicked  = () => {
+        let kid = document.createElement("div");
+        kid.setAttribute("id", "grading-element-one-consequence");
+        kid.appendChild(document.createTextNode("SHIT"));
+        document.body.appendChild(kid);
+        }
+
+
+
+    </script>
+
+  <!--   This is section 1 -->
+    <div id="Text1">
+        <p>
+            <h1>
+                This is section one
+                <button id="grading-element-one" onclick="clicked()">Press me</button>
+            </h1>
+
+        </p>
+    </div>
+
+    <!-- This is section 2 -->
+    <div id="Text2">
+        <p>
+            <h2>
+                <a href="file:///Users/edisonblum/Documents/sublime/about.html" id="grading-element-two">About</a>
+            </h2>
+
+        </p>
+    </div>
+
+    <!-- This is section 3 -->
+    <div id="Text3">
+        <p>
+        	<h2>
+        		This is section three
+            	<button id="grading-element-three" 
+                    onclick="getElementById('grading-element-three-consequence').innerHTML = 'this should work'">
+                    Click me
+           		</button>
+        	</h2>
+            
+            <p id="grading-element-three-consequence"></p>
+        </p>
+    </div>
+
+    <!-- This is section 4 -->
+    <div id="Text4">
+    	<h2>
+    		Section four
+ 	       	<form name="grading-element-four" action="http://localhost:3000/form" method="post">
+        	    <input type="submit" name="click THIS">
+    	    </form>
+    	</h2>
+        
+    </div>
+
+    <!-- This is section 5 -->
+    <div id="Text5">
+    	<h2>
+    		Section five
+        	<p id="grading-element-five">
+            	<a>Change</a>
+        	</p>
+    	</h2>
+
+
+    </div>
+
+
+</body>
+</html>
