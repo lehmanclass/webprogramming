@@ -23,15 +23,13 @@
             </div>
     </div>
 
-    <form name = "grading-element-four">
+    <form name = "grading-element-four" method = "POST" action ="http://localhost:3000/form">
         This is a form
-        <select name="Numbers">
-            <option value="One">One</option>
-            <option value="Two">Two</option>
-        </select>
-        <input type="text">
-        On <input type="radio" name="on" value="on">
-        Off <input type="radio" name="off" value="off"> 
+
+        <input type="text" name="testOne" value="testOne" required/>
+        <input type="text" name="testTwo" value="testTwo" required/>
+        <input type="text" name="testThree" value="testThree" required/>
+
         <input type="submit" value="Submit">
  
 
@@ -59,8 +57,11 @@
         }
 
         const activate_click_three = () => {
-             document.getElementById("grading-element-three-consequence").style.visibility = "visible";
+            document.getElementById("grading-element-three-consequence").style.visibility = "visible";
         }
+
+
+        
 
 </script>
 
