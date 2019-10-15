@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<head>
+	<title></title>
+</head>
+<body>
+    <p id = 'pid'> This is section one 
+        <button id = grading-element-one-consequence onClick = "activate_click()">
+        Add A Thing
+        </button> 
+    </p> 
+
+    <a href='about.html'>About </a>
+
+
+    <div> This is section three
+        <button id = grading-element-three onClick = "activate_click_three()">
+            Show a thing
+
+    </div>
+
+    <form name = grading-element-four>
+        This is a form
+        <select name="Numbers">
+            <option value="One">One</option>
+            <option value="Two">Two</option>
+        </select>
+        <input type="text">
+        On <input type="radio" name="on" value="on">
+        Off <input type="radio" name="off" value="off"> 
+        <input type="submit" value="Submit">
+ 
+
+    </form>
+    <div id = 'grading-element-five'>
+        
+        Hello, hover over me to have a new color!
+    </div>
+    <!-- 
+    <form>
+        <input name="testOne" />
+        <input name="testTwo" />
+        <input name="testThree" />
+    </form>
+    --> 
+     
+    <script type="text/javascript">
+        const activate_click  = () => {
+            let target = document.querySelector('grading-element-one');
+            let newdiv = document.createElement('div');
+            let divid = document.getElementById('pid');
+            newdiv.setAttribute("id", "grading-element-one-consequence");
+            newdiv.appendChild(document.createTextNode("I have been clicked"));
+            // document.body.appendChild(newdiv);   
+            divid.appendChild(newdiv); 
+        }
+
+        const activate_click_three = () => {
+            let target_two = document.querySelector('grading-element-three');
+            let newdiv_two = document.createElement('div');
+            newdiv_two.setAttribute("id", "grading-element-three-consequence");
+            document.body.appendChild(newdiv_two);
+        }
+
+</script>
+
+    <p></p>
+</body>
+</html>
