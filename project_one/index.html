@@ -9,7 +9,7 @@
         <button id = "grading-element-one" onClick = "activate_click()">
         Add A Thing
         </button> 
-    </p> 
+    </p>
 
     <a href="about.html">About </a>
 
@@ -17,7 +17,10 @@
     <div> This is section three
         <button id = "grading-element-three" onClick = "activate_click_three()">
             Show a thing
-
+            </button>
+            <div id= "grading-element-three-consequence">
+                Hello I am here.
+            </div>
     </div>
 
     <form name = "grading-element-four">
@@ -56,10 +59,7 @@
         }
 
         const activate_click_three = () => {
-            let target_two = document.querySelector("grading-element-three");
-            let newdiv_two = document.createElement("div");
-            newdiv_two.setAttribute("id", "grading-element-three-consequence");
-            document.body.appendChild(newdiv_two);
+             document.getElementById("grading-element-three-consequence").style.visibility = "visible";
         }
 
 </script>
