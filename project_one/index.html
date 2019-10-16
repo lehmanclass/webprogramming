@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <div class ="pageheader"><strong>MuralFind</strong></div>
+        <nav>
+        <ul>
+            <li><a href = "Project-One.html">Home</a></li>
+            <li><a href = "About.html">About</a></li>
+            <li><a href = "Map.html">Map</a></li>
+            <li><a href = "FAQ.html">FAQ</a></li>
+        </ul>
+
+    </nav>
+
+        
+    </header>  
+    <div class = "banner">
+            <img src="https://images.unsplash.com/photo-1561898329-9ad7d76fbb2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Italian Trulli">
+            <img src="https://images.unsplash.com/photo-1551363786-c8bc9e05170c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+            <img src ="https://www.learnodo-newtonic.com/wp-content/uploads/2017/09/Balloon-Girl-2002-Banksy.jpg">
+    </div>
+
+<div class = "call-to-action">
+    <h4>Learn about art murals closest to you</h4>
+    <p>Muralfind was created to make street help users find street art</p>
+    <p>Why murals ?</p>
+    <h5><a id = "grading-element-one" onclick="addtoDOM()">Click Here</a></h5>
+    <div id ="consequence">
+
+
+    </div>
+    <h5 id ="grading-element-two" onclick="showonDOM()"><a href = "about.html">Learn More</a></h5>
+
+</div>
+<script type="text/javascript">
+
+
+let addtoDOM = () =>{
+    console.log("clicked");
+    var allocateSpace = document.createElement("ConsequenceElem");              
+    var textToADD = document.createTextNode("Murals are important");         
+    allocateSpace.appendChild(textToADD);                              
+    document.getElementById("consequence").appendChild(allocateSpace);
+
+}
+
+    
+
+
+
+
+
+
+</script>
+   
+    
+</body>
+</html> 
