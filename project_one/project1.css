@@ -1,0 +1,41 @@
+#grading-element-five{
+    color: white;
+}
+a:hover {
+    color: black;
+}
+
+body {
+  background: green;
+}
+
+@media (min-width: 600px) {
+  body {
+    background: #52b7ff;
+  }
+}
+
+#Text1{
+    background-color: #ffa05c;
+    font-size: 28px;
+}
+
+#Text2{
+    background-color: #ded643;
+    font-size: 26px;
+}
+
+#Text3{
+	background-color: #7242f5;
+	font-size: 24px;
+}
+
+#Text4{
+	background-color: #1df511;
+	font-size: 22px;
+}
+
+#Text5{
+	background-color: #f511f5;
+	font-size: 20px;
+}
