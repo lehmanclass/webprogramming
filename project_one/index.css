@@ -60,3 +60,13 @@ img{
     text-align: center;
     
 }
+
+#grading-element-one{
+    border: 1px lightgray solid;
+    padding:8px;
+    border-radius: 4px;
+    background:lightgray;
+    
+    
+    
+}
