@@ -7,7 +7,7 @@ function unHide() {
     //     x.style.display = "none"
     // }
 
-    let x = document.getElementById('grading-element-three-consquence')
+    let x = document.getElementById('grading-element-three-consequence')
     
     if(x.hasAttribute('hidden')){
         x.removeAttribute('hidden');
