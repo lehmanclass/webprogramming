@@ -27,10 +27,10 @@
     </div>
 
 <div class = "call-to-action">
-    <h4>Learn about art murals closest to you</h4>
+    <h4>Find Art Murals Closest to you</h4>
     <p>Muralfind was created to help users find street art and raise awareness</p>
-    <p><strong>Why murals?</strong> </p>
-    <h5><a id = "grading-element-one" onclick="addtoDOM()">Click Here</a></h5>
+    
+    <h5><a id = "grading-element-one" onclick="addtoDOM()">Why murals?</a></h5>
     <div id ="consequence">
 
 
@@ -44,7 +44,7 @@
 let addtoDOM = () =>{
     console.log("clicked");
     var allocateSpace = document.createElement("ConsequenceElem");              
-    var textToADD = document.createTextNode("Murals are important part of the community and arts");         
+    var textToADD = document.createTextNode("Murals are important part of the community and help tell stories");         
     allocateSpace.appendChild(textToADD);                              
     document.getElementById("consequence").appendChild(allocateSpace);
 

@@ -58,6 +58,7 @@ img{
     display: flex;
     flex-flow: column;
     text-align: center;
+    font-size: 20px;
     
 }
 
@@ -66,6 +67,7 @@ img{
     padding:8px;
     border-radius: 4px;
     background:lightgray;
+
     
     
     
