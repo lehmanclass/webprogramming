@@ -3,13 +3,22 @@
 <head>
 	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<nav id= "Navigation">
+		<a href="pageTwo.html" id= "secondPage"> Page 2 </a> 
+		<a href="pageThree.html" id= "thirdPage"> Page 3</a>
+		<a href="pageFour.html" id = "fourthPage"> Page 4 </a>
+	</nav>
+
+	<img src="Kappa_img.jpeg" id = "Main_img"> 
 </head>
 <body>
 
 	<script type="text/javascript" src= "index.js"></script>
 
+	<h1 id = "title"> WELCOME TO MY FIRST PROJECT </h1>
+
 	<div id= "First_Part">
-		<p> This is section one <button id = "grading-element-one"  onclick = "elementOne()"> Add Something </button> </p> 
+		<p id = "paragraph_one"> This is section one <button id = "grading-element-one"  onclick = "elementOne()"> Add Something </button> </p> 
 
 	</div>
 
@@ -20,8 +29,9 @@
 
 	<div id = "Third_Part">
 
-		<p></p>
-		<button id = "grading-element-three" onclick = "elementThree()" > Click Here FOR MAGIC </button>
+		<br></br>
+	<p> Once YOU CLICK YOU'RE DONE ... <button id = "grading-element-three" onclick = "elementThree()" > Click Here FOR MAGIC </button>
+	</p>
 
 
 	</div>
@@ -31,10 +41,10 @@
 	 <form name = "grading-element-four" method = "POST" action ="http://localhost:3000/form">
 
 	 	<br> </br>
-
-        <input type="text" name="testOne" placeholder="testOne" required/> <br></br>
-        <input type="text" name="testTwo" placeholder = "testTwo" required/> <br></br>
-        <input type="text" name="testThree" placeholder ="testThree" required/>
+	 	<p id = "form_paragraph"> Fill in the Following Text: </p>
+       <p> First Body: </p> <input type="text" name="testOne" placeholder="testOne" required/> </input><br></br>
+       <p> Second Body: </p> <input type="text" name="testTwo" placeholder = "testTwo" required/> </input> <br></br>
+        <p> Third Body: </p> <input type="text" name="testThree" placeholder ="testThree" required/> </input>
 
         <input type="submit" value="Submit">
  
@@ -49,6 +59,13 @@
 		<br> </br>
 
 		<p id= "grading-element-five"> LOOK AT ME I CHANGE COLOR ! </p>
+
+	</div>
+
+
+	<div id = "extra_links">
+
+		<a href=""></a>
 
 	</div>
 
