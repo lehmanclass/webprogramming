@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+     <head>
+
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet"
+        type = "text/css"
+        href = "Trash.css" />
+
+     </head>
+   
+        <body>
+
+            <p>Click Me Hard</p>
+
+            <button id="grading-element-one" onclick="TouchMe()">Touch Me</button>
+
+            <script>
+            function TouchMe(){
+                var touch = document.createElement("i");
+                touch.innerText = " ClickMeHarder ";
+                touch.setAttribute("id","grading-element-one-consequence")
+                document.body.appendChild(touch)
+            }
+            
+            
+            </script>
+
+            <p><a id="grading-element-two" href="TouchingMe.html">TouchingMe</a> This is my touching me location </p>
+
+                
+            <button id="grading-element-three" onclick="DontTouchMe()">DontTouchMe</button>
+
+            <script>        
+
+            function DontTouchMe(){
+                var click = document.createElement("i");
+                click.setAttribute("id","grading-element-three-consequence")
+                document.body.appendChild(click)
+                document.getElementById("grading-element-three").style.visibility = "hidden";
+            }
+
+            </script>
+            
+            <input type="button" id="grading-element-five" value="Hover over this button\n" onmouseover="this.style.backgroundColor='purple'; return true; "
+            onmouseout="this.style.backgroundColor='Blue'; return true;"/>
+
+
+        </body>
+</html>

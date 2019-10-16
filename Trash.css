@@ -1,0 +1,14 @@
+body
+{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: green;
+    background-color: silver;
+}
+
+p
+{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: red
+}
