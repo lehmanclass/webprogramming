@@ -7,7 +7,7 @@
 <body>
 	<span>This is section one</span> 
 	<button id="grading-element-one" type="button">Add A Thing</button>
-	<p id="grading-element-one-consequence"></p>
+	<ul id="grading-element-one-consequence"></ul>
 	<br>
 	<a id= "grading-element-two" href = "about.html">About</a> <br>
 	<span>This is section three</span>
@@ -16,14 +16,15 @@
 	<br>
 	<span> This is section four</span><br>
 	<span>This is a form</span>
-	<form id="grading-element-four" method = "POST">
-		<select name="items">
-			<option value="one" name=one> One</option>
-			<option value="Two" name=two>Two</option>
+	<form action= "http://localhost:3000/form" id="grading-element-four" method = "POST"> required
+		<select name="items" required="">
+			<option value="one" name=one > One</option>
+			<option value="Two" name=two >Two</option>
 		</select>
-		<input type="text" placeholder="type stuff here" name="sentence">
-		<input type="radio" name="button" value="On">On
-		<input type="radio" name="button" value="Off">Off
+		<input type="text" placeholder="type stuff here" name="sentence" required>
+		<input type="radio" name="button" value="On" required>On
+		<input type="radio" name="button" value="Off" required>Off
+		<input type="submit" value="Sumbit!">
 	</form>
 
 	<span>This is section five</span><br>
