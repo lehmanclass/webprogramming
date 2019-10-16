@@ -1,0 +1,48 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.grading-element-five a:hover {
+  background-color: plum;
+  color:black;
+}
+h1{
+  color: royalblue;
+  
+}
+#grading-element-three-consequence {
+  display: none;
+
+}
+#title {
+  color: rgb(155, 50, 85);
+  text-align: center;
+  
+}
+.animal {
+  border-radius: 50%;
+  
+}
+img {
+  width: 200;
+  height: 200;
+}
+
+
+

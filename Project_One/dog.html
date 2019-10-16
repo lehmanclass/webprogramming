@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        </head>
+       
+        <button id = "grading-element-three" onclick="Show()">Show me the Dog</button>
+        
+        <div id="grading-element-three-consequence" >
+            <img class="animal" src="Photos/Dog.jpg">
+        </div>
+
+                        
+        <script>
+            function Show() {
+                var dog = document.getElementById("grading-element-three-consequence");
+                if (dog.style.display == "none") {
+                    dog.style.display == "block";
+                }
+                else {
+                    dog.style.display = "block";
+                }
+
+                
+            }
+        </script>
+    </body>
+</html>
