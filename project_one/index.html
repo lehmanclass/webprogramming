@@ -21,9 +21,9 @@
     </nav>
 
     <section>
-      <div class="container">
+      <div class="container" id="receiver-div">
         <p>This is section one:</p>
-        <button id="grading-element-one" onclick="myFunction()">Button1</button>
+        <button onclick="myFunction()" id="grading-element-one">Button1</button>
       </div>
     </section>
 
@@ -39,7 +39,7 @@
         <p>This is section three:</p>
         <button onclick="myFunction2()">Button3</button>
         <div id="grading-element-three-consequence" hidden>
-          Power is the best show on cable right now
+          awesome class
         </div>
       </div>
     </section>
@@ -50,16 +50,22 @@
         <form
           action="http://localhost:3000/form"
           method="post"
-          name="name grading-element-four"
+          name="grading-element-four"
         >
           <select name="truthyVal">
             <option value="testOne">testOne </option>
             <option value="testTwo">testTwo</option>
             <option value="testThree">testThree</option>
           </select>
-          <input name="text" type="text" placeholder="type here" required="" />
-          <input type="radio" name="on-or-off" required="" value="on" < />On>
-          <input type="radio" name="on-or-off" required="" value="off" < />Off>
+          <input
+            name="text"
+            type="text"
+            placeholder="type here"
+            required
+            title="You must Type something"
+          />
+          <input type="radio" name="on-or-off" value="on" /> On
+          <input type="radio" name="on-or-off" value="off" />Off
           <input type="submit" value="submit" />
         </form>
       </div>
@@ -68,29 +74,31 @@
     <section>
       <div class="container">
         <p>This is section 5:</p>
-        <p id="grading-element-five">don't hover over this or else</p>
+        <p id="grading-element-five" onmouseover="partFive()">
+          don't hover over this or else
+        </p>
       </div>
     </section>
 
     <script>
       function myFunction() {
-        var newItem = document.createElement("LI");
-        var textnode = document.createTextNode(
-          "grading-element-one-consequence added"
-        );
-        newItem.appendChild(textnode);
-
-        var list = document.getElementById("grading-element-one");
-        list.insertBefore(newItem, list.childNodes[0]);
+        let newThing = document.createElement("div");
+        newThing.innerText = "Add this to the DOM";
+        let receiverDiv = document.getElementById("receiver-div");
+        receiverDiv.appendChild(newThing);
       }
 
       function myFunction2() {
-        var x = document.getElementById("grading-element-three-consequence");
+        const x = document.getElementById("grading-element-three-consequence");
         if (x.hasAttribute("hidden")) {
           x.removeAttribute("hidden");
         } else {
           x.setAttribute("hidden", "");
         }
+      }
+
+      function partFive() {
+        document.getElementById("grading-element-five").color = blue;
       }
     </script>
   </body>
