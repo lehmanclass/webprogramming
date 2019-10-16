@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+<!-- dropdown for get connected -->
+  <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: right;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/*layout*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Times New Roman;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+  font-size: 50px;
+}
+
+.header h1 {
+  font
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #222;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #aaa;
+  color: black;
+}
+
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 70%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* image */
+.img {
+  background-image: url('dearest.jpg');
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+
+<!--play top video -->
+
+<!-- <div style="text-align:left;"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="makeBig()">Full Screen</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br> -->
+  
+  <div style="text-align: center;">
+  <video  width="850" height="250" controls autoplay>
+    <source src="webvid/Church_announcement.mp4" type="video/mp4" >
+
+  </video>
+</div> 
+
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function Big() { 
+    myVideo.width = 560; 
+} 
+
+function Small() { 
+    myVideo.width = 320; 
+} 
+
+function Normal() { 
+    myVideo.width = 420; 
+} 
+</script>
+
+
+</head>
+<body>
+<!-- <img src="logo.jpg" ALT="some text" WIDTH=60 HEIGHT=40> -->
+<style>
+a:hover {
+  background-color: yellow;
+}
+</style>
+
+</head>
+<body>
+
+
+ 
+<div class="header">
+  <h1 style="background-color: #2beaed">Welcome To Your Dearest Church</h1>
+  <p style="background-color: #edcd2b">Jesus Is Lord Global Ministry New York</p>
+</div>
+
+<div class="topnav">
+  <a href="#">Location</a>
+
+  <!-- <a href="#">Get Connected</a> -->
+  <li class="dropdown">
+  <a href="javascript:void(0)" class="dropbtn">Get Connected</a>
+    <div class="dropdown-content">
+      <a href="#">Life Group</a>
+      <!-- <a href="#">Need Help?</a> -->
+      <!-- <a href="#"></a> -->
+    </div>
+  
+   <a href="#">Events</a>
+
+
+  <a href="#" style="float:right">Contact Us</a>
+
+
+</div>
+
+<div class="row" align="center">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>Vision </h2>
+
+      <h5>Who We Are</h5>
+      <style >
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      </style>
+      <img src="webimg/wwr.jpg" alt="Church" width="300" height="150" class ="center">
+      <!-- <style >
+        body {
+          background-image: url('dearest.jpg');
+        }
+      </style> -->
+     <!--  <div class="img" style="height:200px;">Vision Image</div> -->
+      <!-- <p>Some text..</p> -->
+      <p>To reach New York and the world for Christ through life group and team of twelve like Jesus, making each member of the Church a qualified servant leaders to reproduce God's work. </p>
+    </div>
+    <div class="card">
+      <h2>Mission</h2>
+      <h5>Love God, Love people, Win souls, Make disciples</h5>
+
+
+      <img src="webimg/dearest.jpg" alt="Church" width="500" height="333">
+
+      <p>Jesus is Lord Global Ministry Church - USA </p>
+      <p> is all about Loving God, Loving People, Winning Souls and Making Disciples of Jesus Christ. </p>
+      <p> We are a nonsectarian, non-denominational, ful gospel, bible-based Church.</p>
+      <p> We are here to help people promote a growing relationship with God through Jesus Christ. We desire everyone to learn from the Bible through daily devotions, join cell group meetings, celebrate God in worship, and be equipped through the Leadership Development Programs.</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Us</h2>
+    <img src="webimg/fam.jpg" alt="Church" width="200" height="150">
+
+<!--       <div class="DearestChrch.jpg" style="height:100px;">Image</div> -->
+      <p>Welcome to Jesus Is Lord Global Ministry Church USA.
+Everyone here is welcome. This is a Christian ministry, We do not promote religion, but we want you to have a personal relationship experience with God.
+We are up on the business of loving People.
+So whatever reasons may have brought you here, soon as you step in this place, we see you as our brother and sister in Christ.
+This is a Bible ministry, all teachings is based on the bible. We don’t make up anything.
+Our church started in a small house on 2005, founded by Rev. Nestor Miguel ..And there on, God has been faithful through the the years.</p>
+    </div>
+    <div class="card">
+      <h3>Events</h3>
+      <img src="webimg/yut2.jpg" alt="Church" width="120" height="70">
+      <img src="webimg/dan.jpg" alt="Church" width="120" height="70">
+      <img src="webimg/win.jpg" alt="Church" width="120" height="70">
+      <img src="webimg/ian.jpg" alt="Church" width="120" height="70">
+    </div>
+    <div class="card">
+      <h3>Service Hours</h3>
+      <p>Come and Worship with us!</p>
+      <p>Church Service: 10:00 - 12:00 </p>
+      <p>Kid's Sunday Service: 11:00 - 12:00 </p>
+      <p>Youth Service: Every Friday  @ 7 pm </p>
+    </div>
+  </div>
+</div>
+
+<p><b>Find us through Google Maps</b></p>
+<a href="https://www.google.com/maps/place/4390+Katonah+Ave,+The+Bronx,+NY+10470/@40.9015541,-73.8699245,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f2e72e32d605:0x70b8c2d0b1ccbe20!8m2!3d40.9015541!4d-73.8677305">Google Maps</a>
+<!-- <a href="https://www.wikipedia.org">wikipedia.org</a>
+ -->
+
+
+
+<div class="footer">
+  <h2> 4390 Katonah Ave, Bronx New York 10470 - Rev. Nestor Miguel Office: 718-231-2292  </h2>
+</div>
+
+</body>
+</html>
