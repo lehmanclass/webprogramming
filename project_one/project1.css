@@ -1,0 +1,48 @@
+body{
+    background-color: yellow;
+}
+
+
+#grading-element-one, {
+    background-color: black;
+    opacity: 0.9;
+    display: list-item;
+   /* display: inline-block;*/
+    color: white;
+    text-decoration: italic;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 2px 0 2px 0;
+    text-decoration: none;
+    margin-bottom: 40px;
+    /*margin-bottom: 40vh;*/
+}
+
+#grading-element-three{
+    font-size: 40px;
+}
+
+
+#grading-element-five{
+    background-color: blue;
+    color: white;
+    text-decoration: italic;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 6px 4px 6px 4px;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+
+#grading-element-five:hover{
+    background-color: red;
+    color: black;
+    text-decoration: italic;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 2px 0 2px 0;
+    text-decoration: none;
+}
+
+
