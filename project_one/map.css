@@ -44,4 +44,14 @@ nav ul li a{
 }
 #grading-element-three-consequence{
     visibility: hidden;
+    padding-top: 35px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.muralIMG{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }

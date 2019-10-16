@@ -48,3 +48,11 @@ nav ul li a{
 
 }
 
+.page-material{
+   
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+}
