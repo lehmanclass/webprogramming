@@ -1,22 +1,44 @@
-.top-header {
-   background-color: #3b5998;
-   color: white;
-   display: flex;
-   justify-content: space-between;
-   padding: 0 5%;
-   height: auto;
-}
-.header-child{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#grading-element-two{
+    background-color: aquamarine;
 }
 
-.columns {
-
+#grading-element-one{
+    background-color: lightblue;
 }
 
-.do-not-hover:hover {
-    font-size: 80px;
-    color: black;
+#grading-element-three{
+    background-color: lightcoral;
+}
+
+body{
+    background-color: black;
+}
+
+p{
+    color: white;
+}
+
+#grading-element-five{
+    color: red;
+    background-color: white;
+}
+
+a:hover {
+    color: blue;
+}
+
+#Salary{
+    color: white;
+    font-size: 50px;
+}
+
+#Stock{
+    height: 300px;
+    width: 400px;
+    border: 10px solid transparent;
+    border-image: url(border.png) 50 round;
+    border-top-color: yellow;
+    border-bottom-color: green;
+    border-right-color: rgb(72, 72, 226);
+    border-left-color: purple;
 }
