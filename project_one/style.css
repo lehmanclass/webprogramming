@@ -1,0 +1,22 @@
+.top-header {
+   background-color: #3b5998;
+   color: white;
+   display: flex;
+   justify-content: space-between;
+   padding: 0 5%;
+   height: auto;
+}
+.header-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.columns {
+
+}
+
+.do-not-hover:hover {
+    font-size: 80px;
+    color: black;
+}
