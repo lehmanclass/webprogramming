@@ -1,20 +1,11 @@
 function unHide() {
-    // let x = document.getElementById("grading-element-three");
-
-    // if (x.style.display === "none") {
-    //     x.style.display = "block"
-    // } else {
-    //     x.style.display = "none"
-    // }
-
-    let x = document.getElementById('grading-element-three-consequence')
-    
-    if(x.hasAttribute('hidden')){
-        x.removeAttribute('hidden');
+    var x = document.getElementById('grading-element-three-consequence');
+    if (x.style.visibility === 'hidden') {
+      x.style.visibility = 'visible';
     } else {
-        x.setAttribute('hidden', '');
+      x.style.visibility = 'hidden';
     }
-}
+  }
 
 const baddie = () => {
     let x = document.createElement('p');
@@ -33,6 +24,4 @@ const keys = () => {
     x.value = "testOne";
     y.value = "testTwo";
     z.value = "testThree";
-
-    
 }

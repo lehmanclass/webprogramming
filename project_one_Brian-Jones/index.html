@@ -22,8 +22,8 @@
         <p>Click me to fill something out <button id="grading-element-three" onclick="unHide()">Press me</button></p>
 
 
-        <div id="grading-element-three-consequence" hidden>
-            <form action="http://localhost:3000/form" method="POST" id="grading-element-four">
+        <div id="grading-element-three-consequence" style="visibility: hidden;">
+            <form action="http://localhost:3000/form" method="POST" name="grading-element-four">
                 <fieldset id="field">
 
                     <legend>Fill out this form!</legend>
@@ -31,17 +31,17 @@
                         <tbody>
                             <tr>
                                 <td><label for="TestOne">Test One: </label></td>
-                                <td><input id="T1" type="text" name="TestOne" required ></td>
+                                <td><input id="T1" type="text" name="test1" required value="testOne"></td>
                             </tr>
 
                             <tr>
                                 <td><label for="TestTwo">Test Two: </label></td>
-                                <td><input id="T2" type="text" name="TestTwo" required></td>
+                                <td><input id="T2" type="text" name="test2" required value="testTwo"></td>
                             </tr>
 
                             <tr>
                                 <td><label for="TestThree">Test Three: </label></td>
-                                <td><input id="T3" type="text" name="TestThree" required></td>
+                                <td><input id="T3" type="text" name="test3" required value="testThree"></td>
                                 <br>
                                 <td><button onclick="keys()" type="submit">SUBMIT</button></td>
                             </tr>
