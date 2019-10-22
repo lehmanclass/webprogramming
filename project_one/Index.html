@@ -23,7 +23,7 @@
         document.getElementById("grading-element-one").addEventListener("click", youpressedme);
         function youpressedme() {
             var grading_element_one_consequence = document.createElement("p");
-            grading_element_one_consequence.setAttribute("id","grading-element-one-consequance")
+            grading_element_one_consequence.setAttribute("id","grading-element-one-consequence")
             grading_element_one_consequence.innerText = "Well Hello there";
             document.getElementById("con goes here").appendChild(grading_element_one_consequence);
         }
@@ -32,13 +32,11 @@
             document.getElementById("grading-element-three-consequence").removeAttribute("hidden");
         }
     </script>
-
-    <form id="grading-element-four" method="POST" hiddin>
         
     </form>
 
       <div class="container">
-      <form id="grading-element-four" method="POST" hiddin action="http://localost:3000/form" method="post" >
+      <form name="grading-element-four" method="POST" hiddin action="http://localost:3000/form" method="post" >
       Full Name:
       <br>
       <input type="text" name="testOne" value="I'm">
