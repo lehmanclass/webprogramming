@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 app.get("/test_one", (req, res) => {
   const message = {
     message: {
@@ -11,7 +13,10 @@ app.get("/test_one", (req, res) => {
   res.json(message);
 });
 
-app.post("/test_two", (req, res) => {});
+app.post("/test_two", (req, res) => {
+  const { fruit, cake } = req.body;
+  res.json({ massage: { fruitMessage: `i love to eat ${fruit} with ${cake}` } });
+});
 
 app.get("/test_three/", (req, res) => {});
 
