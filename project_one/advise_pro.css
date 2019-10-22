@@ -7,8 +7,7 @@ body{
 
 .header-div{
 	background-color: #95adbe;
-	padding:30px;
-	
+	padding:20px;
 
 
 }
@@ -37,13 +36,13 @@ body{
 }
 
 .lol{
-	padding-left: 70%;
+	padding-left: 60%;
 	font-family: fantasy;
 	color:white;
 	font-size: 20px;
+	text-decoration-line: none;
 
 }
-
 
 
 .header_font{
@@ -69,25 +68,6 @@ li {
 
 }
 
-#img1{
-	padding-left: 50px;
-
-}
-
-#grading-element-one{
-  background-color: #1cb0b8; 
-  color: white;
-  padding: 15px 32px;
-  margin-left: 100px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-}
-
-
-/* Split the screen in half */
 .split {
   height: 100%;
   width: 50%;
@@ -98,20 +78,17 @@ li {
   padding-top: 20px;
 }
 
-/* Control the left side */
 .left {
   left: 0;
-  /*background-color: #fff;*/
+
 }
 
-/* Control the right side */
 .right {
   right: 0;
   background-color: #3477eb;
 }
 
 
-/*FORM CSS */
 .form, .form1{
 	padding-left: 30px;
 	color: white;
@@ -122,16 +99,58 @@ li {
 .form1{
 	font-size: 20px;
 }
+
+.form2{
+	padding-left:30px;
+}
 input, textarea{
 	width: 40%;
 	padding: 10px;
 	border-radius: 20px;
 }
 
+p{
+	margin-left: 70px;
+}
+
+#grading-element-one{
+  background-color: #1cb0b8; 
+  color: white;
+  padding: 15px 32px;
+  margin-left: 240px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#grading-element-two-consequence{
+	margin-left:140px;
+	color: pink;
+	font-family: fantasy;
+	font-size: 40px;
+
+}
+
+#grading-element-three{
+	padding-left: 50px;
+	margin-left:70px;
+
+}
+
+#grading-element-three-consequence{
+	color: pink;
+	font-size: 50px;
+	font-family: fantasy;
+	padding-left: 25px;
+}
+
 #grading-element-five{
 	background-color: white;
 	color:black;
 	padding: 10px;
+	margin-left:90px;
 	border-radius: 4px;
 }
 

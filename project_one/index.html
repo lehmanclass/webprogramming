@@ -23,7 +23,11 @@
 						
 						<!-- GRADING ELEMENT TWO -->
 					<li><a id = "grading-element-two" href="about_us.html">About Us</a></li> 
-						<!-- GRADING ELEMENT TWO FINAL-->
+					<!-- GRADING ELEMENT TWO FINAL-->
+					<li><a href="resources1.html">Resources1</a>
+					<li><a href="resources2.html">Resources2</a>
+					<li><a href="resources3.html">Resources3</a>
+						
 					</ul> 
 				</div>
 		</header>
@@ -80,7 +84,7 @@
 						  var newContent = document.createTextNode("Hello, I'm your friend. You are not alone!");
 					
 						  newDiv.appendChild(newContent);  
-						  newDiv.setAttribute("id", "test");
+						  newDiv.setAttribute("id", "grading-element-one-consequence");
 						  var currentDiv = document.getElementById("grading-element-one-consequence"); 
 						  document.body.insertBefore(newDiv, currentDiv); 
 						  }
@@ -102,12 +106,15 @@
 							<!-- GRADING ELEMENT FOUR  -->
 <div class="split right">
 
-					<div id="grading-element-four">
+					<!-- <div id="grading-element-four"> -->
+						<div id="form1">
 							<div class = "form">Need to talk to somebody?</div>
-							<div class = "form1">Please send me a msg</div>
+							<div class = "form">Please send me a msg</div>
 					</div>
 
-					<form class = "form1" action="http://localhost:3000/form" method = "POST">
+
+					<form name = "grading-element-four" action="http://localhost:3000/form" method = "POST" class = form2>
+					<!-- <form class = "form1" action="http://localhost:3000/form" method = "POST"> -->
 							<label> Name: </label>
 								  <input name="firstname"  type="text">
 								  <br><br>
