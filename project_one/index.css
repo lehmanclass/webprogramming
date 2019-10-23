@@ -1,10 +1,13 @@
+h1 {
+  text-align: center;
+}
 body {
   background-color: #415e5b;
   color: white;
   font: Arial;
   font-size: 18px;
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .container {
@@ -36,7 +39,4 @@ body {
 
 #grading-element-five {
   color: red;
-}
-#grading-element-five:hover {
-  color: blue;
 }

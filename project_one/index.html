@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <title>Project1</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
@@ -15,15 +15,18 @@
       <div class="container">
         <ul>
           <li><a href="#Home">Home</a></li>
-          <!-- <li><a href="my_calc.html">Calculator Link</a></li> -->
+          <li><a href="my_calc.html">Calculator Link</a></li>
         </ul>
       </div>
     </nav>
 
     <section>
-      <div class="container" id="receiver-div">
+      <div class="container">
         <p>This is section one:</p>
-        <button onclick="myFunction()" id="grading-element-one">Button1</button>
+        <button onclick="myFunctionOne()" id="grading-element-one">
+          Button1
+        </button>
+        <div id="grading-element-one-container"></div>
       </div>
     </section>
 
@@ -35,37 +38,28 @@
     </section>
 
     <section>
-      <div class="container" id="grading-element-three">
+      <div class="container">
         <p>This is section three:</p>
-        <button onclick="myFunction2()">Button3</button>
-        <div id="grading-element-three-consequence" hidden>
+        <button id="grading-element-three" onclick="myFunction3()">
+          Button3
+        </button>
+        <div id="grading-element-three-consequence">
           awesome class
         </div>
       </div>
     </section>
 
     <section>
-      <div class="container form">
+      <div id="grading-element-four" class="container form">
         <p>This is section four:</p>
         <form
           action="http://localhost:3000/form"
           method="post"
           name="grading-element-four"
         >
-          <select name="truthyVal">
-            <option value="testOne">testOne </option>
-            <option value="testTwo">testTwo</option>
-            <option value="testThree">testThree</option>
-          </select>
-          <input
-            name="text"
-            type="text"
-            placeholder="type here"
-            required
-            title="You must Type something"
-          />
-          <input type="radio" name="on-or-off" value="on" /> On
-          <input type="radio" name="on-or-off" value="off" />Off
+          <input type="text" value="testOne" required />
+          <input type="text" value="testTwo" required />
+          <input type="text" value="testThree" required />
           <input type="submit" value="submit" />
         </form>
       </div>
@@ -73,32 +67,38 @@
 
     <section>
       <div class="container">
-        <p>This is section 5:</p>
-        <p id="grading-element-five" onmouseover="partFive()">
-          don't hover over this or else
-        </p>
+        <p>This is section five:</p>
+        <div id="grading-element-five">
+          <p id="grading-element-five-consequence" onmouseover="partFive()">
+            don't hover over this or else
+          </p>
+        </div>
       </div>
     </section>
 
     <script>
-      function myFunction() {
+      function myFunctionOne() {
         let newThing = document.createElement("div");
         newThing.innerText = "Add this to the DOM";
-        let receiverDiv = document.getElementById("receiver-div");
-        receiverDiv.appendChild(newThing);
+        newThing.setAttribute("id", "grading-element-one-consequence");
+        document
+          .getElementById("grading-element-one-container")
+          .appendChild(newThing);
       }
 
-      function myFunction2() {
+      function myFunction3() {
         const x = document.getElementById("grading-element-three-consequence");
-        if (x.hasAttribute("hidden")) {
-          x.removeAttribute("hidden");
+        if (x.style.visibility === "hidden") {
+          x.style.visibility = "visible";
         } else {
-          x.setAttribute("hidden", "");
+          x.style.visibility = "hidden";
         }
       }
 
       function partFive() {
-        document.getElementById("grading-element-five").color = blue;
+        document.getElementById(
+          "grading-element-five-consequence"
+        ).style.color = "blue";
       }
     </script>
   </body>

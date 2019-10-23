@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Calculator</title>
+
+    <link rel="stylesheet" href="my_calc.css" />
+  </head>
+  <body>
+    <h1>Davian's Calculator</h1>
+
+    <div class="main">
+      <form name="Form">
+        <input type="text" id="answer" class="textview" />
+      </form>
+
+      <table>
+        <tr>
+          <td>
+            <input
+              class="button symbol blue"
+              type="button"
+              name="button"
+              value="√"
+              onclick="sqrt()"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue"
+              type="button"
+              name="button"
+              value="x²"
+              onclick="exp()"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue"
+              type="button"
+              name="button"
+              value="⌫"
+              onclick="backSpace()"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue"
+              type="button"
+              name="button"
+              value="÷"
+              onclick="insert('/')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="7"
+              onclick="insert(7)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="8"
+              onclick="insert(8)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="9"
+              onclick="insert(9)"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue "
+              type="button"
+              name="button"
+              value="x"
+              onclick="insert('*')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="4"
+              onclick="insert(4)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="5"
+              onclick="insert(5)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="6"
+              onclick="insert(6)"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue"
+              type="button"
+              name="button"
+              value="-"
+              onclick="insert('-')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="1"
+              onclick="insert(1)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="2"
+              onclick="insert(2)"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="3"
+              onclick="insert(3)"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue "
+              type="button"
+              name="button"
+              value="+"
+              onclick="insert('+')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="button blue num"
+              type="button"
+              name="button"
+              value="C"
+              onclick="clr()"
+            />
+          </td>
+          <td>
+            <input
+              class="button num gray"
+              type="button"
+              name="button"
+              value="0"
+              onclick="insert(0)"
+            />
+          </td>
+          <td>
+            <input
+              class="button blue num"
+              type="button"
+              name="button"
+              value="."
+              onclick="insert('.')"
+            />
+          </td>
+          <td>
+            <input
+              class="button symbol blue "
+              type="button"
+              name="button"
+              value="="
+              onclick="equalTo()"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript" src="my_calc.js"></script>
+  </body>
+</html>
