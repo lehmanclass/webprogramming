@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
+<main>
     <title>Fuzail's Hotel</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+    <script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</main>
 <body>
     <header>
         <div class="main">
             <div class="logo">
                 <img src="logo.png">
             </div>
-            <ul>
-                <li id="grading-element-one" onclick="myFunctionOne()"><a id="grading-element-five" href="#">Call Us</a></li>
-                <li class="active"><a id="grading-element-five" href="index.html">Home</a></li>
-                <li><a id="grading-element-five" href="">Book A Room</a></li>
-                <li><a id="grading-element-five" href="about.html" id="grading-element-two">About</a></li>
-                
-                <li id="grading-element-three" onclick="myFunction()"><a href="#">Location</a></li>
-                <div id="grading-element-one-consequence"></div>
-                    <!--<p id="grading-element-one-consequence"></p>-->
-                <div id="grading-element-three-consequence" class="hide">Miami, FL</div>
+            <ul id="grading-element-one-consequence">
+                <li onclick="myFunctionOne()"><a id="grading-element-five" href="#">Call Us</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="bookRoom.html">Book A Room</a></li>
+                <li><a id="grading-element-two" href="about.html">About</a></li>
+                <li><a href="signIn.html">Sign In</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li id="grading-element-three" onclick="myFunction()"><a href="#">Click Me</a></li>
+                <!-- <div id="grading-element-one-consequence"></div> -->
+                <div id="grading-element-three-consequence" class="hide">Hi There!</div>
             </ul>
             <form action="http://localhost:3000/form" name="grading-element-four" method="POST">
                 Sign Up:<br>
@@ -39,19 +42,21 @@
     </header>
     <script>
         function myFunctionOne(){
-            // create the element
-            // put the element inside its parent element
-
-            var para = document.createElement("p");
-            var node = document.createTextNode("(123) 456-7890");
+            const para = document.createElement("p");
+            const node = document.createTextNode("(123) 456-7890");
             para.appendChild(node);
-            var element = document.getElementById("grading-element-one-consequence");
+            const element = document.getElementById("grading-element-one-consequence");
+            para.id = 'grading-element-one';
             element.appendChild(para);
         }
         function myFunction() {
-            document.getElementsByTagName("div")[3].removeAttribute("class"); 
+            document.getElementsByTagName("div")[2].removeAttribute("class"); 
         }
-        
+        $(document).ready(function(){
+            $("form").submit(function(){
+                alert("Submitted");
+            });
+        }); 
     </script>
 </body>
 </html>
