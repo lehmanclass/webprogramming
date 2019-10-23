@@ -4,12 +4,12 @@ body{
 header{
     /*width: 100%;*/
     height: 0px auto;
-    background: lightgray;
+    background:#fc7978;
     padding:35px;
     
 }
 .pageheader{
-    color: rgb(45, 161, 41);
+    color: white;
     text-decoration: none;
     font-size:30px; 
     
@@ -19,7 +19,7 @@ header{
 
 nav{
     float:right;
-    color: rgb(45, 161, 41);
+    color:white;
     
 }
 nav ul{
@@ -35,24 +35,16 @@ nav ul li a{
     display: block;
     margin: 0px 0;
     padding: 0px 20px;
-    color:  rgb(45, 161, 41);
+    color:  white;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     
 
 }
-#grading-element-five:hover{
 
-    color: blue;
-
-}
 
 .page-material{
    
 }
 
-.formContainer{
-    display: flex;
-    justify-content: center;
-}

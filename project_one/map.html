@@ -3,6 +3,8 @@
 <head>
     <title>Document</title>
     <link rel="stylesheet" href="map.css">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
     
     
 </head>
@@ -21,30 +23,29 @@
         
         </header>  
 
-        <div class = muralIMG>
-            <img id ="grading-element-three-consequence" src = "https://images.unsplash.com/photo-1490079264354-18fba6556e7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
-            <button id= "grading-element-three" onclick="showImg()">Click for a surprise</button>
+        <div id="map"></div>
 
-        </div>
-
-
-        <script>
-
-
-
-            let showImg = () => {
-
-                var mural= document.getElementById("grading-element-three-consequence").style.visibility='visible';
-
-                
-
-
-
-            }
         
+
+       
+        <script>
+            var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+
+
+
+            
         
         
         </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+async defer></script>
     
 </body>
 </html>

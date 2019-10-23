@@ -4,12 +4,15 @@ body{
 header{
     /*width: 100%;*/
     /*height: 0px auto;*/
-    background: lightgray;
+    background:rgba(white, white, white,.2);
     padding:35px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fc7978;
+    
     
 }
 .pageheader{
-    color: rgb(45, 161, 41);
+    color: white;
     text-decoration: none;
     font-size:30px; 
     
@@ -19,7 +22,7 @@ header{
 
 nav{
     float:right;
-    color: rgb(45, 161, 41);
+    color: white;
     
 }
 nav ul{
@@ -35,7 +38,7 @@ nav ul li a{
     display: block;
     margin: 0px 0;
     padding: 0px 20px;
-    color:  rgb(45, 161, 41);
+    color: white;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
@@ -52,6 +55,7 @@ img{
 .banner{
     display: flex;
     justify-content: space-evenly;
+ 
 }
 
 .call-to-action{
@@ -59,6 +63,7 @@ img{
     flex-flow: column;
     text-align: center;
     font-size: 20px;
+    padding-top: 40px;
     
 }
 
@@ -71,4 +76,85 @@ img{
     
     
     
+}
+
+.pageheader{
+   
+}
+.slide{
+    display: flex;
+    flex-direction: row;
+
+}
+/*.slide-2{
+    display: flex;
+    flex-direction: row;
+
+}
+.slide-3{
+    display: flex;
+    flex-direction: row;
+
+}*/
+
+a{
+    color: #5e85b7;
+
+}
+
+
+#grading-element-three-consequence{
+    visibility: hidden;
+    padding-top: 35px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.muralIMG{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#grading-element-three{
+    margin-top:15px;
+   
+}
+
+.newsletter{
+    background: #ffafb0;
+    padding-bottom: 40px;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+#grading-element-five:hover{
+
+    color: #5eb7b7;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-item{
+   display:flex;
+   flex-direction: row;
+}
+
+.carousel-inner{
+    
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+#grading-element-two{
+    color:#5eb7b7 ;
+    padding-bottom: 50px;
 }
