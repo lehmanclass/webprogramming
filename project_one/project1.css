@@ -15,8 +15,8 @@ body {
   }
 }
 
-/*#Text1{
-    background-color: #ffa05c;
+#Text1{
+    color: #ffa05c;
     font-size: 28px;
 }
 
@@ -26,7 +26,7 @@ body {
 }
 
 #Text3{
-	background-color: #7242f5;
+	color: #7242f5;
 	font-size: 24px;
 }
 
@@ -36,6 +36,14 @@ body {
 }
 
 #Text5{
-	background-color: #f511f5;
+	color: #f511f5;
 	font-size: 20px;
-}*/
+}
+
+#Supreme_Logo{
+    border: 10px solid transparent;
+    border-top-color: #000000;
+    border-bottom-color: #0536fa;
+    border-right-color: #c105fa;
+    border-left-color: #11fa05;
+}

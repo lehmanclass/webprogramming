@@ -15,13 +15,16 @@
         document.body.appendChild(kid);
         }
 
+        function unHide() {
+            document.getElementById("grading-element-three-consequence").style.visibility = "visible";
+        }   
 
 
     </script>
 
 
     <h1>
-    	Pretty Patties <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Supreme_Logo.svg/1200px-Supreme_Logo.svg.png" width="250" height="64">
+    	Pretty Patties <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Supreme_Logo.svg/1200px-Supreme_Logo.svg.png" width="250" height="64" id="Supreme_Logo">
     </h1>
   <!--   This is section 1 -->
     <div id="Text1">
@@ -38,9 +41,11 @@
     <div id="Text2">
         <p>
             <h2>
-                <a href="file:///Users/edisonblum/Documents/sublime/about.html" id="grading-element-two">About</a>
+                <a href="file:///Users/edisonblum/Documents/sublime/project_one/about.html" id="grading-element-two">About</a>
+                <a href="file:///Users/edisonblum/Documents/sublime/project_one/Page2.html">Page 2</a>
+                <a href="file:///Users/edisonblum/Documents/sublime/project_one/Page3.html">Page 3</a>
+                <a href="file:///Users/edisonblum/Documents/sublime/project_one/page4.html">Page 4</a>
             </h2>
-
         </p>
     </div>
 
@@ -49,13 +54,12 @@
         <p>
         	<h2>
         		This is section three
-            	<button id="grading-element-three" 
-                    onclick="getElementById('grading-element-three-consequence').innerHTML = 'this should work'">
+            	<button id="grading-element-three" onclick="unHide()">
                     Click me
            		</button>
         	</h2>
             
-            <p id="grading-element-three-consequence"></p>
+            <p id="grading-element-three-consequence" style="visibility: hidden">this should work</p>
         </p>
     </div>
 
