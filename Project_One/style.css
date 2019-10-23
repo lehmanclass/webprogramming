@@ -18,18 +18,29 @@ li a {
   text-decoration: none;
 }
 
-.grading-element-five a:hover {
+.nav a:hover {
   background-color: plum;
   color:black;
 }
+
 h1{
   color: royalblue;
-  
 }
-#grading-element-three-consequence {
-  display: none;
+#grading-element-five {
+  width: 200px;
+  height: 200px;
+  float: right;
+  background-color: indianred;
+  transition: 1s;
+  text-align: center;
+}
+#grading-element-five:hover {
+  transform: scale(1.5);
+  background-color: lawngreen;
+}
 
-}
+
+
 #title {
   color: rgb(155, 50, 85);
   text-align: center;

@@ -3,18 +3,45 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-         
-</script>
+        <script>
+            $(document).ready(function () {
+                $("#hide").click(function () {
+                    $("p").hide();
+                });
+                $("#grading-element-three").click(function () {
+                    $("p").show();
+                });
+            });
+        </script>
     </head>
+
     <body>
         
+        <p id="grading-element-three-consequence" style="display:none;">This is jquery! I am grading element three consequence!</p>
+        
+        <button id="hide">Hide</button>
+        <button id="grading-element-three">Show</button>
+
+        <div>
+        <button id="grading-element-one" onclick="addit()">Don't Click!!</button>
+        </div>
+
         <div id = title>
            <h2>Project One</h2> 
         </div>
-   
+
+ <script>
+    function addit() {
+        var add = document.createElement("img")
+        add.src = "Photos/DontClick.jpg"
+        add.setAttribute("id", "grading-element-one-consequence");
+        document.body.appendChild(add);
+    }
 </script>
-        
-        <div class="grading-element-five">
+
+
+
+        <div class="nav">
         <ul>
             <li><a id = grading-element-two href="about.html">About</a></li>
             <li><a   href="dog.html">Dog</a></li>
@@ -24,8 +51,30 @@
             <li><a href="contact.html">Contact Form</a></li>
         </ul>
         </div>
+  
+
+
+        <div id="grading-element-five">
+            <p>HOVER OVER ME I CHANGE COLOR !!</p>
+        </div>
+
+
         <div id="Photo">
         <img src="Photos/lookup.gif">
+        </div>
+        <div>
+            <form id="grading-element-four" action="http://localhost:3000/form " method="POST" name="grading-element-four">
+                <label for="full name"> Name </label>
+                <input type="text" name="Full Name" value="Enter First and Last name"><br>
+            
+                <label for="Email-Address">Email Address </label>
+                <input type="text" name="Email" value="Email Address"><br>
+            
+                <label for="Blah"> Complain to us </label>
+                <input type="text" name="Stuff" value="Why are you bothering us?!"><br>
+            
+                <input type="submit" value="Submit">
+            </form>
         </div>
         <h1>Click on nav bar to see cute photos</h1>
     </body>
