@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="mystyle.css">
+
 <head>
-	<title></title>
+    <title></title>
 </head>
+
 <body>
-    <p id = "pid"> This is section one 
-        <button id = "grading-element-one" onClick = "activate_click()">
-        Add A Thing
-        </button> 
+    <p id="pid"> This is section one
+        <button id="grading-element-one" onClick="activate_click()">
+            Add A Thing
+        </button>
     </p>
 
-    <a href="about.html">About </a>
+    <a id = "grading-element-two" href="about.html">About </a>
 
 
     <div> This is section three
-        <button id = "grading-element-three" onClick = "activate_click_three()">
+        <button id="grading-element-three" onClick="activate_click_three()">
             Show a thing
-            </button>
-            <div id= "grading-element-three-consequence">
-                Hello I am here.
-            </div>
+        </button>
+        <div id="grading-element-three-consequence">
+            Hello I am here.
+        </div>
     </div>
 
-    <form name = "grading-element-four" method = "POST" action ="http://localhost:3000/form">
+    <form name="grading-element-four" method="POST" action="http://localhost:3000/form">
         This is a form
 
-        <input type="text" name="testOne" value="testOne" required/>
-        <input type="text" name="testTwo" value="testTwo" required/>
-        <input type="text" name="testThree" value="testThree" required/>
+        <input type="text" name="testOne" value="testOne" required />
+        <input type="text" name="testTwo" value="testTwo" required />
+        <input type="text" name="testThree" value="testThree" required />
 
         <input type="submit" value="Submit">
- 
 
     </form>
-    <div id = "grading-element-five">
-        
+    <div id="grading-element-five">
+
         Hello, hover over me to have a new color!
     </div>
     <!-- 
@@ -44,27 +45,24 @@
         <input name="testTwo" />
         <input name="testThree" />
     </form>
-    --> 
-     
+    -->
+
     <script type="text/javascript">
-        const activate_click  = () => {
+        const activate_click = () => {
             let newdiv = document.createElement("div");
             let divid = document.getElementById("pid");
             newdiv.setAttribute("id", "grading-element-one-consequence");
             newdiv.appendChild(document.createTextNode("I have been clicked"));
             // document.body.appendChild(newdiv);   
-            divid.appendChild(newdiv); 
+            divid.appendChild(newdiv);
         }
-
         const activate_click_three = () => {
             document.getElementById("grading-element-three-consequence").style.visibility = "visible";
         }
 
-
-        
-
-</script>
+    </script>
 
     <p></p>
 </body>
+
 </html>
