@@ -5,3 +5,7 @@
 #grading-element-one-consequence{
 	background-color: pink;
 }
+
+#grading-element-three-consequence{
+	visibility: hidden;
+}
