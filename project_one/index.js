@@ -24,27 +24,26 @@ const elementOne = () => {
 
 const elementThree = () => {
 
-	let targ = document.getElementById("Third_Part");
-
 	let element_three_id = document.getElementById("grading-element-three");
 
-	let changes = document.createElement("P");
+	let e_three_conseq = document.getElementById('grading-element-three-consequence');
 
-	changes.setAttribute("id", "grading-element-three-consequence");
-
-	
-
-	targ.addEventListener("click", function(event) {
-		changes.innerHTML = " PEEKABOO !! HA I CAUGHT YOU !";
-		targ.appendChild(changes);
-
-		element_three_id.disabled = true;
-
+	element_three_id.addEventListener("click", function(event) {
 
 		
+
+		if(e_three_conseq.style.visibility === "hidden"){
+			e_three_conseq.style.visibility = "visible";
+			//element_three_id.disabled = true; // disables the button
+		}
+		else{
+			e_three_conseq.style.visibility = "hidden";
+		}
 		});
 
 };
+
+
 
 	
 

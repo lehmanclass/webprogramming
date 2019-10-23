@@ -6,11 +6,15 @@
 #grading-element-five {
 	color: orange;
 }
+@media (min-width: 600px) {
+body {
+	background-color: peachpuff;
+}
+}
 
 body {
 	background-color: teal;
 }
- 
 
  #grading-element-one-consequence {
  	color: white;
@@ -26,6 +30,7 @@ body {
  #title {
 
 	color : white;
+	background-color: #000000;
  }
 
  #grading-element-two-consequence {
@@ -40,5 +45,16 @@ body {
  #Main_img {
  	display: flex;
  	flex-direction: column;
- 	justify-content: center;
+	 justify-content: center;
+	 width: 100%;
+	 border: 1px solid #000000;
  }
+
+ #grading-element-two {
+
+	border: 1px solid skyblue;
+
+ }
+
+
+ 
