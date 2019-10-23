@@ -17,3 +17,10 @@ REMEMBER: You'll get a chance to go over your project with me on tuesday 10/15, 
 `NOTE`: the tests for part four (the form) might have a bug in them. If your project is failing testFour and you think there is an error, email me so I can fix it.
  
 
+## Extra CREDIT ON PROJECT ONE
+
+-Your CSS styling is mobile-first
+
+-Add CSS styling beyond what is required 
+
+-Have 4 or more pages in your project (project 1 only)

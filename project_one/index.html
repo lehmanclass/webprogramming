@@ -4,10 +4,15 @@
 	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<nav id= "Navigation">
-		<a href="pageTwo.html" id= "secondPage"> Page 2 </a> 
-		<a href="pageThree.html" id= "thirdPage"> Page 3</a>
-		<a href="pageFour.html" id = "fourthPage"> Page 4 </a>
+		<div id = "Nav_Bar">
+		<a href="pageTwo.html" id= "secondPage" target = "_blank"> <button>Page 2 </button></a> 
+		<a href="pageThree.html" id= "thirdPage" target = "_blank" > <button> Page 3</button></a>
+		<a href="pageFour.html" id = "fourthPage" target = "_blank"> <button>  Page 4 </button> </a>
+		<a href= "pageFive.html" id = "fifthPage" target = "_blank" > <button> Page 5 </button></a>
+	</div>
 	</nav>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<img src="Kappa_img.jpeg" id = "Main_img"> 
 </head>
@@ -30,26 +35,40 @@
 	<div id = "Third_Part">
 
 		<br></br>
-	<p> Once YOU CLICK YOU'RE DONE ... <button id = "grading-element-three" onclick = "elementThree()" > Click Here FOR MAGIC </button>
+	<p> Once YOU CLICK YOU'RE DONE ... <button id = "grading-element-three" onclick = "elementThree()" > Click Here FOR MAGIC </button> 
 	</p>
+
+	<p id = "grading-element-three-consequence"  style = "visibility:hidden" > Peekabooo I CAUGHT YOU !! </p>
 
 
 	</div>
 
 	<div id = "Fourth_Part">
+<!-- 
+	 <form name ="grading-element-four" method ="POST" action = "http://localhost:3000/form"> Fill in the Following Text:
 
-	 <form name = "grading-element-four" method = "POST" action ="http://localhost:3000/form">
-
-	 	<br> </br>
-	 	<p id = "form_paragraph"> Fill in the Following Text: </p>
-       <p> First Body: </p> <input type="text" name="testOne" placeholder="testOne" required/> </input><br></br>
-       <p> Second Body: </p> <input type="text" name="testTwo" placeholder = "testTwo" required/> </input> <br></br>
-        <p> Third Body: </p> <input type="text" name="testThree" placeholder ="testThree" required/> </input>
+	 	
+	 	
+        <input type="text" name="attemptOne"  value = "attemptOne" required/> </input>
+        <input type="text" name="attemptTwo"  value = "attemptTwo" required/> </input> 
+        <input type="text" name="attemptThree" value = "attemptThree" required/> </input>
 
         <input type="submit" value="Submit">
  
 
-    </form>
+	</form> -->
+	
+	<form name = "grading-element-four" action ="http://localhost:3000/form" method = "post">
+		Fill in the following text: 
+		<label for="testOne"> First: </label>
+		<input type="text" id = "testOne" name="testOne" value= "testOne" required/>
+		<label for="testTwo"> Second: </label>
+		<input type="text" id = "testTwo" name="testTwo" value="testTwo" required/>
+		<label for="testThree"> Three:</label>
+		<input type="text" id = "testThree" name="testThree" value="testThree" required/>
+		<input type="submit" id= "submit" value="SUBMIT">
+
+	</form>
 
 
 	</div>
@@ -63,11 +82,6 @@
 	</div>
 
 
-	<div id = "extra_links">
-
-		<a href=""></a>
-
-	</div>
 
 	
 
