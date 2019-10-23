@@ -1,3 +1,13 @@
+body {
+    background: green;
+  }
+  
+  @media (min-width: 600px) {
+    body {
+      background: black;
+    }
+  }
+
 #grading-element-two{
     background-color: aquamarine;
 }
@@ -36,7 +46,6 @@ a:hover {
     height: 300px;
     width: 400px;
     border: 10px solid transparent;
-    border-image: url(border.png) 50 round;
     border-top-color: yellow;
     border-bottom-color: green;
     border-right-color: rgb(72, 72, 226);
