@@ -1,4 +1,5 @@
 const express = require("express");
+const helpers = require('./utils');
 const app = express();
 
 app.use(express.json());
@@ -27,12 +28,17 @@ app.get("/test_three/:fruit/:cake", (req, res) => {
     : res.json({ message: "unauthorized" });
 });
 
-app.post("/test_four", (req, res) => {});
+app.post("/test_four", (req, res) => {
+    const { fruit, cake } = req.body;
+    if(helpers.isAuthorized(req.headers)){
+       res.json({ "message": `i am getting really sick of eating ${fruit} after filling up on ${cake}` })
+    }else{
+        res.json({ message: "unauthorized" });
+    }
+});
 
 app.put("/test_five/write", (req, res) => {});
 
 app.listen(3000, () => console.log("server is running"));
 
-function isAuthorized(headers) {
-  return headers.authorization && headers.authorization === "Bearer projecttwo";
-}
+
