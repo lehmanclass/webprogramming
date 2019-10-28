@@ -9,71 +9,82 @@
 <body>
   <div >
 
-      <!-- <button id ="grading-element-one"  onclick="myFunction()">yes</button> -->
+      <p>would you like to make a donation</p>
+      <button id="grading-element-one" onclick="donaTion()">Donation</button> 
 
-        <div>
-            <!-- <script type ="text/javascript">
-             
-               let hairStyle =[{hairStyle1 : 'Low Fade'} ,{hairStyle1:'High fade'},{hairStyle1: 'Mid fade'},{hairStyle1: 'high Top Fade'},{hairStyle1:'Crew Cut'}];
-                
-                 const getNewArray =(item) =>{
-            
-                    const updateArray ="<ol>"+ [item.hairStyle1, item.hairStyle]+"</ol>";
-                
-                    return updateArray;
-            
-                        
-                    console.log(updateArray);
-            
-                }
-            
-                const barberNameHandler= () =>{
-            
-                    document.getElementById("Showlist").innerHTML = hairStyle.map(getNewArray);}
-            </script> -->
+     
 
-            
-                
-              </ul>
-              
-              <p>Click the button if you would like to give a donnation</p>
-              
-              <button id ="grading-element-one"  onclick="myFunction()">yes </button>
+            <script>
 
-              <ul id="myList"></ul>
-              
-              <script  id="grading-element-one-consequence">
-              function myFunction() {
-                
-                var node = document.createElement("LI");
-                var textnode = document.createTextNode("Thank you");
-                node.appendChild(textnode);
-                document.getElementById("myList").appendChild(node);
-              }
-              </script>
+         function donaTion(){
+           
+           
+           var add = document.createElement("P");
+           add.innerText = "yes";
+           add.setAttribute("id","grading-element-one-consequence")
+           document.body.appendChild(add)
+
+       }
+
+
+                function makeVisible(){
+       document.getElementById("grading-element-three-consequence").style.visibility = "visible";
+      
+      }
+
+
+  </script>
+
+       
+
             </div>
      
 
     <h1 id="well"> Welcome to Soul BarberShop In Harlem</h1>
+     <span id ="well">
 
-  <span id ="well">
+<a id="grading-element-two" href="/Users/baboury/Desktop/webprogramming/project_one/About.html"> About us </a>
 
-    <a id="grading-element-two" href="/Users/baboury/Desktop/webprogrammingproject1/About.html 
-    "> About us </a>
+    <a id="grading" href="/Users/baboury/Desktop/webprogramming/project_one/About.html"> Reservation</a>
 
-    <a id="grading" href="/Users/baboury/Desktop/webprogrammingproject1/form.html 
-    "> Reservation</a>
+    <a id="#grading-element-threett" href=" /Users/baboury/Desktop/webprogramming/project_one/Price.html">  princing </a>
 
-    <a id="#grading-element-threett" href="/Users/baboury/Desktop/webprogrammingproject1/Price.html
-    ">  princing </a>
-
-    <a id="grading" href="/Users/baboury/Desktop/webprogrammingproject1/Photos.html 
-    "> Photos </a>
+    <a id="grading" href=" /Users/baboury/Desktop/webprogramming/project_one/Photos.html"> Photos </a>
 </span>
 
 
 <img class="bienvenue"src="soul-Barbershop2.jpg" alt="Flowers in Chania">
 </div>
+
+
+<p id="grading-element-five">Fill up th form to sign up for our daily Discount</p>
+
+
+
+
+<form  method="post" action="http://localhost:3000/form" class="form-element-hidden"
+name="grading-element-four">
+        
+<p>first name</p> <input type="text"  name="testOne" value ='testOne' />
+<p>last name </p> <input type="text"  name="testTwo"  value="testTwo"/>
+
+<p>Email     </p>  <input type="text" name="testThree"  value="testThree" />
+
+<p> phone number</p><input type="text" name="text" placeholder="type here" />
+
+<br>
+
+<input id= "soumettre" type="submit" />
+
+</form>
+
+<p id="grading-element-three-consequence">My name is Souleyman some people call me Soul , im 35 years !
+  years hold . i opened this barbershop so i can contrubute to the developpement of community 
+  here in Harlem , please came join me and my team to to redefine harlem for you to have  the best 
+  hair style ever !!
+</p> 
+
+<button id="grading-element-three" onclick="makeVisible()"> Who is Soul </button>
 
 </div>
 
