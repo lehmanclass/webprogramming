@@ -1,5 +1,19 @@
-## DAY SIX
+## next class: 10/15
 
-I updated the syllabus with more "bonus" crieteria to get a 100% or higher on projects. I will go over them today.
+PROJECT ONE due at midnight!
 
-Today we'll talk about javascript!
+how to test your grade:
+
+`curl -H 'Content-Type: application/json' -d '{ "githubUserName": "$YOUR_GITHUB_USERNAME_GOES_HERE" }' http://157.245.10.53:5000/test/project_one`
+
+Please keep in mind, the testing tool will look for your fork of `github.com/lehmanclass/webprogramming` and look for your `index.html` file in: 
+
+`webprogramming/project_one/index.html`
+
+If your project is not in your fork of `webprogramming` or following that path structure, the test will not work.
+
+REMEMBER: You'll get a chance to go over your project with me on tuesday 10/15, and ask any questions you have.
+
+`NOTE`: the tests for part four (the form) might have a bug in them. If your project is failing testFour and you think there is an error, email me so I can fix it.
+ 
+
