@@ -221,6 +221,18 @@ a:hover {
   <h1 style="background-color: #2beaed">Welcome To Your Dearest Church</h1>
   <p style="background-color: #edcd2b">Jesus Is Lord Global Ministry New York</p>
 </div>
+  
+  <!--  -after i click on an element with #grading-element-one, i will find a #grading-element-one-consequence added to the DOM -->
+
+  <p style="background-color: #ff0000"id="grading-element-one" onclick="myFunction()"> You Are <!-- (innerHTML) --></p>
+
+<script>
+function myFunction() {
+  document.getElementById("grading-element-one").innerHTML = "Home";
+}
+
+  
+  
 
 <div class="topnav">
   <a href="#">Location</a>
@@ -308,12 +320,36 @@ Our church started in a small house on 2005, founded by Rev. Nestor Miguel ..And
   </div>
 </div>
 
-<p><b>Find us through Google Maps</b></p>
-<a href="https://www.google.com/maps/place/4390+Katonah+Ave,+The+Bronx,+NY+10470/@40.9015541,-73.8699245,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f2e72e32d605:0x70b8c2d0b1ccbe20!8m2!3d40.9015541!4d-73.8677305">Google Maps</a>
+<!-- -there is an element with id #grading-element-five that has a css color value, that changes to a new color value when the mouse hovers over it. -->
+
+  <p><b>Find us through Google Maps</b></p>
+<a href=id= "grading-element-five" "https://www.google.com/maps/place/4390+Katonah+Ave,+The+Bronx,+NY+10470/@40.9015541,-73.8699245,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f2e72e32d605:0x70b8c2d0b1ccbe20!8m2!3d40.9015541!4d-73.8677305">Google Maps</a>
 <!-- <a href="https://www.wikipedia.org">wikipedia.org</a>
  -->
+  
+  <p>Click the button for Directions.</p>
+
+ --><div id="grading-element-five">
+  <button onclick="window.location.href = 'https://google.com/maps';">Click Here</button>
+<!-- <a href= "https://www.google.com/maps/place/4390+Katonah+Ave,+The+Bronx,+NY+10470/@40.9015541,-73.8699245,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f2e72e32d605:0x70b8c2d0b1ccbe20!8m2!3d40.9015541!4d-73.8677305"></a> -->
+</div>
 
 
+
+<script>
+function myFunction() {
+  var x = document.getElementById("grading-element-five");
+  if (window.getComputedStyle(x).display === "none") {
+    x.style.display = "block";
+  }
+}
+</script>
+
+ <meta http-equiv="Refresh" content="600; url=//https://www.facebook.com/jilgmchurchusa/" />
+  </head>
+  <body>
+    <p>Please follow <a id="grading-element-two" = //https://www.facebook.com/jilgmchurchusa/> us on our FaceBook</a>.</p>
+  </body>
 
 <div class="footer">
   <h2> 4390 Katonah Ave, Bronx New York 10470 - Rev. Nestor Miguel Office: 718-231-2292  </h2>
