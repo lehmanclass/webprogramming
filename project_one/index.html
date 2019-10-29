@@ -7,6 +7,8 @@
 <body>
     <a id= "grading-element-two" href ="about.html">About</a>
     <a href = "index.html">Home</a>
+    <a href ="page2.html">page 2</a>
+    <a href = "page1.html">page 1</a>
     <div id= "heading">
         <h1>Project One</h1>
 
@@ -15,12 +17,7 @@
     <br>
     <button id="grading-element-one" onclick="addingText()">Your DOM will suffer consequences</button>
 
-    <div id= "grading-element-one-consequence">
-        
-        
-    
-    </div>
-    
+    <div id= "text-added"></div>
     <br>
     <br>
     <button id= "grading-element-three" onclick="showing()">Show the ninja div</button>
@@ -36,49 +33,43 @@
        <p>This text change color when you hover.</p>
 
    </div>
-      <form action=" http://localhost:3000/form " name="grading-element-four" onsubmit="return checkedForm()" method="POST">
+      <form action=" http://localhost:3000/form " name="grading-element-four" onsubmit=" return checkedForm()" method="POST">
     
 
     First name:<br>
-    <input type="text" name="testOne"  value= "" >
+    <input type="text" name="testOne" id=""  value= "Stringone" >
     <br>
     Last name:<br>
-    <input type="text" name="testTwo" value = "">
+    <input type="text" name="testTwo" value = "Stringtwo">
     <br>
     Age:<br>
-    <input type="number" name="testThree" min="0" value="">
+    <input type="number" name="testThree" min="0" value="0">
     <br><br>
     <input id="submit" type="submit" value="Submit">
   </form>
   
 
 <script type = "text/javascript">
-
     function addingText() {
         
         var someText = document.createElement("P");
         someText.innerText = "consequence";
-        document.getElementById("grading-element-one-consequence").appendChild(someText);
-
-
+        someText.setAttribute("id","grading-element-one-consequence")
+        document.getElementById("text-added").appendChild(someText);
     
 }
-
 function showing(){
     document.getElementById("grading-element-three-consequence").style.visibility = "visible" ;
-
 }
-
 function checkedForm(){
-    var x = document.forms["grading-element-four"]["testOne"].value;
-    var y = document.forms["grading-element-four"]["testTwo"].value;
-    var z = document.forms["grading-element-four"]["testThree"].value;
+    var x = document.forms["grading-element-four"]["testOne"];
+    var y = document.forms["grading-element-four"]["testTwo"];
+    var z = document.forms["grading-element-four"]["testThree"];
     
   if (x == "" ||  y == "" || z == "") {
     alert("please fill all fields");
     return false ;
   }
-
 }
 </script>
 
