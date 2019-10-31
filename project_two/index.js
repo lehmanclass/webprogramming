@@ -26,7 +26,9 @@ app.post("/test_two", (req, res) => {
 app.get("/test_three/:fruit/:cake", (req, res) => {
   const { fruit, cake } = req.params;
   helpers.isAuthorized(req.headers)
-    ? res.json({ message: `you sent ${fruit} and ${cake}, but I only eat ${cake}!`})
+    ? res.json({
+        message: `you sent ${fruit} and ${cake}, but I only eat ${cake}!`
+      })
     : res.json({ message: "unauthorized" });
 });
 
@@ -42,14 +44,14 @@ app.post("/test_four", (req, res) => {
 });
 
 app.put("/test_five/write", (req, res) => {
-  try {
-    DB.create;
-  } catch {}
+  const { fruit, cake } = req.body;
+  helpers.handleUpdateRequest(fruit);
+  helpers.handleUpdateRequest(cake);
   res.json({ message: `you sent ${fruit} and ${cake}` });
 });
 
 app.get("/test_five/read", (req, res) => {
-  res.json(DB.read());
+  res.json(DB.data);
 });
 
-app.listen(3000, () => console.log("server is runni"));
+app.listen(3000, () => console.log("server is running"));
