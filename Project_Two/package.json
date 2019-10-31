@@ -1,0 +1,17 @@
+{
+  "name": "testproject",
+  "version": "1.0.0",
+  "description": "This is a test of a server for project one",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
