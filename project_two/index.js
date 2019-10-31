@@ -1,21 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const db = require(`./db.js`);
+const FakeAssDatabase = require('./db');
 
 const app = express();
+const DBASE = new FakeAssDatabase();
+
 
 
 
 const PORT = 3000;
 
 const TOKEN = 'projecttwo'
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-const DATABASE = new FakeAssDatabase();
-const DATABASE ={};
 
 
 
@@ -30,6 +31,7 @@ app.get('/test_one', (req, res) => {
         }
     });
 
+   
 });
 
 app.post('/test_two', (req,res) => {
@@ -71,30 +73,90 @@ app.get('/test_three/:afruit/:acake',(req,res) => {
 });
 
 
-app.post('/test_four',(res,req) =>{
+app.post('/test_four',(req,res) => {
 
-    const afruit = req.body.fruit;
-    const cake = req.body.cake; 
-
-
+    const aFruit = req.body.fruit;
+    const aCake = req.body.cake; 
 
 
-    res.json({ message: `i am getting really sick of eating ${afruit} after filling up on ${cake}` });
+
+
+    res.json({ message: `i am getting really sick of eating ${aFruit} after filling up on ${aCake}` });
 
 
 });
 
 
 
-app.put('test_five/write',(res,req) => {
+app.put('/test_five/write',(req,res) => {
 
+
+
+
+    const fruit = req.body.fruit;
+    const cake = req.body.cake;
+
+    let n = 1;
+    let m = 1;
+    if(DBASE.read(fruit) != fruit){
+
+        DBASE.create(fruit, 1);
+        
+
+    } else{
+        
+        DBASE.update(fruit,n+1);
+    }
+
+    if(DBASE.read(cake) != cake){
+
+        DBASE.create(cake, 1);
+
+    }else{
+        DBASE.update(cake,m+1);
+    }
+
+
+   
+    
+
+
+  
+    
+    res.json({message : ` you sent ${fruit} and ${cake}`});
+
+    
+
+    
 });
 
-app.get('test_five/read',(res,req) => {
+
+
+app.get('test_five/read',(req,res) => {
+    
+    
+    
+
+    res.json({ message :`${afruit} and  ${acake}`});
+
+
+
+
+
+
+
+
+
+
+
 
 });
 
 app.get('test_five/read?fruit=${aSecondFruit}&cake=${aCake}',(res,req) => {
+
+
+
+
 
 });
 
