@@ -6,7 +6,7 @@ function isAuthorized(headers) {
   return false;
 }
 
-function handleUpdateRequest(fruitOrCake) {
+function handleUpdateRequest(fruitOrCake, DB) {
   try {
     DB.create(fruitOrCake, 1);
   } catch {

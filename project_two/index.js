@@ -7,6 +7,7 @@ const DB = new fakeDB();
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded())
 
 app.get("/test_one", (req, res) => {
   const message = {
@@ -33,20 +34,14 @@ app.get("/test_three/:fruit/:cake", (req, res) => {
 });
 
 app.post("/test_four", (req, res) => {
-  const { fruit, cake } = req.body;
-  if (helpers.isAuthorized(req.headers)) {
-    res.json({
-      message: `i am getting really sick of eating ${fruit} after filling up on ${cake}`
-    });
-  } else {
-    res.json({ message: "unauthorized" });
-  }
+  const { fruit,cake } = req.body;
+  res.json({message: `i am getting really sick of eating ${fruit} after filling up on ${cake}`});
 });
 
 app.put("/test_five/write", (req, res) => {
   const { fruit, cake } = req.body;
-  helpers.handleUpdateRequest(fruit);
-  helpers.handleUpdateRequest(cake);
+  helpers.handleUpdateRequest(fruit, DB);
+  helpers.handleUpdateRequest(cake, DB);
   res.json({ message: `you sent ${fruit} and ${cake}` });
 });
 
