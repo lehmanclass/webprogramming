@@ -1,0 +1,139 @@
+
+
+
+// TEST ONE:
+
+
+const express = require('express');
+const app = express();
+
+const FakeAssDataBase = require('./db');
+
+const DATABASE = new FakeAssDataBase();
+
+app.use(express.json());
+const TOKEN = 'projecttwo';
+
+
+const aFruit = ('kiwi');
+const aCake = ('sponge');
+const aSecondFruit = ('cherry');
+
+// const testOne = [
+// {  fruit: 'Bananas' },
+// {  cake: 'Chocolate'}
+// ];
+
+//TEST ONE
+app.get('/test_one?fruit=${fruit}&cake=${cake}', (req, res)=> {
+	// const testOne = testOne.find( c=> c.id === parseInt(req.params.id));
+
+	res.send(`{ "message": { "fruit": "${fruit}", "cake": "${cake}" } }`)
+
+});
+
+//TEST TWO`
+app.get('/test_two', (req, res)=> {
+	// const testOne = testOne.find( c=> c.id === parseInt(req.params.id));
+
+	res.send(`{ "message":  "i love to eat ${aFruit} with ${aCake}" }`)
+
+});
+
+const http = require("http");
+
+http.createServer(function(req,res){
+	response.setHeader('Content-Type', 'text/plain');
+	response.write(`{ "message": "i love to eat ${aFruit} with ${aCake}" }`);
+	response.end();
+});
+
+
+//TEST THREE
+const callback = (req, res) => {
+        console.log('headers ->', req.headers);
+        console.log('req.body ->', req.body);
+
+const token = req.headers.authorization.replace('Bearer ', '');
+const data = req.body;
+
+
+console.log(data)
+
+		if (TOKEN !== token) {
+               return res.json({ message: 'invalid TOKEN' });
+        }
+       
+        else{
+		res.json({ message: 'unauthorized'});
+
+	};
+
+        console.log(callback);
+};
+
+app.get('/test_three/${aFruit}/${aCake}', (req, res)=> {
+	// const testOne = testOne.find( c=> c.id === parseInt(req.params.id));
+
+	// res.send(callback);
+	res.send(`{ "message": "you sent ${aFruit} and ${aCake}, but I only eat ${aCake}!" }`)
+
+});
+
+
+
+
+//TEST FOUR
+app.get('/test_four', (req, res)=> {
+	// const testOne = testOne.find( c=> c.id === parseInt(req.params.id));
+
+	res.send(`{ "message": "i am getting really sick of eating ${aFruit} after filling up on ${aCake}" }`);
+
+});
+
+
+//TEST FIVE
+
+//PUT request 
+app.put('/test_five/write', (req,res)=>{
+
+	res.send(`{ "message": "you sent ${aFruit} and ${aCake}" }`)
+});
+
+// GET request
+app.get('/test_five/read', (req, res)=> {
+	// const testOne = testOne.find( c=> c.id === parseInt(req.params.id));
+
+	res.send(`{ "${aFruit}": 1, "${aCake}": 1 }`);
+
+});
+
+
+ //PUT req
+// app.put('/test_five/write', (req,res)=>{
+// 	res.send((`{ "fruit": ${aSecondFruit}, "cake": ${aCake}`))
+
+// });
+
+//GET Request
+// app.get('/test_five/read?fruit=${aSecondFruit}&cake=${aCake})', (req,res)=> {
+	
+
+// res.send(`{ "${aFruit}": ${aSecondFruit}": 1, "${aCake}": 2, } `);
+
+// });
+
+
+
+
+
+	
+// app.listen(3000, ()=> console.log('listening on port 3000'))
+const port = process.env.PORT || 3000; 
+app.listen(port,() => console.log(`listening on ${port}`));
+
+
+
+
+
+
