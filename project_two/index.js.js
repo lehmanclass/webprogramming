@@ -108,26 +108,15 @@ app.post('/test_two',(req, res)=> {
  
      });
      app.get('/test_five/read',(req, res)=> {
-
-        const aFruit = req.body.fruit;
-       const aCake  =req.body.cake;
-         let n=0;
-        try{
-            if(fakedata.read(fruit)==fruit){
-                fakedata.update(aFruit, n+1)
-            }
-
-        }
-        catch(e){
-            console.log(e);
-
-        }
+       
        
         res.json(fakedata.data);
          
         return res.json( `{ "message": {"You sent ${aFruit} : ${number} and ${aCake}" }}`)
 
      });
+     
+
 
 app.listen(PORT,()=> console.log(`listening on port ${PORT}`));
 
