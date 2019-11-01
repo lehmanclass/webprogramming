@@ -106,7 +106,7 @@ app.get('/test_five/read/:fruit/:cake', (req,res) => {
 	DATABASE.create(fruit, 1);
 }
 	catch{
-	DATABASE.update(fruit, fruit + 1);
+	DATABASE.update(fruit, DATABASE.read(fruit) + 1);
 
 }
 	try{
@@ -114,7 +114,7 @@ app.get('/test_five/read/:fruit/:cake', (req,res) => {
 	DATABASE.create(cake, 1);
 }
 	catch{
-	DATABASE.update(cake, 1);
+	DATABASE.update(cake,  DATABASE.read(cake) + 1);
 
 }
 	res.json(
