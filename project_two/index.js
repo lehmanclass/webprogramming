@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const FakeAssDatabase = require('./db');
+const FakeAssDatabase = require('./db.js');
 
 const app = express();
 const DBASE = new FakeAssDatabase();
@@ -42,8 +42,8 @@ app.post('/test_two', (req,res) => {
 
     return res.json(
         
-        `{"message": {"i love to eat ${aFruit} with ${aCake}"}}`
-    );
+        { message : ` i love to eat ${aFruit} with ${aCake}`
+    });
 
 
 });
@@ -96,24 +96,27 @@ app.put('/test_five/write',(req,res) => {
     const fruit = req.body.fruit;
     const cake = req.body.cake;
 
-    let n = 1;
-    let m = 1;
-    if(DBASE.read(fruit) != fruit){
+    let dbFruit = DBASE.read(fruit);
+
+    let dbCake = DBASE.read(cake);
+
+    
+    if(!DBASE.read(fruit) ){
 
         DBASE.create(fruit, 1);
         
 
     } else{
         
-        DBASE.update(fruit,n+1);
+        DBASE.update(fruit,dbFruit+1);
     }
 
-    if(DBASE.read(cake) != cake){
+    if(!DBASE.read(cake) ){
 
         DBASE.create(cake, 1);
 
     }else{
-        DBASE.update(cake,m+1);
+        DBASE.update(cake,dbCake+1);
     }
 
 
@@ -134,29 +137,6 @@ app.get('/test_five/read',(req,res) => {
 
 
 });
-
-
-
-
-
-
-
-
-
-app.get('test_five/read?fruit=${aSecondFruit}&cake=${aCake}',(res,req) => {
-
-
-
-
-
-});
-
-
-
-
-
-
-
 
 
 
