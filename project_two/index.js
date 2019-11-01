@@ -4,10 +4,13 @@ const app = express();
 const jsonMiddleware = express.json();
 const PORT = 3000;
 
-
+const myToken = 'projecttwo';
 app.use(jsonMiddleware);
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+
+const FakeAssDatabase = require('./db.js');
+const mydb = new FakeAssDatabase();
 
 // --------> 
 // ------------------> TEST ONE <-----------------------------------
@@ -21,7 +24,7 @@ app.use(express.json());
 app.get('/test_one', (request, response) => {
     const { fruit, cake } = request.query;
 
-    response.json(`message: fruitMessage: ${fruit}, cakeMessage: ${cake}`);
+    response.json(`"/message:"/ fruit: ${fruit}, cake: ${cake}`);
     
 });
 
@@ -66,10 +69,17 @@ const test_two = (request, response) => {
 
 app.get('/test_three/:fruit/:cake', (req, res) => {
 
-    const { fruit, cake} = req.params;
 
-    return res.send('"Message": "Yout sent ${fruit} and ${cake}, but I only eat ${cake}!"');
-});
+        const { fruit, cake } = req.params;
+        const token = req.headers.authorization.replace('Bearer ', '');
+    
+        if (token === myToken) {
+            res.send(` message: you sent ${fruit} and ${cake}, but I only eat ${cake}!" `);
+        } else {
+            res.send('Message: unauthorized ');
+        }
+        
+    });
 
 
 // --------->
@@ -88,7 +98,7 @@ const test_four = (request, response) => {
             if (request.headers['content-type'] === 'application/x-www-form-urlencoded'){
                 const fruit = request.body[`fruit`];
                 const cake = request.body[`cake`];
-                response.json(`message: I love to eat: ${fruit}, with: ${cake}`);
+                response.json(`message: I am getting really sick of eating ${fruit} after filling up on ${cake}`);
             }
             else{
                 response.send('You did something wrong');
@@ -113,12 +123,32 @@ const test_four = (request, response) => {
 // --------->
 
 
-
-
-
-
-
-
+app.put('/test_five/write', (req,res) => {
+    const {fruit, cake} = req.body;
+    
+    let fruitdb = mydb.read(fruit);
+            if(!fruitdb) {
+                mydb.create(fruit, 1);
+            } else {
+                mydb.update(fruit, fruitdb + 1);
+            }
+  
+    let cakedb = mydb.read(cake);
+            if(!cakedb) {
+                mydb.create(cake, 1);
+        
+            } else {
+                mydb.update(cake, cakedb + 1);
+            }
+    res.json({ message: `you sent ${fruit} and ${cake}` });
+  
+  
+  });
+  
+  app.get('/test_five/read',(req, res) => {
+    res.json(JSON.parse(mydb.dump()));
+  
+  });
 
 // --------->
 // ---------> the end
