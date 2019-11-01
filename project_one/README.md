@@ -1,4 +1,4 @@
-## Done for extra credit:
+## Extra credit:
 
 CSS 
 
