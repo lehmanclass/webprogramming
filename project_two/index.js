@@ -3,51 +3,53 @@ const apply = require('./Mymodule');
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded());
 
 
 
 
-class fakeAssDatabase {
-	constructor() {
-		this.data = {};
-	}
 
-	create(keyString, valueNumber) {
-		if (this.data[keyString]) {
-			throw new Error(`${keyString} already exists!`);
-		}
-		this.data[keyString] = valueNumber;
-	}
+class FakeAssDatabase {
 
-	read(keyString) {
-		return this.data[keyString];
-	}
-
-	update(keyString, valueString) {
-		if (!this.data[keyString]) {
-			throw new Error(`${keyString} does not exist!`);
-		}
-		this.data[keyString] = valueString;
-	}
-
-	delete(keyString) {
-		if (!this.data[keyString]) {
-			throw new Error(`${keyString} does not exist!`);
-		}
-		delete this.data[keyString];
-	}
-
-	dump() {
-		return JSON.stringify(this.data);
+    constructor() {
+        this.data = {};
     }
-    
 
+    create(keyString, valueString) { // OOPS - the value should be a number
+        if (this.data[keyString]) {
+            throw new Error(`${keyString} already exists!`);
+        }
+        this.data[keyString] = valueString;
+    }
+
+    read(keyString) {
+        return this.data[keyString];
+    }
+
+    update(keyString, valueString) { // public service announcement - value is a number
+        if (!this.data[keyString]) {
+            throw new Error(`${keyString} does not exist!`);
+        }
+        this.data[keyString] = valueString;
+    }
+
+    delete(keyString) {
+        if (!this.data[keyString]) {
+            throw new Error(`${keyString} does not exist!`);
+        }
+        delete this.data[keyString];
+    }
+
+    dump() {
+        return JSON.stringify(this.data);
+    }
 
 }
+const data = new FakeAssDatabase();
 
-MyfakeAssdatabase =new fakeAssDatabase();
 
-console.log('MyfakeAssdatabase');
+
+//console.log('MyfakeAssdatabase');
 
 
 
@@ -80,39 +82,104 @@ app.get("/test_three/:fruit/:cake", (req, res) => {
 
 app.post("/test_four", (req, res) => {
     const { fruit, cake } = req.body;
-    if(apply.TokenAuthorization(req.headers)){
-       res.json({ "message": `i am getting really sick of eating ${fruit} after filling up on ${cake}` })
-    }else{
-        res.json({ message: "unauthorized" });
-    }
-});
+    res.json({ message: `i am getting really sick of eating ${fruit} after filling up on ${cake}`
+    });
+  });
 
 
-app.put("/test_five/write", (req,res)=>{
- 
- 
-    const {fruit, cake } = req.body;
-
-  MyfakeAssdatabase.create(fruit , 1);
-  MyfakeAssdatabase.create(cake, 1);
-
-  console.log(MyfakeAssdatabase);
 
 
- return res.json( { "message": `you sent ${fruit} and ${cake}`});
+// app.put("/test_five/write", (req,res)=>{
+//   const {fruit, cake } = req.body;
+
+//   MyfakeAssdatabase.create(fruit , 1);
+//   MyfakeAssdatabase.create(cake, 1);
+
+//   console.log(MyfakeAssdatabase);
+
+
+//  return res.json( { "message": `you sent ${fruit} and ${cake}`});
     
- });
+//  });
 
-   app.get ("/test_five/read", (req,res)=>{
-    const {fruit, cake } = req.body;
 
-    MyfakeAssdatabase.read(fruit ,1);
-    MyfakeAssdatabase.rea(cake , 1);
-  
-    console.log(MyfakeAssdatabase);
+//     app.get('/test_five/read', (req,res) => {
+//         const fruit = req.body.fruit;
+//         const cake = req.body.cake;
+        
+//         res.json(
+//             data.data
+//         )
+//     })
 
-        return res.json({"message":` "${fruit}": 1, "${cake}": 1 `})
+ 
+ 
+
+
+
+
+
+
+app.put('/test_five/write', (req,res) => {
+    const fruit = req.body.fruit;
+    const cake = req.body.cake;
+    
+    try{
+        data.create(fruit, 1);
+    }
+    catch{
+        data.update(fruit, data.read(fruit) + 1);
+    }
+    try{
+        data.create(cake, 1);
+    }
+    catch{
+        data.update(cake, data.read(cake) + 1);
+    }
+    res.json({
+        message: ' you sent ' + fruit  + ' and ' + cake
+    })
+    
 });
+    
+app.get('/test_five/read', (req,res) => {
+    const fruit = req.body.fruit;
+    const cake = req.body.cake;
+    
+    res.json(
+        data.data
+    )
+})
+    
+app.put('/test_five/write', (req,res) => {
+    const fruit = req.body.fruit;
+    const cake = req.body.cake;
+    
+    res.json({ message: `i am getting really sick of eating ${fruit} after filling up on ${cake}`});
+    
+})
+    
+app.get('/test_five/read/:fruit/:cake', (req,res) => {
+    const fruit = req.body.fruit;
+    const cake = req.body.cake;
+    try{
+        data.create(fruit, 1);
+    }
+    catch{
+        data.update(fruit, fruit + 1);
+    
+    }
+    try{
+        data.create(cake, 1);
+    }
+    catch{
+        data.update(cake, 1);
+    
+    }
+    res.json(data.data)
+})
+
+
 
 const port = process.env.PORT || 3000;
 app.listen(port,() => console.log(`Listen on port ${port}`))
