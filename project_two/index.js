@@ -1,15 +1,19 @@
-
 const express = require('express');
+const request = require('request');
 const app = express();
 const jsonMiddleware = express.json();
 const PORT = 3000;
 const DEFAULT_TOKEN = 'projecttwo';
-
-const AnotherFakeDatabase = {
-	"willmostlikelyneed@cuny.edu": 1
-};
-
 app.use(jsonMiddleware);
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+const router = express.Router();
+
+
+const FakeAssDatabase = require('./db.js');
+const DATABASE = new FakeAssDatabase();
+
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
