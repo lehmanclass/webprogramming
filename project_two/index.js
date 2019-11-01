@@ -117,10 +117,6 @@ app.put('/test_five/write',(req,res) => {
     }
 
 
-   
-    
-
-
   
     
     res.json({message : ` you sent ${fruit} and ${cake}`});
@@ -132,25 +128,20 @@ app.put('/test_five/write',(req,res) => {
 
 
 
-app.get('test_five/read',(req,res) => {
-    
-    
-    
+app.get('/test_five/read',(req,res) => {
 
-    res.json({ message :`${afruit} and  ${acake}`});
-
-
-
-
-
-
-
-
-
-
+    res.json(DBASE.data);    
 
 
 });
+
+
+
+
+
+
+
+
 
 app.get('test_five/read?fruit=${aSecondFruit}&cake=${aCake}',(res,req) => {
 
