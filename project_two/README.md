@@ -1,7 +1,7 @@
 ## Extra credit  
 - Created a Pull Request in the github repo: 
-  - commits on Oct 5, 2019, 
-  - commit: 3b2a6b05bc48d29bc96525d4d7c81607be9ec75b
+  - commits on Oct 31, 
+  - commit: d3ede4de110687714f1bfbd7cef3ee7d278d1d04
 - installed & used eslint 
 - Used external API
 
