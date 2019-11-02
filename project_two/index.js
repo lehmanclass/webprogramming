@@ -41,7 +41,7 @@ app.post('/test_four', (req, res) =>{
 
 
 
-class FakeAssDatabase {
+class FakeAssDatabase{
 
 	constructor() {
 		this.data = {};
