@@ -1,4 +1,4 @@
-NOTE: i will start your server from your fork by calling `node/project_two/index.js`. You must tell me otherwise in a `project_two/README.md` if this will not work!
+NOTE: i will start your server from your fork by calling `node project_two/index.js`. You must tell me otherwise in a `project_two/README.md` if this will not work!
 
 Test ONE:
 
@@ -53,8 +53,11 @@ Test Two:
 
 Test Three:
 
-`curl 'localhost:3000/test_three/grape/angelfood'` should return ->
-`{ "message": { "you sent grape and angelfood, but I only eat angelfood!" }`
+`curl -H 'Authorization: Bearer projecttwo' 'localhost:3000/test_three/grape/angelfood'` should return ->
+`{ "message": "you sent grape and angelfood, but I only eat angelfood!" }`
+
+`curl -H 'Authorization:: Bearer something else' 'localhost:3000/test_three/grape/angelfood'` should return ->
+`{ "message": "unauthorized"}`
 
 Test Four:
 
