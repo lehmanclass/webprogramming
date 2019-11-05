@@ -1,36 +1,39 @@
 class FakeAssDatabase {
-  constructor() {
-    this.data = {};
-  }
 
-  create(keyString, valueString) {
-    if (this.data[keyString]) {
-      throw new Error(`${keyString} already exists!`);
-    }
-    this.data[keyString] = valueString;
-  }
+	constructor() {
+		this.data = {};
+	}
 
-  read(keyString) {
-    return this.data[keyString];
-  }
+	create(keyString, valueString) { // OOPS - the value should be a number
+		if (this.data[keyString]) {
+			throw new Error(`${keyString} already exists!`);
+		}
+		this.data[keyString] = valueString;
+	}
 
-  update(keyString, valueString) {
-    if (!this.data[keyString]) {
-      throw new Error(`${keyString} does not exist!`);
-    }
-    this.data[keyString] = valueString;
-  }
+	read(keyString) {
+		return this.data[keyString];
+	}
 
-  delete(keyString) {
-    if (!this.data[keyString]) {
-      throw new Error(`${keyString} does not exist!`);
-    }
-    delete this.data[keyString];
-  }
+	update(keyString, valueString) { // public service announcement - value is a number
+		if (!this.data[keyString]) {
+			throw new Error(`${keyString} does not exist!`);
+		}
+		this.data[keyString] = valueString;
+	}
 
-  dump() {
-    return JSON.stringify(this.data);
-  }
+	delete(keyString) {
+		if (!this.data[keyString]) {
+			throw new Error(`${keyString} does not exist!`);
+		}
+		delete this.data[keyString];
+	}
+
+	dump() {
+		return JSON.stringify(this.data);
+	}
+
+
 }
 
 module.exports = FakeAssDatabase;
