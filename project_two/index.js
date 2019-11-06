@@ -1,14 +1,47 @@
-const express = require("express");
+const express = require('express');
+const PORT = 3000;
+const TOKEN = 'projecttwo';
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.get('/test_one', (req,res)=>{
+    const message = {
+        message:{
+            fruit : req.query.fruit,
+            cake : req.query.cake,
+        }
+    };
+    res.json(message)
+});
+
+app.post('/test_two', (req, res) =>{
+    const message = {message: `i love to eat ${req.body.fruit} with ${req.body.cake}`}
+    res.json(message)
+});
+
+app.get('/test_three/:grape/:angelfood', (req, res) =>{
+    console.log('headers ->', req.headers);
+    console.log('req.body ->', req.body);
+
+    const token = req.headers.authorization.replace('Bearer ', '');
+
+    if (TOKEN !== token) {
+        return res.json({ message: 'unauthorized' });
+    }
+    return res.json({ message: `you sent ${req.params.grape} and ${req.params.angelfood}, but I only eat ${req.params.angelfood}!`});
+});
+
+app.post('/test_four', (req, res) =>{
+    console.log('headers ->', req.headers);
+    console.log('req.body ->', req.body);
+    return res.json({ message: `i am getting really sick of eating ${req.body.fruit} after filling up on ${req.body.cake}`});
+});
 
 
 
-
-
-class FakeAssDatabase {
+class FakeAssDatabase{
 
     constructor() {
         this.data = {};
@@ -44,79 +77,8 @@ class FakeAssDatabase {
     }
 
 }
+
 const data = new FakeAssDatabase();
-
-
-
-//console.log('MyfakeAssdatabase');
-
-
-
-
-
-
-app.get("/test_one", (req, res) => {
-  const message = {
-    message: {
-      fruitMessage: req.query.fruit,
-      cakeMessage: req.query.cake
-    }
-  };
-  res.json(message);
-});
-
-app.post("/test_two", (req, res) => {
-  const { fruit, cake } = req.body;
-  res.json({
-    massage: { fruitMessage: `i love to eat ${fruit} with ${cake}` }
-  });
-});
-
-app.get("/test_three/:fruit/:cake", (req, res) => {
-  const { fruit, cake } = req.params;
-  TokenAuthorization(req.headers)
-    ? res.json({ message: `you sent ${fruit} and ${cake}, but I only eat ${cake}!`})
-    : res.json({ message: "unauthorized" });
-});
-
-app.post("/test_four", (req, res) => {
-    const { fruit, cake } = req.body;
-    res.json({ message: `i am getting really sick of eating ${fruit} after filling up on ${cake}`
-    });
-  });
-
-
-
-
-// app.put("/test_five/write", (req,res)=>{
-//   const {fruit, cake } = req.body;
-
-//   MyfakeAssdatabase.create(fruit , 1);
-//   MyfakeAssdatabase.create(cake, 1);
-
-//   console.log(MyfakeAssdatabase);
-
-
-//  return res.json( { "message": `you sent ${fruit} and ${cake}`});
-    
-//  });
-
-
-//     app.get('/test_five/read', (req,res) => {
-//         const fruit = req.body.fruit;
-//         const cake = req.body.cake;
-        
-//         res.json(
-//             data.data
-//         )
-//     })
-
- 
- 
-
-
-
-
 
 
 app.put('/test_five/write', (req,res) => {
@@ -136,7 +98,7 @@ app.put('/test_five/write', (req,res) => {
         data.update(cake, data.read(cake) + 1);
     }
     res.json({
-        message: ' you sent ' + fruit  + ' and ' + cake
+        message: 'you sent ' + fruit  + ' and ' + cake
     })
     
 });
@@ -178,9 +140,4 @@ app.get('/test_five/read/:fruit/:cake', (req,res) => {
     res.json(data.data)
 })
 
-
-
-const port = process.env.PORT || 3000;
-app.listen(port,() => console.log(`Listen on port ${port}`))
-
-
+app.listen(PORT,()=>console.log("server is running"));
