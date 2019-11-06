@@ -1,5 +1,4 @@
 const express = require("express");
-const apply = require('./Mymodule');
 const app = express();
 
 app.use(express.json());
