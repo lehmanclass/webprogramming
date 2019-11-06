@@ -1,4 +1,7 @@
 
+//Shany M. Lajara
+
+
 const express = require('express');
 const app = express();
 const jsonMiddleware = express.json();
@@ -12,6 +15,7 @@ app.use(express.json());
 const FakeAssDatabase = require('./db.js');
 const mydb = new FakeAssDatabase();
 
+
 // --------> 
 // ------------------> TEST ONE <-----------------------------------
 // --------> 
@@ -24,8 +28,8 @@ const mydb = new FakeAssDatabase();
 app.get('/test_one', (request, response) => {
     const { fruit, cake } = request.query;
 
-    response.json(`"/message:"/ fruit: ${fruit}, cake: ${cake}`);
-    
+    response.json(`message: fruit: ${fruit}, cake: ${cake}`);
+ //   \"please\"
 });
 
 
@@ -42,20 +46,20 @@ app.get('/test_one', (request, response) => {
 // --------->
 // --------->
 
-const test_two = (request, response) => {
+app.post('/test_two',(request, response) => {
 
     if (request.originalUrl !== '/test_two') {
         response.send('You did something wrong');
     }
     else{
-        if (request.headers['content-type'] === 'application/json'){
-            const fruit = request.body[`fruit`];
-            const cake = request.body[`cake`];
+        if (request.headers['Content-Type'] === 'application/json'){
+            const aFruit = req.body.aFruit;
+            const aCake = req.body.aCake;
 
-            response.json(`message: I love to eat: ${fruit}, with: ${cake} `);
+            response.json(`message: I love to eat: ${aFruit}, with: ${aCake} `);
         }
     }
-};
+});
 
 
 // --------->
@@ -67,14 +71,17 @@ const test_two = (request, response) => {
 //If I send an incorrect token in the headers, i should get: { "message": "unauthorized" }
 // --------->
 
-app.get('/test_three/:fruit/:cake', (req, res) => {
+app.get('/test_three/:aFruit/:aCake', (req, res) => {
 
 
-        const { fruit, cake } = req.params;
+        
         const token = req.headers.authorization.replace('Bearer ', '');
     
         if (token === myToken) {
-            res.send(` message: you sent ${fruit} and ${cake}, but I only eat ${cake}!" `);
+            const aFruit = req.body.aFruit;
+            const aCake = req.body.aCake;
+           // res.send(` message: you sent ${fruit} and ${cake}, but I only eat ${cake}!" `);
+            res.json('message: you sent ${aFruit} and ${aCake}, but I only eat ${aCake}! ');
         } else {
             res.send('Message: unauthorized ');
         }
@@ -92,13 +99,13 @@ app.get('/test_three/:fruit/:cake', (req, res) => {
 //i should get back: { "message": "i am getting really sick of eating ${aFruit} after filling up on ${aCake}" }
 // --------->
 
-const test_four = (request, response) => {
+app.post('/test_four',(request, response) => {
 
         if (request.originalUrl === '/test_four') {
-            if (request.headers['content-type'] === 'application/x-www-form-urlencoded'){
-                const fruit = request.body[`fruit`];
-                const cake = request.body[`cake`];
-                response.json(`message: I am getting really sick of eating ${fruit} after filling up on ${cake}`);
+            if (request.headers['Content-Type'] === 'application/x-www-form-urlencoded'){
+                const aFruit = request.body[`fruit`];
+                const aCake = request.body[`cake`];
+                response.json(`message: I am getting really sick of eating ${aFruit} after filling up on ${aCake}`);
             }
             else{
                 response.send('You did something wrong');
@@ -107,9 +114,8 @@ const test_four = (request, response) => {
         else{
         response.send('You did something wrong');
         }
-    };
+    });
     
-    app.post('/test_four', test_four);
 
 // --------->
 // ----------------------------------> TEST FIVE<-----------------------------
@@ -154,6 +160,6 @@ app.put('/test_five/write', (req,res) => {
 // ---------> the end
 // --------->
 
-app.post('/test_two', test_two);
+//app.post('/test_two', test_two);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
