@@ -84,17 +84,36 @@ class FakeAssDatabase {
     dump() {
         return JSON.stringify(this.data);
     }
-
-
-}
-app.put('/test_five/write',(req,res) =>{
-    let fruit = req.body.fruit;
     
- FakeAssDatabase.create(fruit,1);
  
- jsonObj = {message:`${fruit}`}
+
+} 
+let p = new FakeAssDatabase;
+
+
+app.put('/test_five/write',(req,res) =>{
+
+    let fruit = req.body.fruit;
+    let cake = req.body.cake;
+    
+    try {
+        p.create(fruit, 1);
+    } catch (e) {
+        p.update(fruit, p.read(fruit) + 1);
+    } try {
+        p.create(cake, 1);
+    } catch (e) {
+        p.create(cake, p.read(cake + 1));
+    }
+
+ 
+ jsonObj = {message:`you sent ${fruit} and ${cake}`};
  res.send(jsonObj);
 
+});
+app.get('/test_five/read', (req, res) => {
+
+ res.json(p.data);
 });
 
 app.listen(PORT, () => console.log(`project_two running${PORT}!`));
