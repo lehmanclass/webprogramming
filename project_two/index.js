@@ -1,15 +1,18 @@
-
 const express = require('express');
+const request = require('request');
 const app = express();
 const jsonMiddleware = express.json();
 const PORT = 3000;
 const DEFAULT_TOKEN = 'projecttwo';
-
-const AnotherFakeDatabase = {
-	"willmostlikelyneed@cuny.edu": 1
-};
-
 app.use(jsonMiddleware);
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+const router = express.Router();
+
+
+const FakeAssDatabase = require('./db.js');
+const DATABASE = new FakeAssDatabase();
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,13 +25,9 @@ app.use(jsonMiddleware);
 app.get('/test_one', (req, res) => {
     const { fruit, cake } = req.query;
 
-    const db = {
-    test_one: [`{ "message": { "fruitMessage": ${fruit}, "cakeMessage": ${cake} } }`], 
-    fruits: ['mango', 'fruits']
 
-};
-    res.json(db.test_one);
-    console.log(db.test_one);
+	data = `'{ 'message': { 'fruit': '${fruit}', 'cake': '${cake}' } }'`;
+	res.json(data);
 });
 
 
@@ -48,13 +47,12 @@ const test_two = (req, res) => {
         if (req.headers['content-type'] === 'application/json'){
             const fruit = req.body[`fruit`];
             const cake = req.body[`cake`];
+            
+        	data = `{ 'message': 'I love to eat ${fruit} with ${cake}' }'`;
+			res.json(data);
+    	}
+	}
 
-            const db2 = {
-    test_two: [`{ "message": { "I love to eat": ${fruit}, "with": ${cake} } }`]};
-
-            res.json(db2.test_two);
-        }
-    }
 };
 
 app.post('/test_two', test_two);
@@ -74,7 +72,8 @@ app.get('/test_three/:fruit/:cake', (req, res) => {
 
     if (token === DEFAULT_TOKEN) {
         const db3 = {
-        test_three: [`{ "message": "you sent ${fruit} and ${cake}, but I only eat ${cake}!" }`]};
+        test_three: [`'{ 'message': 'you sent ${fruit} and ${cake}, but I only eat ${cake}!' }'`]};
+
 
     res.json(db3.test_three);
     console.log(db3.test_three);
@@ -100,13 +99,10 @@ const test_four = (req, res) => {
             const fruit = req.body[`fruit`];
             const cake = req.body[`cake`];
 
-            const db2 = {
-    test_two: [`{ "message": { "I love to eat": ${fruit}, "with": ${cake} } }`]};
-
-            res.json(db2.test_two);
-        }
-    }
-
+            data = `'{ 'message': { 'i am getting really sick of eating ${fruit} after filling up on ${cake}' } }'`;
+			res.json(data);
+		}
+	}
 };
 
 app.post('/test_four', test_four);
@@ -135,7 +131,10 @@ app.put('/test_five/write', (req,res) => {
   } else {
     DATABASE.update(cake, Cakey + 1);
   }
-  res.json({ message: `you sent ${fruit} and ${cake}` });
+
+  data = `'{ 'message': { 'you sent': '${fruit}', 'and': '${cake}' } }'`;
+  res.json(data);
+  
 
 
 });
