@@ -17,7 +17,7 @@ app.get('/test_one', (req,res)=>{
 });
 
 app.post('/test_two', (req, res) =>{
-    const message = {message: `I love to eat ${req.body.fruit} with ${req.body.cake}`}
+    const message = {message: `i love to eat ${req.body.fruit} with ${req.body.cake}`}
     res.json(message)
 });
 
@@ -30,7 +30,7 @@ app.get('/test_three/:grape/:angelfood', (req, res) =>{
     if (TOKEN !== token) {
         return res.json({ message: 'unauthorized' });
     }
-    return res.json({ message: `You sent ${req.params.grape} and ${req.params.angelfood}, but I only eat ${req.params.angelfood}`});
+    return res.json({ message: `you sent ${req.params.grape} and ${req.params.angelfood}, but I only eat ${req.params.angelfood}!`});
 });
 
 app.post('/test_four', (req, res) =>{
@@ -98,7 +98,7 @@ app.put('/test_five/write', (req,res) => {
         data.update(cake, data.read(cake) + 1);
     }
     res.json({
-        message: ' you sent ' + fruit  + ' and ' + cake
+        message: 'you sent ' + fruit  + ' and ' + cake
     })
     
 });
