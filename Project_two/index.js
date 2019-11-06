@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({extended : true }));
 
 class FakeAssDatabase {
 	constructor() {
@@ -35,12 +36,11 @@ class FakeAssDatabase {
 };
 
 
-const database = new FakeAssDatabase ();
+const database = new FakeAssDatabase ();	
 
 app.get('/test_one', (req, res) => {
 	const data = req.query;
 	console.log(data)
-	
     res.json({ "message" : { "fruit": data.fruit, "cake": data.cake }})
 });
 
@@ -56,7 +56,7 @@ app.get('/test_three/:fruit/:cake', (req, res) => {
 	const sentToken = req.headers.authorization.replace('Bearer ', '');
 	const data = req.params;
   if (sentToken === expected_token) {
-       res.json({ "message" : "you sent " + data.fruit + " and " + data.cake + ", but i only eat " + data.cake + "!"});
+       res.json({ "message" : "you sent " + data.fruit + " and " + data.cake + ", but I only eat " + data.cake + "!"});
   }    
     else {
         res.json({ "message": "unauthorized"}); 
@@ -65,8 +65,35 @@ app.get('/test_three/:fruit/:cake', (req, res) => {
 });
 
 app.post('/test_four', (req,res) => {
+	const data = req.body;
+    res.send({"message" : "i am getting really sick of eating " + data.fruit + " after filling up on " + data.cake});
+});
 
-    res.send("i am really getting sick of eating " + fruit + " after filling up on " + cake)
+app.put('/test_five/write', (req, res) => {
+	const data = req.body;
+
+	try {
+		database.create(data.fruit, 1)
+	} catch (err) {
+		// try to update
+		const previous = database.read(data.fruit);
+		database.update(data.fruit, previous + 1);
+	}
+
+	try {
+		database.create(data.cake, 1)
+	} catch (err) {
+		// try to update
+		const previous = database.read(data.cake);
+		database.update(data.cake, previous + 1);
+	}
+
+	res.json({ "message": "you sent " + data.fruit + " and " + data.cake});
+});
+
+app.get('/test_five/read', (req, res) => {
+
+	res.json(database.data);
 });
 
 const onListen = () => {
