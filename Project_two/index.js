@@ -37,31 +37,36 @@ class FakeAssDatabase {
 
 const database = new FakeAssDatabase ();
 
+
 app.get('/test_one', (req, res) => {
+	const data = req.body;
+	console.log(data)
+	//database.create(cake,"");
+	//database.create(fruit,"");
 	
     
     res.send('fruit : ',fruit, 'cake : ',cake)
 });
 
-app.post('/test_two', (req,res) => {
+//app.post('/test_two', (req,res) => {
 
-    res.send("i love to eat ", afruit, " and ", acake,"!")
-});
+//    res.send("i love to eat ", afruit, " and ", acake,"!")
+//});
 
-app.get('/test_three', (req, res) => {
+//app.get('/test_three', (req, res) => {
 
-    if (sentToken === expected_token) {
-        res.json({ "message": "you sent " + fruit + " and " + cake + ", but it only eat " + cake + "!"});
-    }    
-    else {
-        res.json({ "message": "unauthorized"}); 
-    }
+//   if (sentToken === expected_token) {
+//        res.json({ "message": "you sent " + fruit + " and " + cake + ", but it only eat " + cake + "!"});
+//   }    
+//     else {
+//         res.json({ "message": "unauthorized"}); 
+//     }
 
-});
-app.post('/test_four', (req,res) => {
+// });
+// app.post('/test_four', (req,res) => {
 
-    res.send("i am really getting sick of eating " + fruit + " after filling up on " + cake)
-});
+//     res.send("i am really getting sick of eating " + fruit + " after filling up on " + cake)
+// });
 
 const onListen = () => {
     console.log('i am listening');
