@@ -1,7 +1,7 @@
 // Web Development Project by Rafael Perez
 
 const express = require('express'); 
-const FakeDatabase = require('./db.js'); 
+const FakeDatabase = require('./db'); 
 const app = express();
 
 const PORT = 3000;
@@ -31,7 +31,6 @@ app.post('/test_two', (req, res) => {
     });
 });
 
-//For Test three
 
 app.get('/test_three/:fruit/:cake', (req, res) => {
     const {fruit, cake} = req.params;
