@@ -37,36 +37,37 @@ class FakeAssDatabase {
 
 const database = new FakeAssDatabase ();
 
-
 app.get('/test_one', (req, res) => {
-	const data = req.body;
+	const data = req.query;
 	console.log(data)
-	//database.create(cake,"");
-	//database.create(fruit,"");
 	
-    
-    res.send('fruit : ',fruit, 'cake : ',cake)
+    res.json({ "message" : { "fruit": data.fruit, "cake": data.cake }})
 });
 
-//app.post('/test_two', (req,res) => {
+app.post('/test_two', (req,res) => {
+	const data = req.body
+	console.log(data)
 
-//    res.send("i love to eat ", afruit, " and ", acake,"!")
-//});
+   res.json({ "message": "i love to eat "+data.fruit+" with "+data.cake})
+});
 
-//app.get('/test_three', (req, res) => {
+app.get('/test_three/:fruit/:cake', (req, res) => {
+	const expected_token = "projecttwo";
+	const sentToken = req.headers.authorization.replace('Bearer ', '');
+	const data = req.params;
+  if (sentToken === expected_token) {
+       res.json({ "message" : "you sent " + data.fruit + " and " + data.cake + ", but i only eat " + data.cake + "!"});
+  }    
+    else {
+        res.json({ "message": "unauthorized"}); 
+    }
 
-//   if (sentToken === expected_token) {
-//        res.json({ "message": "you sent " + fruit + " and " + cake + ", but it only eat " + cake + "!"});
-//   }    
-//     else {
-//         res.json({ "message": "unauthorized"}); 
-//     }
+});
 
-// });
-// app.post('/test_four', (req,res) => {
+app.post('/test_four', (req,res) => {
 
-//     res.send("i am really getting sick of eating " + fruit + " after filling up on " + cake)
-// });
+    res.send("i am really getting sick of eating " + fruit + " after filling up on " + cake)
+});
 
 const onListen = () => {
     console.log('i am listening');
