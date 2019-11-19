@@ -1,5 +1,5 @@
 import React from "react";
-import GifCard from './GifCard';
+import GifCard from "./GifCard";
 import "./App.css";
 
 class App extends React.Component {
@@ -10,53 +10,42 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // fetch("http://localhost:3001/count")
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({ count: data.count });
-    //   });
-  }
-
-  fetchGif = (e) => {
-    // To do: fix request bug
-    const {search} = this.state;
-    fetch("http://localhost:3001/gif_search", {
-      method: 'post',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({searchTerm: search})
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({gifs: data.result})
-        console.log(data)
-      });
+  fetchGif = () => {
+    const { search } = this.state;
+    if (search.trim().length > 0) {
+      fetch("http://localhost:3001/gif_search", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ searchTerm: search })
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ gifs: data.result });
+        });
+    }
   };
 
   displayGifs = () => {
-    const {gifs} = this.state;
+    const { gifs } = this.state;
     const gifContainer = [];
 
-    gifs.forEach( gif => {
-       gifContainer.push(<GifCard url = {gif.gifUrl} key={gif.key} />)
-    })
+    gifs.forEach(gif => {
+      gifContainer.push(<GifCard url={gif.gifUrl} key={gif.key} />);
+    });
 
-    return(
-      <div className="gif-container">{gifContainer}</div>
-    )
-    
-  }
+    return <div className="gif-container">{gifContainer}</div>;
+  };
 
-  handleChange = (e) => {
-    console.log(e.target.value)
-    this.setState({search: e.target.value})
-  }
+  handleChange = e => {
+    console.log(e.target.value);
+    this.setState({ search: e.target.value });
+  };
 
   render() {
-    const {gifs, search} = this.state;
+    const { gifs, search } = this.state;
 
     return (
       <div>
@@ -65,7 +54,11 @@ class App extends React.Component {
         </div>
 
         <div className="input-container">
-          <input id="gif-search-input" value={search} onChange={this.handleChange}/>
+          <input
+            id="gif-search-input"
+            value={search}
+            onChange={this.handleChange}
+          />
           <button id="gif-search-submit" onClick={this.fetchGif}>
             Search
           </button>
