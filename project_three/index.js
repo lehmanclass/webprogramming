@@ -25,11 +25,11 @@ app.post("/gif_search", (req, res) => {
           key: gifInfo.id
         };
       });
-      res.json({ result: gifs });
+      res.json({ results: gifs });
     })
     .catch(error => {
       console.log(error);
     });
 });
 
-app.listen(3001, () => console.log("server is running"));
+app.listen(3000, () => console.log("server is running"));
