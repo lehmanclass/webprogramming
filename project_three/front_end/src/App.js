@@ -13,7 +13,7 @@ class App extends React.Component {
   fetchGif = () => {
     const { search } = this.state;
     if (search.trim().length > 0) {
-      fetch("http://localhost:3001/gif_search", {
+      fetch("/gif_search", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -44,6 +44,12 @@ class App extends React.Component {
     this.setState({ search: e.target.value });
   };
 
+  handleKeyPress = e => {
+    if (e.key == "Enter") {
+      this.fetchGif();
+    }
+  };
+
   render() {
     const { gifs, search } = this.state;
 
@@ -58,6 +64,7 @@ class App extends React.Component {
             id="gif-search-input"
             value={search}
             onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
           />
           <button id="gif-search-submit" onClick={this.fetchGif}>
             Search
