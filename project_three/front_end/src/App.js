@@ -1,12 +1,14 @@
 import React from "react";
 import GifCard from "./GifCard";
+import ViewFullImage from "./ViewFullImage";
 import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: ""
+      search: "",
+      imageUrl: ""
     };
   }
 
@@ -28,19 +30,29 @@ class App extends React.Component {
     }
   };
 
+  handleClick = url => {
+    this.setState({ imageUrl: url });
+  };
+
   displayGifs = () => {
     const { gifs } = this.state;
     const gifContainer = [];
 
     gifs.forEach(gif => {
-      gifContainer.push(<GifCard url={gif.gifUrl} key={gif.key} />);
+      gifContainer.push(
+        <GifCard
+          handleClick={this.handleClick}
+          url={gif.gifUrl}
+          focusUrl={gif.focusUrl}
+          key={gif.key}
+        />
+      );
     });
 
     return <div className="gif-container">{gifContainer}</div>;
   };
 
   handleChange = e => {
-    console.log(e.target.value);
     this.setState({ search: e.target.value });
   };
 
@@ -51,10 +63,13 @@ class App extends React.Component {
   };
 
   render() {
-    const { gifs, search } = this.state;
+    const { gifs, search, imageUrl } = this.state;
 
     return (
-      <div>
+      <div className="parent-container">
+        {imageUrl ? (
+          <ViewFullImage handleClick={this.handleClick} url={imageUrl} />
+        ) : null}
         <div className="header">
           <h2 className="title">Gif Search</h2>
         </div>
