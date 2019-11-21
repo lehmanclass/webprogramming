@@ -64,12 +64,12 @@ class App extends React.Component {
 
   render() {
     const { gifs, search, imageUrl } = this.state;
+    if (imageUrl) {
+      return <ViewFullImage handleClick={this.handleClick} url={imageUrl} />;
+    }
 
     return (
       <div className="parent-container">
-        {imageUrl ? (
-          <ViewFullImage handleClick={this.handleClick} url={imageUrl} />
-        ) : null}
         <div className="header">
           <h2 className="title">Gif Search</h2>
         </div>
