@@ -10,6 +10,9 @@ For this project you will build both a front end and back end. Your server will 
 
 I will load your front end code at `localhost:3000/`.
 
+YOU WILL NEED TO GET A GIPHY API TOKEN. Register for one here:
+
+https://developers.giphy.com/docs/api/ (Click on 'create an app')
 
 Test ONE (back end):
 
@@ -35,7 +38,7 @@ Test FOUR (front end):
 
 Test FIVE (front end):
 
-- I run `document.querySelectorAll('.gif-result-display').click()`
+- I run `document.querySelector('.gif-result-display').click()`
 - `document.querySelectorAll('.gif-focus-display')` should return exactly one element.
 - `document.querySelectorAll('.gif-result-display')` should return zero elements.
 
