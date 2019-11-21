@@ -12,3 +12,4 @@
 ## Checking extra credits
 
 - eslint: in the terminal type ```./node_modules/.bin/eslint index.js``` and hit enter
+- Tests: ```./node_modules/.bin/cypress open``` or ```npx cypress open``` or ```npm run cypress:open`` 
