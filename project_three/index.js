@@ -3,9 +3,9 @@ const bodyparser = require('body-parser');
 const API_KEY = require('./api_key');
 const axios = require('axios');
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
-
+app.use(express.static('build'))
 
 app.use(express.json());
 app.use(bodyparser.json());
