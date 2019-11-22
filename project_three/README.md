@@ -73,5 +73,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Extra Credit ON PROJECT THREE:
 
--- Your CSS styling is mobile-first
--- Add CSS styling beyond what is required 
+- Your CSS styling is mobile-first
+
+- Add CSS styling beyond what is required 
