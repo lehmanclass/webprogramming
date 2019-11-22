@@ -68,11 +68,16 @@ class App extends React.Component {
         <div className = "myheader"> 
        
             <form className="myform" onSubmit={this.handleSubmit}>
-            <h1>Search gifs</h1>
-              <input id= "gif-search-input" type="text" value={searchTerm} onChange={this.handleChange} />
-              <button>Search</button>
+                <h1>Search gifs</h1>
+                  <input id= "gif-search-input" 
+                    type="text" 
+                    value={searchTerm} 
+                    onChange={this.handleChange} />
+
+                <button>Search</button>
             </form>
           </div>
+      
           {img.map((img, i) => (
             <img
               className= "gif-result-display"
