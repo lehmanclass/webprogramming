@@ -2,7 +2,7 @@ import React from "react";
 
 function ViewFullImage(props) {
   return (
-    <div className="gif-focus-display ">
+    <div className="gif-focus-display">
       <div>
         <div className="overlay"></div>
         <img src={props.url} alt="" />
