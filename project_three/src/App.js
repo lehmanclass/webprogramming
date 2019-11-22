@@ -61,13 +61,15 @@ class App extends React.Component {
   }
   
   render(){
+    
     const { searchTerm, giphyImg, clickedImage } = this.state;
 
     if (clickedImage) {
       return (
         <img className='gif-focus-display' src={clickedImage.gifUrl} alt='giphy image' />
       )
-    }
+      }
+    
     
   return (
     <div className="App">
