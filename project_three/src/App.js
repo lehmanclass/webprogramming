@@ -78,8 +78,8 @@ class App extends React.Component {
   
     
 
-    <form onSubmit ={this.onClick} >
-      <input id="gif-result-input" value = {searchTerm} onChange = {this.onChange} type="text"/>
+    <form className ="gif-search-submit" onSubmit ={this.onClick} >
+      <input id="gif-search-input" value = {searchTerm} onChange = {this.onChange} type="text"/>
       <button > Search</button>
 
     </form>
