@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const axios = require("axios");
 const path = require("path");
-const PORT = 5000;
+const PORT = 3000;
 
 app.use(express.json());
 const api_key = process.env.GIPHY_API_TOKEN;
