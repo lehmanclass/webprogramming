@@ -2,7 +2,8 @@ const express = require("express");
 const axios = require("axios");
 const app = express();
 const path = require("path");
-const token = process.env.giphy;
+const token = process.env.GIPHY_API_TOKEN;
+
 
 app.use(express.json());
 
