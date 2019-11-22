@@ -10,6 +10,7 @@
 
 
 ## Checking extra credits
-
+- ```cd ``` into project_three
+- run ```npm install```  
 - eslint: inside the root folder (project_three) paste ```./node_modules/.bin/eslint index.js``` in your terminal and hit enter
 - Integration Tests: ```./node_modules/.bin/cypress open``` or ```npx cypress open``` or ```npm run cypress:open`` 
