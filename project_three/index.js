@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const PORT = 5000;
+const PORT = 3000;
 const path = require('path');
 
 app.use(express.json());
 
-//const APIKEY = process.env.GIPHY_API_TOKEN;
-const APIKEY = "FD72StcwtexUj9FHhzMkpP0DK5WWtaSq";
-app.use(express.static(path.join(__dirname, "./build")));
+const APIKEY = process.env.GIPHY_API_TOKEN || require('./apikey');
+
+app.use(express.static("build"));
 
 
 app.post('/gif_search', (req, res) => {
