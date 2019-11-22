@@ -15,19 +15,6 @@ class App extends React.Component {
     }
   }
 
-  //   searchTerm = ( event ) => {
-  //   event.preventDefault();
-  //   let userInput = event.target[0].value;
-  //   console.log(userInput);
-
-    
-  //   .then( (resolve) => {   // Called when data is returned
-  //     this.setState( {img: resolve.data.data} );
-  //     console.log(resolve.data.data);
-  //   })
-  //   .catch( (err)=> console.log(err));
-  // }
-
   handleChange = (event) =>{
     this.setState(
       { searchTerm: event.target.value });
@@ -61,8 +48,6 @@ class App extends React.Component {
 
 
   render() {
-    // let elemsimg = [];     
-    // elemsimg = this.state.img.map(picture =>(<img alt = "thisisapic" src = {picture.images.downsized_large.url}></img>))
     
     const {img, searchTerm, focusedImg} = this.state;
 
@@ -104,24 +89,6 @@ class App extends React.Component {
         }
 
 
-
     
-//     return (
-
-//     <div className = "wholepage">
-//       <div className = "myheader"> 
-        
-//           <form onSubmit={this.searchTerm}>  
-//               <h1>Search gifs</h1>
-//               <input id = "myform" type="text" />
-//           </form>
-//         </div>
-
-//         {/* {elemsimg} */}
-      
-//     </div>
-//     );
-//   }
-// }
 
 export default App;
