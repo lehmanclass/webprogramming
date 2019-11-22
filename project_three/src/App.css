@@ -1,6 +1,25 @@
 .App {
   text-align: center;
 }
+h1{
+  background-color: #09d3ac;
+  padding:0;
+  margin:0;
+}
+#gif-search-input{
+  border-radius: 15px;
+  border:2px solid black;
+  padding-right:10px;
+  margin-right: 4px;
+}
+
+.gif-search-submit{
+  margin-top:5%;
+  border: 2px solid black;
+  padding-bottom: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .App-logo {
   height: 40vmin;

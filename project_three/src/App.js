@@ -71,16 +71,18 @@ class App extends React.Component {
     
   return (
     <div className="App">
-      
+    
     <h1>Giphy</h1> 
-    <h5>Search for your favorite giphy</h5>
+    
 
   
     
 
     <form className ="gif-search-submit" onSubmit ={this.onClick} >
+      <h5>Search for your favorite giphy</h5>
       <input id="gif-search-input" value = {searchTerm} onChange = {this.onChange} type="text"/>
       <button > Search</button>
+    
 
     </form>
 
