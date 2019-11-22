@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+myapikey.js
+
 # production
 /build
 
