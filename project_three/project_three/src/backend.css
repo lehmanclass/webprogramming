@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+    justify-content: center;
+}
+#search{
+    color: red;
+    font-weight: 900;
+    padding-top: 100px;
+}
+#gif-search-input{
+    background-color: red;
+    color: white;
+}
+.gif-result-display{
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+        #search{
+            color: blue;
+            font-weight: 900;
+            padding-top: 100px;
+        }
+        #gif-search-input{
+            background-color: blue;
+            color: black;
+        }
+    
+  }
