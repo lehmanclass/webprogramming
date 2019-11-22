@@ -66,3 +66,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### FIRST FULL STACK PROJECT
+
+
+## Extra Credit ON PROJECT THREE:
+
+-- Your CSS styling is mobile-first
+-- Add CSS styling beyond what is required 
