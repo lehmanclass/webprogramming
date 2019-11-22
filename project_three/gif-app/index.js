@@ -1,14 +1,13 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const PORT = 3000;
+const PORT = 5000;
 const path = require('path');
 
 app.use(express.json());
 
 //const APIKEY = process.env.GIPHY_API_TOKEN;
 const APIKEY = "FD72StcwtexUj9FHhzMkpP0DK5WWtaSq";
-
 app.use(express.static(path.join(__dirname, "./build")));
 
 

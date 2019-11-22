@@ -42,11 +42,12 @@ class App extends React.Component {
     }
 
     return (
-      <div className="App">
-        <h1>GIF Search</h1>
+      <div style={{backgroundColor: "yellow"}} className="App">
+        <h1 style={{color: "red"}}>GIF Search</h1>
+        <h3 style={{backgroundColor: "orange"}} >Welcome to my GIF Searcher</h3>
         <input type="text" id="gif-search-input" value={searchTerm} onChange={this.handleChange}/>
         <button id="gif-search-submit" onClick={this.handleClick}>Search</button>
-        <div >
+        <div style={{backgroundColor: "blue"}} >
           {imgs.map((img, i) => (
             <img onClick={()=> this.focusImage(img.gifUrl)} className="gif-result-display" key={i} src={img.gifUrl} alt="gif" />
           ))}
