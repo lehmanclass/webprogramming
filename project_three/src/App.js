@@ -1,11 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import './project_three/index.js'
+import GifList from './GifList';
+import request from 'superagent';
 
-const DisplayText = (props) =>{
-  return<div className="display-text">{props.message}</div>;
-}
 
 class App extends React.Component {
   constructor(props){
@@ -13,8 +11,10 @@ class App extends React.Component {
 
     this.state = {
       // message:"",
-      searchTerm: ''
+      searchTerm: '',
+      gifs: []
     };
+    // this.handleTermChange = this.handleTermChange.bind(this)
 
     this.handleChange = (event)=>{
       this.setState({searchTerm: event.target.value});
@@ -30,23 +30,25 @@ class App extends React.Component {
         headers: {
           'Content-Type': 'application/json'
         }
-      }).then(function(response) {
-        return response.json();
-      }).then(function(data) {
-        console.log(data);
-      }).catch(function() {
-        console.log("Booo");
+      }).then(response => response.json()).then((gifs) => {
+        console.log(gifs);
+        console.log(gifs.length);
+        this.setState({
+          gifs: gifs
+        });
       });
-      // this.setState({message:''})
+  
+      // this.setState({ gifs: response.body.data })
     }
   }
   render(){
     console.log(this.state);
     return (
       <div className="App">
-      <p> Here Is Your Gif Search App</p>
-      <input type="text" placeholder ="Search For Gifs" onChange={this.handleChange} value ={this.state.text}/>
-      <button onClick={this.handleClick}>Search</button>
+        <p> Here Is Your Gif Search App</p>
+        <input id="gif-search-input" type="text" placeholder ="Search For Gifs" onChange={this.handleChange} value ={this.state.text}/>
+        <button id="gif-search-submit" onClick={this.handleClick}>Search</button>
+        <GifList gifs={this.state.gifs} />
       </div>
     );
 
