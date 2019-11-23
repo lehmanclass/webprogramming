@@ -12,9 +12,3 @@ const GifList = (props) => {
 };
 
 export default GifList;
-
-// var ItemNode = this.state.data.map(function(itemData) {
-//     return (
-//        <ComponentName title={itemData.title} key={itemData.id} number={itemData.id}/>
-//      );
-//     });
