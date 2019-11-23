@@ -15,18 +15,6 @@ class App extends React.Component {
     }
   }
 
-  //   searchTerm = ( event ) => {
-  //   event.preventDefault();
-  //   let userInput = event.target[0].value;
-  //   console.log(userInput);
-
-    
-  //   .then( (resolve) => {   // Called when data is returned
-  //     this.setState( {img: resolve.data.data} );
-  //     console.log(resolve.data.data);
-  //   })
-  //   .catch( (err)=> console.log(err));
-  // }
 
   handleChange = (event) =>{
     this.setState(
@@ -61,8 +49,6 @@ class App extends React.Component {
 
 
   render() {
-    // let elemsimg = [];     
-    // elemsimg = this.state.img.map(picture =>(<img alt = "thisisapic" src = {picture.images.downsized_large.url}></img>))
     
     const {img, searchTerm, focusedImg} = this.state;
 
