@@ -1,7 +1,7 @@
 
 
 Extra Credit: 
- - Added some CSS to some components by changing the font styles, sizes and and colors.
+ - Added some CSS to some components by changing the font styles, sizes and colors.
 
 
 ---------------------------------------------------
