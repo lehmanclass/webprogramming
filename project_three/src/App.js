@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import GifList from './GifList';
 import request from 'superagent';
+// import { url } from 'inspector';
 
 
 class App extends React.Component {
@@ -23,7 +24,8 @@ class App extends React.Component {
     this.handleClick=(term)=>{
       console.log(term);
       const searchTermBody = { searchTerm: this.state.searchTerm };
-      fetch('http://localhost:3000/gif_search', {
+      const url = `http://localhost:3000/gif_search`
+      fetch(url, {
         method: 'post',
         // body: JSON.stringify(event)
         // body: '{"searchTerm": this.state.searchTerm}'
@@ -49,7 +51,7 @@ class App extends React.Component {
         <p> Here Is Your Gif Search App</p>
         <input id="gif-search-input" type="text" placeholder ="Search For Gifs" onChange={this.handleChange} value ={this.state.text}/>
         <button id="gif-search-submit" onClick={this.handleClick}>Search</button>
-        <GifList gifs={ this.state.gifs } />
+        <GifList gifs={ this.state.gifs} />
       </div>
     );
 

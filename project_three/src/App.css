@@ -29,3 +29,23 @@ button{
   margin: 0 auto;
   text-align: center;
 }
+
+.gif-result-display {
+  box-shadow: 2px 2px 4px 0 #ccc;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0 1.5em;
+  padding: 1em;
+  width: 100%;
+}
+
+.gif-result-display img {
+  width: 100%;
+}
+
+.gif-list {
+  column-gap: 1.5em;
+  font-size: .85em;
+  margin: 1.5em 0;
+  padding: 0;
+}
