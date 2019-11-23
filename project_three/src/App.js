@@ -83,45 +83,35 @@ class App extends React.Component {
         <div className = "myheader"> 
        
             <form className="myform" onSubmit={this.handleSubmit}>
-            <h1>Search gifs</h1>
-              <input id= "gif-search-input" type="text" value={searchTerm} onChange={this.handleChange} />
-              <button>Search</button>
+            <h2 className = "fonts">Searching for Gifs?</h2>
+            
+            <div className = "mysearchinput">
+                  <input id= "gif-search-input" 
+                         type="text" value={searchTerm} 
+                         onChange={this.handleChange} />
+
+                  <button id = "gif-search-submit">Show me!</button>
+              </div>
+
             </form>
           </div>
-          {img.map((img, i) => (
-            <img
-              className= "gif-result-display"
-              src={img.gifUrl}
-              alt="gif"
-              key={i}
-              onClick={() => this.displayImage(img)}
-            />
-          ))}
+                <div className= "gifdisplay">
+                  {img.map((img, i) => (
+                    <img
+                      className= "gif-result-display"
+                      src={img.gifUrl}
+                      alt="gif"
+                      key={i}
+                      onClick={() => this.displayImage(img)}
+                    />
+                  ))}
+              </div>
+
         </div>
 
-    )
+            )
           }
         }
 
-
-
-    
-//     return (
-
-//     <div className = "wholepage">
-//       <div className = "myheader"> 
-        
-//           <form onSubmit={this.searchTerm}>  
-//               <h1>Search gifs</h1>
-//               <input id = "myform" type="text" />
-//           </form>
-//         </div>
-
-//         {/* {elemsimg} */}
-      
-//     </div>
-//     );
-//   }
-// }
 
 export default App;
