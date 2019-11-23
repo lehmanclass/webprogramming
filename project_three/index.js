@@ -23,7 +23,7 @@ app.post('/gif_search', (req, res) => {
         res.json({results});
 
     })
-    .catch(() => res.json({msg: 'FAILED'}));
+    .catch(() => res.json({msg: 'action failed'}));
 });
 
 
