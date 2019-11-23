@@ -1,3 +1,17 @@
+
+
+Extra Credit: 
+ - Added some CSS to some components by changing the font styles, sizes and and colors.
+
+
+---------------------------------------------------
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
