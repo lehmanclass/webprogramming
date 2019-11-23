@@ -15,10 +15,7 @@ class App extends React.Component {
     }
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 47a2ffd39cc2665e99aed8a60b9eea736d1e0e21
   handleChange = (event) =>{
     this.setState(
       { searchTerm: event.target.value });
@@ -72,7 +69,6 @@ class App extends React.Component {
         <div className = "myheader"> 
        
             <form className="myform" onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
             <h2 className = "fonts">Searching for Gifs?</h2>
             
             <div className = "mysearchinput">
@@ -97,27 +93,6 @@ class App extends React.Component {
                   ))}
               </div>
 
-=======
-                <h1>Search gifs</h1>
-                  <input id= "gif-search-input" 
-                    type="text" 
-                    value={searchTerm} 
-                    onChange={this.handleChange} />
-
-                <button>Search</button>
-            </form>
-          </div>
-      
-          {img.map((img, i) => (
-            <img
-              className= "gif-result-display"
-              src={img.gifUrl}
-              alt="gif"
-              key={i}
-              onClick={() => this.displayImage(img)}
-            />
-          ))}
->>>>>>> 47a2ffd39cc2665e99aed8a60b9eea736d1e0e21
         </div>
 
             )
@@ -125,9 +100,4 @@ class App extends React.Component {
         }
 
 
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> 47a2ffd39cc2665e99aed8a60b9eea736d1e0e21
 export default App;
