@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import GifList from './GifList';
-import request from 'superagent';
-// import { url } from 'inspector';
+// import request from 'superagent'; //npm install superagent 
+import GifModal from './GifModal'; //npm install --save react-modal 
+
 
 
 class App extends React.Component {
@@ -13,9 +13,10 @@ class App extends React.Component {
     this.state = {
       // message:"",
       searchTerm: '',
-      gifs: []
+      gifs: [],
+      selectedGif: null,
+      modalIsOpen: false
     };
-    // this.handleTermChange = this.handleTermChange.bind(this)
 
     this.handleChange = (event)=>{
       this.setState({searchTerm: event.target.value});
@@ -40,18 +41,35 @@ class App extends React.Component {
           gifs: gifs
         });
       });
-  
-      // this.setState({ gifs: response.body.data })
     }
   }
+
+  openModal(gif) {
+    this.setState({
+      modalIsOpen: true,
+      selectedGif: gif
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      modalIsOpen: false,
+      selectedGif: null
+    });
+  }
+
   render(){
-    console.log(this.state);
+    // console.log('App.js has this.state.gifs of ->', this.state.gifs);
     return (
       <div className="App">
-        <p> Here Is Your Gif Search App</p>
+        <h1>Gif Search</h1>
         <input id="gif-search-input" type="text" placeholder ="Search For Gifs" onChange={this.handleChange} value ={this.state.text}/>
         <button id="gif-search-submit" onClick={this.handleClick}>Search</button>
-        <GifList gifs={ this.state.gifs} />
+        <GifList  gifs={this.state.gifs}
+                  onGifSelect={selectedGif => this.openModal(selectedGif) } />
+        <GifModal modalIsOpen={this.state.modalIsOpen}
+                  selectedGif={this.state.selectedGif}
+                  onRequestClose={ () => this.closeModal() } />
       </div>
     );
 

@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
   display: flex;
   flex-direction: column;
@@ -9,25 +15,38 @@ body{
   background-image: linear-gradient(135deg, #00ccff,#9933ff 31%, #fff9aa 77%, #00ff99, #00ccff);
 }
 
-.app {
-  margin: 3em auto;
-  width: 90%;
+
+.App{
+  background: rgba(256, 256, 256, 0.3);
+  color: white;
 }
 
-input {
-  display: block;
-  font-size: 20px;
-  margin: 0 auto;
-  text-align: center;
-  width: 40%;
+h1{
+  padding: 20px 10px;
+  letter-spacing: 0.2em;
+  color: white;
 }
 
-button{
-  margin-top: 10px;
-  display: block;
-  width: 20%;
-  margin: 0 auto;
-  text-align: center;
+input{
+  padding: 10px 5px; 
+  border-radius: 2px;
+  font-size: 16px;
+  border: 1px solid blue;
+
+}
+
+#gif-search-submit{
+  padding: 10px 5px; 
+  border-radius: 2px;
+  font-size: 16px;
+  border: 1px solid blue;
+}
+
+#btn2{
+  padding: 10px 5px; 
+  border-radius: 2px;
+  font-size: 16px;
+  border: 1px solid blue;
 }
 
 .gif-result-display {
@@ -48,4 +67,50 @@ button{
   font-size: .85em;
   margin: 1.5em 0;
   padding: 0;
+}
+
+@media only screen and (min-width: 400px) {
+  .gif-list {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .gif-list {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .gif-list {
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .gif-list {
+    -moz-column-count: 5;
+    -webkit-column-count: 5;
+    column-count: 5;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .app {
+    width: 1140px;
+  }
+}
+
+.gif-focus-display {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }

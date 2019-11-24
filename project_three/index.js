@@ -12,7 +12,7 @@ const makeGifSearch = (searchTerm) => {
     console.log(token);
 
     const option ={
-        url: `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${token}&limit=5`
+        url: `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${token}`
     };
 
     return request(option).then(response =>{
@@ -40,5 +40,16 @@ app.post('/gif_search', (req, res) => {
         res.json(newImages);
     });
 });
+
+app.get('/gif_search', (req, res) => {
+    const searchTerm = req.body.searchTerm;
+    console.log('searchTerm', searchTerm);
+    makeGifSearch(searchTerm).then((newImages) => {
+        // sendResponse(); // this is not a real function name
+        res.json(newImages)
+    });
+    // res.send(json(newImages))
+});
+
 
 app.listen(PORT, ()=> console.log(`listening on ${PORT}`));
