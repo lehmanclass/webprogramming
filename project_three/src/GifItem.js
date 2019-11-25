@@ -7,7 +7,7 @@ const GifItem = ({gif, onGifSelect}) => {
 // console.log(image.gif.giphy);
   return (
     <div className="gif-result-display" onClick={() => onGifSelect(gif)}>
-      <img src={gif.giphy} />
+      <img src={gif.gifUrl} />
     </div>
   )
 };

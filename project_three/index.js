@@ -22,7 +22,7 @@ const makeGifSearch = (searchTerm) => {
 
         parsed.data.forEach(imageObject=> {
             const image = imageObject.images.original.url;
-            newImages.push({giphy: image, focusUrl: image});
+            newImages.push({gifUrl: image, focusUrl: image});
         });
 
         console.log(newImages);
@@ -46,9 +46,10 @@ app.get('/gif_search', (req, res) => {
     console.log('searchTerm', searchTerm);
     makeGifSearch(searchTerm).then((newImages) => {
         // sendResponse(); // this is not a real function name
-        res.json(newImages)
+        res.json({ results : newImages })
+        // res.send(res.json(newImages))
     });
-    // res.send(json(newImages))
+    
 });
 
 

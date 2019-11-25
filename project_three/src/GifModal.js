@@ -10,9 +10,9 @@ const GifModal = (props) => {
         isOpen={ props.modalIsOpen }
         onRequestClose={ () => props.onRequestClose() }>
         <div className="gif-focus-display">
-            <img src={ props.selectedGif.giphy} />
+            <img src={ props.selectedGif.gifUrl} />
             <div>
-                <button id="btn2" onClick={() => props.onRequestClose()}>close</button>
+                <button id="clsBtn" onClick={() => props.onRequestClose()}>close</button>
             </div>
         </div>
         </Modal>
