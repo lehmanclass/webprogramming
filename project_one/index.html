@@ -12,7 +12,7 @@
 
 
 	<p style="color:violet" id = "p2">Task two of Project One:<br>
-	<a style="color: red" id="grading-element-two" href="taskTwo.html">About Page</a><br>	
+	<a style="color: red" id="grading-element-two" href="about.html">About Page</a><br>	
 	<a style="color: red" id="grading-element-two" href="pg2.html">Home</a><br>
 	<a style="color: red" id="grading-element-two" href="pg3.html">Some random third page</a><br>
 	<a style="color: red" id="grading-element-two" href="pg4.html">This one is for that extra 5%</a>
@@ -20,7 +20,7 @@
 
 	<p style="color: green" style="width: 400px"  id="p3">Task three of Project One:
 	<button onclick = "tTwoFunction()" id= "grading-element-three">Reveal Something!</button>
-	<p style="visibility: hidden;" id="hidden-text" >I'm so tired</p>
+	<p style="visibility: hidden;" id="grading-element-three-consequence" >I'm so tired</p>
 	</p>
 
 
@@ -69,7 +69,7 @@
 		}
 
 		function tTwoFunction(){
-			document.getElementById("hidden-text").style.visibility = "visible";
+			document.getElementById("grading-element-three-consequence").style.visibility = "visible";
 
 		}
 
