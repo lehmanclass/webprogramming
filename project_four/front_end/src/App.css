@@ -1,1 +1,27 @@
+/* Navigation */
+.main-nav{
+   display: flex;
+   justify-content: space-between;
+   background-color: #0847a6;
+   color: #fff;
+}
 
+.left-nav, .right-nav{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+
+
+/* Tasks */
+
+
+/* Goals */
+
+
+/* Edit Pages */
+
+
+/* Login/Logout */
