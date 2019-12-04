@@ -12,9 +12,42 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import TaskLister from "./components/TaskLister";
 import Nav from "./components/Nav";
-import Activity from './components/Activity';
+import Activity from "./components/Activity";
+import NoFound from "./components/NoFoundPage";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {}
+
+  handleLogin = () => {};
+
+  registerUser = userInfo => {
+    fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userInfo:"Hey"})
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      });
+  };
+
+  createGoal = () => {};
+
+  createTask = () => {};
+
+  editGoal = () => {};
+
+  editTask = () => {};
+
   render() {
     const BoardComponent = () => <Board name="props" />;
     const EditGoalComponent = () => <EditGoal name="props" />;
@@ -22,9 +55,9 @@ class App extends React.Component {
     const GoalListerComponent = () => <GoalLister name="props" />;
     const LoginComponent = () => <Login name="props" />;
     const TaskListerComponent = () => <TaskLister name="props" />;
-    const NotFound = () => <Nav name="props" />;
+    const NotFound = () => <NoFound name="props" />;
     const HomeComponent = () => <Activity name="props" />;
-    const RegisterComponent = () => <Register name="props" />;
+    const RegisterComponent = () => <Register registerUser={this.registerUser} />;
 
     return (
       <Router>

@@ -11,7 +11,7 @@ class Register extends React.Component {
             <input placeholder="username" />
             <input placeholder="email" />
             <input placeholder="password" />
-            <button>Register</button>
+            <button onClick={() => this.props.registerUser("hey")}>Register</button>
           </div>
         </div>
       </div>
