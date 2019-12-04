@@ -32,7 +32,7 @@ class App extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ userInfo:"Hey"})
+      body: JSON.stringify({ username:'test', email:'test@gmail.com', password:'secure'})
     })
       .then(res => res.json())
       .then(data => {
