@@ -23,7 +23,21 @@ class App extends React.Component {
 
   componentDidMount() {}
 
-  handleLogin = () => {};
+  handleLogin = (userInfo) => {
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ ...userInfo })
+    }).then(res => res.json())
+    .then(data => {
+      this.setState({user:data})
+    }).catch(e => {
+      alert(e)
+    })
+  };
 
   registerUser = userInfo => {
     fetch("http://localhost:5000/register", {
@@ -49,7 +63,7 @@ class App extends React.Component {
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
     const GoalListerComponent = () => <GoalLister name="props" />;
-    const LoginComponent = () => <Login name="props" />;
+    const LoginComponent = () => <Login login={this.handleLogin} name="props" />;
     const TaskListerComponent = () => <TaskLister name="props" />;
     const NotFound = () => <NoFound name="props" />;
     const HomeComponent = () => <Activity name="props" />;
