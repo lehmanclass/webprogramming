@@ -32,9 +32,10 @@ app.post("/register", (req, res) => {
     [username, email, password]
   );
 
-  queryExecutor(insertQuery)
-    .then(() => res.sendStatus(200))
-    .catch(e => res.sendStatus(500));
+  // queryExecutor(insertQuery)
+  //   .then(() => res.sendStatus(200))
+  //   .catch(e => res.sendStatus(500));
+  res.sendStatus(200)
 });
 
 app.post("/createGoal", (req, res) => {});

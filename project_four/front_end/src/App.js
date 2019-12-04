@@ -32,12 +32,8 @@ class App extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ username:'test', email:'test@gmail.com', password:'secure'})
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      });
+      body: JSON.stringify({ ...userInfo })
+    }).then(res => {});
   };
 
   createGoal = () => {};
@@ -57,7 +53,9 @@ class App extends React.Component {
     const TaskListerComponent = () => <TaskLister name="props" />;
     const NotFound = () => <NoFound name="props" />;
     const HomeComponent = () => <Activity name="props" />;
-    const RegisterComponent = () => <Register registerUser={this.registerUser} />;
+    const RegisterComponent = () => (
+      <Register registerUser={this.registerUser} />
+    );
 
     return (
       <Router>
