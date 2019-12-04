@@ -24,7 +24,16 @@
 
 
 /* Goals */
+.card-container{
+    width: 250px;
+    border: 1px solid;
+    padding: 0 1rem 1rem;
+}
 
+.status-container{
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Edit Pages */
 
