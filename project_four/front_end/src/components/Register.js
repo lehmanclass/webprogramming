@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 class Register extends React.Component {
   constructor(props) {
@@ -31,25 +32,41 @@ class Register extends React.Component {
       <div>
         <Nav />
         <div className="login-register-form">
-          <div>
-            <input
-              placeholder="username"
-              value={username}
-              onChange={this.handleUsername}
-            />
-            <input
-              placeholder="email"
-              value={email}
-              onChange={this.handleEmail}
-            />
-            <input
-              placeholder="password"
-              value={password}
-              onChange={this.handlePassword}
-            />
-            <button onClick={() => isValid ? this.props.registerUser(this.state) : alert("Checks inputs")}>
-              Register
-            </button>
+          <div className="inputs-container">
+            <div className="inner-input-container">
+              <input
+                placeholder="username"
+                value={username}
+                onChange={this.handleUsername}
+              />
+            </div>
+            <div className="inner-input-container">
+              <input
+                placeholder="email"
+                value={email}
+                onChange={this.handleEmail}
+              />
+            </div>
+            <div className="inner-input-container">
+              <input
+                placeholder="password"
+                value={password}
+                onChange={this.handlePassword}
+              />
+            </div>
+            <div className="inner-input-container">
+              <button
+                onClick={() =>
+                  isValid
+                    ? this.props.registerUser(this.state)
+                    : alert("Checks inputs")
+                }
+              >
+                Register
+              </button>
+              <Link to="/login">LogIn</Link>
+
+            </div>
           </div>
         </div>
       </div>
