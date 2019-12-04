@@ -13,7 +13,7 @@ class Nav extends React.Component {
           <Link to="/">Activity</Link>
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
-          <Link to="/tasks">Task</Link>
+          <Link to="/tasks">Tasks</Link>
           <Link to="/login">LogIn</Link>
           <Link to="/register">Register</Link>
           <li>

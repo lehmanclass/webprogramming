@@ -1,41 +1,63 @@
 /* Navigation */
-.main-nav{
-   display: flex;
-   justify-content: space-between;
-   background-color: #0847a6;
-   color: #fff;
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0847a6;
+  color: #fff;
 }
 
-.left-nav, .right-nav{
-    display: flex;
-    width: 50%;
-    justify-content: space-around;
-    list-style-type: none;
+.left-nav,
+.right-nav {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  list-style-type: none;
 }
 
-.left-nav a, .right-nav a{
-    text-decoration: none;
-    color: #fff;
+.left-nav a,
+.right-nav a {
+  text-decoration: none;
+  color: #fff;
 }
 
-
+.left-nav {
+  justify-content: flex-start;
+}
 
 /* Tasks */
 
-
 /* Goals */
-.card-container{
-    width: 250px;
-    border: 1px solid;
-    padding: 0 1rem 1rem;
+.card-container {
+  width: 250px;
+  border: 1px solid;
+  padding: 0 1rem 1rem;
 }
 
-.status-container{
-    display: flex;
-    justify-content: space-between;
+.status-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Edit Pages */
 
+/* Login/Register */
 
-/* Login/Logout */
+.login-register-form {
+  width: 400px;
+  border: 1px solid black;
+  margin: 5rem auto;
+  
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0.5rem;
+  
+}
+
+.inner-input-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
