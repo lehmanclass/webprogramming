@@ -9,7 +9,7 @@ import EditGoal from "./components/EditGoal";
 import EditTask from "./components/EditTask";
 import GoalLister from "./components/GoalLister";
 import Login from "./components/Login";
-import LogOut from "./components/LogOut";
+import Register from "./components/Register";
 import TaskLister from "./components/TaskLister";
 import Nav from "./components/Nav";
 import Activity from './components/Activity';
@@ -21,10 +21,10 @@ class App extends React.Component {
     const EditTaskComponent = () => <EditTask name="props" />;
     const GoalListerComponent = () => <GoalLister name="props" />;
     const LoginComponent = () => <Login name="props" />;
-    const LogOutComponent = () => <LogOut name="props" />;
     const TaskListerComponent = () => <TaskLister name="props" />;
     const NotFound = () => <Nav name="props" />;
     const HomeComponent = () => <Activity name="props" />;
+    const RegisterComponent = () => <Register name="props" />;
 
     return (
       <Router>
@@ -36,6 +36,7 @@ class App extends React.Component {
           <Route exact path="/editGoal" component={EditGoalComponent} />
           <Route exact path="/login" component={LoginComponent} />
           <Route exact path="/board" component={BoardComponent} />
+          <Route exact path="/register" component={RegisterComponent} />
           <Route component={NotFound} />
         </Switch>
       </Router>

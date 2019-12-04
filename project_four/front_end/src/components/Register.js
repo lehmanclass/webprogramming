@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
+import Nav from './Nav';
 
-class Login extends React.Component {
+class Register extends React.Component {
   render() {
     return (
       <div>
@@ -9,8 +9,9 @@ class Login extends React.Component {
         <div className="login-register-form">
           <div>
             <input placeholder="username" />
+            <input placeholder="email" />
             <input placeholder="password" />
-            <button>Login</button>
+            <button>Register</button>
           </div>
         </div>
       </div>
@@ -18,4 +19,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Register;

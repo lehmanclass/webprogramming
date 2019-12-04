@@ -14,6 +14,8 @@ class Nav extends React.Component {
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
           <Link to="/tasks">Task</Link>
+          <Link to="/login">LogIn</Link>
+          <Link to="/register">Register</Link>
           <li>
             <input placeholder="search term" />
           </li>

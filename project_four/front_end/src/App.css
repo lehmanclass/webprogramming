@@ -13,6 +13,11 @@
     list-style-type: none;
 }
 
+.left-nav a, .right-nav a{
+    text-decoration: none;
+    color: #fff;
+}
+
 
 
 /* Tasks */
