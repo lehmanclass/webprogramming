@@ -1,23 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
   render() {
     return (
       <div className="main-nav">
         <ul className="left-nav">
-          <li>Logo</li>
+          <Link to="/">Logo</Link>
         </ul>
 
         <ul className="right-nav">
-          <li>Activity</li>
-          <li>Goals</li>
-          <li>Tasks</li>
-          <li><input placeholder="search term"/></li>
+          <Link to="/">Activity</Link>
+          <Link to="/goals">Goals</Link>
+          <Link to="/board">Board</Link>
+          <Link to="/tasks">Task</Link>
+          <li>
+            <input placeholder="search term" />
+          </li>
         </ul>
       </div>
     );
   }
 }
-
 
 export default Nav;

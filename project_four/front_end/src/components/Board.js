@@ -1,8 +1,14 @@
 import React from "react";
+import Nav from './Nav';
 
 class Board extends React.Component {
   render() {
-    return <h1>Hello Word</h1>;
+    return (
+      <div>
+        <Nav />
+        <h1>Board</h1>
+      </div>
+    );
   }
 }
 
