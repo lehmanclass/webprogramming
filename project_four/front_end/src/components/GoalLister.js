@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import GoalCard from "./GoalCard";
+import CreateGoal from './CreateGoal';
 
 class GoalLister extends React.Component {
 
@@ -14,6 +15,7 @@ class GoalLister extends React.Component {
         <Nav />
         <h1>GoalLister</h1>
         <GoalCard title="Get a Job" status="In progress" />
+        <CreateGoal />
       </div>
     );
   }
