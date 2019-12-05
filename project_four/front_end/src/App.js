@@ -33,6 +33,7 @@ class App extends React.Component {
     // this.getGoals();
     // this.createTask();
     //this.createGoal();
+    this.updateGoal();
   }
 
   componentDidUpdate(prevProps) {
@@ -107,6 +108,18 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ tasks: data }));
   };
+
+  updateGoal = (goalId) => {
+    fetch("http://localhost:5000/goals/1", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({goalId:2, newBody:`name = 'fake', description = 'fuck again'`})
+    }).then(res => {});
+
+  }
 
   createTask = () => {
     const mock = {

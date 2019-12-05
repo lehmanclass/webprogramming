@@ -90,11 +90,22 @@ app.get("/goals/:userId", (req, res) => {
     });
 });
 
-app.put("/goals/id", (req, res) => {});
+app.put("/goals/:id", (req, res) => {
+  const { goalId, newBody } = req.body;
+  query = `update goals set ${newBody} where id=${goalId};`;
+  queryExecutor(query)
+    .then(data => {
+      console.log(data);
+      res.sendStatus(200);
+    })
+    .catch(e => {
+      res.sendStatus(500);
+    });
+});
 
 app.delete("/goals/id", (req, res) => {});
 
-// Tasks 
+// Tasks
 
 app.post("/createTask/:goalId", (req, res) => {
   const { goal_id, name, description, status } = req.body;
@@ -127,7 +138,5 @@ app.get("/tasks/:goalId", (req, res) => {
 app.put("/goals/id", (req, res) => {});
 
 app.delete("/tasks/id", (req, res) => {});
-
-
 
 app.listen(5000, () => console.log("server is running"));
