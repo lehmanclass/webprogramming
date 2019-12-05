@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Register extends React.Component {
   constructor(props) {
@@ -27,6 +27,9 @@ class Register extends React.Component {
   render() {
     const { username, email, password } = this.state;
     const isValid = username && email && password;
+    if(this.props.redirect){
+      return <Redirect to="/login" />;
+    }
 
     return (
       <div>

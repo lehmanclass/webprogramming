@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 // Components
 import Board from "./components/Board";
@@ -18,12 +19,21 @@ import NoFound from "./components/NoFoundPage";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      redirect: false
+    };
   }
 
   componentDidMount() {}
 
-  handleLogin = (userInfo) => {
+  componentDidUpdate(prevProps, prevState) {
+    // Typical usage (don't forget to compare props):
+    if (this.state.redirect) {
+      this.setState({redirect: false})
+    }
+  }
+
+  handleLogin = userInfo => {
     fetch("http://localhost:5000/login", {
       method: "POST",
       headers: {
@@ -31,12 +41,14 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ ...userInfo })
-    }).then(res => res.json())
-    .then(data => {
-      this.setState({user:data})
-    }).catch(e => {
-      alert(e)
     })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ user: data });
+      })
+      .catch(e => {
+        alert(e);
+      });
   };
 
   registerUser = userInfo => {
@@ -47,7 +59,9 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ ...userInfo })
-    }).then(res => {});
+    }).then(res => {
+      this.setState({redirect: true})
+    });
   };
 
   createGoal = () => {};
@@ -63,12 +77,17 @@ class App extends React.Component {
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
     const GoalListerComponent = () => <GoalLister name="props" />;
-    const LoginComponent = () => <Login login={this.handleLogin} name="props" />;
+    const LoginComponent = () => (
+      <Login login={this.handleLogin} name="props" />
+    );
     const TaskListerComponent = () => <TaskLister name="props" />;
     const NotFound = () => <NoFound name="props" />;
     const HomeComponent = () => <Activity name="props" />;
     const RegisterComponent = () => (
-      <Register registerUser={this.registerUser} />
+      <Register
+        redirect={this.state.redirect}
+        registerUser={this.registerUser}
+      />
     );
 
     return (
