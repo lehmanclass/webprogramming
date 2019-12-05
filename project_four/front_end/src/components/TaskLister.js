@@ -3,6 +3,9 @@ import Nav from "./Nav";
 import TaskCard from "./TaskCard";
 
 class TaskLister extends React.Component {
+  componentDidMount(){
+    this.props.getTasks();
+  }
   render() {
     return (
       <div>

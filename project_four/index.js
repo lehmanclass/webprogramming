@@ -63,7 +63,17 @@ app.post("/register", (req, res) => {
 
 app.post("/createGoal", (req, res) => {});
 
-app.get("/goals", (req, res) => {});
+app.get("/goals/:userId", (req, res) => {
+  const {userId} = req.params;
+  const query = `select * from goals where (user_id=${userId});`;
+  queryExecutor(query)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
 
 app.delete("/goals/id", (req, res) => {});
 
@@ -71,7 +81,18 @@ app.put("/goals/id", (req, res) => {});
 
 app.post("/createTask", (req, res) => {});
 
-app.get("/tasks", (req, res) => {});
+app.get("/tasks/:goalId", (req, res) => {
+  const {goalId} = req.params;
+  const query = `select * from tasks where (goal_id=${goalId});`;
+  queryExecutor(query)
+    .then(data => {
+      res.json(data)
+      console.log("success")
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
 
 app.delete("/tasks/id", (req, res) => {});
 

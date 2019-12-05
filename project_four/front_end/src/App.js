@@ -24,10 +24,12 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount(){
+    this.getTasks();
+    this.getGoals();
+  }
 
-  componentDidUpdate(prevProps, prevState) {
-    // Typical usage (don't forget to compare props):
+  componentDidUpdate(prevProps) {
     if (this.state.redirect) {
       this.setState({redirect: false})
     }
@@ -66,6 +68,18 @@ class App extends React.Component {
 
   createGoal = () => {};
 
+  getGoals = () => {
+    fetch("http://localhost:5000/goals/1")
+    .then(res => res.json())
+    .then(data => this.setState({goals: data}))
+  }
+
+  getTasks = () => {
+    fetch("http://localhost:5000/tasks/1")
+    .then(res => res.json())
+    .then(data => this.setState({tasks: data}))
+  }
+
   createTask = () => {};
 
   editGoal = () => {};
@@ -76,11 +90,11 @@ class App extends React.Component {
     const BoardComponent = () => <Board name="props" />;
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
-    const GoalListerComponent = () => <GoalLister name="props" />;
+    const GoalListerComponent = () => <GoalLister getGoals={this.getGoals} name="props" />;
     const LoginComponent = () => (
       <Login login={this.handleLogin} name="props" />
     );
-    const TaskListerComponent = () => <TaskLister name="props" />;
+    const TaskListerComponent = () => <TaskLister getTasks={this.getTasks} name="props" />;
     const NotFound = () => <NoFound name="props" />;
     const HomeComponent = () => <Activity name="props" />;
     const RegisterComponent = () => (

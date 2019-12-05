@@ -3,6 +3,11 @@ import Nav from "./Nav";
 import GoalCard from "./GoalCard";
 
 class GoalLister extends React.Component {
+
+  componentDidMount(){
+     this.props.getGoals();
+  }
+
   render() {
     return (
       <div>
