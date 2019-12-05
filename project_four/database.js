@@ -47,8 +47,14 @@ function addQuotes(values){
     return withQuotes;
 }
 
+function checkIfUserExist(username) {
+  const query = `select * from users_t where(user_name='${username}');`;
+  return queryExecutor(query).then(data => data.length == 1);
+}
+
 module.exports = {
     queryExecutor,
     updateQuery,
     insertQuery,
+    checkIfUserExist
 };

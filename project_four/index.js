@@ -18,9 +18,7 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
+// Login - Register
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -48,7 +46,8 @@ app.post("/register", (req, res) => {
     [username, email, password]
   );
 
-  checkIfUserExist(username, password)
+  dbOperations
+    .checkIfUserExist(username, password)
     .then(doesUserExist => {
       if (!doesUserExist) {
         queryExecutor(insertQuery)
@@ -60,6 +59,8 @@ app.post("/register", (req, res) => {
     })
     .catch(e => res.sendStatus(500));
 });
+
+// Goals
 
 app.post("/createGoal/:user_id", (req, res) => {
   const { user_id, name, description, status } = req.body;
@@ -89,9 +90,11 @@ app.get("/goals/:userId", (req, res) => {
     });
 });
 
+app.put("/goals/id", (req, res) => {});
+
 app.delete("/goals/id", (req, res) => {});
 
-app.put("/goals/id", (req, res) => {});
+// Tasks 
 
 app.post("/createTask/:goalId", (req, res) => {
   const { goal_id, name, description, status } = req.body;
@@ -121,13 +124,10 @@ app.get("/tasks/:goalId", (req, res) => {
     });
 });
 
-app.delete("/tasks/id", (req, res) => {});
-
 app.put("/goals/id", (req, res) => {});
 
-app.listen(5000, () => console.log("server is running"));
+app.delete("/tasks/id", (req, res) => {});
 
-function checkIfUserExist(username) {
-  const query = `select * from users_t where(user_name='${username}');`;
-  return queryExecutor(query).then(data => data.length == 1);
-}
+
+
+app.listen(5000, () => console.log("server is running"));
