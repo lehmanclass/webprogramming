@@ -4,7 +4,7 @@ import TaskCard from "./TaskCard";
 
 class TaskLister extends React.Component {
   componentDidMount(){
-    this.props.getTasks();
+    // this.props.getTasks();
   }
   render() {
     return (

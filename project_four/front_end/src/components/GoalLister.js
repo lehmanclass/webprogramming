@@ -6,7 +6,7 @@ import CreateGoal from './CreateGoal';
 class GoalLister extends React.Component {
 
   componentDidMount(){
-     this.props.getGoals();
+     
   }
 
   render() {
