@@ -61,14 +61,27 @@ app.post("/register", (req, res) => {
     .catch(e => res.sendStatus(500));
 });
 
-app.post("/createGoal", (req, res) => {});
+app.post("/createGoal/:user_id", (req, res) => {
+  const {user_id, name, description, status} = req.body;
+  query = `insert into goals (user_id, name, description, status)
+      values (${user_id}, '${name}', '${description}', '${status}');
+  `;
+  
+  queryExecutor(query).then(data => {
+    console.log(data)
+    res.sendStatus(200)
+  }).catch(e => {
+    res.sendStatus(500);
+  })
+
+});
 
 app.get("/goals/:userId", (req, res) => {
-  const {userId} = req.params;
+  const { userId } = req.params;
   const query = `select * from goals where (user_id=${userId});`;
   queryExecutor(query)
     .then(data => {
-      res.json(data)
+      res.json(data);
     })
     .catch(e => {
       console.log(e);
@@ -82,12 +95,12 @@ app.put("/goals/id", (req, res) => {});
 app.post("/createTask", (req, res) => {});
 
 app.get("/tasks/:goalId", (req, res) => {
-  const {goalId} = req.params;
+  const { goalId } = req.params;
   const query = `select * from tasks where (goal_id=${goalId});`;
   queryExecutor(query)
     .then(data => {
-      res.json(data)
-      console.log("success")
+      res.json(data);
+      console.log("success");
     })
     .catch(e => {
       console.log(e);
@@ -100,7 +113,7 @@ app.put("/goals/id", (req, res) => {});
 
 app.listen(5000, () => console.log("server is running"));
 
-function checkIfUserExist(username, password) {
+function checkIfUserExist(username) {
   const query = `select * from users_t where(user_name='${username}');`;
   return queryExecutor(query).then(data => data.length == 1);
 }

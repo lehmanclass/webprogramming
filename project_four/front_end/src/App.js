@@ -27,6 +27,7 @@ class App extends React.Component {
   componentDidMount(){
     this.getTasks();
     this.getGoals();
+    //this.createGoal();
   }
 
   componentDidUpdate(prevProps) {
@@ -66,7 +67,24 @@ class App extends React.Component {
     });
   };
 
-  createGoal = () => {};
+  createGoal = (userInfo) => {
+    const mock ={
+      user_id: 1,
+      description:"more text",
+      name:"Testing another Goal",
+      status:"in progress"
+    }
+
+    fetch("http://localhost:5000/createGoal/1", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(mock)
+    }).then(res => {
+    });
+  };
 
   getGoals = () => {
     fetch("http://localhost:5000/goals/1")
