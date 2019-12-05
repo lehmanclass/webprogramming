@@ -25,8 +25,9 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.getTasks();
-    this.getGoals();
+    // this.getTasks();
+    // this.getGoals();
+    // this.createTask();
     //this.createGoal();
   }
 
@@ -98,7 +99,24 @@ class App extends React.Component {
     .then(data => this.setState({tasks: data}))
   }
 
-  createTask = () => {};
+  createTask = () => {
+    const mock ={
+      goal_id: 1,
+      description:"more text",
+      name:"Testing another Task",
+      status:"in progress"
+    }
+
+    fetch("http://localhost:5000/createTask/1", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(mock)
+    }).then(res => {
+    });
+  };
 
   editGoal = () => {};
 

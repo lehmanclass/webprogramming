@@ -62,18 +62,19 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/createGoal/:user_id", (req, res) => {
-  const {user_id, name, description, status} = req.body;
+  const { user_id, name, description, status } = req.body;
   query = `insert into goals (user_id, name, description, status)
       values (${user_id}, '${name}', '${description}', '${status}');
   `;
-  
-  queryExecutor(query).then(data => {
-    console.log(data)
-    res.sendStatus(200)
-  }).catch(e => {
-    res.sendStatus(500);
-  })
 
+  queryExecutor(query)
+    .then(data => {
+      console.log(data);
+      res.sendStatus(200);
+    })
+    .catch(e => {
+      res.sendStatus(500);
+    });
 });
 
 app.get("/goals/:userId", (req, res) => {
@@ -92,7 +93,20 @@ app.delete("/goals/id", (req, res) => {});
 
 app.put("/goals/id", (req, res) => {});
 
-app.post("/createTask", (req, res) => {});
+app.post("/createTask/:goalId", (req, res) => {
+  const { goal_id, name, description, status } = req.body;
+  query = `insert into tasks (goal_id, name, description, status)
+      values (${goal_id}, '${name}', '${description}', '${status}');
+  `;
+  queryExecutor(query)
+    .then(data => {
+      console.log(data);
+      res.sendStatus(200);
+    })
+    .catch(e => {
+      res.sendStatus(500);
+    });
+});
 
 app.get("/tasks/:goalId", (req, res) => {
   const { goalId } = req.params;
