@@ -12,7 +12,7 @@ class GoalLister extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
+       <Nav logout={this.props.logout}/>
         <h1>GoalLister</h1>
         <GoalCard title="Get a Job" status="In progress" />
         <CreateGoal />

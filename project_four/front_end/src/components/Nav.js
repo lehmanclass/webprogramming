@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
   render() {
+    const user = window.localStorage.getItem("userSession");
+
     return (
       <div className="main-nav">
         <ul className="left-nav">
@@ -14,8 +16,15 @@ class Nav extends React.Component {
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
           <Link to="/tasks">Tasks</Link>
-          <Link to="/login">LogIn</Link>
-          <Link to="/register">Register</Link>
+          {user ? (
+            <a href="#" onClick={() => this.props.logout()}>
+              LogOut
+            </a>
+          ) : (
+            <Link to="/login">LogIn</Link>
+          )}
+          {user ? null : <Link to="/register">Register</Link>}
+
           <li>
             <input placeholder="search term" />
           </li>

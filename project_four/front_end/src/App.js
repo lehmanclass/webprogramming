@@ -24,7 +24,11 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    const user = window.localStorage.getItem("userSession");
+    if (user) {
+      this.setState({ user: JSON.parse(user) });
+    }
     // this.getTasks();
     // this.getGoals();
     // this.createTask();
@@ -33,7 +37,7 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.state.redirect) {
-      this.setState({redirect: false})
+      this.setState({ redirect: false });
     }
   }
 
@@ -49,10 +53,16 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ user: data });
+        window.localStorage.setItem("userSession", JSON.stringify(data));
       })
       .catch(e => {
         alert(e);
       });
+  };
+
+  handleLogOut = () => {
+    window.localStorage.clear();
+    this.setState({ user: null });
   };
 
   registerUser = userInfo => {
@@ -64,17 +74,17 @@ class App extends React.Component {
       },
       body: JSON.stringify({ ...userInfo })
     }).then(res => {
-      this.setState({redirect: true})
+      this.setState({ redirect: true });
     });
   };
 
-  createGoal = (userInfo) => {
-    const mock ={
+  createGoal = userInfo => {
+    const mock = {
       user_id: 1,
-      description:"more text",
-      name:"Testing another Goal",
-      status:"in progress"
-    }
+      description: "more text",
+      name: "Testing another Goal",
+      status: "in progress"
+    };
 
     fetch("http://localhost:5000/createGoal/1", {
       method: "POST",
@@ -83,29 +93,28 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(mock)
-    }).then(res => {
-    });
+    }).then(res => {});
   };
 
   getGoals = () => {
     fetch("http://localhost:5000/goals/1")
-    .then(res => res.json())
-    .then(data => this.setState({goals: data}))
-  }
+      .then(res => res.json())
+      .then(data => this.setState({ goals: data }));
+  };
 
   getTasks = () => {
     fetch("http://localhost:5000/tasks/1")
-    .then(res => res.json())
-    .then(data => this.setState({tasks: data}))
-  }
+      .then(res => res.json())
+      .then(data => this.setState({ tasks: data }));
+  };
 
   createTask = () => {
-    const mock ={
+    const mock = {
       goal_id: 1,
-      description:"more text",
-      name:"Testing another Task",
-      status:"in progress"
-    }
+      description: "more text",
+      name: "Testing another Task",
+      status: "in progress"
+    };
 
     fetch("http://localhost:5000/createTask/1", {
       method: "POST",
@@ -114,8 +123,7 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(mock)
-    }).then(res => {
-    });
+    }).then(res => {});
   };
 
   editGoal = () => {};
@@ -123,16 +131,32 @@ class App extends React.Component {
   editTask = () => {};
 
   render() {
-    const BoardComponent = () => <Board name="props" />;
+    const BoardComponent = () => (
+      <Board name="props" logout={this.handleLogOut} />
+    );
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
-    const GoalListerComponent = () => <GoalLister getGoals={this.getGoals} name="props" />;
+    const GoalListerComponent = () => (
+      <GoalLister
+        logout={this.handleLogOut}
+        getGoals={this.getGoals}
+        name="props"
+      />
+    );
     const LoginComponent = () => (
       <Login login={this.handleLogin} name="props" />
     );
-    const TaskListerComponent = () => <TaskLister getTasks={this.getTasks} name="props" />;
-    const NotFound = () => <NoFound name="props" />;
-    const HomeComponent = () => <Activity name="props" />;
+    const TaskListerComponent = () => (
+      <TaskLister
+        logout={this.handleLogOut}
+        getTasks={this.getTasks}
+        name="props"
+      />
+    );
+    const NotFound = () => <NoFound name="props" logout={this.handleLogOut} />;
+    const HomeComponent = () => (
+      <Activity logout={this.handleLogOut} name="props" />
+    );
     const RegisterComponent = () => (
       <Register
         redirect={this.state.redirect}

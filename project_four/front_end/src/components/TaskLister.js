@@ -9,7 +9,7 @@ class TaskLister extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav logout={this.props.logout}/>
         <h1>TaskLister</h1>
         <TaskCard title="Do Exercise" status="No started" />
       </div>

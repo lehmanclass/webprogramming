@@ -5,7 +5,7 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav logout={this.props.logout}/>
         <h1>Board</h1>
       </div>
     );
