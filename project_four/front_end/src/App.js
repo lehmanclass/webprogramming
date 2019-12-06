@@ -20,23 +20,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false
+      redirect: false,
+      user: null,
+      goals: [],
+      tasks: []
     };
   }
 
-  componentDidMount() {
-    const user = window.localStorage.getItem("userSession");
-    if (user) {
-      this.setState({ user: JSON.parse(user) });
+  apiRequestLoop = inp => {
+    let promiseArray = [];
+    for (let i = 0; i < inp.length; i++) {
+      promiseArray.push(
+        fetch(`http://localhost:5000/tasks/${inp[i].id}`).then(response =>
+          response.json()
+        )
+      );
     }
-    // this.getTasks();
-    // this.getGoals();
-    // this.createTask();
-    //this.createGoal();
-    //this.updateGoal();
-    //this.deleteGoal();
-    //this.updateTask();
-    //this.deleteTask();
+    return Promise.all(promiseArray);
+  };
+
+  componentDidMount() {
+    let user = window.localStorage.getItem("userSession");
+    if (user) {
+      user = JSON.parse(user);
+      fetch(`http://localhost:5000/goals/${user.id}`)
+        .then(res => res.json())
+        .then(goals => {
+          return this.apiRequestLoop(goals).then(tasks => ({goals, tasks}));
+        })
+        .then(tasksAndGoals => {
+          this.setState({
+            user,
+            goals: tasksAndGoals.goals,
+            tasks: tasksAndGoals.tasks
+          });
+        });
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -112,39 +131,45 @@ class App extends React.Component {
       .then(data => this.setState({ tasks: data }));
   };
 
-  updateGoal = (goalId) => {
+  updateGoal = goalId => {
     fetch("http://localhost:5000/goals/1", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({goalId:2, newBody:`name = 'fake', description = 'fuck again'`})
+      body: JSON.stringify({
+        goalId: 2,
+        newBody: `name = 'fake', description = 'fuck again'`
+      })
     }).then(res => {});
-  }
+  };
 
-  updateTask = (taskId) => {
-    fetch("http://localhost:5000/tasks/1", {
+  updateTask = (taskId, newBody) => {
+    fetch(`http://localhost:5000/tasks/${taskId}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({taskId:2, newBody:`name = 'fake', description = 'fuck again'`})
+      body: JSON.stringify({
+        taskId,
+        newBody
+      })
     }).then(res => {});
-  }
+  };
 
-  deleteGoal = (goalId) => {
-    fetch("http://localhost:5000/goals/2", {
-      method: "DELETE",
+  deleteGoal = goalId => {
+    fetch(`http://localhost:5000/goals/${goalId}`, {
+      method: "DELETE"
     }).then(res => {});
-  }
+  };
 
-  deleteTask = (goalId) => {
-    fetch("http://localhost:5000/tasks/1", {
-      method: "DELETE",
+  deleteTask = goalId => {
+    fetch(`http://localhost:5000/tasks/${goalId}`, {
+      method: "DELETE"
     }).then(res => {});
-  }
+  };
 
   createTask = () => {
     const mock = {
@@ -169,6 +194,8 @@ class App extends React.Component {
   editTask = () => {};
 
   render() {
+    const { goals, tasks } = this.state;
+
     const BoardComponent = () => (
       <Board name="props" logout={this.handleLogOut} />
     );
@@ -177,7 +204,8 @@ class App extends React.Component {
     const GoalListerComponent = () => (
       <GoalLister
         logout={this.handleLogOut}
-        getGoals={this.getGoals}
+        goals={goals}
+        tasks={tasks}
         name="props"
       />
     );
@@ -185,15 +213,11 @@ class App extends React.Component {
       <Login login={this.handleLogin} name="props" />
     );
     const TaskListerComponent = () => (
-      <TaskLister
-        logout={this.handleLogOut}
-        getTasks={this.getTasks}
-        name="props"
-      />
+      <TaskLister logout={this.handleLogOut} goals={goals} tasks={tasks} />
     );
     const NotFound = () => <NoFound name="props" logout={this.handleLogOut} />;
     const HomeComponent = () => (
-      <Activity logout={this.handleLogOut} name="props" />
+      <Activity goals={goals} tasks={tasks} logout={this.handleLogOut} />
     );
     const RegisterComponent = () => (
       <Register

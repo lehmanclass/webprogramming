@@ -66,7 +66,7 @@ app.post("/register", (req, res) => {
 // Goals
 
 app.post("/createGoal/:userId", (req, res) => {
-  const {userId} = req.params;
+  const { userId } = req.params;
   const { name, description, status } = req.body;
   query = `insert into goals (user_id, name, description, status)
       values (${userId}, '${name}', '${description}', '${status}');
@@ -96,7 +96,7 @@ app.get("/goals/:userId", (req, res) => {
 
 app.put("/goals/:goalId", (req, res) => {
   const { goalId } = req.params;
-  const { goalId, newBody } = req.body;
+  const { newBody } = req.body;
   query = `update goals set ${newBody} where id=${goalId};`;
   queryExecutor(query)
     .then(data => {
