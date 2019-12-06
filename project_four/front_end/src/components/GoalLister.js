@@ -2,20 +2,31 @@ import React from "react";
 import Nav from "./Nav";
 import GoalCard from "./GoalCard";
 import CreateGoal from './CreateGoal';
+import { Link, Redirect } from "react-router-dom";
 
 class GoalLister extends React.Component {
 
-  componentDidMount(){
-     
+  displayGoals = () => {
+    const {goals} = this.props;
+    if(goals.length){
+      return  goals.map( goal => <GoalCard key={goal.id} title={goal.name} status={goal.status}/>)
+    }
+
+    return <h1>Sorry, not goals</h1>
   }
 
   render() {
+
+    if(this.props.redirect){
+      return <Redirect to="/" />;
+    }
+
     return (
       <div>
        <Nav logout={this.props.logout}/>
         <h1>GoalLister</h1>
-        <GoalCard title="Get a Job" status="In progress" />
-        <CreateGoal />
+        {this.displayGoals()}
+        {/* <CreateGoal /> */}
       </div>
     );
   }

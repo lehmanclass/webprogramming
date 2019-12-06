@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
   getLinks = () => {
-    const user = window.localStorage.getItem("userSession");
+    let user = window.localStorage.getItem("userSession");
     if (user) {
+      user = JSON.parse(user);
       return (
         <ul className="right-nav">
           <Link to="/">Home</Link>
@@ -15,6 +16,7 @@ class Nav extends React.Component {
           <li>
             <input placeholder="search term" />
           </li>
+          <span>{user.user_name}</span>
           <a href="#" onClick={() => this.props.logout()}>
             LogOut
           </a>

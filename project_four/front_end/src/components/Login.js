@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,6 +22,10 @@ class Login extends React.Component {
   render() {
     const { username, password } = this.state;
     const isValid = username &&  password;
+
+    if(this.props.redirect){
+      return <Redirect to="/" />;
+    }
 
     return (
       <div>

@@ -42,7 +42,9 @@ class App extends React.Component {
   componentDidMount() {
     let user = window.localStorage.getItem("userSession");
     if (user) {
+
       user = JSON.parse(user);
+
       fetch(`http://localhost:5000/goals/${user.id}`)
         .then(res => res.json())
         .then(goals => {
@@ -75,8 +77,9 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ user: data });
         window.localStorage.setItem("userSession", JSON.stringify(data));
+        this.setState({ user: data, redirect: true });
+        
       })
       .catch(e => {
         alert(e);
@@ -85,7 +88,7 @@ class App extends React.Component {
 
   handleLogOut = () => {
     window.localStorage.clear();
-    this.setState({ user: null });
+    this.setState({ user: null, goals:[], tasks:[], redirect: true });
   };
 
   registerUser = userInfo => {
@@ -206,11 +209,11 @@ class App extends React.Component {
         logout={this.handleLogOut}
         goals={goals}
         tasks={tasks}
-        name="props"
+        redirect={this.state.redirect}
       />
     );
     const LoginComponent = () => (
-      <Login login={this.handleLogin} name="props" />
+      <Login login={this.handleLogin} redirect={this.state.redirect} />
     );
     const TaskListerComponent = () => (
       <TaskLister logout={this.handleLogOut} goals={goals} tasks={tasks} />
