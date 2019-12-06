@@ -33,7 +33,8 @@ class App extends React.Component {
     // this.getGoals();
     // this.createTask();
     //this.createGoal();
-    this.updateGoal();
+    //this.updateGoal();
+    //this.deleteGoal();
   }
 
   componentDidUpdate(prevProps) {
@@ -118,7 +119,12 @@ class App extends React.Component {
       },
       body: JSON.stringify({goalId:2, newBody:`name = 'fake', description = 'fuck again'`})
     }).then(res => {});
+  }
 
+  deleteGoal = (goalId) => {
+    fetch("http://localhost:5000/goals/2", {
+      method: "DELETE",
+    }).then(res => {});
   }
 
   createTask = () => {

@@ -8,7 +8,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT, DELETE");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
@@ -103,7 +103,12 @@ app.put("/goals/:id", (req, res) => {
     });
 });
 
-app.delete("/goals/id", (req, res) => {});
+app.delete("/goals/:goalId", (req, res) => {
+  const { goalId } = req.params;
+  query = `delete from goals where id = ${goalId};`;
+  queryExecutor(query);
+  
+});
 
 // Tasks
 
