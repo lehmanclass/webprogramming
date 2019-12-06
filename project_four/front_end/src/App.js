@@ -35,6 +35,7 @@ class App extends React.Component {
     //this.createGoal();
     //this.updateGoal();
     //this.deleteGoal();
+    //this.updateTask();
   }
 
   componentDidUpdate(prevProps) {
@@ -118,6 +119,17 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({goalId:2, newBody:`name = 'fake', description = 'fuck again'`})
+    }).then(res => {});
+  }
+
+  updateTask = (taskId) => {
+    fetch("http://localhost:5000/tasks/1", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({taskId:2, newBody:`name = 'fake', description = 'fuck again'`})
     }).then(res => {});
   }
 
