@@ -36,6 +36,7 @@ class App extends React.Component {
     //this.updateGoal();
     //this.deleteGoal();
     //this.updateTask();
+    //this.deleteTask();
   }
 
   componentDidUpdate(prevProps) {
@@ -135,6 +136,12 @@ class App extends React.Component {
 
   deleteGoal = (goalId) => {
     fetch("http://localhost:5000/goals/2", {
+      method: "DELETE",
+    }).then(res => {});
+  }
+
+  deleteTask = (goalId) => {
+    fetch("http://localhost:5000/tasks/1", {
       method: "DELETE",
     }).then(res => {});
   }

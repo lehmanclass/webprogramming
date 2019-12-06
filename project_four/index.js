@@ -161,6 +161,16 @@ app.put("/tasks/:id", (req, res) => {
     });
 });
 
-app.delete("/tasks/id", (req, res) => {});
+app.delete("/tasks/:taskId", (req, res) => {
+  const { taskId } = req.params;
+  query = `delete from tasks where id = ${taskId};`;
+  queryExecutor(query)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(e => {
+      res.sendStatus(500);
+    });
+});
 
 app.listen(5000, () => console.log("server is running"));
