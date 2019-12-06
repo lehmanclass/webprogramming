@@ -65,10 +65,11 @@ app.post("/register", (req, res) => {
 
 // Goals
 
-app.post("/createGoal/:user_id", (req, res) => {
-  const { user_id, name, description, status } = req.body;
+app.post("/createGoal/:userId", (req, res) => {
+  const {userId} = req.params;
+  const { name, description, status } = req.body;
   query = `insert into goals (user_id, name, description, status)
-      values (${user_id}, '${name}', '${description}', '${status}');
+      values (${userId}, '${name}', '${description}', '${status}');
   `;
 
   queryExecutor(query)
@@ -93,7 +94,8 @@ app.get("/goals/:userId", (req, res) => {
     });
 });
 
-app.put("/goals/:id", (req, res) => {
+app.put("/goals/:goalId", (req, res) => {
+  const { goalId } = req.params;
   const { goalId, newBody } = req.body;
   query = `update goals set ${newBody} where id=${goalId};`;
   queryExecutor(query)
@@ -121,9 +123,10 @@ app.delete("/goals/:goalId", (req, res) => {
 // Tasks
 
 app.post("/createTask/:goalId", (req, res) => {
-  const { goal_id, name, description, status } = req.body;
+  const { goalId } = req.params;
+  const { name, description, status } = req.body;
   query = `insert into tasks (goal_id, name, description, status)
-      values (${goal_id}, '${name}', '${description}', '${status}');
+      values (${goalId}, '${name}', '${description}', '${status}');
   `;
   queryExecutor(query)
     .then(data => {
@@ -148,8 +151,9 @@ app.get("/tasks/:goalId", (req, res) => {
     });
 });
 
-app.put("/tasks/:id", (req, res) => {
-  const { taskId, newBody } = req.body;
+app.put("/tasks/:taskId", (req, res) => {
+  const { taskId } = req.params;
+  const { newBody } = req.body;
   query = `update tasks set ${newBody} where id=${taskId};`;
   queryExecutor(query)
     .then(data => {
