@@ -39,24 +39,25 @@ class App extends React.Component {
     return Promise.all(promiseArray);
   };
 
+  fetchUserInfo = user => {
+    return fetch(`http://localhost:5000/goals/${user.id}`)
+      .then(res => res.json())
+      .then(goals => {
+        return this.apiRequestLoop(goals).then(tasks => ({ goals, tasks }));
+      });
+  };
+
   componentDidMount() {
     let user = window.localStorage.getItem("userSession");
     if (user) {
-
       user = JSON.parse(user);
-
-      fetch(`http://localhost:5000/goals/${user.id}`)
-        .then(res => res.json())
-        .then(goals => {
-          return this.apiRequestLoop(goals).then(tasks => ({goals, tasks}));
-        })
-        .then(tasksAndGoals => {
-          this.setState({
-            user,
-            goals: tasksAndGoals.goals,
-            tasks: tasksAndGoals.tasks
-          });
+      this.fetchUserInfo(user).then(tasksAndGoals => {
+        this.setState({
+          user,
+          goals: tasksAndGoals.goals,
+          tasks: tasksAndGoals.tasks
         });
+      });
     }
   }
 
@@ -78,8 +79,14 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         window.localStorage.setItem("userSession", JSON.stringify(data));
-        this.setState({ user: data, redirect: true });
-        
+        this.fetchUserInfo(data).then(tasksAndGoals => {
+          this.setState({
+            user: data,
+            goals: tasksAndGoals.goals,
+            tasks: tasksAndGoals.tasks,
+            redirect: true
+          });
+        });
       })
       .catch(e => {
         alert(e);
@@ -88,7 +95,7 @@ class App extends React.Component {
 
   handleLogOut = () => {
     window.localStorage.clear();
-    this.setState({ user: null, goals:[], tasks:[], redirect: true });
+    this.setState({ user: null, goals: [], tasks: [], redirect: true });
   };
 
   registerUser = userInfo => {
@@ -191,6 +198,12 @@ class App extends React.Component {
       body: JSON.stringify(mock)
     }).then(res => {});
   };
+
+  getCompletedGoals(){
+    fetch("http://localhost:5000/completed/goals/1")
+      .then(res => res.json())
+      .then(data => alert(data));
+  }
 
   editGoal = () => {};
 

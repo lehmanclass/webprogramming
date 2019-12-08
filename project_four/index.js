@@ -177,4 +177,20 @@ app.delete("/tasks/:taskId", (req, res) => {
     });
 });
 
+app.get('/completed/goals/:userId', (req, res) => {
+  const {userId} = req.params;
+  query = `select * from goals where user_id=${userId} and status='complete'`;
+  queryExecutor(query)
+  .then(data => res.json(data)
+  .catch(e => res.sendStatus(500)));
+});
+
+app.get('/completed/tasks/:userId', (req, res) => {
+  const {userId} = req.params;
+  query = `select * from tasks where user_id=${userId} and status='complete'`;
+  queryExecutor(query)
+  .then(data => res.json(data))
+  .catch(e => res.sendStatus(500));
+});
+
 app.listen(5000, () => console.log("server is running"));
