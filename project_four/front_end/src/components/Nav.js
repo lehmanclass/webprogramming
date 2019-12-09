@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {SearchInput } from 'evergreen-ui'
 
 class Nav extends React.Component {
   getLinks = () => {
@@ -14,7 +15,7 @@ class Nav extends React.Component {
           <Link to="/board">Board</Link>
           <Link to="/tasks">Tasks</Link>
           <li>
-            <input placeholder="search term" />
+          <SearchInput placeholder="Filter traits..." />
           </li>
           <span>{user.user_name}</span>
           <a href="#" onClick={() => this.props.logout()}>

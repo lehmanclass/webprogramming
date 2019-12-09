@@ -26,6 +26,26 @@ class App extends React.Component {
       tasks: []
     };
   }
+  
+  componentDidMount() {
+    let user = window.localStorage.getItem("userSession");
+    if (user) {
+      user = JSON.parse(user);
+      this.fetchUserInfo(user).then(tasksAndGoals => {
+        this.setState({
+          user,
+          goals: tasksAndGoals.goals,
+          tasks: tasksAndGoals.tasks
+        });
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.state.redirect) {
+      this.setState({ redirect: false });
+    }
+  }
 
   apiRequestLoop = inp => {
     let promiseArray = [];
@@ -47,25 +67,6 @@ class App extends React.Component {
       });
   };
 
-  componentDidMount() {
-    let user = window.localStorage.getItem("userSession");
-    if (user) {
-      user = JSON.parse(user);
-      this.fetchUserInfo(user).then(tasksAndGoals => {
-        this.setState({
-          user,
-          goals: tasksAndGoals.goals,
-          tasks: tasksAndGoals.tasks
-        });
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.state.redirect) {
-      this.setState({ redirect: false });
-    }
-  }
 
   handleLogin = userInfo => {
     fetch("http://localhost:5000/login", {

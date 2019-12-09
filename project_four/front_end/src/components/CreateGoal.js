@@ -1,6 +1,8 @@
 import React from "react";
 
 class CreateGoal extends React.Component {
+
+  
   render() {
     return (
       <div className="create-goal-container">
@@ -21,6 +23,8 @@ class CreateGoal extends React.Component {
           <div>
             <input />
           </div>
+
+          <button onClick={() => this.props.createGoal(this.state.goalInfo)}>Create</button>
         </div>
       </div>
     );
