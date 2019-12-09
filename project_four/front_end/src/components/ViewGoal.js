@@ -1,44 +1,51 @@
 import React from "react";
 
-class ViewTask extends React.Component {
+class ViewGoal extends React.Component {
   render() {
+    const { name, reason, description } = this.props;
     return (
       <div className="overlay">
-        <span className='closeModal' onClick={this.props.hide}>X</span>
-      <div className="view-goal">
-        <div>
-          <h2>Tasks Title</h2>
-        </div>
+        <span className="closeModal" onClick={this.props.hide}>
+          X
+        </span>
 
-        <div>
-          <button>Edit</button>
-          <select>
-            <option>Status</option>
-            <option>Not started</option>
-            <option>In progress</option>
-            <option>On hold</option>
-            <option>Complete</option>
-          </select>
-          <button>Delete</button>
-        </div>
+        <div className="view-goal">
+          <div>
+            <h2>{name}</h2>
+          </div>
 
-        <div>
-          <h3>Descriptions</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
-        </div>
+          <div>
+            <button>Add Task</button>
+            <button>Edit Goal</button>
+            <select>
+              <option>Status</option>
+              <option>Not started</option>
+              <option>In progress</option>
+              <option>On hold</option>
+              <option>Complete</option>
+            </select>
+            <button>Delete</button>
+          </div>
 
-        <div>
-            <h3>Goal to Accomplish</h3>
+          <div>
+            <h3>Why I want to do it</h3>
+            <p>
+              {reason}
+            </p>
+
+            <h3>Descriptions</h3>
+            <p>
+             {description}
+            </p>
+          </div>
+
+          <div>
+            <h3>Daily Tasks</h3>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
 }
 
-export default ViewTask;
+export default ViewGoal;

@@ -11,15 +11,17 @@ class GoalLister extends React.Component {
 
     this.state = {
       isCreatingGoal: false,
-      isViewingGoal: false
+      isViewingGoal: false,
+      goalInfo: ""
     };
   }
+
   displayGoals = () => {
     const { goals } = this.props;
     if (goals.length) {
       return goals.map(goal => (
         <GoalCard
-          handleClick={this.viewGoal}
+          handleClick={() => this.viewGoal(goal)}
           key={goal.id}
           title={goal.name}
           status={goal.status}
@@ -34,10 +36,16 @@ class GoalLister extends React.Component {
     this.setState({ isCreatingGoal: true });
   };
 
-  viewGoal = () => this.setState({ viewGoal: true });
+  viewGoal = goalInfo => {
+    this.setState({ isViewingGoal: true, goalInfo });
+  };
 
   hideModal = () => {
-    this.setState({ isViewingGoal: false, isCreatingGoal: false });
+    this.setState({
+      isViewingGoal: false,
+      isCreatingGoal: false,
+      goalInfo: ""
+    });
   };
 
   submitGoalInfo = goalInfo => {
@@ -45,9 +53,31 @@ class GoalLister extends React.Component {
     this.props.createGoal(goalInfo);
   };
 
+  getGoalInfo = () => {
+    const { goalInfo } = this.state;
+    const { tasks } = this.props;
+    const allTasks = [];
+    tasks.forEach(tasksArray => {
+      tasksArray.forEach(task => {
+        allTasks.push(task);
+      });
+    });
+    const goalTasks = allTasks.filter(task => task.goal_id == goalInfo.id);
+    console.log(goalTasks);
+    return (
+      <ViewGoal
+        name={goalInfo.name}
+        reason={goalInfo.reason}
+        description={goalInfo.description}
+        tasks={goalTasks}
+        hide={this.hideModal}
+      />
+    );
+  };
+
   render() {
-    const { isCreatingGoal, isViewingGoal } = this.state;
-    const { redirect, createGoal } = this.props;
+    const { isCreatingGoal, isViewingGoal, goalInfo } = this.state;
+    const { redirect, createGoal, tasks } = this.props;
 
     if (redirect) {
       return <Redirect to="/" />;
@@ -62,7 +92,7 @@ class GoalLister extends React.Component {
         {isCreatingGoal ? (
           <CreateGoal hide={this.hideModal} createGoal={this.submitGoalInfo} />
         ) : null}
-        {isViewingGoal ? <ViewGoal hide={this.hideModal} /> : null}
+        {isViewingGoal ? this.getGoalInfo() : null}
       </div>
     );
   }
