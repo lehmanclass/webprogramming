@@ -121,6 +121,7 @@
 .view-goal{
   z-index: 1000;
   width: 70%;
-  height: 40vh;
+  height: 50vh;
   background-color: white;
+  overflow: scroll;
 }

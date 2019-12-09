@@ -3,7 +3,7 @@ import React from "react";
 class TaskCard extends React.Component {
   render() {
     return (
-      <div className="card-container">
+      <div onClick={() => this.props.viewTask()} className="card-container">
         <div className="task-title-container">
           <h3 className="task-title">{this.props.title}</h3>
         </div>
@@ -12,10 +12,9 @@ class TaskCard extends React.Component {
             <span>{this.props.status}</span>
           </div>
           <select>
-            <option value="not_started">Not started</option>
-            <option value="in_progress">In progress</option>
-            <option value="on_hold">On hold</option>
-            <option value="done">Done</option>
+            <option value="">status</option>
+            <option value="in complete">in complete</option>
+            <option value="complete">complete</option>
           </select>
         </div>
       </div>

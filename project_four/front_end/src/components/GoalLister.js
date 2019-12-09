@@ -53,23 +53,14 @@ class GoalLister extends React.Component {
     this.props.createGoal(goalInfo);
   };
 
-  getGoalInfo = () => {
+  displayGoal = () => {
     const { goalInfo } = this.state;
-    const { tasks } = this.props;
-    const allTasks = [];
-    tasks.forEach(tasksArray => {
-      tasksArray.forEach(task => {
-        allTasks.push(task);
-      });
-    });
-    const goalTasks = allTasks.filter(task => task.goal_id == goalInfo.id);
-    console.log(goalTasks);
     return (
       <ViewGoal
+        goalId={goalInfo.id}
         name={goalInfo.name}
         reason={goalInfo.reason}
         description={goalInfo.description}
-        tasks={goalTasks}
         hide={this.hideModal}
       />
     );
@@ -92,7 +83,7 @@ class GoalLister extends React.Component {
         {isCreatingGoal ? (
           <CreateGoal hide={this.hideModal} createGoal={this.submitGoalInfo} />
         ) : null}
-        {isViewingGoal ? this.getGoalInfo() : null}
+        {isViewingGoal ? this.displayGoal() : null}
       </div>
     );
   }
