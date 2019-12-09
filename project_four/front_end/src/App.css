@@ -61,3 +61,30 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
+
+/* Board */
+.board-column-container{
+  display: flex;
+  width: 80%;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.board-column-item{
+  width: 20%;
+  height: 400px;
+ 
+}
+
+.board-column-inner-item{
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.column-title{
+  text-align: center;
+}
