@@ -3,23 +3,27 @@ import Nav from "./Nav";
 import GoalCard from "./GoalCard";
 import CreateGoal from "./CreateGoal";
 import { Link, Redirect } from "react-router-dom";
-import ViewGoal from './ViewGoal';
+import ViewGoal from "./ViewGoal";
 
 class GoalLister extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      createGoal: false,
-      viewGoal: false,
-     
+      isCreatingGoal: false,
+      isViewingGoal: false
     };
   }
   displayGoals = () => {
     const { goals } = this.props;
     if (goals.length) {
       return goals.map(goal => (
-        <GoalCard handleClick={this.viewGoal} key={goal.id} title={goal.name} status={goal.status} />
+        <GoalCard
+          handleClick={this.viewGoal}
+          key={goal.id}
+          title={goal.name}
+          status={goal.status}
+        />
       ));
     }
 
@@ -27,22 +31,23 @@ class GoalLister extends React.Component {
   };
 
   addGoal = () => {
-    this.setState({ createGoal: true });
+    this.setState({ isCreatingGoal: true });
   };
 
-  viewGoal = () => this.setState({viewGoal:true});
+  viewGoal = () => this.setState({ viewGoal: true });
 
   hideModal = () => {
-    this.setState({viewGoal: false, createGoal: false})
-  }
+    this.setState({ isViewingGoal: false, isCreatingGoal: false });
+  };
 
-  createGoal = (goalInfo) => {
-    console.log(goalInfo)
-  }
+  submitGoalInfo = goalInfo => {
+    this.hideModal();
+    this.props.createGoal(goalInfo);
+  };
 
   render() {
-    const { createGoal, viewGoal } = this.state;
-    const { redirect } = this.props;
+    const { isCreatingGoal, isViewingGoal } = this.state;
+    const { redirect, createGoal } = this.props;
 
     if (redirect) {
       return <Redirect to="/" />;
@@ -54,8 +59,10 @@ class GoalLister extends React.Component {
         <h1>GoalLister</h1>
         <button onClick={this.addGoal}>Create Goal</button>
         {this.displayGoals()}
-        {createGoal ? <CreateGoal hide={this.hideModal} createGoal={this.createGoal}/> : null}
-        {viewGoal ? <ViewGoal hide={this.hideModal}/> : null}
+        {isCreatingGoal ? (
+          <CreateGoal hide={this.hideModal} createGoal={this.submitGoalInfo} />
+        ) : null}
+        {isViewingGoal ? <ViewGoal hide={this.hideModal} /> : null}
       </div>
     );
   }

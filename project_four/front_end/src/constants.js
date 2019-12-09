@@ -1,6 +1,8 @@
 export const STATUS = {
-    NO_STARTED:"No started",
-    IN_PROGRESS:'In progress',
-    ON_HOLD:'On hold',
-    DONE:'Done'
+    NO_STARTED:"no started",
+    IN_PROGRESS:'in progress',
+    ON_HOLD:'on hold',
+    DONE:'done',
+    INCOMPLETE:'incomplete',
+    COMPLETE:'complete'
 }

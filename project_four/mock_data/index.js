@@ -1,12 +1,12 @@
 const users = [
   {
-    user_name: "Test User1",
+    user_name: "test1",
     email: "test1@gmail.com",
     password: "123"
   },
 
   {
-    user_name: "Test User2",
+    user_name: "test2",
     email: "test2@gmail.com",
     password: "123"
   }

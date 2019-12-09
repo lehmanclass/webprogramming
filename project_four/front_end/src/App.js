@@ -26,7 +26,7 @@ class App extends React.Component {
       tasks: []
     };
   }
-  
+
   componentDidMount() {
     let user = window.localStorage.getItem("userSession");
     if (user) {
@@ -66,7 +66,6 @@ class App extends React.Component {
         return this.apiRequestLoop(goals).then(tasks => ({ goals, tasks }));
       });
   };
-
 
   handleLogin = userInfo => {
     fetch("http://localhost:5000/login", {
@@ -112,22 +111,20 @@ class App extends React.Component {
     });
   };
 
-  createGoal = userInfo => {
-    const mock = {
-      user_id: 1,
-      description: "more text",
-      name: "Testing another Goal",
-      status: "in progress"
-    };
-
-    fetch("http://localhost:5000/createGoal/1", {
+  createGoal = goalInfo => {
+    fetch(`http://localhost:5000/createGoal/${this.state.user.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(mock)
-    }).then(res => {});
+      body: JSON.stringify(goalInfo)
+    })
+      .then(res => {
+        alert("Goal Created!");
+      })
+      .then(() => this.getGoals())
+      .catch(e => alert("Error!"));
   };
 
   getGoals = () => {
@@ -200,7 +197,7 @@ class App extends React.Component {
     }).then(res => {});
   };
 
-  getCompletedGoals(){
+  getCompletedGoals() {
     fetch("http://localhost:5000/completed/goals/1")
       .then(res => res.json())
       .then(data => alert(data));
@@ -220,6 +217,7 @@ class App extends React.Component {
     const EditTaskComponent = () => <EditTask name="props" />;
     const GoalListerComponent = () => (
       <GoalLister
+        createGoal={this.createGoal}
         logout={this.handleLogOut}
         goals={goals}
         tasks={tasks}
