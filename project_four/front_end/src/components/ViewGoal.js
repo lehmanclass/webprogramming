@@ -3,7 +3,9 @@ import React from "react";
 class ViewTask extends React.Component {
   render() {
     return (
-      <div>
+      <div className="overlay">
+        <span className='closeModal' onClick={this.props.hide}>X</span>
+      <div className="view-goal">
         <div>
           <h2>Tasks Title</h2>
         </div>
@@ -33,6 +35,7 @@ class ViewTask extends React.Component {
         <div>
             <h3>Goal to Accomplish</h3>
         </div>
+      </div>
       </div>
     );
   }

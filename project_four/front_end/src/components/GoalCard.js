@@ -4,7 +4,7 @@ import React from "react";
 class GoalCard extends React.Component {
   render() {
     return (
-      <div className="card-container">
+      <div onClick={this.props.handleClick}className="card-container">
         <div className="goal-title-container">
           <h3 className="goal-title">{this.props.title}</h3>
         </div>

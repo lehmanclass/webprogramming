@@ -88,3 +88,39 @@
 .column-title{
   text-align: center;
 }
+
+/* View Goal */
+.overlay{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  z-index: 500;
+  width: 70%;
+  height: 40vh;
+  background-color: white;
+
+}
+
+.closeModal{
+  z-index: 501;
+  color: #fff;
+  font-size: 2rem;
+  top: 0;
+  right: 0;
+}
+
+.view-goal{
+  z-index: 1000;
+  width: 70%;
+  height: 40vh;
+  background-color: white;
+}
