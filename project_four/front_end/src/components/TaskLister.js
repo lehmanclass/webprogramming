@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import TaskCard from "./TaskCard";
 import ViewTask from "./ViewTask";
+import  CreateTask  from './CreateTask';
 
 class TaskLister extends React.Component {
   constructor(props) {
@@ -61,12 +62,14 @@ class TaskLister extends React.Component {
   };
 
   render() {
-    const {isViewingTask} = this.state;
+    const {isViewingTask, isCreatingTask} = this.state;
     return (
       <div>
         <Nav logout={this.props.logout} />
         <h1>TaskLister</h1>
+        <button onClick={this.addTask}>Create Goal</button>
         <div>{this.displayTasks()}</div>
+        {isCreatingTask ? <CreateTask hide={this.hideModal} /> : null}
         {isViewingTask ? this.displayTask() : null}
       </div>
     );
