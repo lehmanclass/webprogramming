@@ -20,6 +20,7 @@ class CreateTask extends React.Component {
 
   render() {
     const { name, description } = this.state;
+    const {goalId}= this.props;
     const validInputs = name.length && description.length;
 
     return (
@@ -51,7 +52,7 @@ class CreateTask extends React.Component {
             <button
               onClick={() =>
                 validInputs
-                  ? this.props.createTask(this.state)
+                  ? this.props.createTask(goalId, this.state)
                   : alert("All fields are required!")
               }
             >

@@ -55,7 +55,7 @@ class GoalLister extends React.Component {
 
   displayGoal = () => {
     const { goalInfo } = this.state;
-    const { deleteGoal, editGoal } = this.props;
+    const { deleteGoal, editGoal, createTask } = this.props;
     return (
       <ViewGoal
         goalId={goalInfo.id}
@@ -66,6 +66,7 @@ class GoalLister extends React.Component {
         hide={this.hideModal}
         deleteGoal={deleteGoal}
         editGoal={editGoal}
+        createTask={createTask}
       />
     );
   };

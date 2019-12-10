@@ -58,12 +58,13 @@ class ViewGoal extends React.Component {
       deleteGoal,
       status,
       goalId,
-      editGoal
+      editGoal,
+      createTask
     } = this.props;
     const { isCreatingTask, isEditingGoal, selectedStatus } = this.state;
 
     if (isCreatingTask) {
-      return <CreateTask cancel={this.cancelTaskCreation} />;
+      return <CreateTask createTask={createTask} goalId={goalId} cancel={this.cancelTaskCreation} />;
     }
 
     if (isEditingGoal) {
@@ -85,17 +86,18 @@ class ViewGoal extends React.Component {
         <div className="view-goal">
           <div>
             <h2>{name}</h2>
+            <p>{status}</p>
           </div>
 
           <div>
             <button onClick={this.createTask}>Add Task</button>
             <button onClick={this.editGoal}>Edit Goal</button>
-            <select value={selectedStatus} onChange={this.handleStatusChange}>
+            {/* <select value={selectedStatus} onChange={this.handleStatusChange}>
               <option value="not started">Not started</option>
               <option value="in progress">In progress</option>
               <option value="on hold">On hold</option>
               <option value="done">Done</option>
-            </select>
+            </select> */}
             <button onClick={() => deleteGoal(goalId)}>Delete</button>
           </div>
 

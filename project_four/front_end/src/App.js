@@ -180,22 +180,22 @@ class App extends React.Component {
       .catch(e => alert("Error"));
   };
 
-  createTask = () => {
-    const mock = {
-      goal_id: 1,
-      description: "more text",
-      name: "Testing another Task",
-      status: "in progress"
-    };
+  createTask = (goalId, taskBody) => {
+    
+    alert(taskBody.name);
 
-    fetch("http://localhost:5000/createTask/1", {
+    fetch(`http://localhost:5000/createTask/${goalId}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(mock)
-    }).then(res => {});
+      body: JSON.stringify(taskBody)
+    }).then(res => {
+      if(res.status == 200){
+        alert('It worked')
+      }
+    });
   };
 
   getCompletedGoals() {
@@ -238,6 +238,7 @@ class App extends React.Component {
         logout={this.handleLogOut}
         goals={goals}
         tasks={tasks}
+        createTask={this.createTask}
         redirect={this.state.redirect}
         deleteGoal={this.deleteGoal}
         editGoal={this.editGoal}
