@@ -96,8 +96,9 @@ app.get("/goals/:userId", (req, res) => {
 
 app.put("/goals/:goalId", (req, res) => {
   const { goalId } = req.params;
-  const { newBody } = req.body;
-  const query = `update goals set ${newBody} where id=${goalId};`;
+  const {name, reason, description, status } = req.body;
+  
+  const query = `update goals set name='${name}', reason='${reason}',description='${description}',status='${status}' where id=${goalId};`;
   queryExecutor(query)
     .then(data => {
       console.log(data);

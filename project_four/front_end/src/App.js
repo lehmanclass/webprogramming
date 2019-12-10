@@ -128,7 +128,7 @@ class App extends React.Component {
   };
 
   getGoals = () => {
-    fetch("http://localhost:5000/goals/1")
+    fetch(`http://localhost:5000/goals/${this.state.user.id}`)
       .then(res => res.json())
       .then(data => this.setState({ goals: data }));
   };
@@ -137,20 +137,6 @@ class App extends React.Component {
     fetch("http://localhost:5000/tasks/1")
       .then(res => res.json())
       .then(data => this.setState({ tasks: data }));
-  };
-
-  updateGoal = goalId => {
-    fetch("http://localhost:5000/goals/1", {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        goalId: 2,
-        newBody: `name = 'fake', description = 'fuck again'`
-      })
-    }).then(res => {});
   };
 
   updateTask = (taskId, newBody) => {
@@ -226,7 +212,14 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(updatedBody)
-    }).then(res => {});
+    }).then(res => {
+      if (res.status == 200) {
+        alert("Change Saved");
+        this.getGoals();
+      } else {
+        alert("Error");
+      }
+    });
   };
 
   editTask = () => {};
@@ -247,7 +240,7 @@ class App extends React.Component {
         tasks={tasks}
         redirect={this.state.redirect}
         deleteGoal={this.deleteGoal}
-        editGoal = {this.editGoal}
+        editGoal={this.editGoal}
       />
     );
     const LoginComponent = () => (

@@ -4,17 +4,29 @@ class EditGoal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedStatus: this.props.goalInfo.status
+      ...this.props.goalInfo
     };
   }
 
+  handleNameChange = e => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleReasonChange = e => {
+    this.setState({ reason: e.target.value });
+  };
+
+  handleDescriptionChange = e => {
+    this.setState({ description: e.target.value });
+  };
   handleStatusChange = e => {
-    this.setState({ selectedStatus: e.target.value });
+    this.setState({ status: e.target.value });
   };
 
   render() {
-    const { goalInfo } = this.props;
-    const {selectedStatus}= this.state;
+    const { goalId, name, description, reason, status } = this.state;
+    const validInputs = name.length && description.length && reason.length;
+    const updatedBody = { name, description, reason, status };
     return (
       <div className="overlay">
         <div className="modal">
@@ -24,19 +36,21 @@ class EditGoal extends React.Component {
             </div>
             <div>
               <p>Goal Title</p>
-              <input value={goalInfo.name} />
+              <input value={name} onChange={this.handleNameChange} />
             </div>
             <div>
               <p>Reason</p>
-              <textarea>{goalInfo.reason}</textarea>
+              <textarea onChange={this.handleReasonChange}>{reason}</textarea>
             </div>
             <div>
               <p>Description</p>
-              <textarea>{goalInfo.description}</textarea>
+              <textarea onChange={this.handleDescriptionChange}>
+                {description}
+              </textarea>
             </div>
             <div>
               <p>Status</p>
-              <select value={selectedStatus} onChange={this.handleStatusChange}>
+              <select value={status} onChange={this.handleStatusChange}>
                 <option value="not started">Not started</option>
                 <option value="in progress">In progress</option>
                 <option value="on hold">On hold</option>
@@ -45,7 +59,9 @@ class EditGoal extends React.Component {
             </div>
             <div>
               <button onClick={this.props.cancel}>Cancel</button>
-              <button onClick={this.props.save}>Save</button>
+              <button onClick={() => validInputs ? this.props.editGoal(goalId, updatedBody):alert('All fields are required')}>
+                Save
+              </button>
             </div>
           </div>
         </div>
