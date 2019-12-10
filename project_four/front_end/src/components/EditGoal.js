@@ -1,7 +1,20 @@
 import React from "react";
 
 class EditGoal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedStatus: this.props.goalInfo.status
+    };
+  }
+
+  handleStatusChange = e => {
+    this.setState({ selectedStatus: e.target.value });
+  };
+
   render() {
+    const { goalInfo } = this.props;
+    const {selectedStatus}= this.state;
     return (
       <div className="overlay">
         <div className="modal">
@@ -11,22 +24,22 @@ class EditGoal extends React.Component {
             </div>
             <div>
               <p>Goal Title</p>
-              <input value="goal title" />
+              <input value={goalInfo.name} />
             </div>
             <div>
               <p>Reason</p>
-              <textarea>Here why you want to do this</textarea>
+              <textarea>{goalInfo.reason}</textarea>
             </div>
             <div>
               <p>Description</p>
-              <textarea>Your description goes here</textarea>
+              <textarea>{goalInfo.description}</textarea>
             </div>
             <div>
               <p>Status</p>
-              <select>
-                <option value="not_started">Not started</option>
-                <option value="in_progress">In progress</option>
-                <option value="on_hold">On hold</option>
+              <select value={selectedStatus} onChange={this.handleStatusChange}>
+                <option value="not started">Not started</option>
+                <option value="in progress">In progress</option>
+                <option value="on hold">On hold</option>
                 <option value="done">Done</option>
               </select>
             </div>

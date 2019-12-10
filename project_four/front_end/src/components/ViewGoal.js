@@ -9,7 +9,8 @@ class ViewGoal extends React.Component {
     this.state = {
       fetchTasks: [],
       isCreatingTask: false,
-      isEditingGoal: false
+      isEditingGoal: false,
+      selectedStatus: this.props.status
     };
   }
   componentDidMount() {
@@ -45,16 +46,34 @@ class ViewGoal extends React.Component {
 
   cancelTaskCreation = () => this.setState({ isCreatingTask: false });
 
+  handleStatusChange = e => {
+    this.setState({ selectedStatus: e.target.value });
+  };
+
   render() {
-    const { name, reason, description, deleteGoal, goalId } = this.props;
-    const { isCreatingTask, isEditingGoal } = this.state;
+    const {
+      name,
+      reason,
+      description,
+      deleteGoal,
+      status,
+      goalId,
+      editGoal
+    } = this.props;
+    const { isCreatingTask, isEditingGoal, selectedStatus } = this.state;
 
     if (isCreatingTask) {
       return <CreateTask cancel={this.cancelTaskCreation} />;
     }
 
     if (isEditingGoal) {
-      return <EditGoal cancel={this.cancelGoalEdit} />;
+      return (
+        <EditGoal
+          editGoal={editGoal}
+          goalInfo={{ goalId, name, status, reason, description }}
+          cancel={this.cancelGoalEdit}
+        />
+      );
     }
 
     return (
@@ -71,12 +90,11 @@ class ViewGoal extends React.Component {
           <div>
             <button onClick={this.createTask}>Add Task</button>
             <button onClick={this.editGoal}>Edit Goal</button>
-            <select>
-              <option>Status</option>
-              <option>Not started</option>
-              <option>In progress</option>
-              <option>On hold</option>
-              <option>Complete</option>
+            <select value={selectedStatus} onChange={this.handleStatusChange}>
+              <option value="not started">Not started</option>
+              <option value="in progress">In progress</option>
+              <option value="on hold">On hold</option>
+              <option value="done">Done</option>
             </select>
             <button onClick={() => deleteGoal(goalId)}>Delete</button>
           </div>

@@ -171,7 +171,18 @@ class App extends React.Component {
     fetch(`http://localhost:5000/goals/${goalId}`, {
       method: "DELETE"
     })
-      .then(res => console.log(res))
+      .then(res => {
+        if (res.status == 200) {
+          this.fetchUserInfo(this.state.user).then(tasksAndGoals => {
+            this.setState({
+              goals: tasksAndGoals.goals,
+              tasks: tasksAndGoals.tasks
+            });
+          });
+        } else {
+          alert("Error");
+        }
+      })
       .catch(e => alert("Error"));
   };
 
@@ -207,7 +218,16 @@ class App extends React.Component {
       .then(data => alert(data));
   }
 
-  editGoal = () => {};
+  editGoal = (goalId, updatedBody) => {
+    fetch(`http://localhost:5000/goals/${goalId}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedBody)
+    }).then(res => {});
+  };
 
   editTask = () => {};
 
@@ -227,6 +247,7 @@ class App extends React.Component {
         tasks={tasks}
         redirect={this.state.redirect}
         deleteGoal={this.deleteGoal}
+        editGoal = {this.editGoal}
       />
     );
     const LoginComponent = () => (
