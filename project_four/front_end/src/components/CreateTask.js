@@ -57,6 +57,7 @@ class CreateTask extends React.Component {
             >
               Create
             </button>
+            <button onClick={this.props.cancel}>Cancel</button>
           </div>
         </div>
       </div>

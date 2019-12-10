@@ -1,11 +1,15 @@
 import React from "react";
 import TaskCard from "./TaskCard";
+import CreateTask from './CreateTask';
+import EditGoal from './EditGoal';
 
 class ViewGoal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetchTasks: []
+      fetchTasks: [],
+      isCreatingTask: false,
+      isEditingGoal: false,
     };
   }
   componentDidMount() {
@@ -31,8 +35,28 @@ class ViewGoal extends React.Component {
     return container;
   };
 
+  createTask = () => {
+    this.setState({isCreatingTask: true})
+  }
+
+  editGoal = () => this.setState({isEditingGoal: true})
+
+  cancelGoalEdit = () => this.setState({isEditingGoal: false})
+
+  cancelTaskCreation =()=> this.setState({isCreatingTask:false})
+
   render() {
     const { name, reason, description } = this.props;
+    const {isCreatingTask, isEditingGoal} =this.state;
+
+    if(isCreatingTask){
+      return <CreateTask cancel={this.cancelTaskCreation}/>
+    }
+
+    if(isEditingGoal){
+      return <EditGoal cancel={this.cancelGoalEdit}/>
+    }
+
     return (
       <div className="overlay">
         <span className="closeModal" onClick={this.props.hide}>
@@ -45,8 +69,8 @@ class ViewGoal extends React.Component {
           </div>
 
           <div>
-            <button>Add Task</button>
-            <button>Edit Goal</button>
+            <button onClick={this.createTask}>Add Task</button>
+            <button onClick={this.editGoal}>Edit Goal</button>
             <select>
               <option>Status</option>
               <option>Not started</option>

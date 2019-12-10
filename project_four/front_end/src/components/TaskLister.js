@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import TaskCard from "./TaskCard";
 import ViewTask from "./ViewTask";
-import  CreateTask  from './CreateTask';
+import CreateTask from "./CreateTask";
 
 class TaskLister extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class TaskLister extends React.Component {
 
     return allTasks.map(task => (
       <TaskCard
-        viewTask={()=> this.viewTask(task)}
+        viewTask={() => this.viewTask(task)}
         key={task.id}
         title={task.name}
         status={task.status}
@@ -62,7 +62,7 @@ class TaskLister extends React.Component {
   };
 
   render() {
-    const {isViewingTask, isCreatingTask} = this.state;
+    const { isViewingTask, isCreatingTask } = this.state;
     return (
       <div>
         <Nav logout={this.props.logout} />
