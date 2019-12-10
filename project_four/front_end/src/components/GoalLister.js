@@ -55,6 +55,7 @@ class GoalLister extends React.Component {
 
   displayGoal = () => {
     const { goalInfo } = this.state;
+    const { deleteGoal } = this.props;
     return (
       <ViewGoal
         goalId={goalInfo.id}
@@ -62,13 +63,14 @@ class GoalLister extends React.Component {
         reason={goalInfo.reason}
         description={goalInfo.description}
         hide={this.hideModal}
+        deleteGoal={deleteGoal}
       />
     );
   };
 
   render() {
     const { isCreatingGoal, isViewingGoal, goalInfo } = this.state;
-    const { redirect, createGoal, tasks } = this.props;
+    const { redirect, createGoal, tasks, deleteGoal } = this.props;
 
     if (redirect) {
       return <Redirect to="/" />;

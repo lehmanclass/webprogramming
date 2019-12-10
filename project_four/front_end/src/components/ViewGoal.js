@@ -1,7 +1,7 @@
 import React from "react";
 import TaskCard from "./TaskCard";
-import CreateTask from './CreateTask';
-import EditGoal from './EditGoal';
+import CreateTask from "./CreateTask";
+import EditGoal from "./EditGoal";
 
 class ViewGoal extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class ViewGoal extends React.Component {
     this.state = {
       fetchTasks: [],
       isCreatingTask: false,
-      isEditingGoal: false,
+      isEditingGoal: false
     };
   }
   componentDidMount() {
@@ -28,33 +28,33 @@ class ViewGoal extends React.Component {
       );
     });
 
-    if(!container.length){
-       return <p>Sorry, there are not tasks for this goal</p>
+    if (!container.length) {
+      return <p>Sorry, there are not tasks for this goal</p>;
     }
 
     return container;
   };
 
   createTask = () => {
-    this.setState({isCreatingTask: true})
-  }
+    this.setState({ isCreatingTask: true });
+  };
 
-  editGoal = () => this.setState({isEditingGoal: true})
+  editGoal = () => this.setState({ isEditingGoal: true });
 
-  cancelGoalEdit = () => this.setState({isEditingGoal: false})
+  cancelGoalEdit = () => this.setState({ isEditingGoal: false });
 
-  cancelTaskCreation =()=> this.setState({isCreatingTask:false})
+  cancelTaskCreation = () => this.setState({ isCreatingTask: false });
 
   render() {
-    const { name, reason, description } = this.props;
-    const {isCreatingTask, isEditingGoal} =this.state;
+    const { name, reason, description, deleteGoal, goalId } = this.props;
+    const { isCreatingTask, isEditingGoal } = this.state;
 
-    if(isCreatingTask){
-      return <CreateTask cancel={this.cancelTaskCreation}/>
+    if (isCreatingTask) {
+      return <CreateTask cancel={this.cancelTaskCreation} />;
     }
 
-    if(isEditingGoal){
-      return <EditGoal cancel={this.cancelGoalEdit}/>
+    if (isEditingGoal) {
+      return <EditGoal cancel={this.cancelGoalEdit} />;
     }
 
     return (
@@ -78,7 +78,7 @@ class ViewGoal extends React.Component {
               <option>On hold</option>
               <option>Complete</option>
             </select>
-            <button>Delete</button>
+            <button onClick={() => deleteGoal(goalId)}>Delete</button>
           </div>
 
           <div>
@@ -91,9 +91,7 @@ class ViewGoal extends React.Component {
 
           <div>
             <h3>Daily Tasks</h3>
-            <div>
-              {this.displayTasks()}
-            </div>
+            <div>{this.displayTasks()}</div>
           </div>
         </div>
       </div>

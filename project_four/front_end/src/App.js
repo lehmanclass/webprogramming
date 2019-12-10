@@ -170,13 +170,17 @@ class App extends React.Component {
   deleteGoal = goalId => {
     fetch(`http://localhost:5000/goals/${goalId}`, {
       method: "DELETE"
-    }).then(res => {});
+    })
+      .then(res => console.log(res))
+      .catch(e => alert("Error"));
   };
 
   deleteTask = goalId => {
     fetch(`http://localhost:5000/tasks/${goalId}`, {
       method: "DELETE"
-    }).then(res => {});
+    })
+      .then(res => console.log(res))
+      .catch(e => alert("Error"));
   };
 
   createTask = () => {
@@ -222,6 +226,7 @@ class App extends React.Component {
         goals={goals}
         tasks={tasks}
         redirect={this.state.redirect}
+        deleteGoal={this.deleteGoal}
       />
     );
     const LoginComponent = () => (

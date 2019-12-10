@@ -97,7 +97,7 @@ app.get("/goals/:userId", (req, res) => {
 app.put("/goals/:goalId", (req, res) => {
   const { goalId } = req.params;
   const { newBody } = req.body;
-  query = `update goals set ${newBody} where id=${goalId};`;
+  const query = `update goals set ${newBody} where id=${goalId};`;
   queryExecutor(query)
     .then(data => {
       console.log(data);
@@ -110,14 +110,18 @@ app.put("/goals/:goalId", (req, res) => {
 
 app.delete("/goals/:goalId", (req, res) => {
   const { goalId } = req.params;
-  query = `delete from goals where id = ${goalId};`;
-  queryExecutor(query)
-    .then(() => {
-      res.sendStatus(200);
-    })
-    .catch(e => {
-      res.sendStatus(500);
-    });
+  const query = `delete from goals where id = ${goalId};`;
+  taskQuery = `delete from tasks where goal_id=${goalId}`;
+  queryExecutor(taskQuery).then(() => {
+    queryExecutor(query)
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(e => {
+        res.sendStatus(500);
+      });
+  });
+
 });
 
 // Tasks
@@ -177,12 +181,12 @@ app.delete("/tasks/:taskId", (req, res) => {
     });
 });
 
-app.get('/completed/goals/:userId', (req, res) => {
-  const {userId} = req.params;
+app.get("/completed/goals/:userId", (req, res) => {
+  const { userId } = req.params;
   query = `select * from goals where user_id=${userId} and status='complete'`;
-  queryExecutor(query)
-  .then(data => res.json(data)
-  .catch(e => res.sendStatus(500)));
+  queryExecutor(query).then(data =>
+    res.json(data).catch(e => res.sendStatus(500))
+  );
 });
 
 // app.get('/completed/tasks/:userId', (req, res) => {
