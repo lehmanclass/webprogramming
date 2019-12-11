@@ -2,6 +2,7 @@ import React from "react";
 import TaskCard from "./TaskCard";
 import CreateTask from "./CreateTask";
 import EditGoal from "./EditGoal";
+import ViewTask from "./ViewTask";
 
 class ViewGoal extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class ViewGoal extends React.Component {
       fetchTasks: [],
       isCreatingTask: false,
       isEditingGoal: false,
-      selectedStatus: this.props.status
+      selectedStatus: this.props.status,
+      isViewingTask: false
     };
   }
   componentDidMount() {
@@ -25,7 +27,13 @@ class ViewGoal extends React.Component {
     const container = [];
     fetchTasks.forEach(task => {
       container.push(
-        <TaskCard key={task.id} title={task.name} status={task.status} />
+        <TaskCard
+          viewTask={this.viewTask}
+          key={task.id}
+          title={task.name}
+          description={task.description}
+          status={task.status}
+        />
       );
     });
 
@@ -39,6 +47,8 @@ class ViewGoal extends React.Component {
   createTask = () => {
     this.setState({ isCreatingTask: true });
   };
+
+  viewTask = (taskInfo) => this.setState({ isViewingTask: true, taskInfo });
 
   editGoal = () => this.setState({ isEditingGoal: true });
 
@@ -61,10 +71,25 @@ class ViewGoal extends React.Component {
       editGoal,
       createTask
     } = this.props;
-    const { isCreatingTask, isEditingGoal, selectedStatus } = this.state;
+    const {
+      isCreatingTask,
+      isEditingGoal,
+      selectedStatus,
+      isViewingTask
+    } = this.state;
+
+    if (isViewingTask) {
+      return <ViewTask taskInfo={this.state.taskInfo}/>;
+    }
 
     if (isCreatingTask) {
-      return <CreateTask createTask={createTask} goalId={goalId} cancel={this.cancelTaskCreation} />;
+      return (
+        <CreateTask
+          createTask={createTask}
+          goalId={goalId}
+          cancel={this.cancelTaskCreation}
+        />
+      );
     }
 
     if (isEditingGoal) {

@@ -2,20 +2,24 @@ import React from "react";
 
 class TaskCard extends React.Component {
   render() {
+    const { status, title, description } = this.props;
     return (
-      <div onClick={() => this.props.viewTask()} className="card-container">
+      <div
+        onClick={() => this.props.viewTask({ status, title, description })}
+        className="card-container"
+      >
         <div className="task-title-container">
-          <h3 className="task-title">{this.props.title}</h3>
+          <h3 className="task-title">{title}</h3>
         </div>
         <div className="status-container">
           <div>
-            <span>{this.props.status}</span>
+            <span>{status}</span>
           </div>
-          <select>
+          {/* <select>
             <option value="">status</option>
             <option value="in complete">in complete</option>
             <option value="complete">complete</option>
-          </select>
+          </select> */}
         </div>
       </div>
     );
