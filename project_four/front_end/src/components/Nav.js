@@ -13,7 +13,6 @@ class Nav extends React.Component {
           <Link to="/">Activity</Link>
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
-          <Link to="/tasks">Tasks</Link>
           <span>{user.user_name}</span>
           <a href="#" onClick={() => this.props.logout()}>
             LogOut

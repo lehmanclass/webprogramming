@@ -237,7 +237,7 @@ class App extends React.Component {
         logout={this.handleLogOut}
         goals={goals}
         tasks={tasks}
-        createTask={this.createTask}
+        // createTask={this.createTask}
         redirect={this.state.redirect}
         deleteGoal={this.deleteGoal}
         editGoal={this.editGoal}

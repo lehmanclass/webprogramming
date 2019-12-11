@@ -23,7 +23,13 @@ class ViewGoal extends React.Component {
     const { goalId } = this.props;
     fetch(`http://localhost:5000/tasks/${goalId}`)
       .then(res => res.json())
-      .then(data => this.setState({ fetchTasks: data, isViewingTask: false }));
+      .then(data =>
+        this.setState({
+          fetchTasks: data,
+          isViewingTask: false,
+          isCreatingTask: false
+        })
+      );
   };
 
   editTask = (taskId, newBody) => {
@@ -81,8 +87,24 @@ class ViewGoal extends React.Component {
     return container;
   };
 
-  createTask = () => {
+  creatingTask = () => {
     this.setState({ isCreatingTask: true });
+  };
+
+  createTask = (goalId, taskBody) => {
+    fetch(`http://localhost:5000/createTask/${goalId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(taskBody)
+    }).then(res => {
+      if (res.status == 200) {
+        alert("It worked");
+        this.getTasks();
+      }
+    });
   };
 
   viewTask = taskInfo => this.setState({ isViewingTask: true, taskInfo });
@@ -105,8 +127,7 @@ class ViewGoal extends React.Component {
       deleteGoal,
       status,
       goalId,
-      editGoal,
-      createTask
+      editGoal
     } = this.props;
     const {
       isCreatingTask,
@@ -128,7 +149,8 @@ class ViewGoal extends React.Component {
     if (isCreatingTask) {
       return (
         <CreateTask
-          createTask={createTask}
+          refreshTasks={this.getTasks}
+          createTask={this.createTask}
           goalId={goalId}
           cancel={this.cancelTaskCreation}
         />
@@ -158,7 +180,7 @@ class ViewGoal extends React.Component {
           </div>
 
           <div>
-            <button onClick={this.createTask}>Add Task</button>
+            <button onClick={this.creatingTask}>Add Task</button>
             <button onClick={this.editGoal}>Edit Goal</button>
             {/* <select value={selectedStatus} onChange={this.handleStatusChange}>
               <option value="not started">Not started</option>
