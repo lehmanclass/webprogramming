@@ -159,7 +159,11 @@ app.get("/tasks/:goalId", (req, res) => {
 app.put("/tasks/:taskId", (req, res) => {
   const { taskId } = req.params;
   const { newBody } = req.body;
-  query = `update tasks set ${newBody} where id=${taskId};`;
+  const name = newBody.title;
+  const description = newBody.description;
+  const status = newBody.status;
+
+  query = `update tasks set name='${name}', description='${description}', status='${status}' where id=${taskId};`;
   queryExecutor(query)
     .then(data => {
       console.log(data);

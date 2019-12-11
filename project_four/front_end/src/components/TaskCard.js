@@ -2,10 +2,12 @@ import React from "react";
 
 class TaskCard extends React.Component {
   render() {
-    const { status, title, description } = this.props;
+    const { taskId, status, title, description } = this.props;
     return (
       <div
-        onClick={() => this.props.viewTask({ status, title, description })}
+        onClick={() =>
+          this.props.viewTask({ taskId, status, title, description })
+        }
         className="card-container"
       >
         <div className="task-title-container">

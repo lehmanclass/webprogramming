@@ -16,11 +16,35 @@ class ViewGoal extends React.Component {
     };
   }
   componentDidMount() {
+    this.getTasks()
+  }
+
+  getTasks = () => {
     const { goalId } = this.props;
     fetch(`http://localhost:5000/tasks/${goalId}`)
       .then(res => res.json())
-      .then(data => this.setState({ fetchTasks: data }));
+      .then(data => this.setState({ fetchTasks: data, isViewingTask: false }));
   }
+
+  editTask = (taskId, newBody) => {
+
+    fetch(`http://localhost:5000/tasks/${taskId}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        taskId,
+        newBody
+      })
+    }).then(res => {
+      if(res.status == 200){
+        alert("Save!")
+        this.getTasks()
+      }
+    });
+  };
 
   displayTasks = () => {
     const { fetchTasks } = this.state;
@@ -30,6 +54,7 @@ class ViewGoal extends React.Component {
         <TaskCard
           viewTask={this.viewTask}
           key={task.id}
+          taskId={task.id}
           title={task.name}
           description={task.description}
           status={task.status}
@@ -48,7 +73,7 @@ class ViewGoal extends React.Component {
     this.setState({ isCreatingTask: true });
   };
 
-  viewTask = (taskInfo) => this.setState({ isViewingTask: true, taskInfo });
+  viewTask = taskInfo => this.setState({ isViewingTask: true, taskInfo });
 
   editGoal = () => this.setState({ isEditingGoal: true });
 
@@ -79,7 +104,7 @@ class ViewGoal extends React.Component {
     } = this.state;
 
     if (isViewingTask) {
-      return <ViewTask taskInfo={this.state.taskInfo}/>;
+      return <ViewTask editTask={this.editTask} taskInfo={this.state.taskInfo} />;
     }
 
     if (isCreatingTask) {
