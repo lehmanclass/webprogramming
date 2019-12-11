@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import GoalCard from "./GoalCard";
 import DraggableGoalCard from "./DraggableGoalCard";
 import ViewGoal from "./ViewGoal";
+import { Link, Redirect } from "react-router-dom";
 
 class Board extends React.Component {
   constructor(props) {
@@ -125,6 +126,12 @@ class Board extends React.Component {
   };
 
   render() {
+    const { redirect } = this.props;
+
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div>
         <Nav logout={this.props.logout} />

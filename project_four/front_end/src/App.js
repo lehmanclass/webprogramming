@@ -230,6 +230,8 @@ class App extends React.Component {
         editGoal={this.editGoal}
         goals={goals}
         name="props"
+        redirect={this.state.redirect}
+        logout={this.handleLogOut}
         logout={this.handleLogOut}
       />
     );
