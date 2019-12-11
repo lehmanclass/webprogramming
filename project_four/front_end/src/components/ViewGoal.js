@@ -109,6 +109,8 @@ class ViewGoal extends React.Component {
 
   viewTask = taskInfo => this.setState({ isViewingTask: true, taskInfo });
 
+  cancelTaskView = () => this.setState({isViewingTask:false})
+
   editGoal = () => this.setState({ isEditingGoal: true });
 
   cancelGoalEdit = () => this.setState({ isEditingGoal: false });
@@ -139,6 +141,7 @@ class ViewGoal extends React.Component {
     if (isViewingTask) {
       return (
         <ViewTask
+          hide={this.cancelTaskView}
           deleteTask={this.deleteTask}
           editTask={this.editTask}
           taskInfo={this.state.taskInfo}
@@ -149,6 +152,7 @@ class ViewGoal extends React.Component {
     if (isCreatingTask) {
       return (
         <CreateTask
+          hide={this.cancelTaskCreation}
           refreshTasks={this.getTasks}
           createTask={this.createTask}
           goalId={goalId}

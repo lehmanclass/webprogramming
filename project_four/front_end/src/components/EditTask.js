@@ -27,6 +27,9 @@ class EditTask extends React.Component {
 
     return (
       <div className="overlay">
+        <span className="closeModal" onClick={this.props.cancelEditTask}>
+          X
+        </span>
         <div className="modal">
           <div className="edit-goal-container">
             <div>
@@ -45,10 +48,7 @@ class EditTask extends React.Component {
             </div>
             <div>
               <p>Status</p>
-              <select
-                value={status}
-                onChange={this.handleStatusChange}
-              >
+              <select value={status} onChange={this.handleStatusChange}>
                 <option value="in complete">In complete</option>
                 <option value="complete">Complete</option>
               </select>

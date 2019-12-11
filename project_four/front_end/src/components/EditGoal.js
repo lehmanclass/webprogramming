@@ -29,6 +29,9 @@ class EditGoal extends React.Component {
     const updatedBody = { name, description, reason, status };
     return (
       <div className="overlay">
+        <span className="closeModal" onClick={this.props.cancel}>
+          X
+        </span>
         <div className="modal">
           <div className="edit-goal-container">
             <div>
@@ -59,7 +62,13 @@ class EditGoal extends React.Component {
             </div>
             <div>
               <button onClick={this.props.cancel}>Cancel</button>
-              <button onClick={() => validInputs ? this.props.editGoal(goalId, updatedBody):alert('All fields are required')}>
+              <button
+                onClick={() =>
+                  validInputs
+                    ? this.props.editGoal(goalId, updatedBody)
+                    : alert("All fields are required")
+                }
+              >
                 Save
               </button>
             </div>
