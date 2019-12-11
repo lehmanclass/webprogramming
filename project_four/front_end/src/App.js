@@ -11,7 +11,6 @@ import EditTask from "./components/EditTask";
 import GoalLister from "./components/GoalLister";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import TaskLister from "./components/TaskLister";
 import Nav from "./components/Nav";
 import Activity from "./components/Activity";
 import NoFound from "./components/NoFoundPage";
@@ -247,9 +246,7 @@ class App extends React.Component {
     const LoginComponent = () => (
       <Login login={this.handleLogin} redirect={this.state.redirect} />
     );
-    const TaskListerComponent = () => (
-      <TaskLister logout={this.handleLogOut} goals={goals} tasks={tasks} />
-    );
+
     const NotFound = () => <NoFound name="props" logout={this.handleLogOut} />;
     const HomeComponent = () => (
       <Activity goals={goals} tasks={tasks} logout={this.handleLogOut} />
@@ -265,7 +262,6 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={HomeComponent} />
-          <Route exact path="/tasks" component={TaskListerComponent} />
           <Route exact path="/editTask" component={EditTaskComponent} />
           <Route exact path="/goals" component={GoalListerComponent} />
           <Route exact path="/editGoal" component={EditGoalComponent} />
