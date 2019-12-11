@@ -47,7 +47,7 @@ class ViewTask extends React.Component {
             <option>On hold</option>
             <option>Complete</option>
           </select> */}
-            <button onClick={deleteTask}>Delete</button>
+            <button onClick={() => deleteTask(taskInfo.taskId)}>Delete</button>
           </div>
 
           <div>

@@ -16,7 +16,7 @@ class ViewGoal extends React.Component {
     };
   }
   componentDidMount() {
-    this.getTasks()
+    this.getTasks();
   }
 
   getTasks = () => {
@@ -24,10 +24,9 @@ class ViewGoal extends React.Component {
     fetch(`http://localhost:5000/tasks/${goalId}`)
       .then(res => res.json())
       .then(data => this.setState({ fetchTasks: data, isViewingTask: false }));
-  }
+  };
 
   editTask = (taskId, newBody) => {
-
     fetch(`http://localhost:5000/tasks/${taskId}`, {
       method: "PUT",
       headers: {
@@ -39,11 +38,24 @@ class ViewGoal extends React.Component {
         newBody
       })
     }).then(res => {
-      if(res.status == 200){
-        alert("Save!")
-        this.getTasks()
+      if (res.status == 200) {
+        alert("Save!");
+        this.getTasks();
       }
     });
+  };
+
+  deleteTask = taskId => {
+    fetch(`http://localhost:5000/tasks/${taskId}`, {
+      method: "DELETE"
+    })
+      .then(res => {
+        if (res.status == 200) {
+          alert("task deleted");
+          this.getTasks();
+        }
+      })
+      .catch(e => alert("Error"));
   };
 
   displayTasks = () => {
@@ -104,7 +116,13 @@ class ViewGoal extends React.Component {
     } = this.state;
 
     if (isViewingTask) {
-      return <ViewTask editTask={this.editTask} taskInfo={this.state.taskInfo} />;
+      return (
+        <ViewTask
+          deleteTask={this.deleteTask}
+          editTask={this.editTask}
+          taskInfo={this.state.taskInfo}
+        />
+      );
     }
 
     if (isCreatingTask) {
