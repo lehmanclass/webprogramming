@@ -180,7 +180,6 @@ class App extends React.Component {
   };
 
   createTask = (goalId, taskBody) => {
-    
     alert(taskBody.name);
 
     fetch(`http://localhost:5000/createTask/${goalId}`, {
@@ -191,8 +190,8 @@ class App extends React.Component {
       },
       body: JSON.stringify(taskBody)
     }).then(res => {
-      if(res.status == 200){
-        alert('It worked')
+      if (res.status == 200) {
+        alert("It worked");
       }
     });
   };
@@ -227,7 +226,7 @@ class App extends React.Component {
     const { goals, tasks } = this.state;
 
     const BoardComponent = () => (
-      <Board name="props" logout={this.handleLogOut} />
+      <Board goals={goals} name="props" logout={this.handleLogOut} />
     );
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
