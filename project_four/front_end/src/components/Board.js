@@ -41,9 +41,11 @@ class Board extends React.Component {
         <DraggableGoalCard
           handleClick={() => this.viewGoal(goal)}
           key={goal.id}
-          title={goal.name}
+          name={goal.name}
           status={goal.status}
           goalId={goal.id}
+          description={goal.description}
+          reason={goal.reason}
           onDragStart={this.onDragStart}
         />
       ));
@@ -58,9 +60,11 @@ class Board extends React.Component {
         <DraggableGoalCard
           handleClick={() => this.viewGoal(goal)}
           key={goal.id}
-          title={goal.name}
+          name={goal.name}
           status={goal.status}
           goalId={goal.id}
+          description={goal.description}
+          reason={goal.reason}
           onDragStart={this.onDragStart}
         />
       ));
@@ -75,9 +79,11 @@ class Board extends React.Component {
         <DraggableGoalCard
           handleClick={() => this.viewGoal(goal)}
           key={goal.id}
-          title={goal.name}
+          name={goal.name}
           status={goal.status}
           goalId={goal.id}
+          description={goal.description}
+          reason={goal.reason}
           onDragStart={this.onDragStart}
         />
       ));
@@ -94,15 +100,17 @@ class Board extends React.Component {
           key={goal.id}
           goalId={goal.id}
           onDragStart={this.onDragStart}
-          title={goal.name}
+          name={goal.name}
+          description={goal.description}
+          reason={goal.reason}
           status={goal.status}
         />
       ));
     }
   };
 
-  onDragStart = (e, info) => {
-    e.dataTransfer.setData("goalId", info);
+  onDragStart = (e, goalInfo) => {
+    e.dataTransfer.setData("goalInfo", goalInfo);
   };
 
   onDraggingOver = e => {
@@ -110,16 +118,10 @@ class Board extends React.Component {
   };
 
   onDrop = (e, status) => {
-    const id = e.dataTransfer.getData("goalId");
-    const newGoal = this.state.goals.filter(goal => goal.id == id)[0];
-    newGoal.status = status;
-
-    const up = this.state.noStarted.filter(goal => goal.id != id);
-
-    this.setState({
-      inProgress: [...this.state.inProgress, newGoal],
-      noStarted: up
-    });
+    const { editGoal } = this.props;
+    const goalInfo = JSON.parse(e.dataTransfer.getData("goalInfo"));
+    goalInfo.status = status;
+    editGoal(goalInfo.goalId, goalInfo);
   };
 
   render() {
@@ -128,7 +130,11 @@ class Board extends React.Component {
         <Nav logout={this.props.logout} />
         <h1>Board</h1>
         <div className="board-column-container">
-          <div className="board-column-item">
+          <div
+            className="board-column-item"
+            onDrop={e => this.onDrop(e, "no started")}
+            onDragOver={e => this.onDraggingOver(e)}
+          >
             <h3 className="column-title">No started</h3>
             <div className="board-column-inner-item">
               {this.displayNoStarted()}
@@ -145,13 +151,21 @@ class Board extends React.Component {
               {this.displayInProgress()}
             </div>
           </div>
-          <div className="board-column-item">
+          <div
+            className="board-column-item"
+            onDrop={e => this.onDrop(e, "on hold")}
+            onDragOver={e => this.onDraggingOver(e)}
+          >
             <h3 className="column-title">On hold</h3>
             <div className="board-column-inner-item">
               {this.displayOnHold()}
             </div>
           </div>
-          <div className="board-column-item">
+          <div
+            className="board-column-item"
+            onDrop={e => this.onDrop(e, "done")}
+            onDragOver={e => this.onDraggingOver(e)}
+          >
             <h3 className="column-title">Done</h3>
             <div className="board-column-inner-item">{this.displayDone()}</div>
           </div>

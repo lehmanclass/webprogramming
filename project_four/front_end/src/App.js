@@ -226,7 +226,12 @@ class App extends React.Component {
     const { goals, tasks } = this.state;
 
     const BoardComponent = () => (
-      <Board goals={goals} name="props" logout={this.handleLogOut} />
+      <Board
+        editGoal={this.editGoal}
+        goals={goals}
+        name="props"
+        logout={this.handleLogOut}
+      />
     );
     const EditGoalComponent = () => <EditGoal name="props" />;
     const EditTaskComponent = () => <EditTask name="props" />;
