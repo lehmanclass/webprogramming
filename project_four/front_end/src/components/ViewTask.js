@@ -1,5 +1,6 @@
 import React from "react";
-import EditTask from './EditTask';
+import EditTask from "./EditTask";
+import { Badge } from "evergreen-ui";
 
 class ViewTask extends React.Component {
   constructor(props) {
@@ -13,6 +14,15 @@ class ViewTask extends React.Component {
     this.setState({ isEditingTask: false });
   };
 
+  getColor = status => {
+    switch (status) {
+      case "in complete":
+        return "neutral";
+      case "complete":
+        return "green";
+    }
+  };
+
   editTask = () => {
     this.setState({ isEditingTask: true });
   };
@@ -21,10 +31,14 @@ class ViewTask extends React.Component {
     const { isEditingTask } = this.state;
     const { taskInfo, hide, editTask, deleteTask } = this.props;
 
-    if(isEditingTask){
-       return (
-         <EditTask save={editTask} taskInfo={taskInfo} cancelEditTask={this.cancelEditTask}/>
-       )
+    if (isEditingTask) {
+      return (
+        <EditTask
+          save={editTask}
+          taskInfo={taskInfo}
+          cancelEditTask={this.cancelEditTask}
+        />
+      );
     }
 
     return (
@@ -33,30 +47,28 @@ class ViewTask extends React.Component {
           X
         </span>
         <div className="view-goal">
-          <div>
+          <div className="view-goal-header">
             <h2>{taskInfo.title}</h2>
-            <p>{taskInfo.status}</p>
+            <Badge isSolid color={this.getColor(this.props.status)}>
+              {taskInfo.status}
+            </Badge>
           </div>
 
           <div>
-            <button onClick={this.editTask}>Edit</button>
-            {/* <select>
-            <option>Status</option>
-            <option>Not started</option>
-            <option>In progress</option>
-            <option>On hold</option>
-            <option>Complete</option>
-          </select> */}
-            <button onClick={() => deleteTask(taskInfo.taskId)}>Delete</button>
+            <button className="btn green m-r" onClick={this.editTask}>
+              Edit
+            </button>
+            <button
+              className="btn red"
+              onClick={() => deleteTask(taskInfo.taskId)}
+            >
+              Delete
+            </button>
           </div>
 
           <div>
             <h3>Descriptions</h3>
             <p>{taskInfo.description}</p>
-          </div>
-
-          <div>
-            <h3>Goal to Accomplish</h3>
           </div>
         </div>
       </div>

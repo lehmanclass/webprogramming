@@ -14,14 +14,23 @@
 .right-nav {
   display: flex;
   width: 50%;
-  justify-content: space-around;
   list-style-type: none;
+}
+
+.right-nav{
+  justify-content: flex-end;
+  padding-right: 2rem;
 }
 
 .left-nav a,
 .right-nav a {
   text-decoration: none;
   color: #fff;
+}
+
+.right-nav *{
+  margin-right: 1rem;
+
 }
 
 .left-nav {
@@ -140,6 +149,11 @@
   align-items: center;
 }
 
+.view-goal-header{
+  display: flex;
+  justify-content: space-between;
+}
+
 .modal {
   z-index: 500;
   width: 60%;
@@ -231,7 +245,7 @@
   background-color: #e4e7eb;
 }
 
-.create-goal-container, .view-goal{
+.create-goal-container, .view-goal, .edit-goal-container, .create-task-container{
   padding:1rem;
 }
 
@@ -258,6 +272,25 @@
   color: #fff;
 }
 
+.red{
+  background-color: #bf0e08;
+  color: #fff;
+}
+
+.green{
+  background-color: #00783e;
+  color: #fff;
+}
+
+
 .input-view{
   font-size: 0.8rem;
+}
+
+.m-r{
+  margin-right: 1rem;
+}
+
+.m-b{
+  margin-bottom: 1rem;
 }

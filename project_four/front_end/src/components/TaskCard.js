@@ -1,6 +1,16 @@
 import React from "react";
+import { Badge } from "evergreen-ui";
 
 class TaskCard extends React.Component {
+  getColor = status => {
+    switch (status) {
+      case "in complete":
+        return "neutral";
+      case "complete":
+        return "green";
+    }
+  };
+
   render() {
     const { taskId, status, title, description } = this.props;
     return (
@@ -15,13 +25,10 @@ class TaskCard extends React.Component {
         </div>
         <div className="status-container">
           <div>
-            <span>{status}</span>
+            <Badge isSolid color={this.getColor(this.props.status)}>
+              {status}
+            </Badge>
           </div>
-          {/* <select>
-            <option value="">status</option>
-            <option value="in complete">in complete</option>
-            <option value="complete">complete</option>
-          </select> */}
         </div>
       </div>
     );

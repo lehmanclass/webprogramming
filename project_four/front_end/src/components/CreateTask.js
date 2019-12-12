@@ -20,7 +20,7 @@ class CreateTask extends React.Component {
 
   render() {
     const { name, description } = this.state;
-    const {goalId}= this.props;
+    const { goalId } = this.props;
     const validInputs = name.length && description.length;
 
     return (
@@ -35,6 +35,7 @@ class CreateTask extends React.Component {
           <div className="create-task-inputs-container">
             <div>
               <input
+                className="input-view"
                 value={name}
                 onChange={this.handleName}
                 placeholder="name"
@@ -42,14 +43,19 @@ class CreateTask extends React.Component {
             </div>
 
             <div>
-              <label>Description</label>
+              <p>Description</p>
               <textarea
+                className="textarea m-b"
                 value={description}
                 onChange={this.handleDescription}
               ></textarea>
             </div>
+            <button className="btn red m-r" onClick={this.props.cancel}>
+              Cancel
+            </button>
 
             <button
+              className="btn blue"
               onClick={() =>
                 validInputs
                   ? this.props.createTask(goalId, this.state)
@@ -58,7 +64,6 @@ class CreateTask extends React.Component {
             >
               Create
             </button>
-            <button onClick={this.props.cancel}>Cancel</button>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ class CreateGoal extends React.Component {
                 ></textarea>
               </div>
             </div>
-            <div>
+            <div className="m-b">
               <p>Description</p>
               <div>
                 <textarea
@@ -64,6 +64,10 @@ class CreateGoal extends React.Component {
                 ></textarea>
               </div>
             </div>
+
+            <button className="btn red m-r" onClick={this.props.hide}>
+              Cancel
+            </button>
 
             <button
               className="btn blue"

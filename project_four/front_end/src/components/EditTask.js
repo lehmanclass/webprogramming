@@ -37,25 +37,33 @@ class EditTask extends React.Component {
             </div>
             <div>
               <p>Task Title</p>
-              <input value={title} onChange={this.handleNameChange} />
+              <input
+                className="input-view"
+                value={title}
+                onChange={this.handleNameChange}
+              />
             </div>
 
             <div>
               <p>Description</p>
-              <textarea onChange={this.handleDescriptionChange}>
+              <textarea
+                className="textarea"
+                onChange={this.handleDescriptionChange}
+              >
                 {description}
               </textarea>
             </div>
-            <div>
-              <p>Status</p>
+            <div className="m-b">
+              <label>Status: </label>
               <select value={status} onChange={this.handleStatusChange}>
                 <option value="in complete">In complete</option>
                 <option value="complete">Complete</option>
               </select>
             </div>
             <div>
-              <button onClick={this.props.cancelEditTask}>Cancel</button>
+              <button className="btn red m-r" onClick={this.props.cancelEditTask}>Cancel</button>
               <button
+                className="btn blue"
                 onClick={() =>
                   validInputs
                     ? this.props.save(taskInfo.taskId, updatedBody)

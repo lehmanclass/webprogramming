@@ -3,6 +3,7 @@ import TaskCard from "./TaskCard";
 import CreateTask from "./CreateTask";
 import EditGoal from "./EditGoal";
 import ViewTask from "./ViewTask";
+import { Badge } from "evergreen-ui";
 
 class ViewGoal extends React.Component {
   constructor(props) {
@@ -87,6 +88,19 @@ class ViewGoal extends React.Component {
     return container;
   };
 
+  getColor = status => {
+    switch (status) {
+      case "in progress":
+        return "blue";
+      case "no started":
+        return "neutral";
+      case "on hold":
+        return "red";
+      case "done":
+        return "green";
+    }
+  };
+
   creatingTask = () => {
     this.setState({ isCreatingTask: true });
   };
@@ -109,7 +123,7 @@ class ViewGoal extends React.Component {
 
   viewTask = taskInfo => this.setState({ isViewingTask: true, taskInfo });
 
-  cancelTaskView = () => this.setState({isViewingTask:false})
+  cancelTaskView = () => this.setState({ isViewingTask: false });
 
   editGoal = () => this.setState({ isEditingGoal: true });
 
@@ -178,21 +192,23 @@ class ViewGoal extends React.Component {
         </span>
 
         <div className="view-goal">
-          <div>
+          <div className="view-goal-header">
             <h2>{name}</h2>
-            <p>{status}</p>
+            <Badge isSolid color={this.getColor(this.props.status)}>
+              {status}
+            </Badge>
           </div>
 
           <div>
-            <button onClick={this.creatingTask}>Add Task</button>
-            <button onClick={this.editGoal}>Edit Goal</button>
-            {/* <select value={selectedStatus} onChange={this.handleStatusChange}>
-              <option value="not started">Not started</option>
-              <option value="in progress">In progress</option>
-              <option value="on hold">On hold</option>
-              <option value="done">Done</option>
-            </select> */}
-            <button onClick={() => deleteGoal(goalId)}>Delete</button>
+            <button className="btn blue m-r" onClick={this.creatingTask}>
+              Add Task
+            </button>
+            <button className="btn green m-r" onClick={this.editGoal}>
+              Edit Goal
+            </button>
+            <button className="btn red" onClick={() => deleteGoal(goalId)}>
+              Delete
+            </button>
           </div>
 
           <div>
