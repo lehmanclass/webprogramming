@@ -19,9 +19,7 @@ class CreateGoal extends React.Component {
 
   handleDescription = e => this.setState({ description: e.target.value });
 
-  submit = () => {
-    
-  }
+  submit = () => {};
 
   render() {
     const { name, reason, description } = this.state;
@@ -38,25 +36,37 @@ class CreateGoal extends React.Component {
           </div>
           <div className="create-goal-inputs-container">
             <div>
+              <p>Name</p>
               <input
+                className="input-view"
                 value={name}
                 onChange={this.handleName}
                 placeholder="name"
               />
             </div>
             <div>
-              <label>Why</label>
-              <textarea value={reason} onChange={this.handleReason}></textarea>
+              <p>What is your motivation to accomplish this goal?</p>
+              <div>
+                <textarea
+                  className="textarea"
+                  value={reason}
+                  onChange={this.handleReason}
+                ></textarea>
+              </div>
             </div>
             <div>
-              <label>Description</label>
-              <textarea
-                value={description}
-                onChange={this.handleDescription}
-              ></textarea>
+              <p>Description</p>
+              <div>
+                <textarea
+                  className="textarea"
+                  value={description}
+                  onChange={this.handleDescription}
+                ></textarea>
+              </div>
             </div>
 
             <button
+              className="btn blue"
               onClick={() =>
                 validInputs
                   ? this.props.createGoal(this.state)

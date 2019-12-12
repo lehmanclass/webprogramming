@@ -133,6 +133,8 @@
   z-index: 500;
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,17 +142,22 @@
 
 .modal {
   z-index: 500;
-  width: 70%;
-  height: 40vh;
+  width: 60%;
+  height: 50vh;
   background-color: white;
+  overflow: scroll;
 }
 
 .closeModal {
   z-index: 501;
   color: #fff;
   font-size: 2rem;
+  position: absolute;
   top: 0;
   right: 0;
+  margin-right: 10rem;
+  margin-top: 8rem;
+  cursor: pointer;
 }
 
 .view-goal {
@@ -166,6 +173,18 @@
   color: black;
   width: 100%;
   overflow: scroll;
+}
+
+.textarea{
+  width: 400px;
+  height: 80px;
+}
+
+.input-view{
+  width: 400px;
+  padding: 0.3rem 0.1rem;
+  outline: none;
+  font-size: 0.5rem;
 }
 
 /* Board */
@@ -212,8 +231,33 @@
   background-color: #e4e7eb;
 }
 
+.create-goal-container, .view-goal{
+  padding:1rem;
+}
+
+/* .create-goal-container-inner{
+  width: 60%;
+  margin: auto;
+} */
+
 
 /* Utils */
 .header{
   margin-left: 8rem;
+}
+
+.btn{
+  font-size: 1rem;
+  border-style: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.blue{
+  background-color: #0847a6;
+  color: #fff;
+}
+
+.input-view{
+  font-size: 0.8rem;
 }
