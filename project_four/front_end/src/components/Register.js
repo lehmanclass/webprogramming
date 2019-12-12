@@ -27,7 +27,7 @@ class Register extends React.Component {
   render() {
     const { username, email, password } = this.state;
     const isValid = username && email && password;
-    if(this.props.redirect){
+    if (this.props.redirect) {
       return <Redirect to="/login" />;
     }
 
@@ -36,11 +36,15 @@ class Register extends React.Component {
         <Nav />
         <div className="login-register-form">
           <div className="inputs-container">
+            <div className="form-header">
+              <h1>BYFT</h1>
+            </div>
             <div className="inner-input-container">
               <input
                 placeholder="username"
                 value={username}
                 onChange={this.handleUsername}
+                className="input-view"
               />
             </div>
             <div className="inner-input-container">
@@ -48,17 +52,21 @@ class Register extends React.Component {
                 placeholder="email"
                 value={email}
                 onChange={this.handleEmail}
+                className="input-view"
               />
             </div>
             <div className="inner-input-container">
               <input
+                className="input-view"
                 placeholder="password"
+                type="password"
                 value={password}
                 onChange={this.handlePassword}
               />
             </div>
-            <div className="inner-input-container">
+            <div className="form-action-btn-container">
               <button
+                className="btn blue form-btn m-b"
                 onClick={() =>
                   isValid
                     ? this.props.registerUser(this.state)
@@ -67,8 +75,7 @@ class Register extends React.Component {
               >
                 Register
               </button>
-              <Link to="/login">LogIn</Link>
-
+              <span>Have an account ?</span><Link to="/login">LogIn</Link>
             </div>
           </div>
         </div>

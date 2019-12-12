@@ -164,13 +164,38 @@
 .login-register-form {
   width: 400px;
   border: 1px solid black;
+  box-shadow: 0 8px 6px -6px black;
   margin: 5rem auto;
+  border-radius: 0.5rem;
+}
+
+/* .form-action-btn-container * {
+  display: block;
+ 
+} */
+
+.form-btn{
+  width: 100%;
+  padding: 0.3rem 0;
+}
+
+.form-action-btn-container{
+  margin-top: 1rem;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .inputs-container {
   display: flex;
   flex-direction: column;
   padding: 3rem 0.5rem;
+  width: 80%;
+  margin: auto;
+}
+
+.form-header{
+  text-align: center;
+  color: #0847a6;
 }
 
 .inner-input-container {
