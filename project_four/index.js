@@ -1,6 +1,7 @@
 const express = require("express");
 const dbOperations = require("./database");
 const queryExecutor = dbOperations.queryExecutor;
+const schedule = require("node-schedule");
 
 const app = express();
 
@@ -210,12 +211,11 @@ app.get("/completed/goals/:userId", (req, res) => {
   );
 });
 
-// app.get('/completed/tasks/:userId', (req, res) => {
-//   const {userId} = req.params;
-//   query = `select * from tasks where user_id=${userId} and status='complete'`;
-//   queryExecutor(query)
-//   .then(data => res.json(data))
-//   .catch(e => res.sendStatus(500));
-// });
+// run everyday at midnight
+// Reset tasks to in complete for all users
+schedule.scheduleJob("0 0 * * *", () => {
+  const query = "update tasks set status= 'in complete';";
+  queryExecutor(query).then(() => console.log("Tasks updated"));
+});
 
 app.listen(5000, () => console.log("server is running"));
