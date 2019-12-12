@@ -10,7 +10,6 @@ class Nav extends React.Component {
       return (
         <ul className="right-nav">
           <Link to="/">Home</Link>
-          <Link to="/progress">Progress</Link>
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
           <span>{user.user_name}</span>

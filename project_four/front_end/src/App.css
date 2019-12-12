@@ -2,6 +2,76 @@
   box-sizing: border-box;
 }
 
+/* Home */
+.home-welcome-section{
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
+  background-color: #F7F9FD;
+}
+
+
+
+.home-text-container{
+  padding: 3rem;
+  margin-top: 3rem;
+
+}
+
+.welcome-text{
+  font-size: 1.5rem;
+}
+
+.home-btn{
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.home-img-container{
+  width: 70%;
+}
+
+.home-img-container img{
+  width: 100%;
+}
+
+/* About */
+.about-container{
+  padding: 3rem 7rem;
+}
+
+.section-title{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.about-steps{
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.about-steps li{
+  margin-bottom: 0.8rem;
+}
+
+/* Mission */
+
+.mission-container{
+  padding: 7rem;
+  font-size: 1.1rem;
+  background-color: #E9F2FA;
+}
+
+.mission-title{
+  text-align: center;
+}
+
+.mission-text{
+  line-height: 1.9rem;
+  text-align: center;
+}
+
 /* Navigation */
 .main-nav {
   display: flex;
