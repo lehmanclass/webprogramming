@@ -45,7 +45,7 @@ class ViewGoal extends React.Component {
       })
     }).then(res => {
       if (res.status == 200) {
-        alert("Save!");
+        // alert("Save!");
         this.getTasks();
       }
     });
@@ -101,7 +101,7 @@ class ViewGoal extends React.Component {
       body: JSON.stringify(taskBody)
     }).then(res => {
       if (res.status == 200) {
-        alert("It worked");
+        // alert("It worked");
         this.getTasks();
       }
     });

@@ -135,14 +135,14 @@ class Board extends React.Component {
     return (
       <div>
         <Nav logout={this.props.logout} />
-        <h1>Board</h1>
+        <h1 className="header">Goals Board</h1>
         <div className="board-column-container">
           <div
             className="board-column-item"
             onDrop={e => this.onDrop(e, "no started")}
             onDragOver={e => this.onDraggingOver(e)}
           >
-            <h3 className="column-title">No started</h3>
+            <h3 className="column-title no-started">No started</h3>
             <div className="board-column-inner-item">
               {this.displayNoStarted()}
             </div>
@@ -153,7 +153,7 @@ class Board extends React.Component {
             onDrop={e => this.onDrop(e, "in progress")}
             onDragOver={e => this.onDraggingOver(e)}
           >
-            <h3 className="column-title">In progress</h3>
+            <h3 className="column-title in-progress">In progress</h3>
             <div className="board-column-inner-item">
               {this.displayInProgress()}
             </div>
@@ -163,7 +163,7 @@ class Board extends React.Component {
             onDrop={e => this.onDrop(e, "on hold")}
             onDragOver={e => this.onDraggingOver(e)}
           >
-            <h3 className="column-title">On hold</h3>
+            <h3 className="column-title on-hold">On hold</h3>
             <div className="board-column-inner-item">
               {this.displayOnHold()}
             </div>
@@ -173,7 +173,7 @@ class Board extends React.Component {
             onDrop={e => this.onDrop(e, "done")}
             onDragOver={e => this.onDraggingOver(e)}
           >
-            <h3 className="column-title">Done</h3>
+            <h3 className="column-title done">Done</h3>
             <div className="board-column-inner-item">{this.displayDone()}</div>
           </div>
         </div>

@@ -4,6 +4,10 @@ import GoalCard from "./GoalCard";
 import CreateGoal from "./CreateGoal";
 import { Link, Redirect } from "react-router-dom";
 import ViewGoal from "./ViewGoal";
+import AddIcon from "../assets/add.png";
+import { SearchInput } from "evergreen-ui";
+import { join } from "path";
+import _ from "lodash";
 
 class GoalLister extends React.Component {
   constructor(props) {
@@ -12,12 +16,36 @@ class GoalLister extends React.Component {
     this.state = {
       isCreatingGoal: false,
       isViewingGoal: false,
-      goalInfo: ""
+      goalInfo: "",
+      searchTerm: "",
+      goals: this.props.goals
+    };
+
+    this.handleInputChange = e => {
+      const searchTerm = e.target.value;
+      let user = window.localStorage.getItem("userSession");
+      user = JSON.parse(user);
+
+      if (!searchTerm) {
+        fetch(`http://localhost:5000/goals/${user.id}`)
+          .then(res => res.json())
+          .then(data => {
+            this.setState({ goals: data });
+          });
+      } else {
+        
+
+        fetch(`http://localhost:5000/goals/${user.id}/${searchTerm}`)
+          .then(res => res.json())
+          .then(data => {
+            this.setState({ goals: data });
+          });
+      }
     };
   }
 
   displayGoals = () => {
-    const { goals } = this.props;
+    const { goals } = this.state;
     if (goals.length) {
       return goals.map(goal => (
         <GoalCard
@@ -74,6 +102,7 @@ class GoalLister extends React.Component {
   render() {
     const { isCreatingGoal, isViewingGoal, goalInfo } = this.state;
     const { redirect, createGoal, tasks, deleteGoal } = this.props;
+    const shouldHaveOverlay = isCreatingGoal || isViewingGoal;
 
     if (redirect) {
       return <Redirect to="/" />;
@@ -82,13 +111,35 @@ class GoalLister extends React.Component {
     return (
       <div>
         <Nav logout={this.props.logout} />
-        <h1>GoalLister</h1>
-        <button onClick={this.addGoal}>Create Goal</button>
-        {this.displayGoals()}
-        {isCreatingGoal ? (
-          <CreateGoal hide={this.hideModal} createGoal={this.submitGoalInfo} />
-        ) : null}
-        {isViewingGoal ? this.displayGoal() : null}
+        <div className="goal-lister-container">
+          <div className="goal-lister-header">
+            <h1>GoalLister</h1>
+            <div>
+              {/* <img src={AddIcon} alt="" /> */}
+              <button className="add-goal-btn" onClick={this.addGoal}>
+                Create Goal
+              </button>
+            </div>
+          </div>
+
+          <div className="goal-lister-input-container">
+            <SearchInput
+              onChange={e => this.handleInputChange(e)}
+              placeholder="Filter goals by name..."
+              width="100%"
+            />
+          </div>
+
+          <div className="goals-gird-container">{this.displayGoals()}</div>
+
+          {isCreatingGoal ? (
+            <CreateGoal
+              hide={this.hideModal}
+              createGoal={this.submitGoalInfo}
+            />
+          ) : null}
+          {isViewingGoal ? this.displayGoal() : null}
+        </div>
       </div>
     );
   }

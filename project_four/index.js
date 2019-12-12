@@ -94,10 +94,27 @@ app.get("/goals/:userId", (req, res) => {
     });
 });
 
+app.get("/goals/:userId/:searchTerm", (req, res) => {
+  let { userId, searchTerm } = req.params;
+  const query = `select * from goals where (user_id=${userId});`;
+
+  queryExecutor(query)
+    .then(data => {
+      const filteredGoals = data.filter(goal => {
+        searchTerm = searchTerm.toLowerCase();
+        const goalName = goal.name.toLowerCase();
+        return goalName.includes(searchTerm);
+      });
+
+      res.json(filteredGoals);
+    })
+    .catch(e => res.sendStatus(500));
+});
+
 app.put("/goals/:goalId", (req, res) => {
   const { goalId } = req.params;
-  const {name, reason, description, status } = req.body;
-  
+  const { name, reason, description, status } = req.body;
+
   const query = `update goals set name='${name}', reason='${reason}',description='${description}',status='${status}' where id=${goalId};`;
   queryExecutor(query)
     .then(data => {
@@ -122,7 +139,6 @@ app.delete("/goals/:goalId", (req, res) => {
         res.sendStatus(500);
       });
   });
-
 });
 
 // Tasks

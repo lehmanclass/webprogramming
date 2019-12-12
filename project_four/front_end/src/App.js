@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link, Redirect } from "react-router-dom";
 
 // Components
+import Home from "./components/Home";
+import Progress from "./components/Progress";
 import Board from "./components/Board";
 import EditGoal from "./components/EditGoal";
 import EditTask from "./components/EditTask";
@@ -212,7 +214,7 @@ class App extends React.Component {
       body: JSON.stringify(updatedBody)
     }).then(res => {
       if (res.status == 200) {
-        alert("Change Saved");
+        // alert("Change Saved");
         this.getGoals();
       } else {
         alert("Error");
@@ -243,7 +245,6 @@ class App extends React.Component {
         logout={this.handleLogOut}
         goals={goals}
         tasks={tasks}
-        // createTask={this.createTask}
         redirect={this.state.redirect}
         deleteGoal={this.deleteGoal}
         editGoal={this.editGoal}
@@ -255,7 +256,11 @@ class App extends React.Component {
 
     const NotFound = () => <NoFound name="props" logout={this.handleLogOut} />;
     const HomeComponent = () => (
-      <Activity goals={goals} tasks={tasks} logout={this.handleLogOut} />
+      <Home goals={goals} tasks={tasks} logout={this.handleLogOut} />
+    );
+
+    const ProgressComponent = () => (
+      <Progress goals={goals} tasks={tasks} logout={this.handleLogOut} />
     );
     const RegisterComponent = () => (
       <Register
@@ -268,6 +273,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={HomeComponent} />
+          <Route exact path="/progress" component={ProgressComponent} />
           <Route exact path="/editTask" component={EditTaskComponent} />
           <Route exact path="/goals" component={GoalListerComponent} />
           <Route exact path="/editGoal" component={EditGoalComponent} />
