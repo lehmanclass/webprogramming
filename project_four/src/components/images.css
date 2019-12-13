@@ -1,0 +1,409 @@
+.image1{
+    position: absolute; 
+    left:0%;
+     top: 15%; 
+     height:30%;
+      width:20%;
+    }
+    .img1{
+      position: absolute; 
+      left:2%;
+       top: 45%; 
+      
+
+    }
+    .image2{
+    position: absolute; 
+    left:0%;
+     top: 53%;
+      height:30%;
+       width:20%;
+    }
+    .img2{
+      position: absolute; 
+      left:2%;
+       top: 83%;
+    }
+    .image3{
+    position: absolute;
+     left:0%;
+      top: 91%;
+       height:30%; 
+       width:20%;
+
+    }
+    .img3{
+      position: absolute; 
+      left:2%;
+       top: 121%;
+    }
+    .image4{
+        position: absolute;
+         left:0%;
+          top: 129%;
+           height:30%; 
+           width:20%;
+    
+        }
+        .img4{
+         position: absolute; 
+         left:2%;
+          top: 159%;
+       }
+        .image5{
+            position: absolute;
+             left:0%;
+              top: 167%;
+               height:30%; 
+               width:20%;
+        
+     }
+     .img5{
+      position: absolute; 
+      left:2%;
+       top: 197%;
+    }
+
+
+     .image6{
+        position: absolute;
+         left:0%;
+          top: 205%;
+           height:30%; 
+           width:20%;
+    
+        }
+        .img6{
+         position: absolute; 
+         left:2%;
+          top: 235%;
+       }
+
+
+        .image7{
+            position: absolute;
+             left:0%;
+              top: 243%;
+               height:30%; 
+               width:20%;
+        
+            }
+            .img7{
+               position: absolute; 
+               left:2%;
+                top: 273%;
+             }
+
+            .image8{
+                position: absolute;
+                 left:0%;
+                  top: 281%;
+                   height:30%; 
+                   width:20%;
+            
+                }
+                .img8{
+                  position: absolute; 
+                  left:2%;
+                   top: 311%;
+                }
+
+                .image9{
+                    position: absolute;
+                     left:0%;
+                      top: 319%;
+                       height:30%; 
+                       width:20%;
+                
+                    } 
+                    .img9{
+                     position: absolute; 
+                     left:2%;
+                      top: 349%;
+                   }
+                    
+                    
+                    .image10{
+                        position: absolute;
+                         left:0%;
+                          top: 357%;
+                           height:30%; 
+                           width:20%;
+                    
+                        }
+                        .img10{
+                           position: absolute; 
+                           left:2%;
+                            top: 387%;
+                         }
+                        .image11{
+                            position: absolute;
+                             left:0%;
+                              top: 395%;
+                               height:30%; 
+                               width:20%;
+                        
+                            }  
+                            .img11{
+                              position: absolute; 
+                              left:2%;
+                               top: 425%;
+                            }
+                            .image12{
+                                position: absolute;
+                                 left:0%;
+                                  top: 433%;
+                                   height:30%; 
+                                   width:20%;
+                            
+                                } 
+
+                                .img12{
+                                 position: absolute; 
+                                 left:2%;
+                                  top: 463%;
+                               }
+                                .image13{
+                                    position: absolute;
+                                     left:0%;
+                                      top: 471%;
+                                       height:30%; 
+                                       width:20%;
+                                
+                                    }
+                                    .img13{
+                                       position: absolute; 
+                                       left:2%;
+                                        top: 501%;
+                                     }
+                                    .image14{
+                                        position: absolute;
+                                         left:0%;
+                                          top: 509%;
+                                           height:30%; 
+                                           width:20%;
+                                    
+                                        }  
+                                        .img14{
+                                          position: absolute; 
+                                          left:2%;
+                                           top: 539%;
+                                        } 
+                                        .image15{
+                                            position: absolute;
+                                             left:0%;
+                                              top: 547%;
+                                               height:30%; 
+                                               width:20%;
+                                        
+                                            }   
+                                            .img15{
+                                             position: absolute; 
+                                             left:2%;
+                                              top: 577%;
+                                           }         
+
+                                           .image16{
+                                             position: absolute; 
+                                             Right:0%;
+                                              top: 15%; 
+                                              height:30%;
+                                               width:20%;
+                                             }
+                                             .img16{
+                                               position: absolute; 
+                                               Right:2%;
+                                                top: 45%; 
+                                               
+                                         
+                                             }
+                                             .image17{
+                                             position: absolute; 
+                                             Right:0%;
+                                              top: 53%;
+                                               height:30%;
+                                                width:20%;
+                                             }
+                                             .img17{
+                                               position: absolute; 
+                                               Right:2%;
+                                                top: 83%;
+                                             }
+                                             .image18{
+                                             position: absolute;
+                                             Right:0%;
+                                               top: 91%;
+                                                height:30%; 
+                                                width:20%;
+                                         
+                                             }
+                                             .img18{
+                                               position: absolute; 
+                                               Right:2%;
+                                                top: 121%;
+                                             }
+                                             .image19{
+                                                 position: absolute;
+                                                 Right:0%;
+                                                   top: 129%;
+                                                    height:30%; 
+                                                    width:20%;
+                                             
+                                                 }
+                                                 .img19{
+                                                  position: absolute; 
+                                                  Right:2%;
+                                                   top: 159%;
+                                                }
+                                                 .image20{
+                                                     position: absolute;
+                                                     Right:0%;
+                                                       top: 167%;
+                                                        height:30%; 
+                                                        width:20%;
+                                                 
+                                              }
+                                              .img20{
+                                               position: absolute; 
+                                               Right:2%;
+                                                top: 197%;
+                                             }
+                                         
+                                         
+                                              .image21{
+                                                 position: absolute;
+                                                 Right:0%;
+                                                   top: 205%;
+                                                    height:30%; 
+                                                    width:20%;
+                                             
+                                                 }
+                                                 .img21{
+                                                  position: absolute; 
+                                                  Right:2%;
+                                                   top: 235%;
+                                                }
+                                         
+                                         
+                                                 .image22{
+                                                     position: absolute;
+                                                     Right:0%;
+                                                       top: 243%;
+                                                        height:30%; 
+                                                        width:20%;
+                                                 
+                                                     }
+                                                     .img22{
+                                                        position: absolute; 
+                                                        Right:2%;
+                                                         top: 273%;
+                                                      }
+                                         
+                                                     .image23{
+                                                         position: absolute;
+                                                         Right:0%;
+                                                           top: 281%;
+                                                            height:30%; 
+                                                            width:20%;
+                                                     
+                                                         }
+                                                         .img23{
+                                                           position: absolute; 
+                                                           Right:2%;
+                                                            top: 311%;
+                                                         }
+                                         
+                                                         .image24{
+                                                             position: absolute;
+                                                             Right:0%;
+                                                               top: 319%;
+                                                                height:30%; 
+                                                                width:20%;
+                                                         
+                                                             } 
+                                                             .img24{
+                                                              position: absolute; 
+                                                              Right:2%;
+                                                               top: 349%;
+                                                            }
+                                                             
+                                                             
+                                                             .image25{
+                                                                 position: absolute;
+                                                                 Right:0%;
+                                                                   top: 357%;
+                                                                    height:30%; 
+                                                                    width:20%;
+                                                             
+                                                                 }
+                                                                 .img25{
+                                                                    position: absolute; 
+                                                                    Right:2%;
+                                                                     top: 387%;
+                                                                  }
+                                                                 .image26{
+                                                                     position: absolute;
+                                                                     Right:0%;
+                                                                       top: 395%;
+                                                                        height:30%; 
+                                                                        width:20%;
+                                                                 
+                                                                     }  
+                                                                     .img26{
+                                                                       position: absolute; 
+                                                                       Right:2%;
+                                                                        top: 425%;
+                                                                     }
+                                                                     .image27{
+                                                                         position: absolute;
+                                                                         Right:0%;
+                                                                           top: 433%;
+                                                                            height:30%; 
+                                                                            width:20%;
+                                                                     
+                                                                         } 
+                                         
+                                                                         .img27{
+                                                                          position: absolute; 
+                                                                          Right:2%;
+                                                                           top: 463%;
+                                                                        }
+                                                                         .image28{
+                                                                             position: absolute;
+                                                                             Right:0%;
+                                                                               top: 471%;
+                                                                                height:30%; 
+                                                                                width:20%;
+                                                                         
+                                                                             }
+                                                                             .img28{
+                                                                                position: absolute; 
+                                                                                Right:2%;
+                                                                                 top: 501%;
+                                                                              }
+                                                                             .image29{
+                                                                                 position: absolute;
+                                                                                 Right:0%;
+                                                                                   top: 509%;
+                                                                                    height:30%; 
+                                                                                    width:20%;
+                                                                             
+                                                                                 }  
+                                                                                 .img29{
+                                                                                   position: absolute; 
+                                                                                   Right:2%;
+                                                                                    top: 539%;
+                                                                                 } 
+                                                                                 .image30{
+                                                                                     position: absolute;
+                                                                                     Right:0%;
+                                                                                       top: 547%;
+                                                                                        height:30%; 
+                                                                                        width:20%;
+                                                                                 
+                                                                                     }   
+                                                                                     .img30{
+                                                                                      position: absolute; 
+                                                                                      Right:2%;
+                                                                                       top: 577%;
+                                                                                    }                                                  
