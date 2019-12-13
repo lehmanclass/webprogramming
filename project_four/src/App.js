@@ -38,8 +38,8 @@ class App extends Component {
   }
 
   routeChange() {
-    let path = `newPath`;
-    this.props.history.push("/BookingDates.js");
+    let path = `/BookingDates`;
+    this.props.history.push(path);
   }
 
   handleSubmit = e => {

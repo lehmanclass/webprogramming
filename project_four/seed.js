@@ -2,14 +2,6 @@ const pg = require('pg');
 
 console.log('SEED IS RUNNING');
 
-// const create = `
-// 	CREATE TABLE todos (
-// 		id serial PRIMARY KEY,
-// 		task text,
-// 		completed boolean
-// 	);
-// `;
-
 const createBookings = `
 	CREATE TABLE bookings (
 		id serial PRIMARY KEY,
@@ -26,13 +18,14 @@ const createUsers = `
 		first_name text,
 		last_name text,
 		email text,
-		phone test,
+		phone text,
+		password text
 	);
 `;
 
 const insert = `
 	INSERT INTO bookings (date_booked, is_booked) VALUES ('2019-12-09', 'Y');
-	INSERT INTO users (first_name, last_name, email, phone) VALUES ('John', 'Doe', 'johndoe@gmail.com', '1234567890');
+	INSERT INTO users (first_name, last_name, email, phone, password) VALUES ('John', 'Doe', 'johndoe@gmail.com', '1234567890', '123456');
 
 `;
 
@@ -46,72 +39,79 @@ const db = new pg.Client({
 
 db.connect();
 
-// db.query(create)
-// .then(({ rows = [] }) => {
-// 	console.log('create ran successfully');
-// 	return rows;
-// })
-// .catch(err => {
-// 	console.error(err);
-// 	console.error(err.stack);
-// });
+const runQueries = async () => {
 
-// db.query(create)
-// .then(({ rows = [] }) => {
-// 	console.log('create ran successfully');
-// 	return rows;
-// })
-// .catch(err => {
-// 	console.error(err);
-// 	console.error(err.stack);
-// });
 
-db.query(createUsers)
-.then(({ rows = [] }) => {
-	console.log('insert ran successfully');
-	return rows;
-})
-.catch(err => {
-	console.error(err);
-	console.error(err.stack);
-});
+	db.query('DROP TABLE IF EXISTS bookings;')
+	.then(({ rows = [] }) => {
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
+	
+	db.query('DROP TABLE IF EXISTS users;')
+	.then(({ rows = [] }) => {
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
 
-db.query(createBookings)
-.then(({ rows = [] }) => {
-	console.log('insert ran successfully');
-	return rows;
-})
-.catch(err => {
-	console.error(err);
-	console.error(err.stack);
-});
 
-db.query('SELECT * FROM users;')
-.then(({ rows = [] }) => {
-	console.log(rows);
-	return rows;
-})
-.catch(err => {
-	console.error(err);
-	console.error(err.stack);
-});
 
-db.query('SELECT * FROM bookings;')
-.then(({ rows = [] }) => {
-	console.log(rows);
-	return rows;
-})
-.catch(err => {
-	console.error(err);
-	console.error(err.stack);
-});
+	db.query(createUsers)
+	.then(({ rows = [] }) => {
+		console.log('create users ran successfully');
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
 
-// db.query('SELECT * FROM todos;')
-// .then(({ rows = [] }) => {
-// 	console.log(rows);
-// 	return rows;
-// })
-// .catch(err => {
-// 	console.error(err);
-// 	console.error(err.stack);
-// });
+	db.query(createBookings)
+	.then(({ rows = [] }) => {
+		console.log('create bookings ran successfully');
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
+
+	db.query(insert)
+	.then(({ rows = [] }) => {
+		console.log('insert ran successfully');
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
+
+	db.query('SELECT * FROM users;')
+	.then(({ rows = [] }) => {
+		console.log(rows);
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
+
+	db.query('SELECT * FROM bookings;')
+	.then(({ rows = [] }) => {
+		console.log(rows);
+		return rows;
+	})
+	.catch(err => {
+		console.error(err);
+		console.error(err.stack);
+	});
+
+};
+
+runQueries();
