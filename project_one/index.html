@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project One WebDev Test</title>
+</head>
+<body>
+	
+	<p style="background-color: green" style="width: 400px"  id="p1">Task one of Project One: 
+	<button onclick ="tOneFunction()" type ="button" id="grading-element-one">Add Something</button>
+	</p>
+
+
+
+	<p style="color:violet" id = "p2">Task two of Project One:<br>
+	<a style="color: red" id="grading-element-two" href="about.html">About Page</a><br>	
+	<a style="color: red" id="grading-element-two" href="pg2.html">Home</a><br>
+	<a style="color: red" id="grading-element-two" href="pg3.html">Some random third page</a><br>
+	<a style="color: red" id="grading-element-two" href="pg4.html">This one is for that extra 5%</a>
+	</p>
+
+	<p style="color: green" style="width: 400px"  id="p3">Task three of Project One:
+	<button onclick = "tTwoFunction()" id= "grading-element-three">Reveal Something!</button>
+	<p style="visibility: hidden;" id="grading-element-three-consequence" >I'm so tired</p>
+	</p>
+
+
+	<p style="color: blue" id="p4">Task four of Project One:
+
+	<form action="http://localhost:3000/form" method="POST" name="grading-element-four">
+
+		<p>This is a form:</p>
+<!-- 
+		<select>
+			<option label="testOne" value="truthy">One</option>
+			<option label="testTwo" value="truthy">Two</option>
+			<option label="testThree" value="truthy">Three</option>
+
+		</select> -->
+
+		<input type="text" name="testOne" required value="testOne">
+		<input type="text" name="testTwo" required value="testTwo">
+		<input type="text" name="testThree" required value="testThree">
+		<!-- <input type="radio" name="on">On
+		<input type="radio" name="off">Off -->
+		<input type="submit"></input>
+
+	</form>
+</p>
+
+
+	<p>Task five of Project One:</p>
+		<p style="color: yellow;" onmouseover="tFiveFunction()" id="grading-element-five" >If you hover over me, I'll switch colors.</p>
+
+
+
+	
+	<script type="text/javascript">
+		function tOneFunction(){
+
+		const addedText = document.createElement("p");
+		addedText.setAttribute("id","grading-element-one-consequence");
+
+		const textContent = document.createTextNode("Hello, how are you doing today?");
+
+		addedText.appendChild(textContent);
+
+		const nextPara = document.getElementById("p2");
+		document.body.insertBefore(addedText, p2);
+		}
+
+		function tTwoFunction(){
+			document.getElementById("grading-element-three-consequence").style.visibility = "visible";
+
+		}
+
+		function tFiveFunction(){
+			document.getElementById("grading-element-five").style.color = "orange";
+		}
+
+	</script>
+
+	
+
+
+</body>
+</html>
