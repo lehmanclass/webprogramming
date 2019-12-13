@@ -1,0 +1,53 @@
+body {
+    background: green;
+  }
+  
+  @media (min-width: 600px) {
+    body {
+      background: black;
+    }
+  }
+
+#grading-element-two{
+    background-color: aquamarine;
+}
+
+#grading-element-one{
+    background-color: lightblue;
+}
+
+#grading-element-three{
+    background-color: lightcoral;
+}
+
+body{
+    background-color: black;
+}
+
+p{
+    color: white;
+}
+
+#grading-element-five{
+    color: red;
+    background-color: white;
+}
+
+a:hover {
+    color: blue;
+}
+
+#Salary{
+    color: white;
+    font-size: 50px;
+}
+
+#Stock{
+    height: 300px;
+    width: 400px;
+    border: 10px solid transparent;
+    border-top-color: yellow;
+    border-bottom-color: green;
+    border-right-color: rgb(72, 72, 226);
+    border-left-color: purple;
+}
