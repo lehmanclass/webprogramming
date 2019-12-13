@@ -1,0 +1,27 @@
+#grading-element-three-consequence {
+    visibility: hidden;
+}
+#grading-element-five :hover {
+    color :#ff6347 ;
+    
+}
+
+#heading {
+    text-align: center;
+}
+body{
+    background-color:#66c2ff ;
+}
+#grading-element-one{
+    background-color: #ff6347;
+   
+  
+}
+#grading-element-three{
+    background-color :#ff6347 ;
+    
+}
+#submit{
+    background-color :#ff6347 ;
+    
+}
