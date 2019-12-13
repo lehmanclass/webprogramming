@@ -61,7 +61,12 @@ class EditTask extends React.Component {
               </select>
             </div>
             <div>
-              <button className="btn red m-r" onClick={this.props.cancelEditTask}>Cancel</button>
+              <button
+                className="btn red m-r"
+                onClick={this.props.cancelEditTask}
+              >
+                Cancel
+              </button>
               <button
                 className="btn blue"
                 onClick={() =>

@@ -39,15 +39,24 @@ class EditGoal extends React.Component {
             </div>
             <div>
               <p>Goal Title</p>
-              <input className="input-view" value={name} onChange={this.handleNameChange} />
+              <input
+                className="input-view"
+                value={name}
+                onChange={this.handleNameChange}
+              />
             </div>
             <div>
               <p>Reason</p>
-              <textarea className="textarea" onChange={this.handleReasonChange}>{reason}</textarea>
+              <textarea className="textarea" onChange={this.handleReasonChange}>
+                {reason}
+              </textarea>
             </div>
             <div>
               <p>Description</p>
-              <textarea className="textarea" onChange={this.handleDescriptionChange}>
+              <textarea
+                className="textarea"
+                onChange={this.handleDescriptionChange}
+              >
                 {description}
               </textarea>
             </div>
@@ -61,9 +70,11 @@ class EditGoal extends React.Component {
               </select>
             </div>
             <div>
-              <button className="btn red m-r" onClick={this.props.cancel}>Cancel</button>
+              <button className="btn red m-r" onClick={this.props.cancel}>
+                Cancel
+              </button>
               <button
-              className="btn blue"
+                className="btn blue"
                 onClick={() =>
                   validInputs
                     ? this.props.editGoal(goalId, updatedBody)

@@ -33,8 +33,6 @@ class GoalLister extends React.Component {
             this.setState({ goals: data });
           });
       } else {
-        
-
         fetch(`http://localhost:5000/goals/${user.id}/${searchTerm}`)
           .then(res => res.json())
           .then(data => {
@@ -115,7 +113,6 @@ class GoalLister extends React.Component {
           <div className="goal-lister-header">
             <h1>GoalLister</h1>
             <div>
-              {/* <img src={AddIcon} alt="" /> */}
               <button className="add-goal-btn" onClick={this.addGoal}>
                 Create Goal
               </button>

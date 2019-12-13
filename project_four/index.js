@@ -5,6 +5,7 @@ const schedule = require("node-schedule");
 
 const app = express();
 
+// Temporal -- it will serve the React production build later
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -212,7 +213,7 @@ app.get("/completed/goals/:userId", (req, res) => {
 });
 
 // run everyday at midnight
-// Reset tasks to in complete for all users
+// Reset tasks to "in complete" for all users
 schedule.scheduleJob("0 0 * * *", () => {
   const query = "update tasks set status= 'in complete';";
   queryExecutor(query).then(() => console.log("Tasks updated"));

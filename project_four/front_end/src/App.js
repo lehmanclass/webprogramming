@@ -90,7 +90,7 @@ class App extends React.Component {
         });
       })
       .catch(e => {
-        alert(e);
+        alert("User no found!");
       });
   };
 

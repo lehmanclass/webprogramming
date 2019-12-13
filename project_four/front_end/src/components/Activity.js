@@ -5,7 +5,7 @@ class Activity extends React.Component {
   render() {
     return (
       <div>
-        <Nav logout={this.props.logout}/>
+        <Nav logout={this.props.logout} />
         <h1>Activity</h1>
       </div>
     );

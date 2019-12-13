@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import sideImage from "../assets/home.png";
-import Footer from './Footer';
+import Footer from "./Footer";
 
 class Home extends React.Component {
   render() {
