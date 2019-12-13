@@ -43,8 +43,7 @@ class App extends React.Component {
     })
     .then(resp => {
       console.log(resp.data.results);
-      this.setState({gifs:resp.data.results, searchTerm: ''}) //   searchTerm: '' after submit input, it will resh the page an replace the empty 
-    }).catch((err)=> console.log(err))
+      this.setState({gifs:resp.data.results, searchTerm:
   }
  
 
