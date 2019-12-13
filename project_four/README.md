@@ -17,3 +17,7 @@ node seeds.js
 npm run build
 node index.js
 ```
+
+
+# Extra credit
+*CSS 
