@@ -1,0 +1,42 @@
+body {
+  background-color: #282c34;
+}
+
+#header, #form {
+  min-height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  color: white;
+}
+
+#form {
+  width: 80vmin;
+  border: 3px solid #f1f1f1;
+  padding: 15px;
+  position: relative;
+  margin: 0px auto 0px auto;
+} 
+
+#form > label {
+  font-size: calc(10px + 3vmin);
+}
+
+#reason {
+  padding: 5px;
+  margin: 5px 0 10px 0;
+}
+
+input[type=text]{
+  width: 65vmin;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+
