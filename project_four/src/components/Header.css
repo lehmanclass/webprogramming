@@ -1,0 +1,130 @@
+.main-body {
+    text-align: center;
+    margin-top: 40px;
+
+}
+.image-bird {
+    margin-bottom: 25px;
+
+}
+.title-form {
+    margin-bottom:20px;
+    font-size: 23px;
+}
+
+.main-form {
+    margin-top: 20px;
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+#user-name-input,
+#user-email-input,
+#user-password-input {
+    margin: 20px;
+    width: 50%;
+    padding: 10px 15px;
+    border-radius: 2px;
+}
+
+
+.button-login {
+    background-color: #1da1f2;
+    border: 1px solid #1da1f2;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 14px 28px;
+    width: 50%;
+    font-size: 16px;
+    
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+
+}
+
+
+/* ------------------------- Main-Page------------------*/
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    background-color: #1da1f2;
+  }
+  
+  .right {
+    right: 0;
+    background-color: #fff;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .button-singUp{
+    text-decoration: none;
+    text-decoration: unset;
+    background-color: #1da1f2;
+    border: 1px solid #1da1f2;
+    color: #fff;
+    margin: 0px 0px 16px;
+    border-radius: 20px;
+    padding: 6px 16px;
+    width: 50%;
+    font-size: 16px;
+    
+      
+
+  }
+  .button-logIn{
+    text-decoration: none;
+    text-decoration: unset;
+    background-color:#fff;
+    border: 1px solid #1da1f2;
+    color: #1da1f2;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 6px 16px;
+    width: 50%;
+    font-size: 16px;
+
+  }
+
+  /* ------------------------- TwitterPage ------------------*/
+  .main-tweet {
+      text-align: center;
+      margin-top: 15ch;
+  }
+  #twitte-text-area {
+    font-size: 18px;
+    font-weight: bold;
+    width: 499px;
+    height: 116px;
+    outline: none;
+    resize: none;
+
+  }
+  
