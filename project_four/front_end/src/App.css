@@ -1,75 +1,100 @@
-*{
+* {
   box-sizing: border-box;
 }
 
 /* Home */
-.home-welcome-section{
+.home-welcome-section {
   display: flex;
   justify-content: space-between;
   height: 100vh;
   align-items: center;
-  background-color: #F7F9FD;
+  background-color: #f7f9fd;
 }
 
-
-
-.home-text-container{
+.home-text-container {
   padding: 3rem;
   margin-top: 3rem;
-
 }
 
-.welcome-text{
+.welcome-text {
   font-size: 1.5rem;
 }
 
-.home-btn{
+.home-btn {
   padding: 0.5rem;
   text-decoration: none;
 }
 
-.home-img-container{
+.home-img-container {
   width: 70%;
 }
 
-.home-img-container img{
+.home-img-container img {
   width: 100%;
 }
 
 /* About */
-.about-container{
+.about-container {
   padding: 3rem 7rem;
 }
 
-.section-title{
+.section-title {
   font-size: 1.5rem;
   text-align: center;
 }
 
-.about-steps{
-  font-size: 1.1rem;
-  padding: 1rem;
+.section-title-about {
+  /* text-decoration: underline;
+ text-decoration-color: #0847a6; */
 }
 
-.about-steps li{
+.about-steps {
+  font-size: 1.1rem;
+  padding: 1rem;
+  list-style: none;
+}
+
+.about-steps li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #0847a6; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+.about-steps li {
   margin-bottom: 0.8rem;
 }
 
 /* Mission */
 
-.mission-container{
+.mission-container {
   padding: 7rem;
   font-size: 1.1rem;
-  background-color: #E9F2FA;
+  background-color: #1070ca;
+  color: #fff;
 }
 
-.mission-title{
+.footer {
+  background-color: #0847a6;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+.mission-title {
   text-align: center;
 }
 
-.mission-text{
+.mission-text {
   line-height: 1.9rem;
   text-align: center;
+}
+
+.main-wrapper{
+  margin-top: 5rem;
 }
 
 /* Navigation */
@@ -77,7 +102,10 @@
   display: flex;
   justify-content: space-between;
   background-color: #0847a6;
+  position: fixed;
+  top: 0;
   color: #fff;
+  width: 100%;
 }
 
 .left-nav,
@@ -87,7 +115,7 @@
   list-style-type: none;
 }
 
-.right-nav{
+.right-nav {
   justify-content: flex-end;
   padding-right: 2rem;
 }
@@ -98,9 +126,8 @@
   color: #fff;
 }
 
-.right-nav *{
+.right-nav * {
   margin-right: 1rem;
-
 }
 
 .left-nav {
@@ -125,18 +152,18 @@
   justify-content: space-between;
 }
 
-.goal-lister-container{
+.goal-lister-container {
   width: 80%;
   margin: auto;
 }
 
-.goal-lister-header{
+.goal-lister-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.add-goal-btn{
+.add-goal-btn {
   background-color: #0847a6;
   color: #fff;
   font-weight: 600;
@@ -147,15 +174,14 @@
   cursor: pointer;
 }
 
-.goals-gird-container{
+.goals-gird-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.goal-lister-input-container{
+.goal-lister-input-container {
   margin-bottom: 2rem;
 }
-
 
 /* Edit Pages */
 
@@ -165,24 +191,18 @@
   width: 400px;
   border: 1px solid black;
   box-shadow: 0 8px 6px -6px black;
-  margin: 5rem auto;
+  margin: 9rem auto;
   border-radius: 0.5rem;
+
 }
 
-/* .form-action-btn-container * {
-  display: block;
- 
-} */
-
-.form-btn{
+.form-btn {
   width: 100%;
   padding: 0.3rem 0;
 }
 
-.form-action-btn-container{
+.form-action-btn-container {
   margin-top: 1rem;
-  /* display: flex;
-  justify-content: space-between; */
 }
 
 .inputs-container {
@@ -193,7 +213,7 @@
   margin: auto;
 }
 
-.form-header{
+.form-header {
   text-align: center;
   color: #0847a6;
 }
@@ -244,7 +264,7 @@
   align-items: center;
 }
 
-.view-goal-header{
+.view-goal-header {
   display: flex;
   justify-content: space-between;
 }
@@ -284,12 +304,12 @@
   overflow: scroll;
 }
 
-.textarea{
+.textarea {
   width: 400px;
   height: 80px;
 }
 
-.input-view{
+.input-view {
   width: 400px;
   padding: 0.3rem 0.1rem;
   outline: none;
@@ -340,52 +360,48 @@
   background-color: #e4e7eb;
 }
 
-.create-goal-container, .view-goal, .edit-goal-container, .create-task-container{
-  padding:1rem;
+.create-goal-container,
+.view-goal,
+.edit-goal-container,
+.create-task-container {
+  padding: 1rem;
 }
 
-/* .create-goal-container-inner{
-  width: 60%;
-  margin: auto;
-} */
-
-
 /* Utils */
-.header{
+.header {
   margin-left: 8rem;
 }
 
-.btn{
+.btn {
   font-size: 1rem;
   border-style: none;
   border-radius: 0.2rem;
   cursor: pointer;
 }
 
-.blue{
+.blue {
   background-color: #0847a6;
   color: #fff;
 }
 
-.red{
+.red {
   background-color: #bf0e08;
   color: #fff;
 }
 
-.green{
+.green {
   background-color: #00783e;
   color: #fff;
 }
 
-
-.input-view{
+.input-view {
   font-size: 0.8rem;
 }
 
-.m-r{
+.m-r {
   margin-right: 1rem;
 }
 
-.m-b{
+.m-b {
   margin-bottom: 1rem;
 }

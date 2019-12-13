@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import sideImage from "../assets/home.png";
+import Footer from './Footer';
 
 class Home extends React.Component {
   render() {
@@ -38,7 +39,7 @@ class Home extends React.Component {
         </div>
 
         <div id="about" className="about-container">
-          <h2 className="section-title">How it Works ?</h2>
+          <h2 className="section-title section-title-about">How it Works ?</h2>
           <ul className="about-steps">
             <li>Create Goals</li>
             <li>Create Daily Tasks for those goals</li>
@@ -48,7 +49,7 @@ class Home extends React.Component {
           </ul>
         </div>
 
-        <div className="footer"></div>
+        <Footer />
       </div>
     );
   }

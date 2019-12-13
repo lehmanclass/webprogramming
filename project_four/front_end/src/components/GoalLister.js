@@ -109,7 +109,7 @@ class GoalLister extends React.Component {
     }
 
     return (
-      <div>
+      <div className="main-wrapper">
         <Nav logout={this.props.logout} />
         <div className="goal-lister-container">
           <div className="goal-lister-header">

@@ -133,7 +133,7 @@ class Board extends React.Component {
     }
 
     return (
-      <div>
+      <div className="main-wrapper">
         <Nav logout={this.props.logout} />
         <h1 className="header">Goals Board</h1>
         <div className="board-column-container">
