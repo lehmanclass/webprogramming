@@ -36,7 +36,7 @@ class App extends Component {
         const pokemon = new Pokemon(data);
 
         this.setState({pokemon})
-        console.log(pokemon);
+        console.log(pokemon.name);
       })
       .catch(err => console.log(err));
   }
