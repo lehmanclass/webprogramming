@@ -1,6 +1,6 @@
-# Facebook todo
+# Create your own todo list
 
-Facebook todo full stack web app
+todo list full stack web app
 
 ## Requirements
 * Postgres
@@ -16,11 +16,13 @@ Facebook todo full stack web app
 
 Install dependecies: `yarn add` or `npm install`
 
-Run seeds.js to create models in database:
-`node seeds.js`
+Run seed.js to create models in database:
+`node seed.js`
 
 Run the following commands to start web app:
 ```
 npm run build
 node server.js
 ```
+
+## CSS Extra credit
