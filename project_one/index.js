@@ -28,18 +28,12 @@ const elementThree = () => {
 
 	let e_three_conseq = document.getElementById('grading-element-three-consequence');
 
-	element_three_id.addEventListener("click", function(event) {
-
-		
-
 		if(e_three_conseq.style.visibility === "hidden"){
 			e_three_conseq.style.visibility = "visible";
-			//element_three_id.disabled = true; // disables the button
 		}
 		else{
 			e_three_conseq.style.visibility = "hidden";
 		}
-		});
 
 };
 
