@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide();
+            });
+            $("#grading-element-three").click(function () {
+                $("p").show();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p id="grading-element-three-consequence" style="display: none">I am grading element three consequence!</p>
+
+    <button id="hide">Hide</button>
+    <button id="grading-element-three">Show</button>
+
+</body>
+
+</html>

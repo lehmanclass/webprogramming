@@ -1,0 +1,59 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: plum;
+  color:black;
+}
+
+h1{
+  color: royalblue;
+}
+#grading-element-five {
+  width: 200px;
+  height: 200px;
+  float: right;
+  background-color: indianred;
+  transition: 1s;
+  text-align: center;
+}
+#grading-element-five:hover {
+  transform: scale(1.5);
+  background-color: lawngreen;
+}
+
+
+
+#title {
+  color: rgb(155, 50, 85);
+  text-align: center;
+  
+}
+.animal {
+  border-radius: 50%;
+  
+}
+img {
+  width: 200;
+  height: 200;
+}
+
+
+
