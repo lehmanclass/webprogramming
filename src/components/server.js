@@ -1,29 +1,86 @@
-let express = require('express');
-let bodyParser = require('body-parser');
-let morgan = require('morgan');
-let pg = require('pg');
-let app= express();
-
-let pool = new pg.Pool({
-    port: 5432,
-    password: 'Tiger12345',
-    database: 'pokedex',
-    max: 3,
-    host: 'localhost',
-    user:'postgres'
-});
-
-pool.connect()
-.then(res => console.log('connected'))
-.catch( err => console.log(err));
-
-const PORT = 3000;
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(morgan('dev'));
-
-app.use(function(request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+  }
+  const express = require('express')
+  const app = express()
+  const bcrypt = require('bcrypt')
+  const passport = require('passport')
+  const flash = require('express-flash')
+  const session = require('express-session')
+  const methodOverride = require('method-override')
+  
+  const initializePassport = require('./passport-config')
+  initializePassport(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+  )
+  
+  const users = []
+  
+  //app.set('view-engine', 'ejs')
+  app.use(express.urlencoded({ extended: false }))
+  app.use(flash())
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  }))
+  app.use(passport.initialize())
+  app.use(passport.session())
+  app.use(methodOverride('_method'))
+  
+  app.get('/', checkAuthenticated, (req, res) => {
+    res.render('index.ejs')
+  })
+  
+  app.get('/login', checkNotAuthenticated, (req, res) => {
+    res.render('login.ejs')
+  })
+  
+  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }))
+  
+  app.get('/register', checkNotAuthenticated, (req, res) => {
+    res.render('register.ejs')
+  })
+  
+  app.post('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      users.push({
+        id: Date.now().toString(),
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword
+      })
+      res.redirect('/login')
+    } catch {
+      res.redirect('/register')
+    }
+  })
+  
+  app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login')
+  })
+  
+  function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+  
+    res.redirect('/login')
+  }
+  
+  function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return res.redirect('/')
+    }
+    next()
+  }
+  
+  app.listen(3000)

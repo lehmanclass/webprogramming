@@ -21,7 +21,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      pokemon: {}
+      pokemon: {},
+      name:'',
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     
@@ -37,10 +38,12 @@ class App extends Component {
 
         this.setState({pokemon})
         console.log(pokemon.name);
+
+        
       })
       .catch(err => console.log(err));
   }
-
+  
   render() {
     return (
       <div>
