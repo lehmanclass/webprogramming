@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   const flash = require('express-flash')
   const session = require('express-session')
   const methodOverride = require('method-override')
+  const path = require('path');
   
   const initializePassport = require('./passport-config')
   initializePassport(
@@ -29,13 +30,17 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(passport.initialize())
   app.use(passport.session())
   app.use(methodOverride('_method'))
+  app.use(express.static(path.join(__dirname, 'public')));
+
   
   app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs')
+    // res.sendfile('./index.html')
+    res.sendFile(path.join(__dirname+'/index.html'));
   })
   
   app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs')
+    // res.sendFile('./login.html')
+    res.sendFile(path.join(__dirname+'/login.html'));
   })
   
   app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
@@ -45,7 +50,8 @@ if (process.env.NODE_ENV !== 'production') {
   }))
   
   app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs')
+    // res.sendfile('./register.html')
+    res.sendFile(path.join(__dirname+'/register.html'));
   })
   
   app.post('/register', checkNotAuthenticated, async (req, res) => {
