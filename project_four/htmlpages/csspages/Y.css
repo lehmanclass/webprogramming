@@ -1,0 +1,32 @@
+#Y_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ytext1 {
+    position: absolute;
+    top: 310px;
+    left: 260px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ytext2 {
+    position: absolute;
+    top: 310px;
+    left: 885px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ytext3 {
+    position: absolute;
+    top: 310px;
+    left: 1475px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

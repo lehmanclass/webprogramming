@@ -1,0 +1,32 @@
+#M_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Mtext1 {
+    position: absolute;
+    top: 310px;
+    left: 240px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Mtext2 {
+    position: absolute;
+    top: 310px;
+    left: 800px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Mtext3 {
+    position: absolute;
+    top: 310px;
+    left: 1475px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

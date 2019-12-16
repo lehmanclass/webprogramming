@@ -1,0 +1,32 @@
+#G_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Gtext1 {
+    position: absolute;
+    top: 310px;
+    left: 250px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Gtext2 {
+    position: absolute;
+    top: 310px;
+    left: 900px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Gtext3 {
+    position: absolute;
+    top: 310px;
+    left: 1560px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

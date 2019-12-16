@@ -1,0 +1,32 @@
+#E_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Etext1 {
+    position: absolute;
+    top: 310px;
+    left: 230px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Etext2 {
+    position: absolute;
+    top: 310px;
+    left: 890px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Etext3 {
+    position: absolute;
+    top: 310px;
+    left: 1540px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

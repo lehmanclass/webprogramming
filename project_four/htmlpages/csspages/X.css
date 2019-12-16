@@ -1,0 +1,32 @@
+#X_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Xtext1 {
+    position: absolute;
+    top: 310px;
+    left: 245px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Xtext2 {
+    position: absolute;
+    top: 310px;
+    left: 895px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Xtext3 {
+    position: absolute;
+    top: 310px;
+    left: 1500px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

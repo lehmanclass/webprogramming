@@ -1,0 +1,32 @@
+#J_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Jtext1 {
+    position: absolute;
+    top: 310px;
+    left: 230px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Jtext2 {
+    position: absolute;
+    top: 310px;
+    left: 875px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Jtext3 {
+    position: absolute;
+    top: 310px;
+    left: 1530px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

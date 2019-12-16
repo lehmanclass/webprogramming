@@ -1,0 +1,32 @@
+#L_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ltext1 {
+    position: absolute;
+    top: 310px;
+    left: 250px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ltext2 {
+    position: absolute;
+    top: 310px;
+    left: 870px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ltext3 {
+    position: absolute;
+    top: 310px;
+    left: 1535px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

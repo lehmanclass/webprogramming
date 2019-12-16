@@ -1,0 +1,32 @@
+#I_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Itext1 {
+    position: absolute;
+    top: 310px;
+    left: 270px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Itext2 {
+    position: absolute;
+    top: 310px;
+    left: 900px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Itext3 {
+    position: absolute;
+    top: 310px;
+    left: 1560px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

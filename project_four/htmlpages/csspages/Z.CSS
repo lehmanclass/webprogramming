@@ -1,0 +1,32 @@
+#Z_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ztext1 {
+    position: absolute;
+    top: 310px;
+    left: 260px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ztext2 {
+    position: absolute;
+    top: 310px;
+    left: 860px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ztext3 {
+    position: absolute;
+    top: 310px;
+    left: 1513px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

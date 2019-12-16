@@ -1,0 +1,32 @@
+#W_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Wtext1 {
+    position: absolute;
+    top: 310px;
+    left: 225px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Wtext2 {
+    position: absolute;
+    top: 310px;
+    left: 865px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Wtext3 {
+    position: absolute;
+    top: 310px;
+    left: 1535px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

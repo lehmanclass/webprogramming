@@ -1,0 +1,63 @@
+.container {
+    position: relative;
+    text-align: center; 
+}
+
+.list li a{
+    text-decoration: none;
+    color: White;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 0 15px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 32px;
+    right: 60px;
+    position: relative;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.list li{
+    list-style: none;
+    display: inline-block;
+}
+
+.list li a:hover{
+    text-decoration: underline;
+    color: #9474b3;
+}
+
+/* Anime List */
+
+/*.Abarenbou {
+    position: relative;
+    width: 220px;
+    left: 70px;
+}
+
+.Atext {
+    position: relative;
+    left: 56px;
+    top: 10px;
+    color: white;
+    font-size: 18px;
+    
+}
+
+.Atext li a{
+    text-decoration: none;
+    color: White;
+}
+
+.Atext li {
+    list-style: none;
+    display: inline-block;
+}
+
+.Atext li a:hover {
+    text-decoration: underline;
+    color: #9474b3;
+}*/
+

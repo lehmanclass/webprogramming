@@ -1,0 +1,32 @@
+#C_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ctext1 {
+    position: absolute;
+    top: 310px;
+    left: 200px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ctext2 {
+    position: absolute;
+    top: 310px;
+    left: 910px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ctext3 {
+    position: absolute;
+    top: 310px;
+    left: 1540px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

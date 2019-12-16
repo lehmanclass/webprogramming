@@ -1,0 +1,32 @@
+#T_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ttext1 {
+    position: absolute;
+    top: 310px;
+    left: 225px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ttext2 {
+    position: absolute;
+    top: 310px;
+    left: 860px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ttext3 {
+    position: absolute;
+    top: 310px;
+    left: 1545px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

@@ -1,0 +1,32 @@
+#P_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Ptext1 {
+    position: absolute;
+    top: 310px;
+    left: 210px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ptext2 {
+    position: absolute;
+    top: 310px;
+    left: 905px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Ptext3 {
+    position: absolute;
+    top: 310px;
+    left: 1515px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

@@ -1,0 +1,32 @@
+#U_logos1 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 200px;
+}
+.Utext1 {
+    position: absolute;
+    top: 310px;
+    left: 250px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Utext2 {
+    position: absolute;
+    top: 310px;
+    left: 910px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+.Utext3 {
+    position: absolute;
+    top: 310px;
+    left: 1535px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
