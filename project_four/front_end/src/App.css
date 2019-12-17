@@ -266,7 +266,7 @@
 .modal {
   z-index: 500;
   width: 60%;
-  height: 50vh;
+  height: 80vh;
   background-color: white;
   overflow: scroll;
 }
@@ -279,14 +279,14 @@
   top: 0;
   right: 0;
   margin-right: 10rem;
-  margin-top: 8rem;
+  margin-top: 4rem;
   cursor: pointer;
 }
 
 .view-goal {
   z-index: 1000;
   width: 70%;
-  height: 50vh;
+  height: 80vh;
   background-color: white;
   overflow: scroll;
 }
