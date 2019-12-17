@@ -40,7 +40,7 @@ class Board extends React.Component {
     if (inProgress.length) {
       return inProgress.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal)}
+          handleClick={() => alert("Hey")}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -59,7 +59,7 @@ class Board extends React.Component {
     if (onHold.length) {
       return onHold.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal)}
+          handleClick={() => alert("Hey")}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -78,7 +78,7 @@ class Board extends React.Component {
     if (noStarted.length) {
       return noStarted.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal)}
+          handleClick={() => alert("Hey")}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -97,7 +97,7 @@ class Board extends React.Component {
     if (done.length) {
       return done.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal)}
+          handleClick={() => alert("Hey")}
           key={goal.id}
           goalId={goal.id}
           onDragStart={this.onDragStart}

@@ -14,6 +14,7 @@ class DraggableGoalCard extends React.Component {
     return (
       <div
         className="dgg-card-container"
+        onClick={ this.props.handleClick }
         onDragStart={e => onDragStart(e, JSON.stringify(goalInfo))}
         draggable
       >
