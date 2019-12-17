@@ -229,11 +229,12 @@ class App extends React.Component {
 
     const BoardComponent = () => (
       <Board
+        createGoal={this.createGoal}
+        deleteGoal={this.deleteGoal}
         editGoal={this.editGoal}
+        tasks={tasks}
         goals={goals}
-        name="props"
         redirect={this.state.redirect}
-        logout={this.handleLogOut}
         logout={this.handleLogOut}
       />
     );
