@@ -22,8 +22,7 @@ class Board extends React.Component {
     this.organizeGoals();
   }
 
-  viewGoal = (goalInfo) => {
-
+  viewGoal = goalInfo => {
     this.setState({ isViewingGoal: true, goalInfo });
   };
 
@@ -46,7 +45,7 @@ class Board extends React.Component {
     if (inProgress.length) {
       return inProgress.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal.id)}
+          handleClick={() => this.viewGoal(goal)}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -65,7 +64,7 @@ class Board extends React.Component {
     if (onHold.length) {
       return onHold.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal.id)}
+          handleClick={() => this.viewGoal(goal)}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -84,7 +83,7 @@ class Board extends React.Component {
     if (noStarted.length) {
       return noStarted.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal.id)}
+          handleClick={() => this.viewGoal(goal)}
           key={goal.id}
           name={goal.name}
           status={goal.status}
@@ -103,7 +102,7 @@ class Board extends React.Component {
     if (done.length) {
       return done.map(goal => (
         <DraggableGoalCard
-          handleClick={() => this.viewGoal(goal.id)}
+          handleClick={() => this.viewGoal(goal)}
           key={goal.id}
           goalId={goal.id}
           onDragStart={this.onDragStart}
@@ -132,6 +131,24 @@ class Board extends React.Component {
   };
 
   cancelGoalView = () => this.setState({ isViewingGoal: false });
+
+  displayGoal = () => {
+    const { goalInfo } = this.state;
+    const { deleteGoal, editGoal, createTask } = this.props;
+    return (
+      <ViewGoal
+        hide={this.cancelGoalView}
+        goalId={goalInfo.id}
+        name={goalInfo.name}
+        reason={goalInfo.reason}
+        status={goalInfo.status}
+        description={goalInfo.description}
+        deleteGoal={deleteGoal}
+        editGoal={editGoal}
+        createTask={createTask}
+      />
+    );
+  };
 
   render() {
     const { redirect } = this.props;
@@ -186,7 +203,7 @@ class Board extends React.Component {
             <div className="board-column-inner-item">{this.displayDone()}</div>
           </div>
         </div>
-        {isViewingGoal ? <ViewGoal hide={this.cancelGoalView} goalId={goalInfo} /> : null}
+        {isViewingGoal ? this.displayGoal() : null}
       </div>
     );
   }
