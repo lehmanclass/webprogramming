@@ -46,7 +46,7 @@ app.get('/gif_search', (req, res) => {
     console.log('searchTerm', searchTerm);
     makeGifSearch(searchTerm).then((newImages) => {
         // sendResponse(); // this is not a real function name
-        res.json({ results : newImages })
+        res.json({ results : [{newImages}] })
         // res.send(res.json(newImages))
     });
     

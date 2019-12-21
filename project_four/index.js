@@ -3,14 +3,31 @@ const pg = require('pg');
 const app = express();
 
 const db = new pg.Client({
-  user: 'fuzails',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'postgres',
-  port: 5432,
+	user: 'fuzails',
+	host: 'localhost',
+	database: 'postgres',
+	password: 'postgres',
+	port: 5432,
 });
 
-app.use(express.static('build'));
+//app.use(express.static('build'));
+
+// Temporal - when I server the build folder, I can remove it.
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET,HEAD,OPTIONS,POST,PUT, DELETE"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+	);
+	next();
+});
+
 app.use(express.json());
 
 db.connect();
@@ -18,19 +35,22 @@ db.connect();
 const readBookings = () => db.query('SELECT * from bookings;');
 
 const readUsers = () => db.query('SELECT * from users;');
+// readUsers().then( async ({rows : users})
 
-app.get('/login', (req,res)=> readUsers().then(({rows : users})=> {
-	const email = req.email;
-	const sentPassword = req.pasword;
+app.post('/login', async (req, res) => {
+	const email = req.body.email;
+	const sentPassword = req.body.sentPassword;
+	console.log(req.body)
 
 	let userExists = false;
 	let passwordIsCorrect = false;
 
-	const results = await db.query(`SELECT * FROM users where email = ${email};`);
+	const results = await db.query(`SELECT * FROM users where email = '${email}';`);
 	const usersArray = results.rows;
 
 	let authorized = false;
 	if (usersArray.length === 0) {
+		console.log('1')
 		return res.json({ "authorized": authorized })
 	}
 	userExists = true;
@@ -45,10 +65,16 @@ app.get('/login', (req,res)=> readUsers().then(({rows : users})=> {
 	if (userExists && passwordIsCorrect) {
 		authorized = true;
 	}
-	return res.json({ "authorized": authorized });
+
+	const { id, first_name, last_name } = usersArray[0];
+	const userInformation = {
+		id, email: usersArray[0].email , first_name, last_name
+	}
+	console.log('2')
+	res.json({ "authorized": authorized, user: userInformation  });
 });
 
-app.get('/bookings/read', (_, res) => readBookings().then(({ rows: bookings }) => res.json({ bookings })));
+app.get('/bookings/read', async (_, res) => readBookings().then(({ rows: bookings }) => res.json({ bookings })));
 
 app.put('/bookings/update', async (req, res) => {
 	const { body: { date_booked, is_booked } } = req;
@@ -80,4 +106,4 @@ app.post('/datepicker', async (req, res) => {
 	return res.json({ bookings });
 });
 
-app.listen(3000, () => console.log('listnin'));
+app.listen(5000, () => console.log('listnin'));

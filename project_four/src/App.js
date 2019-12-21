@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import BookingDates from './BookingDates'
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -22,19 +23,19 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      sentPassword: "",
+      formErrors: false,
+      isLogin: true,
+      isBooking: false,
+    };
+    this.onSubmit = this.handleSubmit.bind(this);
+
 
     this.routeChange = this.routeChange.bind(this)
-
-    this.state = {
-      email: null,
-      password: null,
-      formErrors: {
-        email: "",
-        password: ""
-      }
-    };
   }
 
   routeChange() {
@@ -42,87 +43,158 @@ class App extends Component {
     this.props.history.push(path);
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
+    const { email, sentPassword } = this.state;
     e.preventDefault();
 
-    if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        Email: ${this.state.email}
-        Password: ${this.state.password}
-      `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
-  };
+    // On submit of the form, send a POST request with the data to the server.
+    fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        sentPassword,
+      })
+    })
+      .then((response) => {
+        return response.json()
+      }).then((body) => {
+        if (body.authorized) {
+          this.setState({ isBooking: true, isLogin: false, user: body.user })
+        }else{
+          alert("Unuddhdhdh")
+        }
+        console.log(body);
+      });
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value })
+  }
+
+  handlePasswordChange = (e) => {
+    this.setState({ sentPassword: e.target.value })
+  }
+
 
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
+    let { sentPassword, email } = this.state;
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
       case "email":
-        formErrors.email = emailRegex.test(value)
+        email = emailRegex.test(value)
           ? ""
           : "invalid email address";
         break;
       case "password":
-        formErrors.password =
+        sentPassword =
           value.length < 6 ? "minimum 6 characaters required" : "";
         break;
       default:
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    //this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
 
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, email, sentPassword, isLogin, isBooking } = this.state;
 
-    return (
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <h1>Login</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="email">
-              <label htmlFor="email">Email</label>
-              <input
-                className={formErrors.email.length > 0 ? "error" : null}
-                placeholder="Email"
-                type="email"
-                name="email"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.email.length > 0 && (
-                <span className="errorMessage">{formErrors.email}</span>
-              )}
-            </div>
-            <div className="password">
-              <label htmlFor="password">Password</label>
-              <input
-                className={formErrors.password.length > 0 ? "error" : null}
-                placeholder="Password"
-                type="password"
-                name="password"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.password.length > 0 && (
-                <span className="errorMessage">{formErrors.password}</span>
-              )}
-            </div>
-            <div className="createAccount">
-              <button id="submit" onClick={this.routeChange}>Login</button>
-              <small>Don't Have an Account?</small>
-            </div>
-          </form>
+    if (isLogin) {
+      return (
+        <div className="wrapper">
+          <div className="form-wrapper">
+            <h1>Login</h1>
+            <form>
+              <div className="email">
+                <label htmlFor="email">Email</label>
+                <input
+                  className={formErrors ? "error" : null}
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  ref="email"
+                  value={email}
+                  noValidate
+                  onChange={this.handleEmailChange}
+                />
+                {formErrors && (
+                  <span className="errorMessage">{email}</span>
+                )}
+              </div>
+              <div className="password">
+                <label htmlFor="password">Password</label>
+                <input
+                  className={formErrors ? "error" : null}
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  ref="sentPassword"
+                  noValidate
+                  value={sentPassword}
+                  onChange={this.handlePasswordChange}
+                />
+                {formErrors && (
+                  <span className="errorMessage">{sentPassword}</span>
+                )}
+              </div>
+              <div className="createAccount">
+                <button id="submit" type="submit" onClick={this.handleSubmit}>Login</button>
+                <small>Don't Have an Account?</small>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      );
+
+    } else if (isBooking) {
+      return <BookingDates />
+    }
+
+
+
+
   }
 }
 
 export default App;
+
+
+// class Example extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = { user: {} };
+//     this.onSubmit = this.handleSubmit.bind(this);
+//   }
+//   handleSubmit(e) {
+//     e.preventDefault();
+//     var self = this;
+//     // On submit of the form, send a POST request with the data to the server.
+//     fetch('/users', { 
+//         method: 'POST',
+//         data: {
+//           name: self.refs.name,
+//           job: self.refs.job
+//         }
+//       })
+//       .then(function(response) {
+//         return response.json()
+//       }).then(function(body) {
+//         console.log(body);
+//       });
+//   }
+//   render() {
+//     return (
+//       <form onSubmit={this.onSubmit}>
+//         <input type="text" placeholder="Name" ref="name"/>
+//         <input type="text" placeholder="Job" ref="job"/>
+//         <input type="submit" />
+//       </form>
+//     );
+//   }
+// }

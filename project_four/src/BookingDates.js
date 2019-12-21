@@ -1,11 +1,11 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import './App.css';
 
-class App extends React.Component {
+class BookingDates extends React.Component {
     constructor(props){
         super(props);
 
@@ -15,11 +15,11 @@ class App extends React.Component {
         };
     }
 
-    alartStartDate = () =>  {
-        alart(this.state.startDate)
+    alertStartDate = () =>  {
+        alert(this.state.startDate)
     }
-    alartEndDate = () =>  {
-        alart(this.state.endDate)
+    alertEndDate = () =>  {
+        alert(this.state.endDate)
     }
     render(){
         return (
@@ -35,8 +35,8 @@ class App extends React.Component {
             />
             <br/>
             <br/>
-            <button onClick={this.alartStartDate}>Click Me for Start Date</button>
-            <button onClick={this.alartEndDate}>Click Me for End Date</button>
+            <button onClick={this.alertStartDate}>Click Me for Start Date</button>
+            <button onClick={this.alertEndDate}>Click Me for End Date</button>
         </div>
         );
 
@@ -44,4 +44,4 @@ class App extends React.Component {
   
 }
 
-export default App;
+export default BookingDates;
