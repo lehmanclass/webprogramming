@@ -24,7 +24,7 @@ class Login extends React.Component {
     const isValid = username && password;
 
     if (this.props.redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/goals" />;
     }
 
     return (
