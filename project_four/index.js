@@ -2,29 +2,31 @@ const express = require("express");
 const dbOperations = require("./database");
 const queryExecutor = dbOperations.queryExecutor;
 const schedule = require("node-schedule");
+const path = require("path");
 
 const app = express();
 
-// Temporal -- it will serve the React production build later
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST,PUT, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-  );
-  next();
-});
-
 app.use(express.json());
 
-// Login - Register
+app.use(express.static(path.join(__dirname, "./front_end/build")));
 
+app.get("/goals", (req, res) => {
+  res.redirect("/");
+});
+
+app.get("/board", (req, res) => {
+  res.redirect("/");
+});
+
+app.get("/register", (req, res) => {
+  res.redirect("/");
+});
+
+app.get("/login", (req, res) => {
+  res.redirect("/");
+});
+
+// Login - Register
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const query = `select * from users_t where(user_name='${username}' and password='${password}');`;
