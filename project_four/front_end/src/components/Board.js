@@ -4,6 +4,7 @@ import GoalCard from "./GoalCard";
 import DraggableGoalCard from "./DraggableGoalCard";
 import ViewGoal from "./ViewGoal";
 import { Link, Redirect } from "react-router-dom";
+import CreateGoal from "./CreateGoal";
 
 class Board extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Board extends React.Component {
       noStarted: [],
       done: [],
       goals: this.props.goals,
-      isViewingGoal: false
+      isViewingGoal: false,
+      isCreatingGoal: false
     };
   }
 
@@ -96,6 +98,11 @@ class Board extends React.Component {
     }
   };
 
+  submitGoalInfo = goalInfo => {
+    this.cancelCreateGoal();
+    this.props.createGoal(goalInfo);
+  };
+
   displayDone = () => {
     const { done } = this.state;
 
@@ -131,6 +138,7 @@ class Board extends React.Component {
   };
 
   cancelGoalView = () => this.setState({ isViewingGoal: false });
+  cancelCreateGoal = () => this.setState({ isCreatingGoal: false });
 
   displayGoal = () => {
     const { goalInfo } = this.state;
@@ -150,9 +158,13 @@ class Board extends React.Component {
     );
   };
 
+  addGoal = () => {
+    this.setState({ isCreatingGoal: true });
+  };
+
   render() {
     const { redirect } = this.props;
-    const { isViewingGoal, goalInfo } = this.state;
+    const { isViewingGoal, goalInfo, isCreatingGoal } = this.state;
 
     if (redirect) {
       return <Redirect to="/" />;
@@ -161,7 +173,18 @@ class Board extends React.Component {
     return (
       <div className="main-wrapper">
         <Nav logout={this.props.logout} />
-        <h1 className="header">Goals Board</h1>
+        <div className="board-header-container">
+          <h1 className="header">Goals Board</h1>
+          <div>
+            <button
+              className="add-goal-btn board-create-goal-btn"
+              onClick={this.addGoal}
+            >
+              Create Goal
+            </button>
+          </div>
+        </div>
+
         <div className="board-column-container">
           <div
             className="board-column-item"
@@ -203,6 +226,12 @@ class Board extends React.Component {
             <div className="board-column-inner-item">{this.displayDone()}</div>
           </div>
         </div>
+        {isCreatingGoal ? (
+          <CreateGoal
+            hide={this.cancelCreateGoal}
+            createGoal={this.submitGoalInfo}
+          />
+        ) : null}
         {isViewingGoal ? this.displayGoal() : null}
       </div>
     );

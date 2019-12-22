@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SearchInput } from "evergreen-ui";
+import { SearchInput, Icon } from "evergreen-ui";
 
 class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isViewingUser: false
+    };
+  }
   getLinks = () => {
     let user = window.localStorage.getItem("userSession");
+    const { isViewingUser } = this.state;
+
     if (user) {
       user = JSON.parse(user);
       return (
@@ -12,7 +20,19 @@ class Nav extends React.Component {
           <Link to="/">Home</Link>
           <Link to="/goals">Goals</Link>
           <Link to="/board">Board</Link>
-          <span>{user.user_name}</span>
+          <Icon
+            icon="user"
+            color="white"
+            onMouseEnter={() => this.setState({ isViewingUser: true })}
+            onMouseLeave={() => this.setState({ isViewingUser: false })}
+          />
+
+          {isViewingUser ? (
+            <div className="view-user-container">
+              <p>{user.user_name}</p>
+            </div>
+          ) : null}
+
           <a href="#" onClick={() => this.props.logout()}>
             LogOut
           </a>
