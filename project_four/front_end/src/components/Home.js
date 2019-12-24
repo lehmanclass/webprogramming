@@ -20,6 +20,7 @@ class Home extends React.Component {
           </div>
           <div className="home-img-container">
             <img src={sideImage} alt="" />
+            <span className="img-copyright">Image taken from https://www.atlassian.com/</span>
           </div>
         </div>
 
