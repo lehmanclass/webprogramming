@@ -10,6 +10,9 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Checkout from "./components/Checkout";
 
 class App extends React.Component {
   render() {
@@ -19,9 +22,10 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={ProductList} />
           <Route path="/details" component={Details} />
-          <Route path="/cart" component={Cart} />
-
-          <Route component={Default} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/cart" component={Cart} /> <Route component={Default} />
         </Switch>
         <Modal />
       </React.Fragment>

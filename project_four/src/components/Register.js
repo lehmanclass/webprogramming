@@ -1,108 +1,99 @@
-import React from "react";
-//import loginImg from './logo.svg';
-import "./style.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
-export default class Register extends React.Component {
+export default class Register extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
+      name: "",
       email: "",
       password: "",
-      datasent: ""
+      authed: false
     };
-    // this.onChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
+  nameChange = event => {
+    this.setState({ name: event.target.value });
+  };
+  emailChange = event => {
+    this.setState({ email: event.target.value });
+  };
 
-  handleClick = event => {
-    event.preventDefault();
-    //const {name, password, email } = this.state;
-    fetch("http://localhost:5000/new", {
-      method: "POST",
+  passwordChange = event => {
+    this.setState({ password: event.target.value });
+  };
+  handleRegister = e => {
+    e.preventDefault();
+
+    const { name, email, password } = this.state;
+
+    fetch("/register", {
+      method: "post",
       headers: {
         "Content-Type": "application/json"
       },
-      body: {
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email
-      }
+      body: JSON.stringify({
+        name,
+        email,
+        password
+      })
     })
-      .then(response => response.json())
-      .then(output => console.warn(output)); //(this.state))
+      .then(data => data.json())
+      .then(data => {
+        localStorage.setItem("id", data.id);
 
-    alert(
-      "Your username is: " +
-        this.state.username +
-        " \n Your email is: " +
-        this.state.email +
-        " You are registered now"
-    );
+        this.setState({
+          authed: true
+        });
+      });
   };
 
-  // handleClick = e => {
-  //     axios
-  //       .post('/new', {
-  //         name: this.state.name,
-  //         password: this.state.password,
-  //         email: this.state.email
-  //       })
-  //       .then(res => {
-  //         this.setState({ name: res.data.result});
-  //       });
-  //   };
-
   render() {
-    const { name, password, email } = this.state;
+    if (this.state.authed) {
+      return <Redirect to="/cart" />;
+    }
     return (
-      <div className="base-contanier">
-        <div className="header">Register</div>
-        <div className="content">
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={e => this.setState({ username: e.target.value })}
-                name="username"
-                placeholder="username"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={e => this.setState({ password: e.target.value })}
-                name="password"
-                placeholder="password"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Password</label>
-              <input
-                type="email"
-                value={this.state.email}
-                onChange={e => this.setState({ email: e.target.value })}
-                name="email"
-                placeholder="email"
-              />
-            </div>
+      <div>
+        <form className="login-from" onSubmit={this.handleRegister}>
+          <h1 className="log-in-header">Register</h1>
+
+          <div>
+            <p>
+              <label>Name</label>
+            </p>
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={this.nameChange}
+              required
+            />
+
+            <p>
+              <label>Email</label>
+            </p>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.emailChange}
+              required
+            />
+
+            <p>
+              <label>Password</label>
+            </p>
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.passwordChange}
+              required
+            />
+            <br />
+
+            <button className="btn" type="submit">
+              Create Account
+            </button>
           </div>
-        </div>
-        <div className="footer">
-          <button type="submit" onClick={this.handleClick} className="btn">
-            Register
-          </button>
-        </div>
-        <div className="registration">
-          <Link to={"/Login"}> Log in</Link>
-        </div>
+        </form>
       </div>
     );
   }

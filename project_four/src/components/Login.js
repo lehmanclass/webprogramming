@@ -1,76 +1,86 @@
-import React from "react";
-//import loginImg from './logo.svg';
-import "./style.css";
+import React, { Component } from "react";
+import { Redirect, Link } from "react-router-dom";
+import style from "styled-components";
 
-import { browserHistory } from "react-router";
-
-import { Link } from "react-router-dom";
-
-export default class Login extends React.Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      username: "",
-      password: ""
+      email: "",
+      password: "",
+      redirect: false
     };
   }
 
-  onNavigate = e => {
+  emailOnChange = event => {
+    this.setState({ email: event.target.value });
+  };
+  passwordOnChange = event => {
+    this.setState({ password: event.target.value });
+  };
+
+  handleLogin = e => {
     e.preventDefault();
-    // location.reload();
 
-    fetch("http://localhost:5000/login", {
-      method: "POST",
+    const { email, password } = this.state;
 
-      body: {
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email
-      }
+    fetch("/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
     })
-      .then(response => response.json())
-      .then(serverResponse => console.warn(serverResponse));
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        localStorage.setItem("id", data.id);
 
-    browserHistory.push("/Images");
+        this.setState({
+          authed: true
+        });
+      });
   };
 
   render() {
-    return (
-      <div className="base-contanier">
-        <div className="header">login</div>
-        <div className="content">
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={e => this.setState({ username: e.target.value })}
-                name="username"
-                placeholder="username"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={e => this.setState({ password: e.target.value })}
-                name="password"
-                placeholder="password"
-              />
-            </div>
-          </div>
-        </div>
+    const { authed } = this.state;
+    if (authed) {
+      return <Redirect to="/cart" />;
+    }
 
-        <div className="footer">
-          <button type="button" onClick={this.onNavigate} className="btn">
-            Log In
-          </button>
-        </div>
-        <div className="registration">
-          <Link to={"/Register"}> Register for an account</Link>
-        </div>
+    return (
+      <div className="login-form-container">
+        <form className="login-form">
+          <h1 className="log-in-header">Log In</h1>
+          <div>
+            <p>
+              <label>Email</label>
+            </p>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.emailOnChange}
+              required
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.passwordOnChange}
+              required
+            />
+            <br />
+            <button onClick={this.handleLogin} className="btn" type="submit">
+              Log in
+            </button>
+            <Link to="/register">
+              <button className="btn">Create Account</button>
+            </Link>
+          </div>
+        </form>
       </div>
     );
   }

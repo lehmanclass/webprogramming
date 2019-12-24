@@ -23,10 +23,10 @@ export default class Modal extends React.Component {
                       id="modal"
                       className="col-8 mx-auto col-md-6 col-lg-4 text-center- text-capitalize p-4"
                     >
-                      <h5 className="p">Item added to the cart</h5>
+                      <h5 className="p"> Item added to the cart </h5>
                       <img src={img} className="img-fluid" alt="product" />
-                      <h5>{title}</h5>
-                      <h5 className="text-muted">price: ${price}</h5>
+                      <h5> {title} </h5>
+                      <h5 className="text-muted"> price: $ {price} </h5>
                       <Link to="/">
                         <ButtonContainer onClick={() => closeModal()}>
                           continue shoppping

@@ -54,7 +54,7 @@ export const storeProducts = [
 
   {
     id: 5,
-    title: "Apple iPhone 11 Max - Space Gray",
+    title: "Apple iPhone 11 - Space Gray",
     img:
       "http://www.pngall.com/wp-content/uploads/2016/05/Laptop-Free-Download-PNG.png",
     price: 15,
