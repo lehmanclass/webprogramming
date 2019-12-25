@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<main>
+    <title>Fuzail's Hotel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</main>
+<body>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="logo.png">
+            </div>
+            <ul id="grading-element-one-consequence">
+                <li onclick="myFunctionOne()"><a id="grading-element-five" href="#">Call Us</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="bookRoom.html">Book A Room</a></li>
+                <li><a id="grading-element-two" href="about.html">About</a></li>
+                <li><a href="signIn.html">Sign In</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li id="grading-element-three" onclick="myFunction()"><a href="#">Click Me</a></li>
+                <!-- <div id="grading-element-one-consequence"></div> -->
+                <div id="grading-element-three-consequence" class="hide">Hi There!</div>
+            </ul>
+            <form action="http://localhost:3000/form" name="grading-element-four" method="POST">
+                Sign Up:<br>
+                <input name="testOne" type="text" placeholder="Full Name" value="one" required>
+                <br><br>
+                <input name="testTwo"type="text" placeholder="Email" value="two" required>
+                <br><br>
+                <select name="testThree" value="three" required>
+                    <option selected>Gender</option>
+                    <option >Male</option>
+                    <option >Female</option>
+                </select>
+                <br><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </header>
+    <script>
+        function myFunctionOne(){
+            const para = document.createElement("p");
+            const node = document.createTextNode("(123) 456-7890");
+            para.appendChild(node);
+            const element = document.getElementById("grading-element-one-consequence");
+            para.id = 'grading-element-one';
+            element.appendChild(para);
+        }
+        function myFunction() {
+            document.getElementsByTagName("div")[2].removeAttribute("class"); 
+        }
+        $(document).ready(function(){
+            $("form").submit(function(){
+                alert("Submitted");
+            });
+        }); 
+    </script>
+</body>
+</html>
