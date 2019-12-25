@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import BookingDates from './BookingDates'
+import SignUpForm from './SignUpForm'
+
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -33,9 +35,14 @@ class App extends Component {
       isBooking: false,
     };
     this.onSubmit = this.handleSubmit.bind(this);
-
-
     this.routeChange = this.routeChange.bind(this)
+
+    this.routeToSignUp = this.routeToSignUp.bind(this)
+  }
+
+  routeToSignUp() {
+    let path = `/SignUpForm`;
+    this.props.history.push(path);
   }
 
   routeChange() {
@@ -64,7 +71,7 @@ class App extends Component {
         if (body.authorized) {
           this.setState({ isBooking: true, isLogin: false, user: body.user })
         }else{
-          alert("Unuddhdhdh")
+          alert("Invalid Username or Password")
         }
         console.log(body);
       });
@@ -113,39 +120,21 @@ class App extends Component {
             <form>
               <div className="email">
                 <label htmlFor="email">Email</label>
-                <input
-                  className={formErrors ? "error" : null}
-                  placeholder="Email"
-                  type="email"
-                  name="email"
-                  ref="email"
-                  value={email}
-                  noValidate
-                  onChange={this.handleEmailChange}
-                />
+                <input className={formErrors ? "error" : null} placeholder="Email" type="email" name="email" ref="email" value={email} noValidate onChange={this.handleEmailChange} />
                 {formErrors && (
                   <span className="errorMessage">{email}</span>
                 )}
               </div>
               <div className="password">
                 <label htmlFor="password">Password</label>
-                <input
-                  className={formErrors ? "error" : null}
-                  placeholder="Password"
-                  type="password"
-                  name="password"
-                  ref="sentPassword"
-                  noValidate
-                  value={sentPassword}
-                  onChange={this.handlePasswordChange}
-                />
+                <input className={formErrors ? "error" : null} placeholder="Password" type="password" name="password" ref="sentPassword" noValidate value={sentPassword} onChange={this.handlePasswordChange} />
                 {formErrors && (
                   <span className="errorMessage">{sentPassword}</span>
                 )}
               </div>
               <div className="createAccount">
                 <button id="submit" type="submit" onClick={this.handleSubmit}>Login</button>
-                <small>Don't Have an Account?</small>
+                <small onClick={this.routeToSignUp}>Don't Have an Account?</small>
               </div>
             </form>
           </div>
@@ -155,46 +144,7 @@ class App extends Component {
     } else if (isBooking) {
       return <BookingDates />
     }
-
-
-
-
   }
 }
 
 export default App;
-
-
-// class Example extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = { user: {} };
-//     this.onSubmit = this.handleSubmit.bind(this);
-//   }
-//   handleSubmit(e) {
-//     e.preventDefault();
-//     var self = this;
-//     // On submit of the form, send a POST request with the data to the server.
-//     fetch('/users', { 
-//         method: 'POST',
-//         data: {
-//           name: self.refs.name,
-//           job: self.refs.job
-//         }
-//       })
-//       .then(function(response) {
-//         return response.json()
-//       }).then(function(body) {
-//         console.log(body);
-//       });
-//   }
-//   render() {
-//     return (
-//       <form onSubmit={this.onSubmit}>
-//         <input type="text" placeholder="Name" ref="name"/>
-//         <input type="text" placeholder="Job" ref="job"/>
-//         <input type="submit" />
-//       </form>
-//     );
-//   }
-// }

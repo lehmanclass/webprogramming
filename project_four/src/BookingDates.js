@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import './App.css';
 
+
 class BookingDates extends React.Component {
     constructor(props){
         super(props);
@@ -23,7 +24,7 @@ class BookingDates extends React.Component {
     }
     render(){
         return (
-        <div className="App">
+        <div className="BookingDates">
             <DateRangePicker
             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,

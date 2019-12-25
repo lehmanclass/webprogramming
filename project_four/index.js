@@ -50,7 +50,6 @@ app.post('/login', async (req, res) => {
 
 	let authorized = false;
 	if (usersArray.length === 0) {
-		console.log('1')
 		return res.json({ "authorized": authorized })
 	}
 	userExists = true;
@@ -70,7 +69,6 @@ app.post('/login', async (req, res) => {
 	const userInformation = {
 		id, email: usersArray[0].email , first_name, last_name
 	}
-	console.log('2')
 	res.json({ "authorized": authorized, user: userInformation  });
 });
 
