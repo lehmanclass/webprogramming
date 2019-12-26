@@ -1,5 +1,1 @@
-## DAY THREE
-
-Today we'll talk about how to mark your own attendence. Then we'll go over git, github, and HTMl basics.
-
-to get your python server started, you may need `pip install flask`
+make sure to run "npm install" for project 3 and 4
