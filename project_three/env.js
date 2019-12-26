@@ -1,0 +1,1 @@
+module.exports = API_KEY = 'ub89OCgGn6FylzwM2kgRPm3kdzHijQ0O';

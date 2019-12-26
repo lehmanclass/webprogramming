@@ -23,14 +23,18 @@ const readUser = db.query()
 const readPosts = () =>  db.query('SELECT * from posts;');
 
 
-app.get('/event/posts', (req, res) => {
+app.get('community/event/threads', (req, res) => {
   
 
 })
 
+app.get('community/event/threads/:thread/posts', (req, res) => {
+  
+})
 
 
-app.put('/event/register', (req, res) => {
+
+app.put('community/register', (req, res) => {
   const {body : {userName, emailAddress,  }}
 
 })

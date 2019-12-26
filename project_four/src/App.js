@@ -1,6 +1,9 @@
 import React from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
+import '/pages/auth/signup.js';
+import '/pages/auth/log_in.js';
+
 import Axios from 'axios';
 
 class App extends React.Component {
@@ -22,8 +25,8 @@ class App extends React.Component {
 
   handleRegister() {
     const {firstName, lastName, email, userName, password} = this.state;
-    Axios.post('https://localhost:5000/event/register',  {
-
+    Axios.post('https://localhost:5000/community/register',   {
+      firstName, lastName, email, userName, password
     })
     
   }
@@ -32,7 +35,8 @@ class App extends React.Component {
 
   return (
    <div>
-     <nav id="Navigation">
+     <Router>
+      <nav id="Navigation">
        <div id="Nav_bar">
           <a id="Login_element" href="">Login</a> 
           <a href="Register_element">Register</a>
@@ -43,25 +47,17 @@ class App extends React.Component {
      
 
      </header>
+     </Router>
 
+     <switch>
+       <Route path = "/register"> <signup/> </Route>
+       <Route path = "/login"> <log_in/> </Route>
 
-
-     <form action = "http://localhost:3000/register" method= "POST">
        
-       <header>REGISTER</header>
-      
-       <label for="first_Name">First Name:</label><input id="first_Name" type="text" name="firstName" onChange={this.handleFirstName} required/>
-       <label for="last_Name" >LastName:</label><input id="last_Name" type ="text" name ="lastName" required/>
-       <br></br>
-       <label for="user_Name">Username:</label><input id="user_Name" type="text" name="userName" minLength="6" required/> 
-       <label for="Password">Password:</label><input id="Password" type = "password" required minLength="7" maxLength= "16" />
-       <br></br>
-       <label for= "Email">Email Address:</label> <input id="Email" type="email" name="email_address" required />
-       <br></br>
-       <button id="register_button" onClick={this.handleRegister} >REGISTER</button>
-      
-       
-     </form>
+     </switch>
+
+
+
 
    </div>
   );

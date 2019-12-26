@@ -7,7 +7,7 @@ const buildQueryExecutor = client => query => db.query(query)
 		console.error(err.stack);
 	});
 
-const db = new Client({
+const db = new pg.Client({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',

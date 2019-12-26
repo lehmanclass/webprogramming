@@ -4,8 +4,10 @@ console.log('SEED IS RUNNING');
 
 const create = `
 
-    DROP Table if exists posts;
-    DROP Table if exists users;
+    DROP TABLE if exists posts;
+    DROP TABLE if exists users;
+    DROP TABLE if exists events;
+    DROP TABLE if exists threads;
     
     CREATE TABLE users (
         user_name varchar(15) UNIQUE, 
@@ -16,6 +18,21 @@ const create = `
         confirm boolean NOT NULL,
 
         Primary Key(user_name)
+
+    );
+
+    CREATE TABLE events (
+        user REFERENCES users(user_name),
+        counter INTEGER NOT NULL,
+        latest_thread_id REFERENCES threads(thread_id)
+
+    );
+
+    CREATE TABLE threads (
+        title text NOT NULL,
+        thread_id serial,
+        
+
 
     );
 	
