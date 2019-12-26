@@ -1,4 +1,4 @@
-Please run "xnpm install" in order to install all noode_modules
+Please run "npm install" in order to install all noode_modules
 
 ## Available Scripts
 
