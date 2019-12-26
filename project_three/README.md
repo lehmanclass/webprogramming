@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Please run "xnpm install" in order to install all noode_modules
 
 ## Available Scripts
 
