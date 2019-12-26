@@ -1,19 +1,16 @@
-## next class: 10/15
+# webprogramming
 
-PROJECT ONE due at midnight!
+- Able to make a fully functioning log in page and register. It will store your email and pw and user name. Will refresh on page refresh
+-can be tested by node server.js
 
-how to test your grade:
+-created a pokedex pulling from an external API. Used sprites. When clicked the pokemon name will pop up in the console. \
+can be tested in app.js
 
-`curl -H 'Content-Type: application/json' -d '{ "githubUserName": "$YOUR_GITHUB_USERNAME_GOES_HERE" }' http://157.245.10.53:5000/test/project_one`
+-Could not connect the two after trying everything i know.
 
-Please keep in mind, the testing tool will look for your fork of `github.com/lehmanclass/webprogramming` and look for your `index.html` file in: 
-
-`webprogramming/project_one/index.html`
-
-If your project is not in your fork of `webprogramming` or following that path structure, the test will not work.
-
-REMEMBER: You'll get a chance to go over your project with me on tuesday 10/15, and ask any questions you have.
-
-`NOTE`: the tests for part four (the form) might have a bug in them. If your project is failing testFour and you think there is an error, email me so I can fix it.
- 
-
+Tech used:
+-reactjs
+-passport
+-nodemon
+-express
+-bcrypt
