@@ -1,9 +1,0 @@
-.f-auto {
-  flex: auto !important;
-}
-
-img[alt="add"] {
-  cursor: pointer;
-  border: solid !important;
-  border-radius: 5px;
-}
