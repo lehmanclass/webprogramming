@@ -1,0 +1,5 @@
+
+
+Web Programming - Class notes
+Attendance through curl command
+curl -H 'Content-Type: application/json' -d '{"email": "joan.quintero@lc.cuny.edu"}' 157.245.10.53/attend
