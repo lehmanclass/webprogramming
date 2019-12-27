@@ -1,0 +1,60 @@
+
+#grading-element-five:hover {
+	color : purple;
+}
+
+#grading-element-five {
+	color: orange;
+}
+@media (min-width: 600px) {
+body {
+	background-color: peachpuff;
+}
+}
+
+body {
+	background-color: teal;
+}
+
+ #grading-element-one-consequence {
+ 	color: white;
+ } 
+
+ #paragraph_one {
+ 	color: white;
+ }
+
+ #form_paragraph {
+ 	color: red;
+ }
+ #title {
+
+	color : white;
+	background-color: #000000;
+ }
+
+ #grading-element-two-consequence {
+ 	color: white;
+ }
+
+ #Navigation {
+ 	display: flex;
+ 	justify-content: right;
+ }
+
+ #Main_img {
+ 	display: flex;
+ 	flex-direction: column;
+	 justify-content: center;
+	 width: 100%;
+	 border: 1px solid #000000;
+ }
+
+ #grading-element-two {
+
+	border: 1px solid skyblue;
+
+ }
+
+
+ 

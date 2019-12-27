@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<nav id= "Navigation">
+		<div id = "Nav_Bar">
+		<a href="pageTwo.html" id= "secondPage" target = "_blank"> <button>Page 2 </button></a> 
+		<a href="pageThree.html" id= "thirdPage" target = "_blank" > <button> Page 3</button></a>
+		<a href="pageFour.html" id = "fourthPage" target = "_blank"> <button>  Page 4 </button> </a>
+		<a href= "pageFive.html" id = "fifthPage" target = "_blank" > <button> Page 5 </button></a>
+	</div>
+	</nav>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<img src="Kappa_img.jpeg" id = "Main_img"> 
+</head>
+<body>
+
+	<script type="text/javascript" src= "index.js"></script>
+
+	<h1 id = "title"> WELCOME TO MY FIRST PROJECT </h1>
+
+	<div id= "First_Part">
+		<p id = "paragraph_one"> This is section one <button id = "grading-element-one"  onclick = "elementOne()"> Add Something </button> </p> 
+
+	</div>
+
+	<div id= "Second_Part">
+		<a href= "about.html" id= "grading-element-two" target = "_blank" > About Page </a>
+		
+	</div>
+
+	<div id = "Third_Part">
+
+		<br></br>
+	<p> Once YOU CLICK YOU'RE DONE ... <button id = "grading-element-three" onclick = "elementThree()" > Click Here FOR MAGIC </button> 
+	</p>
+
+	<p id = "grading-element-three-consequence"  style = "visibility:hidden" > Peekabooo I CAUGHT YOU !! </p>
+
+
+	</div>
+
+	<div id = "Fourth_Part">
+<!-- 
+	 <form name ="grading-element-four" method ="POST" action = "http://localhost:3000/form"> Fill in the Following Text:
+
+	 	
+	 	
+        <input type="text" name="attemptOne"  value = "attemptOne" required/> </input>
+        <input type="text" name="attemptTwo"  value = "attemptTwo" required/> </input> 
+        <input type="text" name="attemptThree" value = "attemptThree" required/> </input>
+
+        <input type="submit" value="Submit">
+ 
+
+	</form> -->
+	
+	<form name = "grading-element-four" action ="http://localhost:3000/form" method = "post">
+		Fill in the following text: 
+		<label for="testOne"> First: </label>
+		<input type="text" id = "testOne" name="testOne" value= "testOne" required/>
+		<label for="testTwo"> Second: </label>
+		<input type="text" id = "testTwo" name="testTwo" value="testTwo" required/>
+		<label for="testThree"> Three:</label>
+		<input type="text" id = "testThree" name="testThree" value="testThree" required/>
+		<input type="submit" id= "submit" value="SUBMIT">
+
+	</form>
+
+
+	</div>
+
+	<div id = "Fifth_Part">
+
+		<br> </br>
+
+		<p id= "grading-element-five"> LOOK AT ME I CHANGE COLOR ! </p>
+
+	</div>
+
+
+
+	
+
+</body>
+</html>
