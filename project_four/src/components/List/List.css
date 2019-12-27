@@ -1,0 +1,38 @@
+.f-auto {
+  flex: auto !important;
+}
+
+img[alt="add"] {
+  cursor: pointer;
+}
+
+.list-card,
+.list-header {
+  background-color: unset !important;
+}
+
+.list-name-btn {
+  font-weight: bolder !important;
+  color: white !important;
+  text-decoration: none !important; 
+  font-size: 1.5rem !important;
+}
+
+.icon-btn {
+  border-radius: 0 !important;
+  padding: 5px !important;
+  height: fit-content !important;
+}
+
+.delete-btn {
+  background-color: #e25241 !important;
+}
+
+.delete-btn:hover {
+  background-color: #c53626 !important;
+}
+
+.delete-icon,
+.rename-icon {
+  height: 20px !important;
+}

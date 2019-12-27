@@ -1,0 +1,85 @@
+.AuthWindow {
+  position: relative !important;
+}
+
+.AuthWindow .nav-link {
+  color: white !important;
+  font-size: 1.4rem !important;
+  font-weight: bolder !important;
+  cursor: pointer !important;
+}
+
+.auth-form {
+  padding: 10px !important;
+}
+
+.AuthWindow .nav-item:nth-child(2),
+.form-container > div:nth-child(2) {
+  border-left: thin solid #8d92cf !important;
+}
+
+.SignUp,
+.SignIn,
+.auth-container,
+.auth-form {
+  height: 100% !important;
+}
+
+.AuthWindow .nav-tabs {
+  height: fit-content !important;
+  border-bottom: thin solid #8d92cf !important;
+}
+
+.AuthWindow .active {
+  background-color: unset !important;
+  border: 0 !important;
+}
+
+.AuthWindow .nav-link:hover {
+  border: 0 !important;
+}
+
+.form-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.flex-1 {
+  flex: 1 !important;
+}
+
+.auth-btn {
+  background-color: #bcd2f6 !important;
+  border-radius: 0px !important;
+  font-weight: bolder !important;
+  font-size: 1.3rem !important;
+  color: black !important;
+}
+
+.auth-label {
+  font-size: 1.4rem !important;
+  color: #7482e3 !important;
+}
+
+.active-indicator {
+  padding: 1px !important;
+  width: 100px !important;
+  background-color: #4c8ab8;
+}
+
+.app-title {
+  color: #bcd2f6 !important;
+  margin: auto !important;
+  width: 100% !important;
+  text-align: center !important;
+  top: -70px !important;
+}
+
+.app-title > strong {
+  margin-right: 30px !important;
+  font-size: 3rem !important;
+}

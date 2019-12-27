@@ -1,0 +1,13 @@
+.ProfilePage {
+  height: calc(100% - 76px) !important;
+}
+
+.profile-container {
+  height: 100% !important;
+  display: flex !important;
+  justify-content: space-around;
+  background-image: url('./background.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
