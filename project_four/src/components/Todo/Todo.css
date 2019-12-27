@@ -1,0 +1,38 @@
+.custom-control-label::after,
+.custom-control-label::before {
+  width: 2rem !important;
+  height: 2rem !important;
+  box-shadow: 0 4px 3px grey;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+  filter: invert(1) !important;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0 !important;
+}
+
+.custom-control-label::after {
+  box-shadow: none !important;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  border-color: #bcd2f6 !important;
+  background-color: #bcd2f6 !important;
+}
+
+.custom-control {
+  margin-right: 1rem;
+}
+
+.todo-input {
+  font-weight: bolder !important;
+  color: black !important;
+  background-color: #ffffffb3 !important;
+}
+
+.remove-icon {
+  height: 35px !important;
+  cursor: pointer !important;
+}

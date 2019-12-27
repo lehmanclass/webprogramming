@@ -1,0 +1,140 @@
+
+
+<!-- -after i click on an element with #grading-element-one, 
+i will find a #grading-element-one-consequence added to the DOM 
+#	done
+
+-after i click a link with id tag #grading-element-two, 
+the page will redirect to a /about page. 
+This new page should have a #grading-element-two-consequence element.
+# done
+
+-after i click a link with id tag #grading-element-three, 
+a hidden element #grading-element-three-consequence will be present
+
+-there is a form (can be hidden) with name grading-element-four that when submitted, 
+will POST to /form and the form payload must have truthy values for three keys: testOne, testTwo, TestThree.
+
+-there is an element with id #grading-element-five that has a css color value, 
+that changes to a new color value when the mouse hovers over it. 
+# done
+-->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="project1.css" type="text/css">
+
+		<title>Project One</title>
+	</head>
+	<body>
+
+		<!-- <div class = "dropdown">
+
+		<ul id="grading-element-one">This is list
+
+		  <li class="dropdown1">
+		  	<a href="javascript:void(0)" class="dropbtn">Shop</a>
+			<div class="dropdown-content">
+		       <a href="combos.html">Combos</a> 
+		      <a href="shirts.html">Shirts</a>
+		      <a href="#">Hats</a>
+		    </div>
+		  </li>
+		</ul>
+
+	</div>  -->
+
+		<div>
+			<button id = "grading-element-one" onclick="myFunct()"> GRADING 1, KINDLY CLICK ME</button>
+		</div>
+
+
+		<div>
+			<script>
+			function myFunct() {
+
+			  var mybutton = document.createElement("button"); 
+			  mybutton.id = 'grading-element-one-consequence';
+
+			  var buttontext = document.createTextNode("I AM THE GRADING ELEMENT ONE CONSEQUENCE") 
+			  mybutton.appendChild(buttontext);
+
+			  
+			  var buttonDiv = document.getElementById("grading-element-one-consequence"); 
+			  document.body.insertBefore(mybutton, buttonDiv); }
+			</script>
+		</div>
+
+<!-- after clicking the link called grading-element-two, page will redirect to my about us page -->
+		<div>
+			<a id="grading-element-two" href="about.html">About Us</a>
+		</div>	
+
+
+
+<!-- when the mouse hovers over this "button" it will change color -->
+		<div>
+			<button id = "grading-element-five"> HOVER OVER ME</button>
+		</div>
+
+
+
+<div>
+	<!-- after clicking the link called grading-element-three a text, that was already created but was hidden, will appear on the screen  -->
+		<a id = "grading-element-three" href = "#" onclick = "hiddenfunction()">CLICK ME TO REVEAL SOMETHING</a>
+		<div id = "grading-element-three-consequence" hidden>SURPRISEEEE</div>
+		<script>
+			function hiddenfunction(){
+
+			var imhidden = document.getElementById('grading-element-three-consequence');
+			if (imhidden.hasAttribute('hidden')) {
+			imhidden.removeAttribute('hidden')
+			} else {
+			imhidden.setAttribute('hidden', '')
+			}
+
+			}
+
+		</script>
+	</div>
+
+		
+
+
+
+		<div>
+
+			<form name = "grading-element-four">
+				<h2>Any questions, please reach out to me</h2>
+				<form action="http://localhost/3000/form" method = "POST">
+				  First & Last name:<br>
+				  <input type="text" name="names" value="John Doe"><br>
+				  Subject:<br>
+				  <input type="text" name="lastname" value="Question?"><br>
+				  Message:<br>
+				  <input type="text" name="message" row = "30"><br>
+				  <input type="submit" value="Submit">
+				</form> 
+
+
+
+
+			</form>
+		</div>
+	
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
