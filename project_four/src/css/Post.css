@@ -1,0 +1,12 @@
+.Post {
+  display: block;
+  background-color: white;
+  border: thin solid #979797;
+  padding: 10px 15px;
+  width: fit-content;
+  max-width: 50%;
+  border-radius: 10px;
+  font-size: 9pt;
+  line-height: 13px;
+  font-family: Arial Narrow, sans-serif;
+}

@@ -1,0 +1,86 @@
+.EmailForm {
+  position: relative;
+  padding: 25px 25px 5px;
+  font-family: Arial Narrow, sans-serif;
+}
+
+.emailform-title {
+  font-size: 19pt;
+  font-weight: 900 !important;
+}
+
+.subtitle {
+  color: #7f7f7f;
+  font-size: 13pt;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-label {
+  margin-bottom: 3px;
+  font-size: 13pt;
+  font-weight: 600;
+}
+
+.custom-input,
+.custom-textarea,
+.custom-button {
+  border-radius: 10px !important;
+  background-color: #f3f3f3 !important;
+  border-color: #ececec !important;
+  resize: none;
+}
+
+.ant-row > .ant-col {
+  margin-bottom: 10px;
+}
+
+#form-image {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+  z-index: 1;
+}
+
+.custom-button {
+  border-color: #b6b6b6 !important;
+  font-weight: bold !important;
+}
+
+.custom-button:focus,
+.custom-button:hover {
+  color: unset !important;
+}
+
+@media screen and (max-width: 1510px) {
+  #form-image {
+    position: unset !important;
+  }
+
+  .emailform-top-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+  }
+
+  .custom-col-ef,
+  .custom-button {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .emailform-top-container {
+    align-items: unset !important;
+    justify-content: unset !important;
+    flex-direction: column !important;
+  }
+
+  .emailform-header {
+    text-align: center !important;
+  }
+
+  #form-image {
+    margin: auto !important;
+  }
+}

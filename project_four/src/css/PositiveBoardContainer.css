@@ -1,0 +1,72 @@
+.PositiveBoardContainer {
+  position: relative;
+  padding: 50px 30px 10px;
+  background-color: #d7eaf4;
+}
+
+.title {
+  font-size: 19pt;
+  font-weight: 900 !important;
+  font-family: Arial Narrow, sans-serif;
+  margin-bottom: 10px;
+}
+
+.container-message {
+  padding: 20px 0 25px 20px;
+  background: #d7e6ee;
+  border: thin solid #cad9e1;
+  width: 307px;
+  font-size: 14pt;
+  font-family: Arial Narrow, sans-serif;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1557px) {
+  .PositiveBoardContainer {
+    display: flex !important;
+    padding: 15px !important;
+    padding-top: 40px !important;
+  }
+
+  .top-container {
+    padding-right: 15px;
+  }
+}
+
+@media screen and (max-width: 1510px) {
+  .PositiveBoardContainer {
+    flex-direction: column !important;
+    padding: 0 !important;
+  }
+
+  .container-message {
+    width: 100% !important;
+  }
+
+  .top-container {
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px !important;
+  }
+
+  .title {
+    height: fit-content !important;
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 984px) {
+  .title {
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 656px) {
+  .top-container {
+    display: unset !important;
+  }
+
+  .title {
+    width: unset !important;
+  }
+}

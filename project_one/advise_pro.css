@@ -1,0 +1,166 @@
+body{
+	background-color: #f2f6f5;
+	 margin: 0 auto;
+	 height: 100%;
+
+}
+
+.header-div{
+	background-color: #95adbe;
+	padding:20px;
+
+
+}
+
+.header1 {
+  /*height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;*/
+}
+
+.title{
+	left:0;/*
+	padding-left: 30px;*/
+
+}
+
+.nav{
+  padding-top: 80px;
+  right: 0;
+
+ 
+}
+
+.lol{
+	padding-left: 60%;
+	font-family: fantasy;
+	color:white;
+	font-size: 20px;
+	text-decoration-line: none;
+
+}
+
+
+.header_font{
+	font-family: fantasy;
+	font-size: 30px;
+	font-weight: 600;
+	text-shadow: 2px 2px #064acb;
+	color: white;
+
+}
+
+.header_font_2{
+	font-family: fantasy;
+	font-size: 20px;
+	color: white;
+
+}
+
+
+li {
+  display: inline;
+  padding: 5px;
+
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  /*top: 0;*/
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+
+}
+
+.right {
+  right: 0;
+  background-color: #3477eb;
+}
+
+
+.form, .form1{
+	padding-left: 30px;
+	color: white;
+	font-family: fantasy;
+	font-size: 30px;
+}
+
+.form1{
+	font-size: 20px;
+}
+
+.form2{
+	padding-left:30px;
+}
+input, textarea{
+	width: 40%;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+p{
+	margin-left: 70px;
+}
+
+#grading-element-one{
+  background-color: #1cb0b8; 
+  color: white;
+  padding: 15px 32px;
+  margin-left: 240px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#grading-element-two-consequence{
+	margin-left:140px;
+	color: pink;
+	font-family: fantasy;
+	font-size: 40px;
+
+}
+
+#grading-element-three{
+	padding-left: 50px;
+	margin-left:70px;
+
+}
+
+#grading-element-three-consequence{
+	color: pink;
+	font-size: 50px;
+	font-family: fantasy;
+	padding-left: 25px;
+}
+
+#grading-element-five{
+	background-color: white;
+	color:black;
+	padding: 10px;
+	margin-left:90px;
+	border-radius: 4px;
+}
+
+#grading-element-five:hover{
+	background-color: green;
+	color: white;
+	padding: 20px;
+	border-radius: 0;
+	margin-bottom: 40px;
+	
+}
+
+

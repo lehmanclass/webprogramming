@@ -1,0 +1,82 @@
+.CardContainer {
+  background-color: white;
+  padding-top:4.5rem;
+  padding-bottom: 4rem;
+  z-index: 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 2px 6px #999 !important;
+  width: 230px !important;
+  height: 260px !important;
+  border-radius: 5px !important;
+}
+
+.card-body {
+  flex: auto;
+}
+
+.card-body > img {
+  width: 80px;
+  display: block;
+  margin: auto;
+}
+
+.card-footer {
+  font-family: Arial Narrow, sans-serif;
+  font-weight: 900;
+  border-top: thin solid #cecece;
+  color: green;
+  padding-bottom: 10px;
+  font-size: 14pt;
+}
+
+.container-content {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  top: -6rem;
+}
+
+.body-question {
+  font-size: 14pt;
+  text-align: center;
+}
+
+.body-question > strong {
+  font-family: Arial Narrow, sans-serif;
+}
+
+.body-text {
+  font-family: Arial Narrow, sans-serif;
+  text-align: start;
+  font-size: 10.1pt;
+  line-height: 13px;
+  font-weight: 500;
+  color: #7f7f7f;
+}
+
+@media screen and (max-width: 1520px) {
+  .CardContainer {
+    padding: 1rem !important;
+  }
+
+  .container-content {
+    flex-wrap: wrap !important;
+    position: unset !important;
+  }
+
+  .card {
+    margin: auto !important;
+  }
+
+  .card:nth-child(2) {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}

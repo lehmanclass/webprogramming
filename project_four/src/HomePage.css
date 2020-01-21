@@ -1,0 +1,29 @@
+.HomePage {
+  background-color: #ececec !important;
+}
+
+.main-container {
+  margin: 0 !important;
+}
+
+.ant-layout-header {
+  height: unset !important;
+  padding: 0 !important;
+}
+
+.ant-layout-footer {
+  background-color: #dededf !important;
+  border: thin solid #979797 !important;
+  padding-bottom: 40px !important;
+}
+
+.footer-title {
+  font-size: 13pt !important;
+  font-weight: bold !important;
+}
+
+.fix-affix {
+  position: absolute;
+  width: 100%;
+  line-height: normal;
+}
